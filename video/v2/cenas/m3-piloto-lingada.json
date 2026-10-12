@@ -1,0 +1,81 @@
+{
+  "codigo": "M3-piloto-lingada",
+  "titulo": "Ângulo de lingada",
+  "capitulo": "Módulo 3 · Montagem, içamento e rigging · Aula 3.4 (piloto)",
+  "fontes": [
+    "Caderno do Módulo 3, item 1.8 — peso e ângulo de lingada (fator = 1 ÷ seno do ângulo com a horizontal; exemplo de 2.000 kg a 45°)",
+    "Caderno do Módulo 3, item 1.14 — marca do centro de gravidade; corda-guia de fora da projeção; cinta com etiqueta legível",
+    "Caderno do Módulo 3, item 1.6 — plano de içamento elaborado por profissional habilitado"
+  ],
+  "pendencias": [
+    "‘Prefira 60° ou mais’ é orientação do caderno (prática de mercado): confirmar com o procedimento de rigging da Palla.",
+    "Capacidades de cinta não são mostradas: o vídeo manda comparar com a etiqueta e o plano."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "objetivo": "Calcular a força em cada perna da lingada e reconhecer um ângulo perigoso.",
+      "narracao": "Módulo três, içamento. Nesta aula, você vai calcular a força em cada perna da lingada."
+    },
+    {
+      "tipo": "lingada",
+      "modo": "situacao",
+      "titulo": "Situação de obra",
+      "narracao": "{ica}Esta viga de duas toneladas sobe com duas pernas de cinta. {cg}O gancho fica sobre o centro de gravidade, marcado na peça. {guia}Quem guia usa a corda-guia, de fora da área sob a carga."
+    },
+    {
+      "tipo": "lingada",
+      "modo": "conceito",
+      "titulo": "O que é o ângulo de lingada",
+      "narracao": "{ang}O ângulo da lingada é medido entre a perna e a horizontal. {vet}Só a parte vertical da força segura o peso; o resto puxa para os lados. {conc}Perna mais deitada, mais força."
+    },
+    {
+      "tipo": "lingada",
+      "modo": "varredura",
+      "titulo": "Mesma viga, ângulos diferentes",
+      "narracao": "{a60}A sessenta graus, cada perna carrega cerca de mil cento e cinquenta quilos. {a45}A quarenta e cinco, mil quatrocentos e dez. {a30}A trinta graus, dois mil: a viga inteira em cada perna."
+    },
+    {
+      "tipo": "conta",
+      "titulo": "Exemplo resolvido · 45°",
+      "narracao": "Na conta: {p1}dois mil quilos divididos por duas pernas, mil. {p2}Vezes o fator de quarenta e cinco graus, um vírgula quarenta e um. {p3}Mil quatrocentos e dez quilos por perna, {p4}para comparar com a etiqueta da cinta e com o plano de içamento."
+    },
+    {
+      "tipo": "lingada",
+      "modo": "erro",
+      "titulo": "Erro frequente: cinta curta",
+      "narracao": "Erro frequente: {e1}cinta curta. As pernas deitam, e cada uma pode carregar o dobro. {e2}A correção vem do plano de içamento: {e3}pernas mais longas, de preferência a sessenta graus ou mais, ou um balancim."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A 60°, quanto carrega cada perna desta viga de 2.000 kg?",
+      "resposta": "≈ 1.150 kg",
+      "conta": "1.000 × 1,15",
+      "narracao": "Sua vez: a sessenta graus, quanto carrega cada perna? {pensa}[[pausa:3]] {resp}Cerca de mil cento e cinquenta quilos."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Gancho sobre o centro de gravidade",
+          "chave": "c1"
+        },
+        {
+          "texto": "Peso ÷ nº de pernas × fator",
+          "chave": "c2"
+        },
+        {
+          "texto": "Compare com a etiqueta e o plano",
+          "chave": "c3"
+        },
+        {
+          "texto": "Ângulo baixo? Pare e fale com o responsável",
+          "chave": "c4"
+        }
+      ],
+      "rodape": "Ninguém sob carga suspensa.",
+      "narracao": "Na obra: {c1}gancho sobre o centro de gravidade. {c2}Conta por perna, com o fator. {c3}Compare com a etiqueta e o plano. {c4}Ângulo baixo? Pare e chame o responsável. {fim}E ninguém sob a carga."
+    }
+  ]
+}

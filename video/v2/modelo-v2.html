@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!--
+  Modelo de cenas v2 — aulas demonstrativas (piloto M3).
+  Diferenças para o modelo original (video/modelo.html, preservado):
+  - fundo claro (#F5F6FA) e textos maiores para celular e projeção (mínimo 22 px, corpo 28–34 px);
+  - ilustrações técnicas em SVG animadas quadro a quadro por JavaScript (geometria calculada, não "slides");
+  - sincronia por marcas da narração ({marca} no roteiro → instante real da fala).
+-->
+<style>
+@font-face { font-family: "Chakra Petch"; font-weight: 600; src: url(../../node_modules/@fontsource/chakra-petch/files/chakra-petch-latin-600-normal.woff2); }
+@font-face { font-family: "Chakra Petch"; font-weight: 700; src: url(../../node_modules/@fontsource/chakra-petch/files/chakra-petch-latin-700-normal.woff2); }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 400; src: url(../../node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2); }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 500; src: url(../../node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-500-normal.woff2); }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 600; src: url(../../node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-600-normal.woff2); }
+:root { --azul: #404D91; --vermelho: #D13542; --escuro: #1E2550; --claro: #F5F6FA; --cinza: #5B6178; --linha: #D9DCE8; --verde: #1F8A5B; --ambar: #C77A12; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1280px; height: 720px; overflow: hidden; background: var(--claro); }
+body { font-family: "IBM Plex Sans", sans-serif; color: var(--escuro); }
+#palco { position: relative; width: 1280px; height: 720px; overflow: hidden; background: var(--claro); }
+.cena { position: absolute; inset: 0; opacity: 0; }
+h1, h2, h3, .num { font-family: "Chakra Petch", sans-serif; font-weight: 700; }
+.topo { position: absolute; left: 48px; right: 48px; top: 28px; display: flex; justify-content: space-between; align-items: center; }
+.topo .eyebrow { font: 600 22px "IBM Plex Sans"; letter-spacing: .12em; text-transform: uppercase; color: var(--vermelho); }
+.topo img { height: 40px; }
+.aviso { position: absolute; left: 48px; bottom: 22px; font-size: 22px; color: var(--cinza); }
+.aviso b { color: var(--escuro); font-weight: 600; }
+.barra { position: absolute; left: 0; bottom: 0; height: 8px; width: 220px; background: var(--vermelho); }
+/* painel lateral das cenas de ilustração */
+.painel { position: absolute; left: 858px; top: 96px; width: 380px; }
+.painel h2 { font-size: 40px; line-height: 1.05; }
+.painel .itens { margin-top: 22px; display: grid; gap: 14px; }
+.painel .it { font-size: 28px; line-height: 1.25; padding: 12px 16px; background: #fff; border: 1px solid var(--linha); border-left: 6px solid var(--azul); border-radius: 8px; }
+.painel .it.vermelho { border-left-color: var(--vermelho); }
+.painel .it.verde { border-left-color: var(--verde); }
+.painel .grande { font: 700 92px/1 "Chakra Petch"; color: var(--escuro); margin-top: 18px; }
+.painel .sub { font-size: 28px; color: var(--cinza); margin-top: 6px; }
+.painel .kg { font: 700 64px/1 "Chakra Petch"; margin-top: 20px; }
+.painel .kg small { font: 600 26px "IBM Plex Sans"; color: var(--cinza); display: block; margin-top: 6px; }
+.tab { margin-top: 18px; display: grid; gap: 8px; }
+.tab div { display: grid; grid-template-columns: 90px 100px 1fr; font-size: 27px; padding: 8px 14px; background: #fff; border: 1px solid var(--linha); border-radius: 6px; }
+.tab b { font-family: "Chakra Petch"; }
+svg.cena-svg { position: absolute; left: 24px; top: 84px; width: 820px; height: 620px; overflow: visible; }
+svg text { font-family: "IBM Plex Sans"; }
+/* abertura */
+.ab { position: absolute; left: 96px; top: 150px; right: 96px; }
+.ab .cap { font: 600 24px "IBM Plex Sans"; letter-spacing: .1em; text-transform: uppercase; color: var(--vermelho); }
+.ab h1 { font-size: 92px; line-height: 1; margin-top: 16px; color: var(--escuro); }
+.ab .linha { height: 10px; width: 200px; background: var(--vermelho); margin-top: 28px; transform-origin: left; }
+.ab .obj { margin-top: 40px; max-width: 640px; background: #fff; border: 1px solid var(--linha); border-left: 8px solid var(--azul); border-radius: 10px; padding: 22px 28px; }
+.ab .obj span { font: 600 22px "IBM Plex Sans"; letter-spacing: .1em; text-transform: uppercase; color: var(--azul); }
+.ab .obj p { font-size: 34px; line-height: 1.3; margin-top: 6px; }
+/* conta */
+.conta { position: absolute; left: 520px; top: 120px; width: 712px; display: grid; gap: 16px; }
+.conta .lin { background: #fff; border: 1px solid var(--linha); border-radius: 10px; padding: 16px 24px; font-size: 34px; display: flex; align-items: baseline; gap: 16px; }
+.conta .lin i { font: 700 normal 30px "Chakra Petch"; color: var(--vermelho); width: 30px; flex: none; }
+.conta .lin.res { background: var(--escuro); color: #fff; border: 0; font: 700 50px "Chakra Petch"; }
+.conta .lin.res i { color: #F2A0A8; }
+.conta .nota { font-size: 26px; color: var(--cinza); padding-left: 6px; }
+/* pergunta */
+.pg { position: absolute; inset: 0; display: grid; place-items: center; }
+.pg .card { width: 1040px; background: var(--escuro); color: #fff; border-radius: 18px; padding: 48px 56px; position: relative; }
+.pg .tag { font: 600 24px "IBM Plex Sans"; letter-spacing: .14em; text-transform: uppercase; color: #F2A0A8; }
+.pg h2 { font-size: 54px; line-height: 1.12; margin-top: 14px; max-width: 800px; }
+.pg .resp { margin-top: 28px; display: flex; align-items: baseline; gap: 24px; }
+.pg .resp b { font: 700 80px "Chakra Petch"; color: #fff; }
+.pg .resp span { font-size: 32px; color: #C9CDEB; }
+.pg svg { position: absolute; right: 56px; top: 48px; }
+/* checklist */
+.ck { position: absolute; left: 96px; top: 96px; right: 96px; }
+.ck h2 { font-size: 60px; }
+.ck ul { list-style: none; margin-top: 24px; display: grid; gap: 14px; }
+.ck li { display: flex; align-items: center; gap: 22px; font-size: 36px; background: #fff; border: 1px solid var(--linha); border-radius: 10px; padding: 12px 24px; }
+.ck li .ok { flex: none; width: 52px; height: 52px; border-radius: 50%; background: var(--verde); color: #fff; display: grid; place-items: center; font: 700 32px "Chakra Petch"; }
+.ck .rod { margin-top: 22px; display: inline-block; background: var(--vermelho); color: #fff; font: 700 38px "Chakra Petch"; padding: 12px 26px; border-radius: 8px; }
+</style>
+</head>
+<body>
+<div id="palco"><div id="cenas"></div><div class="barra"></div></div>
+<script>
+const LOGO = "../../public/logo-palla.png";
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = (x) => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+/** progresso 0..1 de uma transição que começa em `ini` e dura `dur` segundos */
+const prog = (t, ini, dur = .6) => ease((t - ini) / dur);
+const fmt = (n) => Math.round(n).toLocaleString("pt-BR");
+const rad = (g) => g * Math.PI / 180;
+const fator = (g) => Math.round(100 / Math.sin(rad(g))) / 100; // 1 ÷ seno, com 2 casas (caderno M3 1.8)
+const NS = "http://www.w3.org/2000/svg";
+
+/** mostra um elemento HTML/SVG com entrada suave a partir do instante `ini` */
+function surge(el, t, ini, dy = 18) {
+  if (!el) return;
+  const p = prog(t, ini, .55);
+  el.style.opacity = p;
+  el.style.transform = `translateY(${(1 - p) * dy}px)`;
+}
+
+// ------------------------------------------------------------------ ilustração: viga içada com duas pernas
+const G = { chao: 560, cx: 410, meia: 240, olhal: 180, alt: 40 };
+let SVG_N = 0;
+function svgLingada() {
+  const u = `s${++SVG_N}`; // ids únicos: cada cena tem o seu SVG (marcadores em cena oculta não aparecem)
+  return `<svg class="cena-svg" viewBox="0 0 820 620">
+  <defs>
+    <pattern id="hach-${u}" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="14" fill="#D13542" opacity=".55"/></pattern>
+    <marker id="pv-${u}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#D13542"/></marker>
+    <marker id="pa-${u}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#404D91"/></marker>
+    <marker id="pl-${u}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#C77A12"/></marker>
+  </defs>
+  <line x1="0" y1="${G.chao}" x2="820" y2="${G.chao}" stroke="#9AA0B8" stroke-width="3"/>
+  <g data-k="isol" opacity="0"><rect x="${G.cx - G.meia - 30}" y="${G.chao + 2}" width="${2 * G.meia + 60}" height="18" fill="url(#hach-${u})"/>
+    <text x="20" y="${G.chao - 16}" font-size="24" font-weight="600" fill="#D13542">área isolada: ninguém sob a carga</text></g>
+  <line data-k="cabo" x1="${G.cx}" y1="-90" x2="${G.cx}" y2="100" stroke="#3A3F55" stroke-width="5"/>
+  <g data-k="gancho"><rect x="${G.cx - 26}" y="-46" width="52" height="34" rx="6" fill="#3A3F55"/><path d="M${G.cx} -12 v12 a14 14 0 1 1 -14 14" fill="none" stroke="#3A3F55" stroke-width="7" stroke-linecap="round"/></g>
+  <line data-k="prumo" stroke="#404D91" stroke-width="3" stroke-dasharray="8 8" opacity="0"/>
+  <line data-k="pe" stroke-width="10" stroke-linecap="round"/><line data-k="pd" stroke-width="10" stroke-linecap="round"/>
+  <g data-k="viga">
+    <rect x="${G.cx - G.meia}" y="0" width="${2 * G.meia}" height="${G.alt}" fill="#6E7799" rx="2"/>
+    <rect x="${G.cx - G.meia}" y="0" width="${2 * G.meia}" height="7" fill="#4C5578"/><rect x="${G.cx - G.meia}" y="${G.alt - 7}" width="${2 * G.meia}" height="7" fill="#4C5578"/>
+    <circle cx="${G.cx - G.olhal}" cy="0" r="9" fill="none" stroke="#3A3F55" stroke-width="5"/><circle cx="${G.cx + G.olhal}" cy="0" r="9" fill="none" stroke="#3A3F55" stroke-width="5"/>
+    <g data-k="cg"><circle cx="${G.cx}" cy="${G.alt / 2}" r="13" fill="#fff" stroke="#1E2550" stroke-width="3"/><path d="M${G.cx} ${G.alt / 2 - 13}a13 13 0 0 1 13 13h-13zM${G.cx} ${G.alt / 2 + 13}a13 13 0 0 1 -13 -13h13z" fill="#1E2550"/></g>
+    <text data-k="pesoTxt" x="${G.cx - G.meia + 16}" y="${G.alt - 11}" font-size="22" font-weight="600" fill="#fff">2.000 kg</text>
+  </g>
+  <g data-k="cgCall" opacity="0"><line stroke="#404D91" stroke-width="2"/><text font-size="24" font-weight="600" fill="#404D91">centro de gravidade</text></g>
+  <path data-k="arco" fill="none" stroke="#D13542" stroke-width="4" opacity="0"/>
+  <text data-k="arcoTxt" font-size="28" font-weight="700" fill="#D13542" font-family="Chakra Petch" opacity="0"></text>
+  <g data-k="vetores" opacity="0">
+    <line data-k="vT" stroke="#D13542" stroke-width="6" marker-end="url(#pv-${u})"/>
+    <line data-k="vV" stroke="#404D91" stroke-width="6" marker-end="url(#pa-${u})"/>
+    <line data-k="vH" stroke="#C77A12" stroke-width="6" stroke-dasharray="10 7" marker-end="url(#pl-${u})"/>
+    <text data-k="tV" font-size="23" font-weight="600" fill="#404D91">segura o peso</text>
+    <text data-k="tH" font-size="23" font-weight="600" fill="#C77A12">puxa para o lado</text>
+  </g>
+  <g data-k="cargaE" opacity="0"><rect rx="8" height="40" fill="#fff" stroke-width="3"/><text font-size="26" font-weight="700" font-family="Chakra Petch" text-anchor="middle"></text></g>
+  <g data-k="cargaD" opacity="0"><rect rx="8" height="40" fill="#fff" stroke-width="3"/><text font-size="26" font-weight="700" font-family="Chakra Petch" text-anchor="middle"></text></g>
+  <g data-k="aperto" opacity="0">
+    <line stroke="#D13542" stroke-width="7" marker-end="url(#pv-${u})"/><line stroke="#D13542" stroke-width="7" marker-end="url(#pv-${u})"/>
+  </g>
+  <g data-k="pessoa" opacity="0" transform="translate(745 ${G.chao})">
+    <circle cx="0" cy="-118" r="15" fill="#F2C9A8" stroke="#1E2550" stroke-width="3"/>
+    <path d="M-19 -122a19 17 0 0 1 38 0z" fill="#F2B705" stroke="#1E2550" stroke-width="3"/>
+    <path d="M0 -103v52M0 -51l-16 51M0 -51l16 51" stroke="#1E2550" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M0 -92l-28 22" stroke="#1E2550" stroke-width="6" stroke-linecap="round"/>
+    <path d="M0 -92l18 26" stroke="#1E2550" stroke-width="6" stroke-linecap="round"/>
+    <rect x="-11" y="-100" width="22" height="34" rx="4" fill="#E86A1A"/>
+  </g>
+  <path data-k="guia" fill="none" stroke="#8A5A2B" stroke-width="4" opacity="0"/>
+  <text data-k="guiaTxt" x="668" y="398" font-size="24" font-weight="600" fill="#8A5A2B" opacity="0">corda-guia</text>
+</svg>`;
+}
+
+function desenhaLingada(raiz, e) {
+  // e: { topo (y do topo da viga), ang (graus), cor, ... } — geometria sempre coerente: cinta presa no olhal e no gancho
+  const q = (k) => raiz.querySelector(`[data-k="${k}"]`);
+  const topo = e.topo, a = rad(e.ang);
+  const gy = topo - G.olhal * Math.tan(a);        // ponto de engate no gancho
+  const xe = G.cx - G.olhal, xd = G.cx + G.olhal;
+  q("viga").setAttribute("transform", `translate(0 ${topo})`);
+  q("pesoTxt").style.opacity = e.peso ?? 1;
+  q("gancho").setAttribute("transform", `translate(0 ${gy - 14})`);
+  q("cabo").setAttribute("y2", gy - 60);
+  const cor = e.cor ?? "#404D91";
+  for (const [k, x] of [["pe", xe], ["pd", xd]]) {
+    const l = q(k); l.setAttribute("x1", G.cx); l.setAttribute("y1", gy); l.setAttribute("x2", x); l.setAttribute("y2", topo); l.setAttribute("stroke", cor);
+  }
+  // prumo gancho → CG
+  const pr = q("prumo"); pr.setAttribute("x1", G.cx); pr.setAttribute("x2", G.cx); pr.setAttribute("y1", gy); pr.setAttribute("y2", topo + G.alt / 2); pr.setAttribute("opacity", e.prumo ?? 0);
+  const cc = q("cgCall"); cc.setAttribute("opacity", e.cgCall ?? 0);
+  cc.querySelector("line").setAttribute("x1", G.cx - 12); cc.querySelector("line").setAttribute("y1", topo + G.alt / 2 + 8);
+  cc.querySelector("line").setAttribute("x2", G.cx - 60); cc.querySelector("line").setAttribute("y2", topo + G.alt + 52);
+  const ct = cc.querySelector("text"); ct.setAttribute("x", G.cx - 66); ct.setAttribute("y", topo + G.alt + 60); ct.setAttribute("text-anchor", "end");
+  q("cg").style.transform = `scale(${1 + .25 * (e.pulsoCg ?? 0)})`; q("cg").style.transformOrigin = `${G.cx}px ${G.alt / 2}px`;
+  // ângulo no olhal direito, entre a horizontal e a perna
+  const r = 70, ar = q("arco"), at = q("arcoTxt");
+  ar.setAttribute("d", `M${xd - r} ${topo} A${r} ${r} 0 0 1 ${xd - r * Math.cos(a)} ${topo - r * Math.sin(a)}`);
+  ar.setAttribute("opacity", e.arco ?? 0); at.setAttribute("opacity", e.arco ?? 0);
+  at.setAttribute("x", xd - r - 64); at.setAttribute("y", topo - 14); at.textContent = `${Math.round(e.ang)}°`;
+  // vetores no olhal direito (tração ao longo da perna e componentes)
+  const v = q("vetores"); v.setAttribute("opacity", e.vet ?? 0);
+  const T = 72 * (1 / Math.sin(a)) * (e.vetEsc ?? 1);
+  const ux = -Math.cos(a), uy = -Math.sin(a);
+  const set = (k, x1, y1, x2, y2) => { const l = q(k); l.setAttribute("x1", x1); l.setAttribute("y1", y1); l.setAttribute("x2", x2); l.setAttribute("y2", y2); };
+  const ox = Math.sin(a) * 26, oy = -Math.cos(a) * 26; // desloca o vetor para fora da cinta (lado de cima/direita)
+  const bx = xd + ox, by = topo + oy;
+  set("vT", bx, by, bx + ux * T, by + uy * T);
+  set("vV", bx, by, bx, by - T * Math.sin(a));
+  set("vH", bx, by - T * Math.sin(a), bx - T * Math.cos(a) + 6, by - T * Math.sin(a));
+  q("vV").style.opacity = e.comp ?? 0; q("vH").style.opacity = e.comp ?? 0;
+  q("tV").setAttribute("x", bx + 14); q("tV").setAttribute("y", by - T * Math.sin(a) * .45); q("tV").style.opacity = e.comp ?? 0;
+  q("tH").setAttribute("x", bx - T * Math.cos(a) / 2); q("tH").setAttribute("y", by - T * Math.sin(a) - 14); q("tH").setAttribute("text-anchor", "middle"); q("tH").style.opacity = e.comp ?? 0;
+  // etiquetas de carga por perna
+  const kg = 1000 * fator(Math.round(e.ang));
+  for (const [k, x, lado] of [["cargaE", xe, -1], ["cargaD", xd, 1]]) {
+    const g = q(k); g.setAttribute("opacity", e.carga ?? 0);
+    const mx = (G.cx + x) / 2 + lado * 92, my = (gy + topo) / 2 - 30;
+    const txt = `${e.aprox === false ? "" : "≈ "}${fmt(kg)} kg`;
+    const w = 26 + txt.length * 14.5;
+    const rc = g.querySelector("rect"); rc.setAttribute("x", mx - w / 2); rc.setAttribute("y", my - 22); rc.setAttribute("width", w); rc.setAttribute("stroke", cor);
+    const tx = g.querySelector("text"); tx.setAttribute("x", mx); tx.setAttribute("y", my + 8); tx.textContent = txt; tx.setAttribute("fill", cor);
+  }
+  // compressão lateral (erro)
+  const ap = q("aperto"); ap.setAttribute("opacity", e.aperto ?? 0);
+  const [l1, l2] = ap.querySelectorAll("line");
+  l1.setAttribute("x1", G.cx - G.meia - 90); l1.setAttribute("x2", G.cx - G.meia - 12); l1.setAttribute("y1", topo + G.alt / 2); l1.setAttribute("y2", topo + G.alt / 2);
+  l2.setAttribute("x1", G.cx + G.meia + 90); l2.setAttribute("x2", G.cx + G.meia + 12); l2.setAttribute("y1", topo + G.alt / 2); l2.setAttribute("y2", topo + G.alt / 2);
+  // área isolada, pessoa e corda-guia (pessoa sempre fora da projeção da viga)
+  q("isol").setAttribute("opacity", e.isol ?? 0);
+  q("pessoa").setAttribute("opacity", e.pessoa ?? 0);
+  const g2 = q("guia"); g2.setAttribute("opacity", e.pessoa ?? 0);
+  g2.setAttribute("d", `M${G.cx + G.meia - 6} ${topo + G.alt / 2} Q ${700} ${Math.max(topo + 120, 470)} ${745 - 28} ${G.chao - 70}`);
+  q("guiaTxt").setAttribute("opacity", e.pessoa ?? 0);
+}
+
+const corCarga = (ang) => ang >= 55 ? "#404D91" : ang >= 40 ? "#C77A12" : "#D13542";
+
+// ------------------------------------------------------------------ cenas
+const CENAS = {
+  abertura: {
+    html: (c, meta) => `<div class="topo"><span class="eyebrow"></span><img src="${LOGO}"></div>
+      <div class="ab"><div class="cap" data-s="1">${meta.capitulo}</div><h1 data-s="2">${meta.titulo}</h1><div class="linha" data-s="3"></div>
+      <div class="obj" data-s="4"><span>Objetivo da aula</span><p>${c.objetivo}</p></div></div>${svgLingada()}`,
+    montar(raiz) { const s = raiz.querySelector("svg"); Object.assign(s.style, { width: "520px", height: "393px", left: "740px", top: "250px" }); },
+    quadro(raiz, t) {
+      [.1, .4, .8, 1.4].forEach((ini, i) => surge(raiz.querySelector(`[data-s="${i + 1}"]`), t, ini));
+      const s = raiz.querySelector("svg"); s.style.opacity = prog(t, 1.0, .8);
+      desenhaLingada(raiz, { topo: 400, ang: 60, prumo: 1, peso: 0 });
+    },
+  },
+  lingada: {
+    html: (c) => `<div class="topo"><span class="eyebrow">M3 · Içamento</span><img src="${LOGO}"></div>${svgLingada()}
+      <div class="painel"><h2 data-s="t">${c.titulo}</h2><div class="itens" data-k="painel"></div></div>
+      <div class="aviso">Ilustração conceitual. <b>No canteiro, vale o plano de içamento aprovado.</b></div>`,
+    montar(raiz, c) {
+      const p = raiz.querySelector('[data-k="painel"]');
+      const itens = {
+        situacao: [["ica", "Viga de 2.000 kg"], ["ica", "Duas pernas de cinta"], ["cg", "Gancho sobre o centro de gravidade"], ["guia", "Corda-guia, fora da área sob a carga", "vermelho"]],
+        conceito: [["ang", "Ângulo medido da horizontal"], ["vet", "Só a parte vertical segura o peso"], ["conc", "Perna mais deitada = mais força", "vermelho"]],
+        erro: [["e1", "Cinta curta → pernas deitadas", "vermelho"], ["e1", "Cada perna até o dobro da carga", "vermelho"], ["e3", "Correção pelo plano: pernas mais longas (de preferência ≥ 60°) ou balancim", "verde"]],
+      }[c.modo];
+      if (itens) p.innerHTML = itens.map(([m, txt, cor], i) => `<div class="it ${cor ?? ""}" data-m="${m}" data-i="${i}">${txt}</div>`).join("");
+      if (c.modo === "varredura") p.innerHTML = `<div class="grande" data-k="angG">60°</div><div class="kg" data-k="kgG">≈ 1.150 kg<small>em cada perna</small></div>
+        <div class="tab">${[[60, "1,15", "1.150"], [45, "1,41", "1.410"], [30, "2,00", "2.000"]].map(([a, f, k]) => `<div data-a="${a}"><b>${a}°</b><span>× ${f}</span><span>${k} kg</span></div>`).join("")}</div>`;
+    },
+    quadro(raiz, t, c, m) {
+      surge(raiz.querySelector('[data-s="t"]'), t, .1);
+      raiz.querySelectorAll(".it").forEach((el) => surge(el, t, (m[el.dataset.m] ?? 0) + .4 + Number(el.dataset.i) * .15));
+      const e = { topo: 400, ang: 60 };
+      if (c.modo === "situacao") {
+        e.topo = 520 - 120 * prog(t, m.ica + .6, 3.2);           // a viga sai do chão e sobe
+        e.prumo = prog(t, m.cg + .2); e.cgCall = prog(t, m.cg + .3); e.pulsoCg = Math.max(0, Math.sin((t - m.cg) * 5)) * (t > m.cg && t < m.cg + 2.5 ? 1 : 0);
+        e.pessoa = prog(t, m.guia); e.isol = prog(t, m.guia + .4);
+      } else if (c.modo === "conceito") {
+        e.ang = 45 - 15 * prog(t, m.conc + .2, 2.4);
+        e.arco = prog(t, m.ang + .3); e.vet = prog(t, m.vet); e.comp = prog(t, m.vet + 1.6);
+        e.cor = corCarga(e.ang);
+      } else if (c.modo === "varredura") {
+        e.ang = 60 - 15 * prog(t, m.a45, 1.4) - 15 * prog(t, m.a30, 1.4);
+        e.arco = 1; e.carga = prog(t, m.a60 + .3); e.cor = corCarga(e.ang);
+        raiz.querySelector('[data-k="angG"]').textContent = `${Math.round(e.ang)}°`;
+        raiz.querySelector('[data-k="kgG"]').firstChild.textContent = `≈ ${fmt(1000 * fator(Math.round(e.ang)))} kg`;
+        raiz.querySelector('[data-k="kgG"]').style.color = e.cor;
+        raiz.querySelectorAll(".tab [data-a]").forEach((d) => surge(d, t, { 60: m.a60, 45: m.a45, 30: m.a30 }[d.dataset.a] + .5));
+      } else if (c.modo === "erro") {
+        e.ang = 30 + 30 * prog(t, m.e3 + .4, 2.2);              // correção: pernas mais longas
+        e.cor = corCarga(e.ang); e.arco = 1; e.carga = 1; e.aperto = (1 - prog(t, m.e3 + .2, .8)) * prog(t, m.e1 + .6);
+      }
+      desenhaLingada(raiz, e);
+    },
+  },
+  conta: {
+    html: (c) => `<div class="topo"><span class="eyebrow">M3 · Içamento</span><img src="${LOGO}"></div>${svgLingada()}
+      <div class="painel" style="left:520px;top:92px;width:712px"><h2 data-s="t">${c.titulo}</h2></div>
+      <div class="conta" style="top:170px">
+        <div class="lin" data-m="p1"><i>1</i>2.000 kg ÷ 2 pernas = <b>&nbsp;1.000 kg</b></div>
+        <div class="lin" data-m="p2"><i>2</i>× fator do ângulo (45°) = <b>&nbsp;1,41</b></div>
+        <div class="lin res" data-m="p3"><i>=</i>1.410 kg por perna</div>
+        <div class="lin" data-m="p4" style="font-size:30px"><i>✓</i>Comparar com a etiqueta da cinta e o plano de içamento</div>
+        <div class="nota" data-m="p2">fator = 1 ÷ seno do ângulo com a horizontal</div>
+      </div>
+      <div class="aviso">Ilustração conceitual. <b>No canteiro, vale o plano de içamento aprovado.</b></div>`,
+    montar(raiz) { const s = raiz.querySelector("svg"); s.style.width = "500px"; s.style.height = "378px"; s.style.top = "190px"; s.style.left = "8px"; },
+    quadro(raiz, t, c, m) {
+      surge(raiz.querySelector('[data-s="t"]'), t, .1);
+      raiz.querySelectorAll(".conta [data-m]").forEach((el, i) => surge(el, t, m[el.dataset.m] + .3 + (el.classList.contains("nota") ? 1.2 : 0)));
+      desenhaLingada(raiz, { topo: 400, ang: 45, arco: 1, carga: 0, peso: 0, cor: corCarga(45) });
+    },
+  },
+  pergunta: {
+    html: (c) => `<div class="topo"><span class="eyebrow">M3 · Içamento</span><img src="${LOGO}"></div>
+      <div class="pg"><div class="card" data-s="1"><div class="tag">Pergunta para você</div><h2>${c.pergunta.replace(/(\d) (kg|m|t)\b/g, "$1&nbsp;$2")}</h2>
+      <svg width="130" height="130" viewBox="0 0 130 130" data-k="relogio"><circle cx="65" cy="65" r="54" stroke="rgba(255,255,255,.18)" stroke-width="12" fill="none"/>
+      <circle data-k="anel" cx="65" cy="65" r="54" stroke="#F2A0A8" stroke-width="12" fill="none" stroke-linecap="round" transform="rotate(-90 65 65)" stroke-dasharray="339.3"/>
+      <text data-k="seg" x="65" y="80" text-anchor="middle" font-family="Chakra Petch" font-weight="700" font-size="44" fill="#fff"></text></svg>
+      <div class="resp" data-s="2"><b>${c.resposta}</b><span>${c.conta}</span></div></div></div>`,
+    quadro(raiz, t, c, m) {
+      surge(raiz.querySelector('[data-s="1"]'), t, .1);
+      const dur = m.resp - m.pensa, x = clamp((t - m.pensa) / dur);
+      const rel = raiz.querySelector('[data-k="relogio"]'); rel.style.opacity = t >= m.pensa - .2 && t < m.resp + .4 ? 1 : 0;
+      raiz.querySelector('[data-k="anel"]').setAttribute("stroke-dashoffset", 339.3 * x);
+      raiz.querySelector('[data-k="seg"]').textContent = Math.max(1, Math.ceil(dur * (1 - x)));
+      surge(raiz.querySelector('[data-s="2"]'), t, m.resp);
+    },
+  },
+  checklist: {
+    html: (c) => `<div class="topo"><span class="eyebrow">M3 · Içamento</span><img src="${LOGO}"></div>
+      <div class="ck"><h2 data-s="t">${c.titulo}</h2><ul>${c.itens.map((it) => `<li data-m="${it.chave}"><span class="ok">✓</span>${it.texto}</li>`).join("")}</ul>
+      <div class="rod" data-m="fim">${c.rodape}</div></div>`,
+    quadro(raiz, t, c, m) {
+      surge(raiz.querySelector('[data-s="t"]'), t, .1);
+      raiz.querySelectorAll("[data-m]").forEach((el) => surge(el, t, m[el.dataset.m] - .1));
+    },
+  },
+};
+
+let MONTADAS = [];
+window.montar = (meta, tempos) => {
+  const alvo = document.getElementById("cenas");
+  MONTADAS = meta.cenas.map((c, i) => {
+    const s = document.createElement("section");
+    s.className = "cena";
+    const def = CENAS[c.tipo];
+    s.innerHTML = def.html(c, meta);
+    alvo.appendChild(s);
+    def.montar?.(s, c);
+    return { s, c, def, tp: tempos[i] };
+  });
+  return Promise.all([...document.images].map((im) => im.decode().catch(() => {}))).then(() => document.fonts.ready);
+};
+
+window.irPara = (seg) => {
+  for (const { s, c, def, tp } of MONTADAS) {
+    const t = seg - tp.inicio;
+    const vis = t >= -0.05 && t <= tp.duracao + .05;
+    s.style.display = vis ? "block" : "none";
+    if (!vis) continue;
+    s.style.opacity = Math.min(clamp(t / .45), clamp((tp.duracao - t) / .4));
+    // marcas da narração em tempo local da cena (já somado o atraso antes da fala)
+    def.quadro(s, t, c, tp.marcas);
+  }
+};
+</script>
+</body>
+</html>

@@ -16,11 +16,27 @@ export default async function Resultados({ searchParams }: { searchParams: Promi
   const f = await searchParams;
   const cursos = await db.query.cursos.findMany({
     orderBy: (c, { asc }) => asc(c.ordem),
-    with: { questoes: true },
+    with: { questoes: true, capitulos: { with: { aulas: { columns: { id: true } } } } },
   });
   const matriculas = await db.query.matriculas.findMany({
-    with: { curso: true, colaborador: { with: { funcao: true, obra: true } }, tentativas: true },
+    with: { curso: true, colaborador: { with: { funcao: true, obra: true } }, tentativas: true, progresso: true },
   });
+  const filtro = (m: (typeof matriculas)[number]) =>
+    (!f.curso || m.cursoId === f.curso) &&
+    (!f.obra || m.colaborador.obraId === f.obra) &&
+    (!f.funcao || m.colaborador.funcaoId === f.funcao) &&
+    (!f.busca || m.colaborador.nome.toLowerCase().includes(f.busca.toLowerCase()));
+  // Quem está assistindo às aulas e ainda não enviou a avaliação final.
+  const andamento = matriculas
+    .filter((m) => m.status === "EM_ANDAMENTO" && m.progresso.length > 0 && !m.tentativas.some((t) => t.tipo === "FINAL" && t.finalizadaEm))
+    .filter(filtro)
+    .map((m) => {
+      const total = cursos.find((c) => c.id === m.cursoId)?.capitulos.flatMap((k) => k.aulas).length ?? 0;
+      const feitas = m.progresso.filter((p) => p.concluidaEm).length;
+      const ultimo = m.progresso.reduce((x, p) => (p.ultimoAcessoEm > x ? p.ultimoAcessoEm : x), m.progresso[0].ultimoAcessoEm);
+      return { m, total, feitas, ultimo };
+    })
+    .sort((a, b) => +b.ultimo - +a.ultimo);
 
   const linhas = matriculas
     .filter((m) => m.tentativas.some((t) => t.finalizadaEm))
@@ -69,6 +85,21 @@ export default async function Resultados({ searchParams }: { searchParams: Promi
         <Indicador rotulo="Evolução média" valor={comAmbas.length ? `${(media(comAmbas.map((l) => l.evolucao!)) ?? 0) >= 0 ? "+" : ""}${media(comAmbas.map((l) => l.evolucao!))} p.p.` : "—"} detalhe={`${comAmbas.length} com as duas avaliações`} tom={comAmbas.length && (media(comAmbas.map((l) => l.evolucao!)) ?? 0) > 0 ? "verde" : "neutro"} />
       </div>
 
+      {andamento.length > 0 && (
+        <Cartao titulo="Assistindo às aulas (avaliação final ainda não enviada)" className="mb-5">
+          <Tabela cabecalho={["Colaborador", "Curso", "Aulas concluídas", "Último acesso"]}>
+            {andamento.map(({ m, total, feitas, ultimo }) => (
+              <tr key={m.id}>
+                <td className="px-5 py-2.5"><Link href={`/admin/colaboradores/${m.colaboradorId}`} className="font-medium hover:underline">{m.colaborador.nome}</Link><span className="block text-xs text-tinta-suave">{m.colaborador.funcao?.nome} · {m.colaborador.obra?.codigo}</span></td>
+                <td className="px-5 text-xs"><Link href={`/admin/colaboradores/${m.colaboradorId}/matricula/${m.id}`} className="font-semibold text-palla-azul hover:underline">{m.curso.codigo}</Link><span className="block text-tinta-suave">{m.curso.titulo}</span></td>
+                <td className="px-5 text-sm">{feitas} de {total}<div className="mt-1 h-1.5 w-28 overflow-hidden rounded-full bg-slate-100"><div className="h-full bg-palla-azul" style={{ width: `${total ? (feitas / total) * 100 : 0}%` }} /></div></td>
+                <td className="px-5 text-xs">{fmtData(ultimo)}</td>
+              </tr>
+            ))}
+          </Tabela>
+        </Cartao>
+      )}
+
       <Cartao titulo="Por colaborador e curso">
         {linhas.length === 0 ? <Vazio>Nenhuma avaliação enviada com esses filtros.</Vazio> : (
           <Tabela cabecalho={["Colaborador", "Curso", "Diagnóstica", "Final (tentativas)", "Evolução", "Situação"]}>
@@ -78,7 +109,7 @@ export default async function Resultados({ searchParams }: { searchParams: Promi
                   <Link href={`/admin/colaboradores/${m.colaboradorId}`} className="font-medium hover:underline">{m.colaborador.nome}</Link>
                   <span className="block text-xs text-tinta-suave">{m.colaborador.funcao?.nome} · {m.colaborador.obra?.codigo}</span>
                 </td>
-                <td className="px-5 text-xs">{m.curso.codigo}<span className="block text-tinta-suave">{m.curso.titulo}</span></td>
+                <td className="px-5 text-xs"><Link href={`/admin/colaboradores/${m.colaboradorId}/matricula/${m.id}`} className="font-semibold text-palla-azul hover:underline">{m.curso.codigo}</Link><span className="block text-tinta-suave">{m.curso.titulo}</span></td>
                 <td className="px-5 text-sm">{diag ? <>{diag.nota}%<span className="block text-xs text-tinta-suave">{fmtData(diag.finalizadaEm)}</span></> : m.curso.exigeDiagnostica ? <span className="text-xs text-tinta-suave">não feita</span> : "—"}</td>
                 <td className="px-5 text-sm">
                   {finais.length ? <>{melhor}%<span className="block text-xs text-tinta-suave">{finais.map((t) => `${t.nota}%`).join(" → ")}</span></> : <span className="text-xs text-tinta-suave">pendente</span>}

@@ -13,8 +13,10 @@ export const capitulosNr35: CapituloSeed[] = [
       {
         titulo: "A NR-35 e o que ela exige",
         duracaoMin: 9,
-        videoUrl: "/videos/NR35-apoio.mp4",
-        legendaUrl: "/videos/NR35-apoio.vtt",
+        // Vídeo de apoio v2 (1 de 2): quem pode subir, planejamento, AR/PT e condições impeditivas.
+        videoUrl: "/videos/v2/NR35-1-regras.mp4",
+        legendaUrl: "/videos/v2/NR35-1-regras.vtt",
+        posterUrl: "/videos/v2/NR35-1-regras.jpg",
         roteiro: `Vídeo animado de apoio (narração gerada, voz feminina): presencialidade, conceito, autorização, hierarquia de medidas, análise de risco, PT, proteção coletiva e individual, fator de queda, zona livre de queda, inspeção, emergência e situações típicas da montagem metálica.`,
         narracao: `A NR-35 estabelece os requisitos mínimos e as medidas de proteção para o trabalho em altura, desde o planejamento e a organização até a execução.
 Trabalho em altura é toda atividade com diferença de nível acima de dois metros onde exista risco de queda.
@@ -173,6 +175,10 @@ Na montagem metálica
       {
         titulo: "Cinturão, talabarte, trava-quedas e ancoragem",
         duracaoMin: 9,
+        // Vídeo de apoio v2 (2 de 2): retenção de queda, fator de queda, zona livre, inspeção e resgate.
+        videoUrl: "/videos/v2/NR35-2-protecao.mp4",
+        legendaUrl: "/videos/v2/NR35-2-protecao.vtt",
+        posterUrl: "/videos/v2/NR35-2-protecao.jpg",
         roteiro: `CENA 1 — Cinturão tipo paraquedista com o ponto de conexão indicado pelo fabricante.
 CENA 2 — Talabarte com absorvedor de energia integrado; talabarte duplo na transposição.
 CENA 3 — Trava-quedas guiado em linha de vida vertical.

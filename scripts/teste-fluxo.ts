@@ -75,8 +75,8 @@ async function assistirTudo(colab: Ator, matriculaId: string) {
   });
   for (const aula of m!.curso.capitulos.flatMap((c) => c.aulas)) {
     // simula os pulsos de 30 s do player até o tempo mínimo
-    const alvo = segundosMinimos(aula.duracaoMin, m!.curso.tempoMinimoAulaPct);
-    for (let s = 0; s < alvo; s += 30) await registrarTempo(colab, matriculaId, aula.id, 30);
+    const alvo = segundosMinimos(aula, m!.curso.tempoMinimoAulaPct);
+    for (let s = 0; s < alvo; s += 30) await registrarTempo(colab, matriculaId, aula.id, 30, s + 30);
     await concluirAula(colab, matriculaId, aula.id);
   }
 }
@@ -227,6 +227,14 @@ async function main() {
   const mmAtual = (await db.query.matriculas.findFirst({ where: eq(schema.matriculas.id, mm.id) }))!;
   checar("Diagnóstica não aprova nem reprova", rD.aprovado === null && mmAtual.status === "EM_ANDAMENTO", `nota ${rD.nota}%`);
   await deveFalhar("Diagnóstica é feita uma única vez", () => iniciarDiagnostica(colab, mm.id), "já foi feita");
+  const mcAulas = (await db.query.capitulos.findMany({ where: eq(schema.capitulos.cursoId, mc.id), with: { aulas: true } })).flatMap((k) => k.aulas);
+  checar("M3 tem as 6 videoaulas v2, com duração real do vídeo", mcAulas.length === 6 && mcAulas.every((x) => x.videoUrl?.startsWith("/videos/v2/") && (x.duracaoSeg ?? 0) > 60), `${mcAulas.length} aulas`);
+  await registrarTempo(colab, mm.id, mcAula.id, 30, 9999);
+  const pSalto = (await db.query.progressoAulas.findFirst({ where: and(eq(schema.progressoAulas.matriculaId, mm.id), eq(schema.progressoAulas.aulaId, mcAula.id)) }))!;
+  checar("Pular o vídeo não conta: o ponto assistido avança só o tempo do pulso", pSalto.posicaoMaxSeg <= 35, `posição ${pSalto.posicaoMaxSeg} s`);
+  const minAula = segundosMinimos(mcAula, mc.tempoMinimoAulaPct);
+  for (let s2 = 30; s2 < minAula; s2 += 30) await registrarTempo(colab, mm.id, mcAula.id, 30, 35);
+  await deveFalhar("Tempo sem assistir o vídeo até o fim não conclui a aula", () => concluirAula(colab, mm.id, mcAula.id), "até o fim");
   await assistirTudo(colab, mm.id);
   const rF = await responder(colab, mm.id, true);
   const mmFim = (await db.query.matriculas.findFirst({ where: eq(schema.matriculas.id, mm.id), with: { tentativas: true } }))!;

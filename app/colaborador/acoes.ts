@@ -9,9 +9,9 @@ import { concluirAula, enviarAvaliacao, iniciarAvaliacao, iniciarDiagnostica, re
 import { emitirComprovanteEtapa, registrarCiencia } from "@/lib/servicos/certificacao";
 import { enviarDocumento } from "@/lib/servicos/documentos";
 
-export async function pulsoAula(matriculaId: string, aulaId: string, segundos: number) {
+export async function pulsoAula(matriculaId: string, aulaId: string, segundos: number, posicao?: number) {
   const a = await exigirColaborador();
-  await registrarTempo(a, matriculaId, aulaId, segundos);
+  await registrarTempo(a, matriculaId, aulaId, segundos, posicao);
 }
 
 export async function concluirAulaAcao(matriculaId: string, aulaId: string, proxima: string | null): Promise<{ erro?: string }> {

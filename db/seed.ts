@@ -39,8 +39,30 @@ async function upsertCurso(c: (typeof cursosSeed)[number], ordem: number, rtId: 
   return novo.id;
 }
 
-async function carregarConteudo(cursoId: string, capitulos: CapituloSeed[], questoes: QuestaoSeed[]) {
-  if (PRODUCAO && !RECARREGAR && (await db.query.capitulos.findFirst({ where: eq(schema.capitulos.cursoId, cursoId) }))) return;
+/** Assinatura das aulas (título, vídeo, duração) para saber se o conteúdo da fonte mudou. */
+const assinatura = (aulas: { titulo: string; videoUrl?: string | null; duracaoSeg?: number | null }[]) =>
+  JSON.stringify(aulas.map((a) => [a.titulo, a.videoUrl ?? null, a.duracaoSeg ?? null]));
+
+/**
+ * Em produção, conteúdo existente não é recarregado (recarregar apaga o progresso das aulas).
+ * Exceção (sincronizar): cursos de videoaula sem nenhuma matrícula são atualizados quando a fonte muda,
+ * para que vídeos novos cheguem à plataforma sem apagar o histórico de ninguém.
+ */
+async function carregarConteudo(cursoId: string, capitulos: CapituloSeed[], questoes: QuestaoSeed[], sincronizar = false) {
+  if (PRODUCAO && !RECARREGAR && (await db.query.capitulos.findFirst({ where: eq(schema.capitulos.cursoId, cursoId) }))) {
+    if (!sincronizar) return;
+    const atuais = await db.query.capitulos.findMany({
+      where: eq(schema.capitulos.cursoId, cursoId), orderBy: (c, { asc }) => asc(c.ordem),
+      with: { aulas: { orderBy: (a, { asc }) => asc(a.ordem) } },
+    });
+    if (assinatura(atuais.flatMap((c) => c.aulas)) === assinatura(capitulos.flatMap((c) => c.aulas))) return;
+    const matriculas = await db.query.matriculas.findFirst({ where: eq(schema.matriculas.cursoId, cursoId) });
+    if (matriculas) {
+      console.warn(`Curso ${cursoId}: conteúdo novo na fonte, mas há matrículas. Não recarregado (use SEED_RECARREGAR com cuidado).`);
+      return;
+    }
+    console.log(`Curso ${cursoId}: videoaulas atualizadas (sem matrículas).`);
+  }
   await db.delete(schema.capitulos).where(eq(schema.capitulos.cursoId, cursoId));
   await db.delete(schema.questoes).where(eq(schema.questoes.cursoId, cursoId));
   for (const [i, cap] of capitulos.entries()) {
@@ -105,9 +127,9 @@ async function main() {
   await carregarConteudo(ids.get("INT-01")!, capitulosIntegracao, questoesIntegracao);
   await carregarConteudo(ids.get("PAL-52")!, capitulosMontagemSegura, questoesMontagemSegura);
   // NR-35 é presencial (35.4.5): as aulas abaixo são só material de apoio e o banco é da prova escrita presencial.
-  await carregarConteudo(ids.get("NR35-ALT")!, capitulosNr35, questoesNr35);
+  await carregarConteudo(ids.get("NR35-ALT")!, capitulosNr35, questoesNr35, true);
   // Mini curso M1–M8: videoaula + banco de questões dos cadernos do instrutor (diagnóstica marcada por questão).
-  for (const mod of modulosMiniCurso) await carregarConteudo(ids.get(mod.codigo)!, capitulosDoModulo(mod), questoesDoModulo(mod));
+  for (const mod of modulosMiniCurso) await carregarConteudo(ids.get(mod.codigo)!, capitulosDoModulo(mod), questoesDoModulo(mod), true);
   // Conteúdos desenvolvidos ficam EM REVISÃO até aprovação do responsável técnico.
   for (const cod of ["INT-01", "PAL-52", "NR35-ALT", ...modulosMiniCurso.map((m) => m.codigo)]) {
     const c = await db.query.cursos.findFirst({ where: eq(schema.cursos.codigo, cod) });

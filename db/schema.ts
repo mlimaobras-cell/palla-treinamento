@@ -177,7 +177,9 @@ export const aulas = pgTable("aulas", {
   ordem: integer("ordem").notNull(),
   titulo: text("titulo").notNull(),
   duracaoMin: integer("duracao_min").notNull(),
+  duracaoSeg: integer("duracao_seg"), // duração real do vídeo; quando existe, o tempo mínimo é calculado sobre ela
   videoUrl: text("video_url"),
+  posterUrl: text("poster_url"),
   legendaUrl: text("legenda_url"), // arquivo .vtt de legendas (acessibilidade)
   roteiro: text("roteiro").notNull(),
   narracao: text("narracao").notNull(),
@@ -235,6 +237,7 @@ export const progressoAulas = pgTable("progresso_aulas", {
   matriculaId: text("matricula_id").notNull().references(() => matriculas.id, { onDelete: "cascade" }),
   aulaId: text("aula_id").notNull().references(() => aulas.id, { onDelete: "cascade" }),
   segundos: integer("segundos").default(0).notNull(),
+  posicaoMaxSeg: integer("posicao_max_seg").default(0).notNull(), // ponto mais avançado do vídeo já assistido
   primeiroAcessoEm: agora("primeiro_acesso_em"),
   ultimoAcessoEm: agora("ultimo_acesso_em"),
   concluidaEm: data("concluida_em"),

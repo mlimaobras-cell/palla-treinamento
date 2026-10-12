@@ -28,9 +28,10 @@ export default async function Aula({ params }: { params: Promise<{ id: string; a
       )}
       <Player
         matriculaId={id}
-        aula={{ id: aula.id, videoUrl: aula.videoUrl, legendaUrl: aula.legendaUrl, roteiro: aula.roteiro, narracao: aula.narracao, textoApoio: aula.textoApoio, exemplo: aula.exemplo, perguntaFixacao: aula.perguntaFixacao, resumo: aula.resumo, duracaoMin: aula.duracaoMin }}
+        aula={{ id: aula.id, videoUrl: aula.videoUrl, legendaUrl: aula.legendaUrl, posterUrl: aula.posterUrl, duracaoSeg: aula.duracaoSeg, roteiro: aula.roteiro, narracao: aula.narracao, textoApoio: aula.textoApoio, exemplo: aula.exemplo, perguntaFixacao: aula.perguntaFixacao, resumo: aula.resumo, duracaoMin: aula.duracaoMin }}
         segundosIniciais={prog?.segundos ?? 0}
-        segundosMinimos={segundosMinimos(aula.duracaoMin, m.curso.tempoMinimoAulaPct)}
+        segundosMinimos={segundosMinimos(aula, m.curso.tempoMinimoAulaPct)}
+        posicaoInicial={prog?.posicaoMaxSeg ?? 0}
         concluida={!!prog?.concluidaEm}
         proxima={aulas[i + 1]?.id ?? null}
         anterior={aulas[i - 1]?.id ?? null}

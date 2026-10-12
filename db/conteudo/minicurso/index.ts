@@ -1,10 +1,10 @@
 // Mini curso de montagem de estruturas metálicas (M1–M8): cursos internos semipresenciais.
 // Fluxo online: avaliação diagnóstica (antes do vídeo) → videoaula → avaliação final → prática presencial com o instrutor.
-// A videoaula de cada módulo é montada a partir do arquivo de cenas usado para gerar o vídeo (video/cenas/*.json),
+// As videoaulas de cada módulo são montadas a partir dos roteiros v2 usados para gerar os vídeos (video/v2/cenas/*.json),
 // para que roteiro, narração e texto de apoio na plataforma sejam exatamente os do vídeo publicado.
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import type { CapituloSeed, QuestaoSeed } from "../integracao";
+import type { AulaSeed, CapituloSeed, QuestaoSeed } from "../integracao";
 import type { Q } from "./tipos";
 import { m1 } from "./m1";
 import { m2 } from "./m2";
@@ -15,8 +15,6 @@ import { m6 } from "./m6";
 import { m7 } from "./m7";
 import { m8 } from "./m8";
 
-type Item = string | { titulo: string; texto?: string };
-type Cena = { tipo: string; pequeno?: string; titulo?: string; texto?: string; caixa?: string; itens?: Item[]; rodape?: string; narracao?: string };
 
 export type ModuloMiniCurso = {
   codigo: string; arquivo: string; titulo: string; horas: number; publico: string;
@@ -58,41 +56,66 @@ export function questoesDoModulo(mod: ModuloMiniCurso): QuestaoSeed[] {
   }));
 }
 
-const limpar = (s?: string) => (s ?? "").replace(/<[^>]+>/g, "").trim();
-const itemTexto = (i: Item) => (typeof i === "string" ? i : [i.titulo, i.texto].filter(Boolean).join(": "));
+// ------------------------------------------------------------ videoaulas v2 (uma aula por vídeo)
+type CenaV2 = {
+  tipo: string; titulo?: string; objetivo?: string; narracao?: string; pergunta?: string; resposta?: string; conta?: string;
+  rodape?: string; itens?: { texto: string }[];
+};
+type AulaV2 = { codigo: string; titulo: string; capitulo: string; fontes?: string[]; pendencias?: string[]; cenas: CenaV2[] };
 
+/** Arquivo publicado na plataforma (o piloto da aula 3.4 foi publicado como M3-4-lingada). */
+export const arquivoWebV2 = (codigo: string) => (codigo === "M3-piloto-lingada" ? "M3-4-lingada" : codigo);
+
+const semMarcas = (s?: string) => (s ?? "").replace(/\{[^}]+\}/g, "").replace(/\[\[pausa:\d+\]\]/g, "").replace(/\s+/g, " ").trim();
+const ordemDaAula = (a: AulaV2) => {
+  const m = a.capitulo.match(/(?:Aula|Apoio) (\d+)(?:\.(\d+))?/);
+  return m ? Number(m[2] ?? m[1]) : 99;
+};
+
+/** Lê os roteiros v2 (video/v2/cenas) de um prefixo, ex.: "m3-" ou "nr35-", na ordem das aulas. */
+export function aulasV2(prefixo: string, raiz = process.cwd()): AulaV2[] {
+  const dir = join(raiz, "video", "v2", "cenas");
+  return readdirSync(dir).filter((f) => f.startsWith(prefixo) && f.endsWith(".json"))
+    .map((f) => JSON.parse(readFileSync(join(dir, f), "utf8")) as AulaV2)
+    .sort((a, b) => ordemDaAula(a) - ordemDaAula(b));
+}
+
+/** Converte um roteiro v2 em aula da plataforma: texto da narração, material de leitura, situação real, pergunta e resumo. */
+export function aulaDoRoteiroV2(a: AulaV2, raiz = process.cwd()): AulaSeed {
+  const arq = arquivoWebV2(a.codigo);
+  const duracoes = JSON.parse(readFileSync(join(raiz, "public", "videos", "v2", "duracoes.json"), "utf8")) as Record<string, number>;
+  const seg = Math.round(duracoes[arq] ?? 0);
+  if (!seg) throw new Error(`Duração não encontrada para ${arq} (public/videos/v2/duracoes.json).`);
+  const abertura = a.cenas.find((c) => c.tipo === "abertura");
+  const erro = a.cenas.find((c) => c.titulo?.startsWith("Erro frequente"));
+  const pergunta = a.cenas.find((c) => c.tipo === "pergunta");
+  const checklist = a.cenas.find((c) => c.tipo === "checklist");
+  const ilustra = a.cenas.filter((c) => c.tipo === "ilustra" && c !== erro);
+  const textoApoio = [
+    abertura?.objetivo ? `Objetivo da aula: ${abertura.objetivo}` : "",
+    ...ilustra.map((c) => [`■ ${c.titulo}`, c.itens?.length ? c.itens.map((i) => `• ${i.texto}`).join("\n") : semMarcas(c.narracao)].join("\n")),
+    a.fontes?.length ? `Fontes: ${a.fontes.join("; ")}.` : "",
+  ].filter(Boolean).join("\n\n");
+  return {
+    titulo: a.titulo,
+    duracaoMin: Math.ceil(seg / 60),
+    duracaoSeg: seg,
+    videoUrl: `/videos/v2/${arq}.mp4`,
+    legendaUrl: `/videos/v2/${arq}.vtt`,
+    posterUrl: `/videos/v2/${arq}.jpg`,
+    roteiro: a.cenas.map((c, n) => `CENA ${n + 1} — ${c.tipo}${c.titulo ? ` — ${c.titulo}` : ""}`).join("\n"),
+    narracao: a.cenas.map((c) => semMarcas(c.narracao)).filter(Boolean).join("\n\n"),
+    textoApoio,
+    exemplo: erro ? [`${erro.titulo}.`, ...(erro.itens ?? []).map((i) => `• ${i.texto}`)].join("\n") : undefined,
+    perguntaFixacao: pergunta?.pergunta,
+    resumo: [...(checklist?.itens ?? []).map((i) => `• ${i.texto}`), checklist?.rodape ?? ""].filter(Boolean).join("\n"),
+  };
+}
+
+/** Capítulo único do módulo, com uma aula por vídeo v2 (ex.: M3 = aulas 3.1 a 3.6). */
 export function capitulosDoModulo(mod: ModuloMiniCurso, raiz = process.cwd()): CapituloSeed[] {
-  const cenasArq = join(raiz, "video", "cenas", `${mod.arquivo.toLowerCase()}.json`);
-  const metaArq = join(raiz, "public", "videos", "curso", `${mod.arquivo}.json`);
-  const { cenas } = JSON.parse(readFileSync(cenasArq, "utf8")) as { cenas: Cena[] };
-  const { duracao } = JSON.parse(readFileSync(metaArq, "utf8")) as { duracao: number };
-
-  const conteudo = cenas.filter((c) => !["abertura", "encerramento", "resumo"].includes(c.tipo));
-  const resumo = cenas.find((c) => c.tipo === "resumo");
-  const roteiro = cenas.map((c, n) => `CENA ${n + 1} — ${c.tipo}${c.titulo ? ` — ${limpar(c.titulo)}` : ""}`).join("\n");
-  const narracao = cenas.map((c) => c.narracao).filter(Boolean).join("\n\n");
-  const textoApoio = conteudo.map((c) => {
-    const partes = [`■ ${limpar(c.titulo)}`];
-    if (c.texto) partes.push(limpar(c.texto));
-    if (c.caixa) partes.push(`${limpar(c.caixa)}:`);
-    if (c.itens?.length) partes.push(c.itens.map((i) => `• ${limpar(itemTexto(i))}`).join("\n"));
-    if (c.rodape) partes.push(limpar(c.rodape));
-    return partes.join("\n");
-  }).join("\n\n");
-  const frase = cenas.find((c) => c.tipo === "frase");
-
-  return [{
-    titulo: mod.titulo,
-    aulas: [{
-      titulo: `Videoaula — ${mod.titulo}`,
-      duracaoMin: Math.ceil(duracao / 60),
-      videoUrl: `/videos/curso/web/${mod.arquivo}.mp4`,
-      legendaUrl: `/videos/curso/${mod.arquivo}.vtt`,
-      roteiro,
-      narracao,
-      textoApoio,
-      exemplo: frase ? `${limpar(frase.titulo)} ${limpar(frase.texto)}`.trim() : undefined,
-      resumo: resumo?.itens?.map((i) => `• ${limpar(itemTexto(i))}`).join("\n") ?? "",
-    }],
-  }];
+  const prefixo = `${mod.codigo.replace("MC-", "").toLowerCase()}-`;
+  const aulas = aulasV2(prefixo, raiz);
+  if (!aulas.length) throw new Error(`Sem roteiros v2 para ${mod.codigo}.`);
+  return [{ titulo: mod.titulo, aulas: aulas.map((a) => aulaDoRoteiroV2(a, raiz)) }];
 }

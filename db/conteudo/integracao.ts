@@ -5,6 +5,7 @@
 export type AulaSeed = {
   titulo: string; duracaoMin: number; roteiro: string; narracao: string; textoApoio: string;
   exemplo?: string; perguntaFixacao?: string; resumo: string; videoUrl?: string; legendaUrl?: string;
+  duracaoSeg?: number; posterUrl?: string;
 };
 export type CapituloSeed = { titulo: string; aulas: AulaSeed[] };
 export type QuestaoSeed = {

@@ -36,6 +36,13 @@
       "when": 1791775816456,
       "tag": "0004_arquivos",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1791818854528,
+      "tag": "0005_videoaulas",
+      "breakpoints": true
     }
   ]
 }

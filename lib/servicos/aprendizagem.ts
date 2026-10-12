@@ -27,24 +27,33 @@ export function aulasDoCurso(m: Awaited<ReturnType<typeof carregarMatriculaDoCol
   return m.curso.capitulos.flatMap((c) => c.aulas.map((a) => ({ ...a, capituloTitulo: c.titulo, capituloOrdem: c.ordem })));
 }
 
-export function segundosMinimos(duracaoMin: number, pct: number) {
-  return Math.ceil((duracaoMin * 60 * pct) / 100);
+/** Tempo mínimo de participação: percentual da duração real do vídeo (ou da duração prevista, se não houver vídeo). */
+export function segundosMinimos(aula: { duracaoMin: number; duracaoSeg?: number | null }, pct: number) {
+  return Math.ceil(((aula.duracaoSeg ?? aula.duracaoMin * 60) * pct) / 100);
 }
 
-/** Pulso do player: soma o tempo assistido (com teto por pulso) e marca início do curso. */
-export async function registrarTempo(ator: Ator, matriculaId: string, aulaId: string, segundos: number) {
+/**
+ * Pulso do player: soma o tempo assistido (com teto por pulso), guarda o ponto mais avançado do vídeo
+ * (sem aceitar saltos maiores que o tempo do pulso) e marca o início do curso.
+ */
+export async function registrarTempo(ator: Ator, matriculaId: string, aulaId: string, segundos: number, posicao?: number) {
   const m = await carregarMatriculaDoColaborador(ator, matriculaId);
   if (m.curso.modalidade === "PRESENCIAL") throw new Error("Curso presencial: a carga horária não é cumprida na plataforma.");
   if (!aulasDoCurso(m).some((a) => a.id === aulaId)) throw new Error("Aula não pertence ao curso.");
   if (diagnosticaPendente(m)) throw new Error("Faça a avaliação diagnóstica antes de assistir às aulas.");
   const s = Math.max(0, Math.min(MAX_SEGUNDOS_POR_PULSO, Math.floor(segundos)));
   const atual = m.progresso.find((p) => p.aulaId === aulaId);
+  const aula = aulasDoCurso(m).find((a) => a.id === aulaId)!;
+  const antes = atual?.posicaoMaxSeg ?? 0;
+  // O ponto assistido só avança o que foi efetivamente reproduzido no pulso (com folga de 5 s): pular o vídeo não conta.
+  const pos = posicao === undefined ? antes
+    : Math.max(antes, Math.min(Math.floor(posicao), antes + s + 5, aula.duracaoSeg ?? Number.MAX_SAFE_INTEGER));
   if (atual) {
     await db.update(schema.progressoAulas)
-      .set({ segundos: atual.segundos + s, ultimoAcessoEm: new Date() })
+      .set({ segundos: atual.segundos + s, posicaoMaxSeg: pos, ultimoAcessoEm: new Date() })
       .where(eq(schema.progressoAulas.id, atual.id));
   } else {
-    await db.insert(schema.progressoAulas).values({ matriculaId, aulaId, segundos: s });
+    await db.insert(schema.progressoAulas).values({ matriculaId, aulaId, segundos: s, posicaoMaxSeg: pos });
   }
   if (m.status === "MATRICULADO") {
     await db.update(schema.matriculas).set({ status: "EM_ANDAMENTO", iniciadoEm: new Date() })
@@ -59,14 +68,18 @@ export async function concluirAula(ator: Ator, matriculaId: string, aulaId: stri
   if (!aula) throw new Error("Aula não pertence ao curso.");
   if (diagnosticaPendente(m)) throw new Error("Faça a avaliação diagnóstica antes de assistir às aulas.");
   const p = m.progresso.find((x) => x.aulaId === aulaId);
-  const minimo = segundosMinimos(aula.duracaoMin, m.curso.tempoMinimoAulaPct);
+  const minimo = segundosMinimos(aula, m.curso.tempoMinimoAulaPct);
   if (!p || p.segundos < minimo) {
     const faltam = Math.ceil((minimo - (p?.segundos ?? 0)) / 60);
     throw new Error(`Assista à aula até o fim. Faltam cerca de ${faltam} min de participação.`);
   }
+  // Videoaula: além do tempo, o vídeo precisa ter sido assistido até perto do fim.
+  if (aula.videoUrl && aula.duracaoSeg && p.posicaoMaxSeg < minimo) {
+    throw new Error("Assista ao vídeo até o fim para concluir a aula.");
+  }
   if (!p.concluidaEm) {
     await db.update(schema.progressoAulas).set({ concluidaEm: new Date() }).where(eq(schema.progressoAulas.id, p.id));
-    await auditar(ator, "aula.concluida", "matricula", matriculaId, { aulaId, segundos: p.segundos });
+    await auditar(ator, "aula.concluida", "matricula", matriculaId, { aulaId, segundos: p.segundos, posicaoMaxSeg: p.posicaoMaxSeg });
   }
 }
 

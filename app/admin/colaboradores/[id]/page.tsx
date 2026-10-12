@@ -77,7 +77,7 @@ export default async function Colaborador({ params }: { params: Promise<{ id: st
             <Tabela cabecalho={["Curso", "Tipo", "Situação", "Validade", ""]}>
               {mats.map((m) => (
                 <tr key={m.id}>
-                  <td className="px-5 py-2.5"><span className="font-medium">{m.curso.titulo}</span><span className="block text-xs text-tinta-suave">{m.curso.codigo}</span></td>
+                  <td className="px-5 py-2.5"><Link href={`/admin/colaboradores/${id}/matricula/${m.id}`} className="font-medium hover:underline">{m.curso.titulo}</Link><span className="block text-xs text-tinta-suave">{m.curso.codigo} · <Link href={`/admin/colaboradores/${id}/matricula/${m.id}`} className="text-palla-azul">ficha: aulas e respostas</Link></span></td>
                   <td className="px-5 text-xs">{CLASSIFICACAO[m.classificacao]}</td>
                   <td className="px-5"><Selo cor={STATUS_MATRICULA[m.status].cor}>{STATUS_MATRICULA[m.status].rotulo}</Selo></td>
                   <td className="px-5 text-xs">{m.validoAte ? fmtData(m.validoAte) : "—"}</td>

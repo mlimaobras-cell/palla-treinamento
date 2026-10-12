@@ -1,0 +1,68 @@
+{
+  "codigo": "M5-1-processos",
+  "titulo": "Processos, WPS e consumíveis",
+  "capitulo": "Módulo 5 · Soldagem estrutural aplicada · Aula 5.1",
+  "eyebrow": "M5 · Soldagem",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m5.js"],
+  "fontes": ["Caderno do Módulo 5, itens 1.1 a 1.4", "AWS D1.1:2010, cap. 4 e 5.3.2, citada no caderno"],
+  "pendencias": ["WPS de campo usada pela Palla: [VALIDAR] anexar."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "processos",
+      "objetivo": "Reconhecer os processos de solda de campo, o papel da WPS e do soldador qualificado, e o cuidado com o eletrodo.",
+      "narracao": "Módulo cinco, aula um: processos, WPS e consumíveis. Este módulo não qualifica soldador. Ele mostra o que precisa estar certo antes e durante a solda de campo."
+    },
+    {
+      "tipo": "ilustra", "desenho": "processos", "titulo": "Processos de campo", "painel": false,
+      "narracao": "Três processos aparecem na montagem. {s}O eletrodo revestido é o mais comum na obra: tolera vento e posições difíceis. O eletrodo básico exige estufa. {g}O MIG MAG usa arame e gás de proteção. É produtivo, mas o vento sopra o gás, e exige anteparo. {f}O arame tubular tem fluxo dentro do arame. As versões autoprotegidas servem para campo. {w}E atenção: o processo de cada junta é o da WPS. Não se troca processo na obra."
+    },
+    {
+      "tipo": "ilustra", "desenho": "wps", "titulo": "WPS, PQR e soldador",
+      "itens": [
+        { "m": "w", "texto": "WPS: a receita da solda" },
+        { "m": "p", "texto": "PQR: ensaios que provaram a receita" },
+        { "m": "q", "texto": "Soldador qualificado no processo, posição e junta" },
+        { "m": "v", "texto": "Mais de 6 meses sem o processo: perde a validade", "cor": "vermelho" }
+      ],
+      "narracao": "{w}A WPS é a receita da solda: processo, consumível, junta, posição, corrente, tensão, velocidade, pré-aquecimento e sequência de passes. {p}O PQR registra os ensaios que provaram que a receita funciona. {q}E o soldador qualificado foi aprovado em teste para o processo, a posição e o tipo de junta que vai soldar. {v}A qualificação perde a validade se ele ficar mais de seis meses sem usar o processo. {n}Sem WPS aprovada, ou sem soldador qualificado, a solda não começa."
+    },
+    {
+      "tipo": "ilustra", "desenho": "posicoes", "titulo": "Posições",
+      "itens": [
+        { "m": "p1", "texto": "1 plana · 2 horizontal" },
+        { "m": "p3", "texto": "3 vertical · 4 sobrecabeça" },
+        { "m": "fg", "texto": "F = filete · G = chanfro" },
+        { "m": "fg2", "texto": "Só nas posições do certificado", "cor": "vermelho" }
+      ],
+      "narracao": "As posições de soldagem são numeradas. {p1}Um é plana. {p2}Dois, horizontal. {p3}Três, vertical. {p4}Quatro, sobrecabeça. {fg}A letra F indica solda de filete, de um F a quatro F. A letra G, solda de chanfro. {fg2}O soldador só solda nas posições cobertas pelo seu certificado."
+    },
+    {
+      "tipo": "ilustra", "desenho": "estufa", "titulo": "Eletrodo básico",
+      "itens": [
+        { "m": "u", "texto": "Umidade na solda causa trinca por hidrogênio", "cor": "vermelho" },
+        { "m": "e", "texto": "Lata aberta: estufa a no mínimo 120 °C" },
+        { "m": "h", "texto": "Fora da estufa: no máximo 4 horas" },
+        { "m": "c", "texto": "No posto: cochicho aquecido; classe e diâmetro da WPS" }
+      ],
+      "narracao": "{u}O eletrodo básico de baixo hidrogênio, como o E sete zero um oito, absorve umidade. E umidade na solda causa trinca por hidrogênio. {e}Por isso, com a lata aberta, o eletrodo vai para a estufa, a no mínimo cento e vinte graus. {h}Fora da estufa, no máximo quatro horas. Passou disso, ressecagem conforme o fabricante, ou descarte. {c}No posto de trabalho, use o cochicho aquecido. E só a classe e o diâmetro da WPS."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Pode usar eletrodo que ficou a noite fora da estufa?",
+      "resposta": "Não",
+      "conta": "passou de 4 h: ressecagem do fabricante ou descarte",
+      "narracao": "Sua vez: pode usar o eletrodo básico que ficou a noite inteira fora da estufa? {pensa}[[pausa:3]] {resp}Não. Passou de quatro horas, vai para ressecagem conforme o fabricante, ou é descartado."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Processo, consumível e parâmetros: os da WPS", "chave": "c1" },
+        { "texto": "Soldador qualificado na posição e na junta", "chave": "c2" },
+        { "texto": "Eletrodo básico: estufa ≥ 120 °C", "chave": "c3" },
+        { "texto": "Fora da estufa: no máximo 4 h", "chave": "c4" }
+      ],
+      "rodape": "Sem WPS ou sem qualificação, não se solda.",
+      "narracao": "Na obra: {c1}processo, consumível e parâmetros, os da WPS. {c2}Soldador qualificado na posição e na junta. {c3}Eletrodo básico na estufa, a cento e vinte graus ou mais. {c4}Fora da estufa, no máximo quatro horas. {fim}Sem WPS ou sem qualificação, não se solda."
+    }
+  ]
+}

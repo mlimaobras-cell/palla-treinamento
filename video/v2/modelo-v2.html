@@ -223,7 +223,7 @@ const CENAS = {
     html: (c, meta) => `<div class="topo"><span class="eyebrow"></span><img src="${LOGO}"></div>
       <div class="ab"><div class="cap" data-s="1">${meta.capitulo}</div><h1 data-s="2">${meta.titulo}</h1><div class="linha" data-s="3"></div>
       <div class="obj" data-s="4"><span>Objetivo da aula</span><p>${c.objetivo}</p></div></div>${c.desenho ? svgDesenho(c) : svgLingada()}`,
-    montar(raiz) { const s = raiz.querySelector("svg"); Object.assign(s.style, { width: "520px", height: "393px", left: "740px", top: "250px" }); },
+    montar(raiz) { const s = raiz.querySelector("svg"); Object.assign(s.style, { width: "520px", height: "393px", left: "740px", top: "290px" }); },
     quadro(raiz, t, c) {
       [.1, .4, .8, 1.4].forEach((ini, i) => surge(raiz.querySelector(`[data-s="${i + 1}"]`), t, ini));
       const s = raiz.querySelector("svg"); s.style.opacity = prog(t, 1.0, .8);

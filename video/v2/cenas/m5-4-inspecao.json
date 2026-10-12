@@ -1,0 +1,63 @@
+{
+  "codigo": "M5-4-inspecao",
+  "titulo": "Inspeção, pinos e segurança",
+  "capitulo": "Módulo 5 · Soldagem estrutural aplicada · Aula 5.4",
+  "eyebrow": "M5 · Soldagem",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m5.js"],
+  "fontes": ["Caderno do Módulo 5, itens 1.11 a 1.14", "AWS D1.1:2010, 7.7.1, citada no caderno"],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "segSolda",
+      "objetivo": "Saber como a solda é inspecionada, como se controlam os pinos e como soldar com segurança.",
+      "narracao": "Módulo cinco, aula quatro: inspeção, pinos e segurança. Você vai ver as condições da inspeção visual, os ensaios, o controle dos pinos no steel deck, e os riscos da solda."
+    },
+    {
+      "tipo": "ilustra", "desenho": "vt", "titulo": "Inspeção visual",
+      "itens": [
+        { "m": "lx", "texto": "100% das soldas de campo; luz ≥ 1000 lux" },
+        { "m": "ds", "texto": "Olho a até 600 mm; ângulo ≥ 30°" },
+        { "m": "fx", "texto": "25 mm limpos de cada lado do cordão" },
+        { "m": "am", "texto": "Marcar em amarelo no projeto e fotografar" }
+      ],
+      "narracao": "A inspeção visual cobre cem por cento das soldas de campo. {lx}Com iluminação de pelo menos mil lux na superfície. {ds}O olho a no máximo seiscentos milímetros da solda, {an}com ângulo de observação de pelo menos trinta graus. {fx}E uma faixa de vinte e cinco milímetros limpa de cada lado do cordão. Perna e reforço são medidos com o calibre. {am}Solda inspecionada é marcada em amarelo no projeto de montagem, e fotografada."
+    },
+    {
+      "tipo": "ilustra", "desenho": "end", "titulo": "Ensaios não destrutivos", "painel": false,
+      "narracao": "Além do visual, existem os ensaios não destrutivos. {lp}O líquido penetrante mostra defeitos abertos na superfície. {pm}As partículas magnéticas mostram defeitos na superfície e logo abaixo. {us}E o ultrassom encontra defeitos internos em soldas de penetração total. {iq}Eles são feitos por inspetor qualificado, na amostragem definida pelo projeto ou pelo contrato."
+    },
+    {
+      "tipo": "ilustra", "desenho": "pinos", "titulo": "Pinos no steel deck",
+      "aviso": "AWS D1.1, 7.7.1, citada no caderno.",
+      "itens": [
+        { "m": "c", "texto": "Visual 100%: colar de solda completo" },
+        { "m": "d", "texto": "Início do turno: 2 pinos dobrados ~30°" },
+        { "m": "f", "texto": "Falhou: corrigir ajuste e testar mais 2", "cor": "vermelho" },
+        { "m": "ox", "texto": "Pino oxidado não é soldado", "cor": "vermelho" }
+      ],
+      "narracao": "Os conectores de cisalhamento são pinos soldados com pistola sobre a viga, através do steel deck. {c}O controle visual é em cem por cento: o colar de solda tem que ser completo, em volta do pino. {d}No início de cada turno, os dois primeiros pinos precisam mostrar colar de trezentos e sessenta graus, e são dobrados cerca de trinta graus, com martelo ou tubo. {f}Se algum falhar, corrige-se o ajuste, e testam-se mais dois. {ox}E pino oxidado não é soldado."
+    },
+    {
+      "tipo": "ilustra", "desenho": "segSolda", "titulo": "Segurança na solda", "painel": false,
+      "narracao": "Os riscos da solda. {i}Incêndio: permissão de trabalho a quente, extintor no posto, manta antichama, vigia de fogo, e nada inflamável embaixo. {c}Choque elétrico: cabos sem emendas expostas, garra de aterramento perto da solda, e máquina aterrada. {r}Radiação e queimadura: máscara com filtro adequado, avental, luvas e mangas de raspa, e biombo para proteger quem passa. {f}E fumos: ventilação, e trabalhar fora da fumaça, com atenção redobrada em peças galvanizadas ou pintadas."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O pino ficou sem colar completo. O que fazer?",
+      "resposta": "Testar ou reparar",
+      "conta": "colar de 360° é o critério visual",
+      "narracao": "Sua vez: um pino ficou sem o colar de solda completo. O que fazer? {pensa}[[pausa:3]] {resp}Ele é testado ou reparado. O colar completo, de trezentos e sessenta graus, é o critério visual."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Visual em 100%, com luz e distância certas", "chave": "c1" },
+        { "texto": "Amarelo no projeto e foto", "chave": "c2" },
+        { "texto": "Pinos: colar 360° e dobramento no turno", "chave": "c3" },
+        { "texto": "PT a quente, extintor, vigia e biombo", "chave": "c4" }
+      ],
+      "rodape": "Solda sem registro não está liberada.",
+      "narracao": "Na obra: {c1}inspeção visual em cem por cento, com luz e distância certas. {c2}Amarelo no projeto, e foto. {c3}Nos pinos, colar de trezentos e sessenta graus, e o dobramento no início do turno. {c4}E permissão a quente, extintor, vigia e biombo. {fim}Solda sem registro não está liberada."
+    }
+  ]
+}

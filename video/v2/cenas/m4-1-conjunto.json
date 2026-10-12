@@ -1,0 +1,72 @@
+{
+  "codigo": "M4-1-conjunto",
+  "titulo": "O conjunto A325",
+  "capitulo": "Módulo 4 · Ligações parafusadas e torque · Aula 4.1",
+  "eyebrow": "M4 · Parafusos",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m4.js"],
+  "fontes": ["Caderno do Módulo 4, itens 1.1 e 1.2", "ASTM F3125 (A325), A563 e F436, citadas no caderno"],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "conjunto",
+      "objetivo": "Reconhecer o conjunto parafuso, porca e arruela A325, os tipos de parafuso e as bitolas mais usadas.",
+      "narracao": "Módulo quatro, aula um: o conjunto A325. Uma ligação viga-pilar segura toneladas com poucos parafusos. Você vai entender o conjunto que faz isso."
+    },
+    {
+      "tipo": "ilustra", "desenho": "conjunto", "titulo": "Parafuso, porca e arruela",
+      "itens": [
+        { "m": "p", "texto": "Parafuso A325: \"A325\" e o fabricante na cabeça" },
+        { "m": "a", "texto": "Arruela F436: endurecida, sob o que gira" },
+        { "m": "po", "texto": "Porca A563: grau marcado (ex.: DH)" },
+        { "m": "mt", "texto": "Porca comum em parafuso A325 é erro", "cor": "vermelho" }
+      ],
+      "narracao": "O parafuso estrutural A325 sempre trabalha num conjunto. {p}O parafuso A325, com a marca A trezentos e vinte e cinco e a do fabricante gravadas na cabeça. Hoje a norma oficial é a F três um dois cinco, mas o mercado continua chamando de A325. {a}A arruela F quatrocentos e trinta e seis, endurecida, que vai sob o elemento que gira. {po}E a porca A quinhentos e sessenta e três, com o grau marcado. {mt}Os três, sempre juntos. Porca comum em parafuso A325 é erro."
+    },
+    {
+      "tipo": "ilustra", "desenho": "lotes", "titulo": "Tipos e lotes",
+      "itens": [
+        { "m": "pr", "texto": "Tipo 1: preto (oleado) ou galvanizado" },
+        { "m": "gv", "texto": "Galvanizado: porca A563 DH, lubrificada" },
+        { "m": "t3", "texto": "Tipo 3: patinável, A325 sublinhado" },
+        { "m": "mx", "texto": "Nunca misturar lotes", "cor": "vermelho" }
+      ],
+      "narracao": "{pr}O Tipo um é o padrão de mercado. Pode vir preto, oleado, {gv}ou galvanizado. O galvanizado exige porca A563 grau DH, com sobremedida de rosca e lubrificação de fábrica. {t3}O Tipo três é de aço patinável, para estrutura aparente sem pintura, e traz a marca A325 sublinhada. {mx}E atenção: nunca misture porca de um lote com parafuso de outro."
+    },
+    {
+      "tipo": "ilustra", "desenho": "bitolas", "titulo": "Bitolas mais usadas",
+      "itens": [
+        { "m": "b", "texto": "De 1/2″ a 1″ na maioria das obras" },
+        { "m": "s", "texto": "Secundárias: 1/2″ e 5/8″" },
+        { "m": "p", "texto": "Principais: 3/4″ a 1″" },
+        { "m": "k", "texto": "Cada bitola tem sua chave", "cor": "verde" }
+      ],
+      "narracao": "{b}As bitolas mais comuns vão de meia polegada a uma polegada. {s}Ligações secundárias, como terças e travamentos, costumam usar meia e cinco oitavos. {p}Ligações principais, como viga-pilar, emendas e bases, usam de três quartos a uma polegada. {k}E cada bitola tem a sua chave: confira a tabela antes de subir."
+    },
+    {
+      "tipo": "ilustra", "desenho": "semMarca", "titulo": "Erro frequente: usar o que estiver à mão",
+      "itens": [
+        { "m": "e", "texto": "Parafuso sem marcação ou porca comum", "cor": "vermelho" },
+        { "m": "k", "texto": "Separar como não conforme e registrar", "cor": "verde" }
+      ],
+      "narracao": "Erro frequente: {e}faltou parafuso, e alguém usa um sem marcação, ou uma porca comum que estava na caixa. {k}A correção: parafuso sem marcação é não conforme. Separe, e registre. E use só o conjunto certo, do mesmo lote."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Um parafuso chegou sem marcação na cabeça. O que fazer?",
+      "resposta": "Separar e registrar",
+      "conta": "é não conforme · não se usa em nenhuma ligação",
+      "narracao": "Sua vez: um parafuso chegou sem nenhuma marcação na cabeça. O que fazer? {pensa}[[pausa:3]] {resp}Separar como não conforme, e registrar. Ele não vai em nenhuma ligação."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Parafuso A325 + porca A563 + arruela F436", "chave": "c1" },
+        { "texto": "Galvanizado: porca DH lubrificada", "chave": "c2" },
+        { "texto": "Nunca misturar lotes", "chave": "c3" },
+        { "texto": "Sem marcação: separar e registrar", "chave": "c4" }
+      ],
+      "rodape": "Conjunto completo, do mesmo lote.",
+      "narracao": "Na obra: {c1}parafuso A325, porca A563 e arruela F436. {c2}Galvanizado, com porca DH lubrificada. {c3}Nunca misture lotes. {c4}E sem marcação, separe e registre. {fim}Conjunto completo, do mesmo lote."
+    }
+  ]
+}

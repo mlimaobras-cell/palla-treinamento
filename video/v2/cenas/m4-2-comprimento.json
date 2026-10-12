@@ -1,0 +1,67 @@
+{
+  "codigo": "M4-2-comprimento",
+  "titulo": "Comprimento e tipos de ligação",
+  "capitulo": "Módulo 4 · Ligações parafusadas e torque · Aula 4.2",
+  "eyebrow": "M4 · Parafusos",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m4.js"],
+  "fontes": ["Caderno do Módulo 4, itens 1.2 e 1.3"],
+  "pendencias": ["Comprimento comercial do exemplo (57,4 mm → próximo comercial): confirmar com a lista do fornecedor [VALIDAR]; o vídeo não cita o valor comercial."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "ponta",
+      "objetivo": "Calcular o comprimento do parafuso, conferir a ponta depois do aperto e reconhecer os tipos de ligação.",
+      "narracao": "Módulo quatro, aula dois: comprimento e tipos de ligação. Você vai calcular o comprimento do parafuso, conferir a ponta depois do aperto, e entender quem define o aperto."
+    },
+    {
+      "tipo": "ilustra", "desenho": "pega", "titulo": "Calculando o comprimento",
+      "itens": [
+        { "m": "pg", "texto": "Pega: soma das espessuras das chapas" },
+        { "m": "ac", "texto": "Acréscimo da bitola: arruela, porca e sobra" },
+        { "m": "cm", "texto": "Comercial imediatamente acima" },
+        { "m": "rc", "texto": "Pega mudou? Recalcular. Nunca empilhar arruelas", "cor": "vermelho" }
+      ],
+      "narracao": "O comprimento do parafuso tem duas partes. {pg}A pega: a soma das espessuras das chapas. Aqui, duas chapas de dezesseis milímetros: trinta e dois. {ac}Mais um acréscimo, que cobre arruela, porca e sobra de rosca. Para três quartos, são vinte e cinco vírgula quatro milímetros. {cm}Trinta e dois mais vinte e cinco vírgula quatro dá cinquenta e sete vírgula quatro. Use o comprimento comercial imediatamente acima. {rc}Se a pega real for diferente do projeto, recalcule. E nunca empilhe arruelas além do previsto."
+    },
+    {
+      "tipo": "ilustra", "desenho": "ponta", "titulo": "A ponta depois do aperto",
+      "itens": [
+        { "m": "a", "texto": "Abaixo da face da porca: reprovar", "cor": "vermelho" },
+        { "m": "r", "texto": "Rente à face: mínimo aceito" },
+        { "m": "i", "texto": "2 a 3 fios para fora: ideal", "cor": "verde" },
+        { "m": "g", "texto": "Porca gira livre em todo o percurso" }
+      ],
+      "narracao": "Depois do aperto, olhe a ponta. {a}Abaixo da face da porca: reprovado. {r}Rente à face: é o mínimo. {i}O ideal é sobrar dois a três fios. {g}E a porca precisa girar livre em todo o percurso, sem encostar no fim da rosca antes da protensão."
+    },
+    {
+      "tipo": "ilustra", "desenho": "planoCorte", "titulo": "Rosca e plano de corte",
+      "itens": [
+        { "m": "x", "texto": "Tipo X: rosca fora do plano de corte" },
+        { "m": "n", "texto": "Tipo N: rosca pode ficar no plano" },
+        { "m": "l", "texto": "Confira na lista de parafusos", "cor": "verde" }
+      ],
+      "narracao": "{x}Na ligação tipo X, a rosca precisa ficar fora do plano de corte, onde as chapas deslizam uma sobre a outra. {n}No tipo N, a rosca pode ficar no plano. {l}Qual é o caso, a lista de parafusos diz."
+    },
+    {
+      "tipo": "ilustra", "desenho": "tiposLig", "titulo": "Tipos de ligação", "painel": false,
+      "narracao": "Há três tipos de ligação. {c}Na de contato, o esforço passa pelo apoio do parafuso no furo. O aperto é firme: o esforço pleno de um montador com chave comum, com as chapas encostadas. É comum em galpões. {p}A protendida é usada com carga cíclica, inversão de esforços, ou quando o projeto exige. Ela pede protensão mínima. {a}Na de atrito, o esforço passa pelo atrito entre as chapas: protensão mínima, e superfícies preparadas. {pj}E a regra de ouro: quem define o aperto é o projeto, nunca o montador. Sem indicação, consulte o responsável técnico."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A pega mudou por causa de um calço. O que você faz?",
+      "resposta": "Recalcula",
+      "conta": "novo comprimento · nunca empilhar arruelas",
+      "narracao": "Sua vez: a pega mudou por causa de um calço. O que você faz? {pensa}[[pausa:3]] {resp}Recalcula o comprimento do parafuso. Nunca compense empilhando arruelas."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Comprimento = pega + acréscimo da bitola", "chave": "c1" },
+        { "texto": "Ponta no mínimo rente; ideal 2 a 3 fios", "chave": "c2" },
+        { "texto": "Rosca no plano de corte: confira X ou N", "chave": "c3" },
+        { "texto": "O aperto quem define é o projeto", "chave": "c4" }
+      ],
+      "rodape": "Ponta abaixo da porca: reprovar.",
+      "narracao": "Na obra: {c1}comprimento é a pega mais o acréscimo da bitola. {c2}Ponta no mínimo rente, o ideal é dois a três fios. {c3}Rosca no plano de corte: confira se é X ou N. {c4}E o aperto quem define é o projeto. {fim}Ponta abaixo da porca: reprovar."
+    }
+  ]
+}

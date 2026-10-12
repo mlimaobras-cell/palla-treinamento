@@ -1,0 +1,53 @@
+{
+  "codigo": "M4-3-protensao",
+  "titulo": "Protensão e torque",
+  "capitulo": "Módulo 4 · Ligações parafusadas e torque · Aula 4.3",
+  "eyebrow": "M4 · Aperto",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m4.js"],
+  "fontes": ["Caderno do Módulo 4, itens 1.3 e 1.4", "ABNT NBR 8800, Tabela 15; RCSC, citadas no caderno"],
+  "pendencias": ["Valores de torque de referência não aparecem no vídeo: o caderno os trata como referência para escolher ferramenta, nunca como critério."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "protensao",
+      "objetivo": "Entender o que é protensão e por que o torque é só referência.",
+      "narracao": "Módulo quatro, aula três: protensão e torque. Você vai entender o que o parafuso protendido faz, e por que o torque não é o objetivo."
+    },
+    {
+      "tipo": "ilustra", "desenho": "protensao", "titulo": "O que é protensão",
+      "itens": [
+        { "m": "f", "texto": "O parafuso estica e aperta as chapas" },
+        { "m": "p7", "texto": "Mínima: cerca de 70% da resistência do parafuso" },
+        { "m": "v", "texto": "3/4″: 125 kN, cerca de 12,7 tf", "cor": "verde" }
+      ],
+      "narracao": "{f}Quando você protende, o parafuso estica como uma mola, e aperta as chapas uma contra a outra. {p7}A protensão mínima é cerca de setenta por cento da resistência à tração do parafuso. {v}Num A325 de três quartos, são cento e vinte e cinco quilonewtons: perto de doze vírgula sete toneladas-força em cada parafuso. Os valores de cada bitola estão na tabela quinze da NBR oito mil e oitocentos."
+    },
+    {
+      "tipo": "ilustra", "desenho": "torqueK", "titulo": "O torque não é o objetivo",
+      "itens": [
+        { "m": "t", "texto": "Torque depende do atrito (K)" },
+        { "m": "gv", "texto": "Galvanizado lubrificado: torque do preto pode romper", "cor": "vermelho" },
+        { "m": "su", "texto": "Sujo ou oxidado: não chega; separar", "cor": "vermelho" },
+        { "m": "tb", "texto": "Tabela de torque: só para escolher a ferramenta" }
+      ],
+      "narracao": "O torque não é o objetivo. A protensão é. {t}O torque que a chave mede depende do atrito na rosca, o coeficiente K, que varia com a lubrificação, a galvanização, a sujeira e o reuso. {pr}Com o mesmo torque, um parafuso preto oleado chega na protensão prevista. {gv}Um galvanizado lubrificado precisa de menos torque: o torque do preto pode rompê-lo. {su}E um parafuso sujo ou oxidado não chega na protensão: ele deve ser separado. {tb}Por isso, a tabela de torque só serve para escolher a ferramenta, nunca como critério de aceitação."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Por que a tabela de torque não é critério final?",
+      "resposta": "O atrito varia",
+      "conta": "lubrificação, galvanização, sujeira e reuso mudam o K",
+      "narracao": "Sua vez: por que a tabela genérica de torque não é critério final? {pensa}[[pausa:3]] {resp}Porque o atrito varia. Lubrificação, galvanização, sujeira e reuso mudam o resultado do mesmo torque."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "O objetivo é a protensão", "chave": "c1" },
+        { "texto": "Protensão mínima: tabela da NBR 8800", "chave": "c2" },
+        { "texto": "Galvanizado: cuidado com torque de preto", "chave": "c3" },
+        { "texto": "Sujo ou oxidado: separar", "chave": "c4" }
+      ],
+      "rodape": "Torque de tabela não é critério de aceitação.",
+      "narracao": "Na obra: {c1}o objetivo é a protensão. {c2}A protensão mínima está na tabela da NBR oito mil e oitocentos. {c3}No galvanizado, cuidado com o torque de parafuso preto. {c4}Sujo ou oxidado, separe. {fim}Torque de tabela não é critério de aceitação."
+    }
+  ]
+}

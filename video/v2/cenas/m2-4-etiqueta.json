@@ -1,0 +1,66 @@
+{
+  "codigo": "M2-4-etiqueta",
+  "titulo": "Da etiqueta ao lugar da peça",
+  "capitulo": "Módulo 2 · Leitura e interpretação de projetos · Aula 2.4",
+  "eyebrow": "M2 · Projetos",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m2.js"],
+  "fontes": ["Caderno do Módulo 2, itens 1.10, 1.11 e 1.12 (revisão 2)", "ABNT NBR 8800, 4.2.6 e 4.2.8; Petrobras N-293, 5.4.3 e 5.7.13, citadas no caderno"],
+  "pendencias": ["Padrão de marcação dos fornecedores da Palla: [VALIDAR]."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "passos",
+      "objetivo": "Levar uma peça da etiqueta ao seu lugar na estrutura, com nível, orientação e ligação corretos.",
+      "narracao": "Módulo dois, aula quatro: da etiqueta ao lugar da peça. Você vai ver as informações especiais do desenho, o que a marca da peça diz, e os cinco passos para montar no lugar certo."
+    },
+    {
+      "tipo": "ilustra", "desenho": "contraflecha", "titulo": "Contraflecha",
+      "itens": [
+        { "m": "c", "texto": "Curvatura para cima, dada na fábrica" },
+        { "m": "c2", "texto": "Montar com a curva para cima", "cor": "verde" },
+        { "m": "e", "texto": "Invertida: erro de montagem", "cor": "vermelho" }
+      ],
+      "narracao": "{c}Algumas vigas têm contraflecha: uma curvatura para cima, dada na fábrica. {c2}A viga é montada com a curva para cima. {e}Montada invertida, ela trabalha ao contrário do que o projeto calculou."
+    },
+    {
+      "tipo": "ilustra", "desenho": "marcaInfo", "titulo": "O que mais a marca diz",
+      "itens": [
+        { "m": "mk", "texto": "Marca sempre do mesmo lado: indica a orientação" },
+        { "m": "ei", "texto": "Eixo e norte de projeto" },
+        { "m": "lc", "texto": "\"Lado de cima\" em peça que pode inverter" },
+        { "m": "cg", "texto": "Centro de gravidade em peça pesada" }
+      ],
+      "narracao": "A marcação de fábrica diz mais do que o nome. {mk}A marca fica sempre do mesmo lado da peça, e indica a orientação de montagem. {ei}Pode trazer o eixo onde a peça vai, e uma seta para o norte do projeto. {lc}Peça que pode ser montada invertida traz a indicação lado de cima. {cg}Peças pesadas podem trazer a marca do centro de gravidade, para orientar a lingada. {pu}Em obras industriais, a marca é feita a punção e realçada com tinta de cor contrastante."
+    },
+    {
+      "tipo": "ilustra", "desenho": "marcaIlegivel", "titulo": "Erro frequente: içar sem confirmar a marca",
+      "itens": [
+        { "m": "e", "texto": "Marca ilegível ou que não bate com o romaneio", "cor": "vermelho" },
+        { "m": "e", "texto": "Içar \"pela cara\" da peça", "cor": "vermelho" },
+        { "m": "k", "texto": "Separar a peça e abrir RNC, antes de içar", "cor": "verde" }
+      ],
+      "narracao": "Erro frequente: {e}a marca está ilegível, ou não bate com o romaneio, e a equipe iça a peça pela aparência. {k}A correção: a peça é separada, e se abre a RNC, antes de içar."
+    },
+    {
+      "tipo": "ilustra", "desenho": "passos", "titulo": "Cinco passos", "painel": false,
+      "narracao": "Os cinco passos, da etiqueta ao lugar da peça. {p1}Um: leia a marca na etiqueta. {p2}Dois: confira a marca no romaneio e na lista de material. {p3}Três: ache a marca na planta ou na elevação, e anote os eixos. {p4}Quatro: confira o nível e a orientação. {p5}Cinco: abra o detalhe da ligação e a lista de parafusos. {duv}Na dúvida, pare e pergunte. Montar fora do projeto custa mais caro do que perguntar."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O desenho não mostra o nível de uma viga. O que fazer?",
+      "resposta": "Perguntar",
+      "conta": "ao encarregado, antes de montar · nunca copiar a vizinha",
+      "narracao": "Sua vez: o desenho não mostra o nível de uma viga. O que fazer? {pensa}[[pausa:3]] {resp}Perguntar ao encarregado, antes de montar. Nunca copiar o nível da viga vizinha."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Contraflecha sempre para cima", "chave": "c1" },
+        { "texto": "Marca: orientação, eixo, lado de cima, centro de gravidade", "chave": "c2" },
+        { "texto": "Marca ilegível: separar e RNC", "chave": "c3" },
+        { "texto": "Cinco passos antes de içar", "chave": "c4" }
+      ],
+      "rodape": "Na dúvida, pare e pergunte.",
+      "narracao": "Na obra: {c1}contraflecha sempre para cima. {c2}A marca indica orientação, eixo, lado de cima e centro de gravidade. {c3}Marca ilegível: separar e abrir RNC. {c4}E os cinco passos, antes de içar. {fim}Na dúvida, pare e pergunte."
+    }
+  ]
+}

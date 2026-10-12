@@ -1,0 +1,64 @@
+{
+  "codigo": "M2-2-lendo",
+  "titulo": "Lendo o desenho: vistas, eixos e níveis",
+  "capitulo": "Módulo 2 · Leitura e interpretação de projetos · Aula 2.2",
+  "eyebrow": "M2 · Projetos",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m2.js"],
+  "fontes": ["Caderno do Módulo 2, itens 1.5 e 1.6"],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "eixos",
+      "objetivo": "Reconhecer as vistas do desenho e localizar uma peça por eixos, cotas e níveis.",
+      "narracao": "Módulo dois, aula dois: lendo o desenho. Você vai reconhecer as vistas, achar uma peça pelos eixos, e entender cotas e níveis."
+    },
+    {
+      "tipo": "ilustra", "desenho": "vistas", "titulo": "Quatro vistas", "painel": false,
+      "narracao": "O desenho mostra a estrutura de quatro jeitos. {pl}A planta é a vista de cima: eixos, bases, vigas, terças e contraventamentos da cobertura. {el}A elevação é a vista de frente ou de lado de uma fila de eixos: pilares, longarinas e níveis. {co}O corte é a estrutura fatiada num ponto: mostra o pórtico e as alturas. {de}E o detalhe é uma ligação ampliada, com chapas, parafusos, soldas e medidas."
+    },
+    {
+      "tipo": "ilustra", "desenho": "eixos", "titulo": "Eixos e cotas",
+      "itens": [
+        { "m": "a", "texto": "Eixos: números numa direção, letras na outra" },
+        { "m": "x", "texto": "Pilar B3: cruzamento do eixo B com o eixo 3" },
+        { "m": "q", "texto": "Cotas em milímetros, em geral entre eixos" }
+      ],
+      "narracao": "{a}Os eixos são linhas de referência: números numa direção, e letras na outra. Para achar o pilar B três, {b}siga o eixo B, {n}depois o eixo três. {x}O pilar fica no cruzamento dos dois. {q}As cotas são distâncias em milímetros, em geral entre eixos. Seis mil, aqui, são seis metros."
+    },
+    {
+      "tipo": "ilustra", "desenho": "acumulado", "titulo": "Erro frequente: medir da peça vizinha",
+      "itens": [
+        { "m": "e", "texto": "Medir a partir da peça ao lado", "cor": "vermelho" },
+        { "m": "e2", "texto": "O erro de uma peça passa para a próxima", "cor": "vermelho" },
+        { "m": "c", "texto": "Medir sempre a partir do eixo", "cor": "verde" }
+      ],
+      "narracao": "Erro frequente: {e}medir a posição a partir da peça vizinha. {e2}Cada pequeno erro passa para a próxima peça, e vai se somando ao longo da fila. {c}A correção: meça sempre a partir do eixo. Assim, cada peça fica no lugar certo, independente da outra."
+    },
+    {
+      "tipo": "ilustra", "desenho": "niveis", "titulo": "Níveis",
+      "itens": [
+        { "m": "z", "texto": "Altura em relação à referência da obra" },
+        { "m": "s", "texto": "EL +6,000 = 6 m acima do nível zero" }
+      ],
+      "narracao": "{z}Os níveis são alturas em relação a uma referência da obra, o nível zero. {s}EL mais seis vírgula zero zero zero significa seis metros acima desse nível zero."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Onde fica o pilar C5?",
+      "resposta": "Eixo C × eixo 5",
+      "conta": "no cruzamento dos dois eixos",
+      "narracao": "Sua vez: onde fica o pilar C cinco? {pensa}[[pausa:3]] {resp}No cruzamento do eixo C com o eixo cinco."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Planta, elevação, corte e detalhe", "chave": "c1" },
+        { "texto": "Peça no cruzamento de dois eixos", "chave": "c2" },
+        { "texto": "Medir sempre a partir do eixo", "chave": "c3" },
+        { "texto": "EL: metros acima do nível zero", "chave": "c4" }
+      ],
+      "rodape": "Erro de locação se acumula: meça do eixo.",
+      "narracao": "Na obra: {c1}reconheça planta, elevação, corte e detalhe. {c2}A peça fica no cruzamento de dois eixos. {c3}Meça sempre a partir do eixo. {c4}E o EL indica metros acima do nível zero. {fim}Erro de locação se acumula: meça do eixo."
+    }
+  ]
+}

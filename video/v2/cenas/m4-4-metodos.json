@@ -1,0 +1,67 @@
+{
+  "codigo": "M4-4-metodos",
+  "titulo": "Métodos de aperto na prática",
+  "capitulo": "Módulo 4 · Ligações parafusadas e torque · Aula 4.4",
+  "eyebrow": "M4 · Aperto",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m4.js"],
+  "fontes": ["Caderno do Módulo 4, itens 1.5 e 1.6", "RCSC; ASTM F959 e F1852, citadas no caderno"],
+  "pendencias": ["Disponibilidade de célula de calibração nas obras da Palla: [VALIDAR]."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "rotacao",
+      "objetivo": "Aplicar a protensão pelo método especificado e usar cada ferramenta com segurança.",
+      "narracao": "Módulo quatro, aula quatro: métodos de aperto na prática. Você vai ver os quatro métodos de protensão, e o cuidado com cada ferramenta."
+    },
+    {
+      "tipo": "ilustra", "desenho": "rotacao", "titulo": "Rotação da porca",
+      "itens": [
+        { "m": "af", "texto": "Todos começam pelo aperto firme" },
+        { "m": "m", "texto": "Marca de giz: porca, ponta e chapa" },
+        { "m": "g", "texto": "Girar a porca a fração da tabela" },
+        { "m": "tb", "texto": "L até 4d: 1/3 de volta (120°)", "cor": "verde" }
+      ],
+      "narracao": "{af}Todos os métodos começam igual: todos os parafusos da ligação em aperto firme, com as chapas encostadas. A rotação da porca é o método preferencial em obra. {m}Depois do aperto firme, marque com giz a porca, a ponta do parafuso e a chapa. {g}Então gire a porca a fração de volta da tabela. {tb}Para parafuso com comprimento até quatro vezes o diâmetro, um terço de volta: cento e vinte graus. De quatro a oito diâmetros, meia volta. De oito a doze, dois terços. As marcas de giz mostram que o giro foi feito."
+    },
+    {
+      "tipo": "ilustra", "desenho": "calibrada", "titulo": "Chave calibrada",
+      "itens": [
+        { "m": "c", "texto": "Célula: 3 conjuntos por bitola e lote" },
+        { "m": "m", "texto": "Torque médio vira o torque do dia" },
+        { "m": "r", "texto": "Mudou lote, bitola, lubrificação ou ferramenta: recalibrar", "cor": "vermelho" }
+      ],
+      "narracao": "No método da chave calibrada, o torque de trabalho é definido todo dia, na célula de calibração. {c}Apertam-se no mínimo três conjuntos de cada bitola e lote, até um vírgula zero cinco vez a protensão mínima. {m}O torque médio vira o torque do dia, com ferramenta de precisão de quatro por cento. {r}Mudou o lote, a bitola, a lubrificação ou a ferramenta? Recalibre."
+    },
+    {
+      "tipo": "ilustra", "desenho": "dti", "titulo": "Arruela DTI e parafuso TC",
+      "itens": [
+        { "m": "d", "texto": "DTI: ressaltos que esmagam sob carga" },
+        { "m": "l", "texto": "Lâmina de 0,38 mm não entra em ½ dos vãos: ok" },
+        { "m": "z", "texto": "Folga zero em todos: rejeitar", "cor": "vermelho" },
+        { "m": "tc", "texto": "TC: vale com conjunto limpo, novo e aperto contínuo" }
+      ],
+      "narracao": "{d}A arruela DTI tem ressaltos que esmagam sob carga. {l}Quando o calibre de lâmina de zero vírgula trinta e oito milímetros não entra em pelo menos metade dos vãos, a protensão foi atingida. {z}Folga zero em todos os vãos é sobrecarga: rejeitar. {tc}Já no parafuso TC, a pistola elétrica rompe a ponta estriada quando a protensão é atingida. Vale como evidência só com o conjunto limpo, lubrificado de fábrica, parafuso novo e aperto contínuo."
+    },
+    {
+      "tipo": "ilustra", "desenho": "ferramentas", "titulo": "Ferramentas e segurança", "painel": false,
+      "narracao": "Cada ferramenta tem seu uso. {c}A chave combinada ou a catraca, para aperto firme até cinco oitavos, sempre com soquete de impacto. {i}A chave de impacto dá aperto firme e pré-aperto, mas não controla torque. {e}O torquímetro de estalo precisa estar calibrado, é zerado após o uso, e nunca serve para desapertar. {h}O torquímetro hidráulico, para uma polegada ou mais, com o braço de reação num ponto rígido e as mãos fora da zona de reação. {s}E sempre: fique fora da linha de giro da chave, amarre as ferramentas quando estiver em altura, e recolha as pontas dos parafusos TC."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Rotação da porca, L até 4d: quanto girar?",
+      "resposta": "1/3 de volta",
+      "conta": "120° após o aperto firme",
+      "narracao": "Sua vez: na rotação da porca, quanto se gira um parafuso com comprimento até quatro diâmetros? {pensa}[[pausa:3]] {resp}Um terço de volta, cento e vinte graus, depois do aperto firme."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Primeiro, aperto firme em todos", "chave": "c1" },
+        { "texto": "Rotação: giz e fração da tabela", "chave": "c2" },
+        { "texto": "DTI: lâmina de 0,38 mm; folga zero rejeita", "chave": "c3" },
+        { "texto": "Chave de impacto não controla torque", "chave": "c4" }
+      ],
+      "rodape": "Fora da linha de giro da chave.",
+      "narracao": "Na obra: {c1}primeiro, aperto firme em todos. {c2}Na rotação, giz e a fração da tabela. {c3}Na DTI, lâmina de zero trinta e oito, e folga zero rejeita. {c4}E a chave de impacto não controla torque. {fim}Fique fora da linha de giro da chave."
+    }
+  ]
+}

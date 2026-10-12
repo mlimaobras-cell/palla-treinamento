@@ -1,0 +1,64 @@
+{
+  "codigo": "M2-1-documentos",
+  "titulo": "Os documentos do projeto",
+  "capitulo": "Módulo 2 · Leitura e interpretação de projetos · Aula 2.1",
+  "eyebrow": "M2 · Projetos",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m2.js"],
+  "fontes": ["Caderno do Módulo 2, itens 1.1 a 1.4", "ABNT NBR 8800, seção 4, citada no caderno"],
+  "pendencias": ["Procedimento Palla de controle de documentos em obra (recolher ou carimbar desenho substituído): [VALIDAR]."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "folhaMontagem",
+      "objetivo": "Saber qual desenho usar, o que ele traz, quais documentos o acompanham e como garantir a revisão certa.",
+      "narracao": "Módulo dois, aula um: os documentos do projeto. Você vai saber qual desenho usar na obra, o que ele precisa trazer, e como garantir que está na revisão certa."
+    },
+    {
+      "tipo": "ilustra", "desenho": "tresDesenhos", "titulo": "Três tipos de desenho", "painel": false,
+      "narracao": "A NBR oito mil e oitocentos divide o projeto em três tipos de desenho. {p}O desenho de projeto é feito pelo calculista: mostra materiais, cargas, o tipo de cada ligação e as contraflechas. Quem usa é a engenharia e o detalhamento. {f}O desenho de fabricação mostra cada peça, com medidas, furos e soldas. Quem usa é a fábrica. {m}E o desenho de montagem mostra onde cada peça vai: marcas, eixos, níveis e ligações de campo. Esse é o seu desenho, no dia a dia da obra."
+    },
+    {
+      "tipo": "ilustra", "desenho": "folhaMontagem", "titulo": "O desenho de montagem traz",
+      "aviso": "NBR 8800, item 4.4, citada no caderno.",
+      "itens": [
+        { "m": "d", "texto": "Dimensões principais e marcas das peças" },
+        { "m": "nv", "texto": "Nível das placas de base; chumbadores" },
+        { "m": "pf", "texto": "Parafusos e soldas de campo" },
+        { "m": "pv", "texto": "Elementos provisórios para a estabilidade" },
+        { "m": "fa", "texto": "Faltou informação? Pergunte ao encarregado", "cor": "vermelho" }
+      ],
+      "narracao": "O desenho de montagem precisa indicar: {d}as dimensões principais da estrutura, {mc}a marca de cada peça, {nv}o nível da face inferior das placas de base, {ch}a locação e os detalhes dos chumbadores, {pf}o tipo, a dimensão e o local dos parafusos, {sc}as soldas de campo, {pv}e os elementos, permanentes ou provisórios, essenciais para a estabilidade da estrutura parcialmente montada. {fa}Se faltar alguma dessas informações, não adivinhe: pergunte ao encarregado."
+    },
+    {
+      "tipo": "ilustra", "desenho": "documentos", "titulo": "Documentos que andam junto", "painel": false,
+      "narracao": "Junto com o desenho, andam outros documentos. {n}As notas gerais: aço, parafusos, pintura, tolerâncias e normas. {l}A lista de material, com a marca, o perfil, o comprimento, a quantidade e o peso de cada peça. {p}A lista de parafusos, por ligação. {r}O romaneio, que diz o que veio em cada carga. {m}E o plano de montagem, com a sequência, os equipamentos de içamento e os travamentos provisórios."
+    },
+    {
+      "tipo": "ilustra", "desenho": "carimbo", "titulo": "Carimbo e revisão",
+      "itens": [
+        { "m": "c", "texto": "Carimbo: obra, desenho, folha, revisão, data, escala, responsável" },
+        { "m": "t", "texto": "Tabela de revisões: o que mudou" },
+        { "m": "r", "texto": "Monte sempre pela última revisão", "cor": "verde" },
+        { "m": "x", "texto": "Desenho substituído: recolhido ou carimbado como cancelado", "cor": "vermelho" }
+      ],
+      "narracao": "{c}O carimbo fica no canto inferior direito da folha. Ele identifica a obra, o número do desenho e da folha, a revisão, a data, a escala e o responsável técnico. {t}A tabela de revisões descreve o que mudou em cada uma. {r}A regra de ouro: monte sempre pela última revisão. {x}Desenho substituído é recolhido, ou carimbado como cancelado, para ninguém montar pelo desenho velho."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Há duas cópias do desenho: revisão 1 e revisão 3. Qual usar?",
+      "resposta": "Revisão 3",
+      "conta": "sempre a última revisão · a antiga sai de circulação",
+      "narracao": "Sua vez: na obra há duas cópias do mesmo desenho, revisão um e revisão três. Qual usar? {pensa}[[pausa:3]] {resp}A revisão três, a última. A revisão antiga sai de circulação."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Na obra, vale o desenho de montagem", "chave": "c1" },
+        { "texto": "Lista de material, parafusos e romaneio juntos", "chave": "c2" },
+        { "texto": "Confira a revisão no carimbo", "chave": "c3" },
+        { "texto": "Faltou informação: pergunte", "chave": "c4" }
+      ],
+      "rodape": "Monte sempre pela última revisão.",
+      "narracao": "Na obra: {c1}vale o desenho de montagem. {c2}Lista de material, lista de parafusos e romaneio andam juntos. {c3}Confira a revisão no carimbo. {c4}E se faltar informação, pergunte. {fim}Monte sempre pela última revisão."
+    }
+  ]
+}

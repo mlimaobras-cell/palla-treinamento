@@ -1,0 +1,60 @@
+{
+  "codigo": "M4-5-sequencia",
+  "titulo": "Sequência, inspeção e registro",
+  "capitulo": "Módulo 4 · Ligações parafusadas e torque · Aula 4.5",
+  "eyebrow": "M4 · Aperto",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m4.js"],
+  "fontes": ["Caderno do Módulo 4, itens 1.7 a 1.10", "Petrobras N-293, 6.3.3, citada no caderno"],
+  "pendencias": ["Reutilização de parafuso preto: regra Palla recomendada 'não reutilizar' ainda [VALIDAR]; o vídeo cita só a proibição do galvanizado protendido e remete ao procedimento da obra."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "sequencia",
+      "objetivo": "Apertar na sequência certa, inspecionar a ligação e registrar o aperto.",
+      "narracao": "Módulo quatro, aula cinco: sequência, inspeção e registro. Você vai ver a ordem certa de aperto, como inspecionar, e o que fica registrado."
+    },
+    {
+      "tipo": "ilustra", "desenho": "sequencia", "titulo": "Sequência de aperto",
+      "itens": [
+        { "m": "mo", "texto": "Montar todos, só encostados" },
+        { "m": "pn", "texto": "Alinhar furos com pino, nunca com o parafuso" },
+        { "m": "f", "texto": "Aperto firme: do centro para as bordas" },
+        { "m": "p", "texto": "Protensão: de novo do centro para as bordas" },
+        { "m": "r", "texto": "Repasse até nada girar", "cor": "verde" }
+      ],
+      "narracao": "{mo}Primeiro, monte todos os parafusos com porca e arruela, só encostados. {pn}Alinhe os furos com pino de centralização, nunca com o parafuso. {f}Dê o aperto firme do centro para as bordas, até as chapas encostarem. Em bases e flanges, em estrela. {p}Depois, aplique a protensão pelo método especificado, de novo do centro para as bordas. {r}E repasse a ligação, até nenhum parafuso girar mais. Gire de preferência a porca."
+    },
+    {
+      "tipo": "ilustra", "desenho": "inspecao", "titulo": "Inspeção e registro",
+      "itens": [
+        { "m": "v", "texto": "Visual em 100% dos parafusos" },
+        { "m": "ar", "texto": "Arbitragem: 10% da ligação, mínimo 2" },
+        { "m": "gi", "texto": "Girou? Repassar e reinspecionar tudo", "cor": "vermelho" },
+        { "m": "rg", "texto": "Registro: torquímetro, projeto, foto, relatório" }
+      ],
+      "narracao": "{v}A inspeção visual é em cem por cento: marcação A325, arruela no lado que gira, ponta rente ou acima da porca, e as marcas de giz, a DTI ou a ponta TC. {ar}Na dúvida, o torque de arbitragem é aplicado em dez por cento dos parafusos da ligação, no mínimo dois, no sentido de aperto, sem afrouxar. {gi}Se algum girar, repasse e reinspecione a ligação inteira. {rg}E registre: o número de série do torquímetro, a marcação em azul no projeto de montagem, a foto, e o lançamento no relatório de torque."
+    },
+    {
+      "tipo": "ilustra", "desenho": "proibidos", "titulo": "Proibido em campo", "painel": false,
+      "aviso": "Petrobras N-293, 6.3.3, citada no caderno.",
+      "narracao": "Proibido em campo: {c}extensão, o famoso cano, na chave, ou qualquer recurso que gere aperto excessivo. {d}Trocar por parafuso de diâmetro menor, mesmo de material mais resistente. {o}Ovalizar furo para fazer coincidir. Furo errado é fechado com solda e refurado, por procedimento aprovado. {ap}E arruela de pressão: com A325 protendido, o conjunto é parafuso, porca A563 e arruela F436. Também nunca reutilize parafuso galvanizado já protendido."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "No torque de arbitragem, um parafuso girou. O que fazer?",
+      "resposta": "Repassar tudo",
+      "conta": "e reinspecionar a ligação inteira",
+      "narracao": "Sua vez: no torque de arbitragem, um parafuso girou. O que fazer? {pensa}[[pausa:3]] {resp}Repassar, e reinspecionar a ligação inteira. Não só aquele parafuso."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Do centro para as bordas, duas vezes", "chave": "c1" },
+        { "texto": "Repasse até nada girar", "chave": "c2" },
+        { "texto": "Visual 100%; arbitragem 10% (mín. 2)", "chave": "c3" },
+        { "texto": "Registro: azul no projeto, foto, relatório", "chave": "c4" }
+      ],
+      "rodape": "Furo não coincide: não force, não ovalize.",
+      "narracao": "Na obra: {c1}do centro para as bordas, no aperto firme e na protensão. {c2}Repasse até nada girar. {c3}Inspeção visual em cem por cento, e arbitragem em dez por cento, no mínimo dois. {c4}E o registro: azul no projeto, foto e relatório. {fim}Furo que não coincide: não force, não ovalize."
+    }
+  ]
+}

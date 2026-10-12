@@ -1,0 +1,74 @@
+{
+  "codigo": "M5-2-preparar",
+  "titulo": "Preparar e soldar",
+  "capitulo": "Módulo 5 · Soldagem estrutural aplicada · Aula 5.2",
+  "eyebrow": "M5 · Soldagem",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m5.js"],
+  "fontes": ["Caderno do Módulo 5, itens 1.5 a 1.8", "AWS D1.1:2010, Tabela 5.8, citada no caderno"],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "filete",
+      "objetivo": "Preparar a junta, controlar temperatura e clima, executar o cordão e conferir o tamanho do filete.",
+      "narracao": "Módulo cinco, aula dois: preparar e soldar. Você vai ver como preparar a junta, quando pré-aquecer, como executar o cordão, e o tamanho mínimo do filete."
+    },
+    {
+      "tipo": "ilustra", "desenho": "preparacao", "titulo": "Preparação da junta",
+      "itens": [
+        { "m": "l", "texto": "Limpo: 20 mm em volta do bisel" },
+        { "m": "g", "texto": "Bisel, face e raiz conforme a WPS, com calibre" },
+        { "m": "a", "texto": "Desalinhamento: 10% da espessura ou 3 mm" },
+        { "m": "s", "texto": "Solda não corrige junta mal ajustada", "cor": "vermelho" }
+      ],
+      "narracao": "{l}A junta precisa estar limpa: sem óleo, graxa, carepa, ferrugem, tinta ou umidade, numa faixa de pelo menos vinte milímetros em volta do bisel. No MIG MAG, até o metal brilhante. {g}O ângulo do bisel, a face e a abertura da raiz seguem a WPS, e são conferidos com calibre. {a}O desalinhamento máximo é dez por cento da espessura, ou três milímetros, o que for menor. {s}Junta fora da tolerância é corrigida antes. Solda não corrige junta mal ajustada."
+    },
+    {
+      "tipo": "ilustra", "desenho": "preaquec", "titulo": "Temperatura e clima",
+      "itens": [
+        { "m": "p", "texto": "Pré-aquecimento quando a WPS exigir" },
+        { "m": "p2", "texto": "Conferir com termômetro ou giz térmico" },
+        { "m": "e", "texto": "Temperatura entre passes mantida" },
+        { "m": "ch", "texto": "Chuva, superfície molhada, vento sem proteção: não soldar", "cor": "vermelho" }
+      ],
+      "narracao": "{p}O pré-aquecimento é aplicado quando a WPS exigir, conforme a espessura e o tipo de aço. {p2}E é conferido com termômetro de contato ou giz térmico. {e}A temperatura mínima entre passes é mantida durante todo o cordão. {ch}E não se solda com chuva, superfície molhada, ou vento forte sem proteção aprovada pelo responsável técnico."
+    },
+    {
+      "tipo": "ilustra", "desenho": "execucao", "titulo": "Execução",
+      "itens": [
+        { "m": "pa", "texto": "Parâmetros da WPS" },
+        { "m": "es", "texto": "Escória fora e inspeção a cada passe" },
+        { "m": "rf", "texto": "Resfriar naturalmente", "cor": "verde" },
+        { "m": "si", "texto": "Autoinspeção e sinete do soldador" }
+      ],
+      "narracao": "{pa}Solde com os parâmetros da WPS. {es}Remova a escória e inspecione cada passe antes do próximo. {sq}Siga a sequência do projeto, para controlar a distorção. {rf}Deixe resfriar naturalmente. Nunca use água, nem ar comprimido. {si}No fim, limpe escória e respingos, faça a autoinspeção, e marque o sinete do soldador junto ao cordão."
+    },
+    {
+      "tipo": "ilustra", "desenho": "filete", "titulo": "Tamanho mínimo do filete",
+      "aviso": "AWS D1.1, Tabela 5.8, citada no caderno.",
+      "itens": [
+        { "m": "c", "texto": "Perna medida com calibre de solda" },
+        { "m": "t", "texto": "Mínimo conforme a espessura da chapa" },
+        { "m": "pj", "texto": "Vale o projeto, se for maior", "cor": "verde" }
+      ],
+      "narracao": "{c}A perna do filete é medida com o calibre de solda. {t}O tamanho mínimo depende da espessura da chapa: até seis milímetros, perna de três. De seis a doze, perna de cinco. De doze a vinte, perna de seis. Acima de vinte, perna de oito. {pj}Vale o tamanho do projeto, se for maior. E a perna não precisa passar da espessura da chapa mais fina."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Chapa de 10 mm. Qual a perna mínima do filete?",
+      "resposta": "5 mm",
+      "conta": "faixa de 6 a 12 mm · ou o projeto, se maior",
+      "narracao": "Sua vez: chapa de dez milímetros. Qual a perna mínima do filete? {pensa}[[pausa:3]] {resp}Cinco milímetros, da faixa de seis a doze. Ou o tamanho do projeto, se for maior."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Junta limpa e dentro da tolerância", "chave": "c1" },
+        { "texto": "Pré-aquecer quando a WPS mandar", "chave": "c2" },
+        { "texto": "Escória fora a cada passe", "chave": "c3" },
+        { "texto": "Resfriar naturalmente; sinete no cordão", "chave": "c4" }
+      ],
+      "rodape": "Solda não corrige junta mal ajustada.",
+      "narracao": "Na obra: {c1}junta limpa e dentro da tolerância. {c2}Pré-aquecer quando a WPS mandar. {c3}Escória fora a cada passe. {c4}Resfriar naturalmente, e o sinete no cordão. {fim}Solda não corrige junta mal ajustada."
+    }
+  ]
+}

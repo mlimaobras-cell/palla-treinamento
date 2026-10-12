@@ -1,0 +1,62 @@
+{
+  "codigo": "M2-3-simbolos",
+  "titulo": "Marcas, solda e parafusos no desenho",
+  "capitulo": "Módulo 2 · Leitura e interpretação de projetos · Aula 2.3",
+  "eyebrow": "M2 · Projetos",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m2.js"],
+  "fontes": ["Caderno do Módulo 2, itens 1.7, 1.8 e 1.9", "ABNT NBR 8800, 4.2.3 e 4.2.4; AWS A2.4, citadas no caderno"],
+  "pendencias": ["Padrão de marcas dos projetos da Palla: [VALIDAR]; o vídeo apresenta o padrão como 'comum' e remete ao projeto da obra."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "soldaSimbolo",
+      "objetivo": "Ler a marca de uma peça, interpretar o símbolo de solda e a indicação de parafusos.",
+      "narracao": "Módulo dois, aula três: marcas, solda e parafusos no desenho. Você vai ler a marca de uma peça, entender o símbolo de solda, e a indicação de parafusos."
+    },
+    {
+      "tipo": "ilustra", "desenho": "marcas", "titulo": "A marca da peça", "painel": false,
+      "narracao": "A marca é o nome da peça, e aparece em três lugares: {pe}na etiqueta ou na pintura da peça, {ro}no romaneio, {de}e no desenho de montagem. {pd}Um padrão comum é P para pilar, V para viga, T para terça, L para longarina, CV para contraventamento e TR para tirante. Peças iguais têm a mesma marca. Peças parecidas, mas com furação diferente, têm marcas diferentes. Confira sempre o padrão do projeto da obra."
+    },
+    {
+      "tipo": "ilustra", "desenho": "soldaSimbolo", "titulo": "Símbolo de solda",
+      "aviso": "Simbologia AWS A2.4, exigida pela NBR 8800 (4.2.4).",
+      "itens": [
+        { "m": "s", "texto": "Seta: aponta a junta" },
+        { "m": "t", "texto": "Triângulo: filete. Abaixo = lado da seta" },
+        { "m": "b", "texto": "Bandeira: solda de campo, na obra", "cor": "vermelho" },
+        { "m": "c", "texto": "Círculo: todo o contorno" },
+        { "m": "n", "texto": "Número: perna da solda, em mm" },
+        { "m": "k", "texto": "Cauda: observações, processo ou WPS" }
+      ],
+      "narracao": "{s}A seta aponta a junta. {l}A linha de referência é a base do símbolo. {t}O triângulo indica solda de filete. Desenhado abaixo da linha, é do lado da seta. {o}Acima da linha, é do lado oposto. {b}A bandeira indica solda de campo, feita na obra. {c}O círculo indica solda em todo o contorno. {n}O número à esquerda é o tamanho da perna: seis quer dizer seis milímetros. {k}E a cauda traz observações, o processo ou a especificação de soldagem."
+    },
+    {
+      "tipo": "ilustra", "desenho": "parafusoTexto", "titulo": "Parafusos no desenho",
+      "itens": [
+        { "m": "q", "texto": "4 parafusos" },
+        { "m": "d", "texto": "de 3/4 de polegada" },
+        { "m": "c", "texto": "com 65 mm de comprimento" },
+        { "m": "e", "texto": "especificação A325" },
+        { "m": "a", "texto": "Tipo de aperto: o projeto define" }
+      ],
+      "narracao": "Uma indicação como esta quer dizer: {q}quatro parafusos, {d}de três quartos de polegada, {c}com sessenta e cinco milímetros de comprimento, {e}na especificação A trezentos e vinte e cinco. {a}O projeto também diz se o aperto é normal ou protendido. Isso você aprende no Módulo quatro. E a lista de parafusos resume tudo, por ligação."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "No símbolo de solda, o que a bandeira significa?",
+      "resposta": "Solda de campo",
+      "conta": "feita na obra, por soldador qualificado",
+      "narracao": "Sua vez: no símbolo de solda, o que a bandeira significa? {pensa}[[pausa:3]] {resp}Solda de campo: feita na obra."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Marca: na peça, no romaneio e no desenho", "chave": "c1" },
+        { "texto": "Bandeira = solda de campo", "chave": "c2" },
+        { "texto": "Triângulo abaixo = lado da seta", "chave": "c3" },
+        { "texto": "Parafuso: quantidade, diâmetro, comprimento, especificação", "chave": "c4" }
+      ],
+      "rodape": "Marca que não bate: não monte.",
+      "narracao": "Na obra: {c1}a marca está na peça, no romaneio e no desenho. {c2}Bandeira é solda de campo. {c3}Triângulo abaixo da linha é do lado da seta. {c4}E na indicação de parafusos: quantidade, diâmetro, comprimento e especificação. {fim}Marca que não bate, não monte."
+    }
+  ]
+}

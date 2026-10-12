@@ -1,0 +1,49 @@
+{
+  "codigo": "M5-3-defeitos",
+  "titulo": "Defeitos e aceitação",
+  "capitulo": "Módulo 5 · Soldagem estrutural aplicada · Aula 5.3",
+  "eyebrow": "M5 · Soldagem",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m5.js"],
+  "fontes": ["Caderno do Módulo 5, itens 1.9, 1.10 e 1.15", "AWS D1.1:2010, Tabela 6.1, citada no caderno"],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "aceitacao",
+      "objetivo": "Reconhecer os defeitos de solda e os casos de rejeição imediata.",
+      "narracao": "Módulo cinco, aula três: defeitos e aceitação. Você vai reconhecer os defeitos mais comuns, e saber quando a solda é rejeitada na hora."
+    },
+    {
+      "tipo": "ilustra", "desenho": "defeitos", "titulo": "Defeitos", "painel": false,
+      "narracao": "Os defeitos mais comuns: {d1}a trinca, uma fissura no cordão ou ao lado. É a mais grave. {d2}A falta de fusão: solda que não fundiu com o metal de base ou com o passe anterior. {d3}A mordedura: um sulco no metal de base, na margem do cordão. {d4}A porosidade: poros de gás, por umidade, vento ou sujeira. {d5}A cratera: um buraco no fim do cordão, sem preencher. {d6}A sobreposição: metal derramado sem fundir na borda. {d7}A inclusão de escória, presa entre passes. {d8}E a perna pequena: cordão menor que o projeto. Os respingos também atrapalham a pintura, e são removidos."
+    },
+    {
+      "tipo": "ilustra", "desenho": "aceitacao", "titulo": "Aceitação e rejeição",
+      "aviso": "Critérios visuais para carga estática; carga cíclica tem critérios mais rígidos.",
+      "itens": [
+        { "m": "t", "texto": "Trinca: nenhuma, de qualquer tamanho", "cor": "vermelho" },
+        { "m": "f", "texto": "Fusão completa; cratera preenchida" },
+        { "m": "m", "texto": "Mordedura e poros: limites da AWS D1.1" },
+        { "m": "rj", "texto": "Rejeição imediata: trinca, falta de fusão, sem qualificação, sem WPS", "cor": "vermelho" }
+      ],
+      "narracao": "{t}Na inspeção visual, trinca não tem tamanho aceitável: nenhuma, de qualquer tamanho ou local. {f}A fusão precisa ser completa entre os passes e com o metal de base, e a cratera, preenchida. {m}Mordedura e porosidade têm limites na tabela da AWS D1.1, que o inspetor aplica. {rj}E há rejeição imediata para: qualquer trinca, falta de fusão visível, soldador sem qualificação válida para o processo ou a posição, e junta sem WPS aprovada. {rn}Solda reprovada gera registro de não conformidade, com extensão, causa e ação corretiva."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A solda tem uma trinca pequena. Aprova ou reprova?",
+      "resposta": "Reprova",
+      "conta": "trinca não tem tamanho aceitável",
+      "narracao": "Sua vez: a solda tem uma trinca pequena, de poucos milímetros. Aprova ou reprova? {pensa}[[pausa:3]] {resp}Reprova. Trinca não tem tamanho aceitável."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Trinca: rejeição, de qualquer tamanho", "chave": "c1" },
+        { "texto": "Fusão completa e cratera preenchida", "chave": "c2" },
+        { "texto": "Escória e respingos removidos", "chave": "c3" },
+        { "texto": "Reprovou: registro com causa e ação", "chave": "c4" }
+      ],
+      "rodape": "Na dúvida, chame o inspetor.",
+      "narracao": "Na obra: {c1}trinca é rejeição, de qualquer tamanho. {c2}Fusão completa e cratera preenchida. {c3}Escória e respingos removidos. {c4}Reprovou, registro com causa e ação. {fim}Na dúvida, chame o inspetor."
+    }
+  ]
+}

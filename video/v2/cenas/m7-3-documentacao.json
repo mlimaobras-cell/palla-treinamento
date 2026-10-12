@@ -1,0 +1,66 @@
+{
+  "codigo": "M7-3-documentacao",
+  "titulo": "Documentação do encarregado",
+  "capitulo": "Módulo 7 · Segurança, NRs e documentação de obra · Aula 7.3",
+  "eyebrow": "M7 · Documentação",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m7.js"],
+  "fontes": ["Caderno do Módulo 7, itens 1.7 a 1.11"],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "entrega",
+      "objetivo": "Preencher o diário, registrar não conformidades, marcar as inspeções e montar a documentação de entrega.",
+      "narracao": "Módulo sete, aula três: documentação do encarregado. Você vai ver o diário de obra, a RNC, as cores de inspeção no projeto, e os documentos de entrega."
+    },
+    {
+      "tipo": "ilustra", "desenho": "diario", "titulo": "Diário de obra",
+      "itens": [
+        { "m": "r", "texto": "Genérico não serve", "cor": "vermelho" },
+        { "m": "b", "texto": "O que, onde, quanto e quem", "cor": "verde" },
+        { "m": "d", "texto": "Todos os dias; sem atividade, com o motivo" },
+        { "m": "f", "texto": "Fotos do dia; cliente assina cada etapa" }
+      ],
+      "narracao": "O diário de obra conta a história da obra. {r}Escrever só montagem de estrutura não diz nada. {b}Diário bom é descritivo: montados pórticos dos eixos três a seis, doze terças, prumo verificado. Com o efetivo em campo e os equipamentos, as ocorrências, visitas e decisões. {d}É preenchido todos os dias corridos, inclusive sem atividade, com o motivo: chuva, falta de material, espera do cliente. {f}Leva as fotos do dia, e é assinado pelo cliente ao fim de cada etapa."
+    },
+    {
+      "tipo": "ilustra", "desenho": "rncDoc", "titulo": "RNC e retrabalho",
+      "itens": [
+        { "m": "d", "texto": "Registrar na hora em que identificou" },
+        { "m": "m", "texto": "Descrição, foto e medida do desvio" },
+        { "m": "e", "texto": "Retrabalho só com aprovação da engenharia", "cor": "vermelho" }
+      ],
+      "narracao": "Divergência de romaneio, dano, falha de execução ou desvio de inspeção: {d}tudo vira RNC, no momento em que é identificado, {m}com descrição, fotos e a medida do desvio. {f}A foto e a trena valem mais do que qualquer explicação depois. {e}E nenhum retrabalho começa sem aprovação prévia da engenharia. RNC não é caça a culpado: serve para corrigir e evitar repetição."
+    },
+    {
+      "tipo": "ilustra", "desenho": "cores", "titulo": "Cores de inspeção no projeto",
+      "itens": [
+        { "m": "az", "texto": "Azul: torque verificado" },
+        { "m": "am", "texto": "Amarelo: solda inspecionada" },
+        { "m": "vd", "texto": "Verde: pintura verificada" }
+      ],
+      "narracao": "Na vista superior do projeto de montagem, cada item inspecionado é marcado com uma cor. {az}Azul: ligação com torque verificado. {am}Amarelo: solda inspecionada ou ensaiada. {vd}Verde: retoque, espessura de camada e aderência de pintura verificados. Marca, fotografa, e registra no diário."
+    },
+    {
+      "tipo": "ilustra", "desenho": "entrega", "titulo": "Documentos de entrega", "painel": false,
+      "narracao": "Na entrega: {rt}o relatório de torque, feito ao longo da obra, com torquímetro calibrado. {if}A inspeção final, junto com o cliente, ao fim de cada etapa. {te}O termo de entrega, assinado pelo cliente depois da inspeção. {mg}O manual de garantia, com ciência formal do cliente sobre a manutenção. {db}E o data book, que reúne o PIT, a rastreabilidade de materiais, os certificados, a documentação de solda, os ensaios, a pintura e o projeto como construído. {nr}O que não foi registrado, não aconteceu."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Choveu e não houve atividade. Preenche o diário?",
+      "resposta": "Sim",
+      "conta": "todo dia corrido, com o motivo",
+      "narracao": "Sua vez: choveu o dia inteiro e não houve atividade. Preenche o diário? {pensa}[[pausa:3]] {resp}Sim. O diário é preenchido todos os dias corridos, com o motivo da parada."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Diário todo dia: o que, onde, quanto, quem", "chave": "c1" },
+        { "texto": "RNC na hora, com foto e medida", "chave": "c2" },
+        { "texto": "Azul, amarelo, verde no projeto", "chave": "c3" },
+        { "texto": "Termo assinado e data book completo", "chave": "c4" }
+      ],
+      "rodape": "O que não foi registrado não aconteceu.",
+      "narracao": "Na obra: {c1}diário todo dia: o que, onde, quanto e quem. {c2}RNC na hora, com foto e medida. {c3}Azul, amarelo e verde no projeto. {c4}E termo assinado, com o data book completo. {fim}O que não foi registrado, não aconteceu."
+    }
+  ]
+}

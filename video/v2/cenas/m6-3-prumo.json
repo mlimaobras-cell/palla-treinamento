@@ -1,0 +1,95 @@
+{
+  "codigo": "M6-3-prumo",
+  "titulo": "Prumo, tolerâncias e liberação",
+  "capitulo": "Módulo 6 · Metrologia e topografia de montagem · Aula 6.3",
+  "eyebrow": "M6 · Topografia",
+  "scripts": [
+    "ilustracoes/base.js",
+    "ilustracoes/m6.js"
+  ],
+  "fontes": [
+    "Caderno do Módulo 6, itens 1.8 a 1.10",
+    "ABNT NBR 8800:2008, 12.3.3 e 12.3.5, citada no caderno"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "desenho": "prumo",
+      "objetivo": "Verificar o prumo dos pilares, aplicar as tolerâncias de montagem e liberar a etapa com registro.",
+      "narracao": "Módulo seis, aula três: prumo, tolerâncias e liberação. Você vai calcular o limite de prumo de um pilar, conhecer as tolerâncias de vigas e emendas, e ver como a etapa é liberada."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "prumo",
+      "titulo": "Prumo de pilar",
+      "aviso": "Inclinação exagerada no desenho. NBR 8800, 12.3.3, citada no caderno.",
+      "itens": [
+        {
+          "m": "p",
+          "texto": "Desvio até 1:500 da altura"
+        },
+        {
+          "m": "p2",
+          "texto": "Medido nas duas direções"
+        },
+        {
+          "m": "lim",
+          "texto": "Pilar de 9 m: limite de 18 mm"
+        },
+        {
+          "m": "d2",
+          "texto": "Uma direção fora: reprovado",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{p}O desvio de prumo de um pilar de uma peça vai até um para quinhentos da altura, {p2}medido nas duas direções. Exemplo: um pilar de nove metros. {lim}Nove mil dividido por quinhentos: o limite é dezoito milímetros. {d1}Numa direção, o desvio medido foi doze milímetros: dentro. {d2}Na outra, vinte e um: fora. {aj}O pilar está reprovado na segunda direção, e é ajustado antes do torque final. Para seis metros, o limite é doze milímetros. Para doze metros, vinte e quatro."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "emenda",
+      "titulo": "Emenda de pilar por contato",
+      "painel": false,
+      "aviso": "NBR 8800, 12.3.5, citada no caderno.",
+      "narracao": "Nas emendas de pilar por contato, olhe a fresta. {a}Até um vírgula cinco milímetro: aceita. {c}De um vírgula cinco a seis milímetros, se faltar área de contato, usa-se calço de aço de faces paralelas. {e}Acima de seis milímetros: consulte a engenharia. E nas vigas ligadas a pilar, a elevação vai de mais cinco a menos oito milímetros, em relação à distância de projeto até a emenda do pilar acima."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "liberacao",
+      "titulo": "Levantamento e liberação",
+      "painel": false,
+      "narracao": "{t}O topógrafo mede prumo, nível e eixos, com equipamento calibrado, e o certificado vai anexado ao relatório. {c}O encarregado compara o laudo com as tolerâncias. {d}Dentro: libera a etapa, e registra no diário. {f}Fora: define a ação com o cliente, e registra. {px}A etapa liberada é o sinal para a próxima frente: torque final, cobertura e fechamento."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Pilar de 12 m: qual o desvio máximo de prumo?",
+      "resposta": "24 mm",
+      "conta": "12.000 ÷ 500 · nas duas direções",
+      "narracao": "Sua vez: pilar de doze metros. Qual o desvio máximo de prumo? {pensa}[[pausa:3]] {resp}Vinte e quatro milímetros: doze mil dividido por quinhentos, nas duas direções."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Prumo: altura ÷ 500, nas duas direções",
+          "chave": "c1"
+        },
+        {
+          "texto": "Ajustar antes do torque final",
+          "chave": "c2"
+        },
+        {
+          "texto": "Emenda: até 1,5 mm ok; acima de 6, engenharia",
+          "chave": "c3"
+        },
+        {
+          "texto": "Laudo comparado, etapa liberada e registrada",
+          "chave": "c4"
+        }
+      ],
+      "rodape": "Sem liberação, a próxima frente não começa.",
+      "narracao": "Na obra: {c1}prumo, altura dividida por quinhentos, nas duas direções. {c2}Ajustar antes do torque final. {c3}Na emenda, até um e meio milímetro, ok. Acima de seis, engenharia. {c4}E o laudo comparado, com a etapa liberada e registrada. {fim}Sem liberação, a próxima frente não começa."
+    }
+  ]
+}

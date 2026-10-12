@@ -1,0 +1,85 @@
+{
+  "codigo": "M8-1-manta-telha",
+  "titulo": "Manta e telha zipada",
+  "capitulo": "Módulo 8 · Cobertura e fechamento · Aula 8.1",
+  "eyebrow": "M8 · Cobertura",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m8.js"],
+  "fontes": ["Caderno do Módulo 8, itens 1.1 a 1.5"],
+  "pendencias": ["Valores (faixa de manta no oitão, verificação da perfiladeira) vêm de instruções de trabalho de referência: confirmar padrões da Palla e dos fornecedores [VALIDAR]."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "camadas",
+      "objetivo": "Montar a manta e a telha zipada na sequência certa, com gabarito único e controle da perfiladeira.",
+      "narracao": "Módulo oito, aula um: manta e telha zipada. Cobertura boa é a que o cliente esquece que existe. Toda atividade deste módulo é trabalho em altura, e exige NR trinta e cinco válida."
+    },
+    {
+      "tipo": "ilustra", "desenho": "camadas", "titulo": "As camadas da cobertura",
+      "aviso": "No canteiro, vale o detalhamento do projeto e do fabricante.",
+      "itens": [
+        { "m": "te", "texto": "Terças: a estrutura secundária" },
+        { "m": "ma", "texto": "Manta termoacústica" },
+        { "m": "tl", "texto": "Telha" },
+        { "m": "ar", "texto": "Arremates: calhas, rufos, cumeeiras" },
+        { "m": "es", "texto": "Só com estrutura alinhada e com torque", "cor": "vermelho" }
+      ],
+      "narracao": "A cobertura tem camadas, de baixo para cima: {te}as terças, que são a estrutura secundária, {ma}a manta termoacústica, {tl}a telha, {ar}e os arremates: calhas, rufos, cumeeiras e pingadeiras. {es}A cobertura só começa com a estrutura alinhada, aprumada e com torque. Terça desalinhada vira telha ondulada, e vazamento."
+    },
+    {
+      "tipo": "ilustra", "desenho": "manta", "titulo": "Manta termoacústica",
+      "aviso": "Valores de referência; vale o projeto e o fabricante.",
+      "itens": [
+        { "m": "l", "texto": "No sentido longitudinal, esticada, sem dobras" },
+        { "m": "e", "texto": "Emenda com dobra sobreposta e grampeada" },
+        { "m": "o", "texto": "Faixa de manta no beiral do oitão" },
+        { "m": "lv", "texto": "Linha de vida móvel; pisar só na terça", "cor": "vermelho" }
+      ],
+      "narracao": "{l}A manta é fixada no sentido longitudinal, esticada, e sem dobras que reduzam a espessura. {e}A emenda entre painéis tem dobra de sobreposição, grampeada em intervalos regulares. {o}No beiral do oitão, uma faixa de manta: a referência é de no mínimo cento e cinquenta milímetros. {lv}E a segurança: linha de vida móvel, e nunca pisar na manta fora da terça. Ela não sustenta peso."
+    },
+    {
+      "tipo": "ilustra", "desenho": "gabarito", "titulo": "Gabarito da telha zipada",
+      "itens": [
+        { "m": "m", "texto": "Marcar a posição inicial na estrutura" },
+        { "m": "r", "texto": "Mesma referência para todas as águas", "cor": "verde" },
+        { "m": "er", "texto": "Erro na primeira se soma a cada módulo", "cor": "vermelho" }
+      ],
+      "narracao": "{m}Antes da primeira telha, demarque a posição inicial na estrutura, conferindo o alinhamento com a linha de zenital. {r}Use a mesma referência para todas as águas, e faça as emendas conforme o detalhe do projeto. {er}A primeira telha define todas: um erro na marcação se acumula a cada módulo."
+    },
+    {
+      "tipo": "ilustra", "desenho": "zipagem", "titulo": "Zipagem e perfiladeira",
+      "aviso": "Sentido de zipagem e parâmetros: instruções do fabricante.",
+      "itens": [
+        { "m": "z", "texto": "Conferir rolos; zipadeira no sentido do fabricante" },
+        { "m": "pd", "texto": "Pré-dobra no início e no fim da costura" },
+        { "m": "pf", "texto": "Perfiladeira: medir a saída periodicamente" },
+        { "m": "fe", "texto": "Fim do dia: nenhuma telha solta", "cor": "vermelho" }
+      ],
+      "narracao": "{z}Confira os rolos de pré-dobra e de dobra final antes de começar. A zipadeira vai sobre a junta, no sentido indicado pelo fabricante, percorrendo toda a costura e conferindo a cada trecho. {pd}Use o alicate de pré-dobra no início e no fim de cada costura. {pf}Na perfiladeira, meça a saída: a referência é a cada duas telhas, conferindo medidas, aspecto e quantidade. A máquina perde parâmetro sem avisar. {fe}No fim do expediente, nenhuma telha solta sobre a cobertura, e a área sem telha zipada fica sinalizada."
+    },
+    {
+      "tipo": "ilustra", "desenho": "pisarManta", "titulo": "Erro frequente: pisar na manta",
+      "itens": [
+        { "m": "e", "texto": "Andar sobre a manta entre as terças", "cor": "vermelho" },
+        { "m": "k", "texto": "Circular sobre a terça, conectado à linha de vida", "cor": "verde" }
+      ],
+      "narracao": "Erro frequente: {e}para ganhar tempo, alguém anda sobre a manta, entre as terças. A manta não sustenta peso. {k}A correção: circular só sobre a terça ou passarela, sempre conectado à linha de vida."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Por que a primeira telha é tão importante?",
+      "resposta": "Ela define todas",
+      "conta": "erro na marcação se soma a cada módulo",
+      "narracao": "Sua vez: por que a primeira telha é tão importante? {pensa}[[pausa:3]] {resp}Porque ela define todas as outras. Um erro na marcação se soma a cada módulo."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Estrutura alinhada e com torque antes", "chave": "c1" },
+        { "texto": "Manta esticada, emendas sobrepostas", "chave": "c2" },
+        { "texto": "Gabarito único para todas as águas", "chave": "c3" },
+        { "texto": "Perfiladeira medida; nada solto no fim do dia", "chave": "c4" }
+      ],
+      "rodape": "Pisar só sobre terça, conectado.",
+      "narracao": "Na obra: {c1}estrutura alinhada e com torque antes. {c2}Manta esticada, com emendas sobrepostas. {c3}Gabarito único para todas as águas. {c4}Perfiladeira medida, e nada solto no fim do dia. {fim}Pisar só sobre terça, conectado."
+    }
+  ]
+}

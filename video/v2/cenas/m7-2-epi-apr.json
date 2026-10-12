@@ -1,0 +1,73 @@
+{
+  "codigo": "M7-2-epi-apr",
+  "titulo": "EPI, APR, DDS e integração",
+  "capitulo": "Módulo 7 · Segurança, NRs e documentação de obra · Aula 7.2",
+  "eyebrow": "M7 · Segurança",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m7.js"],
+  "fontes": ["Caderno do Módulo 7, itens 1.3 a 1.6 e 1.13 (revisão 2)"],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "aprPt",
+      "objetivo": "Usar EPI corretamente e participar da APR, da PT, do DDS e da integração.",
+      "narracao": "Módulo sete, aula dois: EPI, APR, DDS e integração. São as rotinas que acontecem antes de qualquer serviço começar."
+    },
+    {
+      "tipo": "ilustra", "desenho": "epi", "titulo": "EPI básico da montagem",
+      "itens": [
+        { "m": "ca", "texto": "Capacete com jugular, óculos, luva, botina" },
+        { "m": "ci", "texto": "Em altura: cinturão e talabarte duplo" },
+        { "m": "rg", "texto": "CA válido e ficha de entrega assinada" },
+        { "m": "dn", "texto": "Danificado: avisar e trocar na hora", "cor": "vermelho" }
+      ],
+      "narracao": "O EPI básico da montagem: {ca}capacete com jugular, {ob}óculos de segurança, {lu}luva adequada à tarefa, {bo}botina com biqueira. {ci}Em altura, cinturão e talabarte duplo. {pa}E protetor auricular quando houver ruído. {rg}Só vale EPI com Certificado de Aprovação válido, e toda entrega é registrada em ficha assinada. O uso é obrigatório durante a atividade. {dn}EPI danificado: avise o encarregado, e troque na hora."
+    },
+    {
+      "tipo": "ilustra", "desenho": "aprPt", "titulo": "APR e permissão de trabalho",
+      "itens": [
+        { "m": "a", "texto": "APR: risco e controle de cada etapa, com a equipe" },
+        { "m": "p", "texto": "PT: autorização escrita para atividade de risco" },
+        { "m": "v", "texto": "Mudou a condição: parar e revisar", "cor": "vermelho" }
+      ],
+      "narracao": "{a}A APR, análise preliminar de riscos, lista os riscos e as medidas de controle de cada etapa da tarefa. Ela é feita com a equipe que vai executar. {p}A PT, permissão de trabalho, é a autorização escrita para atividade de risco não rotineira, como altura, trabalho a quente e içamento crítico, com validade, responsáveis e condições. Muitos clientes exigem PT para todo içamento, toda altura e todo trabalho a quente. Vale a regra mais restritiva. {v}E se a condição mudar, como vento, chuva, troca de equipamento ou de local: pare, e revise a APR antes de continuar."
+    },
+    {
+      "tipo": "ilustra", "desenho": "dds", "titulo": "DDS",
+      "itens": [
+        { "m": "t", "texto": "Todo dia, antes de tudo, 10 a 15 minutos" },
+        { "m": "tm", "texto": "Um tema das atividades do dia" },
+        { "m": "l", "texto": "Lista de presença assinada" },
+        { "m": "f", "texto": "Todos podem e devem falar", "cor": "verde" }
+      ],
+      "narracao": "{t}O DDS, diálogo diário de segurança, acontece todo dia, antes de qualquer atividade, com toda a equipe, própria e terceira. Dura de dez a quinze minutos, conduzido pelo encarregado ou supervisor. {tm}Tem um tema ligado às atividades do dia: altura, carga suspensa, EPI, clima, emergência. {l}A lista de presença é assinada e arquivada. {f}E todos podem, e devem, falar."
+    },
+    {
+      "tipo": "ilustra", "desenho": "integracao", "titulo": "Integração",
+      "itens": [
+        { "m": "n", "texto": "Novo funcionário: ASO, NRs da função, EPI com ficha" },
+        { "m": "o", "texto": "Cada obra tem sua integração, até para o antigo" },
+        { "m": "tc", "texto": "Terceiros: documentos conferidos antes" },
+        { "m": "b", "texto": "Sem integração ou com documento vencido: não entra", "cor": "vermelho" }
+      ],
+      "narracao": "{n}O funcionário novo entra com ASO, os treinamentos de NR da função, EPI com ficha, e a apresentação da empresa. {o}Em cada obra nova, todos passam pela integração: riscos do canteiro, regras do cliente, rotas de fuga e ponto de encontro. Mesmo o funcionário antigo. {tc}Terceiros têm os documentos da empresa e de cada profissional conferidos antes do acesso. {b}Sem integração, ou com ASO ou certificado vencido, o encarregado bloqueia no portão."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O vento aumentou no meio do içamento. O que fazer?",
+      "resposta": "Parar e revisar",
+      "conta": "a APR antes de continuar",
+      "narracao": "Sua vez: o vento aumentou no meio do içamento. O que fazer? {pensa}[[pausa:3]] {resp}Parar, e revisar a APR antes de continuar."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "EPI com CA e ficha; danificado, troca", "chave": "c1" },
+        { "texto": "APR com a equipe; PT quando exigida", "chave": "c2" },
+        { "texto": "DDS todo dia, com lista assinada", "chave": "c3" },
+        { "texto": "Integração em cada obra", "chave": "c4" }
+      ],
+      "rodape": "Mudou a condição: para e revisa.",
+      "narracao": "Na obra: {c1}EPI com CA e ficha; danificado, troca. {c2}APR com a equipe, e PT quando exigida. {c3}DDS todo dia, com lista assinada. {c4}E integração em cada obra. {fim}Mudou a condição: para e revisa."
+    }
+  ]
+}

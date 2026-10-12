@@ -1,0 +1,68 @@
+{
+  "codigo": "NR35-1-regras",
+  "titulo": "NR-35: quem pode subir e como planejar",
+  "capitulo": "NR-35 · Trabalho em altura · Apoio 1",
+  "eyebrow": "NR-35 · Apoio",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m7.js", "ilustracoes/nr35.js"],
+  "fontes": ["Material de apoio NR-35 da plataforma (db/conteudo/nr35.ts), itens 35.2.1, 35.4.1 a 35.4.5, 35.5.6 a 35.5.8", "Portaria MTE nº 1.259/2026 (35.4.5: treinamentos presenciais)"],
+  "pendencias": ["Vídeo de apoio: não conta como carga horária e não substitui o treinamento presencial (35.4.5).", "Gatilhos do treinamento eventual: conferir o texto vigente da NR-01 [VALIDAR]."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "doisMetros",
+      "objetivo": "Saber quem pode trabalhar em altura, como o trabalho é planejado e quando ele não começa.",
+      "narracao": "NR trinta e cinco, apoio um: quem pode subir, e como planejar. Este vídeo é material de apoio. O treinamento da NR trinta e cinco é presencial, com teoria e prática."
+    },
+    {
+      "tipo": "ilustra", "desenho": "doisMetros", "titulo": "O que é trabalho em altura",
+      "itens": [
+        { "m": "m", "texto": "Diferença de nível acima de 2 m com risco de queda" },
+        { "m": "t", "texto": "Inicial: mínimo 8 h, presencial, antes de começar" },
+        { "m": "a", "texto": "Periódico: a cada 2 anos, mínimo 8 h" },
+        { "m": "p", "texto": "Análise de risco antes de subir" }
+      ],
+      "narracao": "{m}Trabalho em altura é toda atividade com diferença de nível acima de dois metros, onde exista risco de queda. {t}O treinamento inicial tem no mínimo oito horas, teórico e prático, antes de começar a atividade. Desde julho de dois mil e vinte e seis, os treinamentos da NR trinta e cinco são presenciais. {a}O periódico é a cada dois anos, também com no mínimo oito horas. {p}E todo trabalho em altura começa com análise de risco."
+    },
+    {
+      "tipo": "ilustra", "desenho": "autorizacao", "titulo": "Quem pode subir",
+      "itens": [
+        { "m": "c", "texto": "Capacitado" },
+        { "m": "s", "texto": "Com a saúde avaliada" },
+        { "m": "a", "texto": "Considerado apto" },
+        { "m": "au", "texto": "Formalmente autorizado pela organização", "cor": "verde" },
+        { "m": "ce", "texto": "Certificado não é autorização", "cor": "vermelho" }
+      ],
+      "narracao": "Só trabalha em altura quem é formalmente autorizado pela organização. Autorizado é quem foi {c}capacitado, {s}teve a saúde avaliada, {a}e foi considerado apto. {au}A autorização considera as tarefas, o treinamento e a aptidão, e fica registrada. {ce}Atenção: o certificado de treinamento não é autorização. São documentos diferentes."
+    },
+    {
+      "tipo": "ilustra", "desenho": "ordemProtecao", "titulo": "Ordem das medidas", "painel": false,
+      "narracao": "Todo trabalho em altura é planejado, e as medidas seguem uma ordem. {ev}Primeiro, evitar o trabalho em altura. {co}Depois, eliminar o risco de queda, com proteção coletiva. {in}E só então reduzir as consequências da queda, com o sistema individual."
+    },
+    {
+      "tipo": "ilustra", "desenho": "rotinaPt", "titulo": "Análise de risco e PT",
+      "itens": [
+        { "m": "r", "texto": "Rotina: análise no procedimento operacional" },
+        { "m": "n", "texto": "Não rotina: PT para a atividade e o turno" },
+        { "m": "ci", "texto": "Condição impeditiva: não começa, ou para", "cor": "vermelho" }
+      ],
+      "narracao": "{r}Para atividades de rotina, a análise de risco pode estar no procedimento operacional. {n}Para o que não é rotina, é preciso permissão de trabalho aprovada antes de começar. A PT vale só para aquela atividade e aquele turno, lista todos os envolvidos, e fica disponível no local. {ci}E condição impeditiva é tudo o que coloca a saúde ou a vida em risco: vento acima do limite, chuva, descarga atmosférica, ancoragem não liberada, equipamento reprovado, mal-estar. Diante dela, o serviço não começa, ou para."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Tenho certificado de NR-35. Posso subir?",
+      "resposta": "Só autorizado",
+      "conta": "capacitado + saúde avaliada + apto + autorização formal",
+      "narracao": "Sua vez: você tem certificado de NR trinta e cinco. Já pode subir? {pensa}[[pausa:3]] {resp}Só com a autorização formal da organização: capacitado, com a saúde avaliada, e considerado apto. Certificado não é autorização."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Acima de 2 m com risco de queda: NR-35", "chave": "c1" },
+        { "texto": "Treinamento presencial; reciclagem a cada 2 anos", "chave": "c2" },
+        { "texto": "Autorização formal, além do certificado", "chave": "c3" },
+        { "texto": "Condição impeditiva: não começa, ou para", "chave": "c4" }
+      ],
+      "rodape": "Este vídeo é apoio: o treinamento é presencial.",
+      "narracao": "Na obra: {c1}acima de dois metros com risco de queda, NR trinta e cinco. {c2}Treinamento presencial, com reciclagem a cada dois anos. {c3}Autorização formal, além do certificado. {c4}E condição impeditiva: o serviço não começa, ou para. {fim}Lembre: este vídeo é apoio. O treinamento é presencial."
+    }
+  ]
+}

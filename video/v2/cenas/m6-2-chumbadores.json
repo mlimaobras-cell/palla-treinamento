@@ -1,0 +1,62 @@
+{
+  "codigo": "M6-2-chumbadores",
+  "titulo": "Chumbadores e bases",
+  "capitulo": "Módulo 6 · Metrologia e topografia de montagem · Aula 6.2",
+  "eyebrow": "M6 · Topografia",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m6.js"],
+  "fontes": ["Caderno do Módulo 6, itens 1.5, 1.6 e 1.11 (revisão 2)", "ABNT NBR 8800:2008, 12.3.1; Petrobras N-293, 5.3, citadas no caderno"],
+  "pendencias": ["Tolerâncias de posição de chumbadores: definidas pelo projeto ou pela empresa [VALIDAR]; o vídeo não cita valores."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "nivelamento",
+      "objetivo": "Liberar os chumbadores antes da estrutura chegar e nivelar as bases na ordem certa.",
+      "narracao": "Módulo seis, aula dois: chumbadores e bases. Você vai ver como liberar os chumbadores antes da estrutura chegar, e como nivelar as bases na ordem certa."
+    },
+    {
+      "tipo": "ilustra", "desenho": "chumbadores", "titulo": "Liberação dos chumbadores",
+      "itens": [
+        { "m": "q", "texto": "Todos existem, na quantidade do projeto" },
+        { "m": "p", "texto": "Posição em relação aos eixos e entre si" },
+        { "m": "pj", "texto": "Projeção acima do concreto e prumo" },
+        { "m": "r", "texto": "Rosca íntegra: porca de teste entra com a mão" }
+      ],
+      "narracao": "Antes da estrutura chegar, os chumbadores são liberados, com linha de náilon, trena e teodolito. {q}Primeiro: todos existem, na quantidade do projeto. {p}Depois, a posição em relação aos eixos, e a distância entre os chumbadores do grupo. {pj}A projeção acima do concreto, e o prumo do chumbador. {r}E a rosca íntegra: uma porca de teste entra com a mão, sem esforço. Logo após a instalação, a rosca é engraxada e protegida."
+    },
+    {
+      "tipo": "ilustra", "desenho": "chumbErrado", "titulo": "Erro frequente: corrigir o chumbador na marra",
+      "itens": [
+        { "m": "e", "texto": "Dobrar ou cortar chumbador para encaixar", "cor": "vermelho" },
+        { "m": "k", "texto": "Comunicar cliente e engenharia; registrar no diário", "cor": "verde" }
+      ],
+      "narracao": "Erro frequente: {e}o chumbador está fora de posição, e alguém dobra ou corta para a base encaixar. {k}A correção: chumbador fora do projeto é comunicado ao cliente e à engenharia, e registrado no diário de obra. Não se corta nem se dobra chumbador por conta própria."
+    },
+    {
+      "tipo": "ilustra", "desenho": "nivelamento", "titulo": "Nivelamento das bases",
+      "itens": [
+        { "m": "n", "texto": "Porcas niveladoras no nível do projeto" },
+        { "m": "pi", "texto": "Montar e aprumar o pilar sobre as porcas" },
+        { "m": "at", "texto": "Prumo e alinhamento → aperto final" },
+        { "m": "g", "texto": "Graute só no fim, com fundação curada", "cor": "vermelho" }
+      ],
+      "narracao": "{n}Leia no projeto o nível da face inferior da placa de base, e ajuste as porcas niveladoras, {l}conferindo com nível óptico ou laser. Se o projeto pedir, usam-se calços metálicos. {pi}Monte o pilar sobre as porcas, {pr}e faça o prumo e o alinhamento. {at}Depois vem o aperto final. {g}E só então o graute, com o concreto apicoado e limpo, e a fundação curada. A ordem é obrigatória: prumo e alinhamento, aperto final, graute."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Chumbador fora de posição. O que fazer?",
+      "resposta": "Comunicar",
+      "conta": "cliente e engenharia · registrar no diário · nunca cortar ou dobrar",
+      "narracao": "Sua vez: o chumbador está fora de posição. O que fazer? {pensa}[[pausa:3]] {resp}Comunicar o cliente e a engenharia, e registrar no diário de obra. Nunca cortar ou dobrar por conta própria."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Quantidade, posição, projeção, prumo e rosca", "chave": "c1" },
+        { "texto": "Rosca engraxada e protegida", "chave": "c2" },
+        { "texto": "Porcas niveladoras com nível laser", "chave": "c3" },
+        { "texto": "Prumo → aperto final → graute", "chave": "c4" }
+      ],
+      "rodape": "Chumbador errado: comunicar, nunca improvisar.",
+      "narracao": "Na obra: {c1}quantidade, posição, projeção, prumo e rosca. {c2}Rosca engraxada e protegida. {c3}Porcas niveladoras conferidas com nível laser. {c4}E a ordem: prumo, aperto final, graute. {fim}Chumbador errado: comunicar, nunca improvisar."
+    }
+  ]
+}

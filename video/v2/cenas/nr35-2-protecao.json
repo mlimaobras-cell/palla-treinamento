@@ -1,0 +1,151 @@
+{
+  "codigo": "NR35-2-protecao",
+  "titulo": "NR-35: proteção contra quedas e resgate",
+  "capitulo": "NR-35 · Trabalho em altura · Apoio 2",
+  "eyebrow": "NR-35 · Apoio",
+  "scripts": [
+    "ilustracoes/base.js",
+    "ilustracoes/m7.js",
+    "ilustracoes/nr35.js"
+  ],
+  "fontes": [
+    "Material de apoio NR-35 da plataforma (db/conteudo/nr35.ts), itens 35.6.6, 35.6.7, 35.6.9, 35.6.11 e 35.7"
+  ],
+  "pendencias": [
+    "Vídeo de apoio: não conta como carga horária e não substitui o treinamento presencial (35.4.5).",
+    "Técnicas de resgate e primeiros socorros: praticadas na turma presencial."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "desenho": "resgate",
+      "objetivo": "Usar o sistema individual corretamente, entender fator de queda e zona livre, inspecionar o equipamento e conhecer o resgate.",
+      "narracao": "NR trinta e cinco, apoio dois: proteção contra quedas e resgate. Você vai ver como usar o sistema individual, o que é zona livre de queda, como inspecionar o equipamento, e por que o resgate é planejado antes."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "talabarte",
+      "titulo": "Retenção de queda",
+      "itens": [
+        {
+          "m": "ci",
+          "texto": "Cinturão paraquedista no ponto do fabricante"
+        },
+        {
+          "m": "ab",
+          "texto": "Talabarte com absorvedor; impacto até 6 kN"
+        },
+        {
+          "m": "c",
+          "texto": "Talabarte duplo: conectado o tempo todo",
+          "cor": "verde"
+        },
+        {
+          "m": "an",
+          "texto": "Só em ancoragem liberada; sem nós nem emendas",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{ci}Na retenção de queda, o trabalhador usa cinturão tipo paraquedista, conectado no ponto indicado pelo fabricante. {ab}E talabarte com absorvedor de energia integrado. O sistema limita a força de impacto a seis quilonewtons. {d}Durante toda a exposição, ele fica conectado. {c}Com o talabarte duplo, conecta o segundo gancho, {s}e só então solta o primeiro. {an}Ancoragem só depois de liberada. E talabarte não se emenda, nem se amarra com nó, a não ser que o fabricante permita."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "zonaLivre",
+      "titulo": "Fator de queda e zona livre",
+      "itens": [
+        {
+          "m": "b",
+          "texto": "Ancoragem baixa: queda maior",
+          "cor": "vermelho"
+        },
+        {
+          "m": "a",
+          "texto": "Ancoragem acima da cabeça: queda menor",
+          "cor": "verde"
+        },
+        {
+          "m": "z",
+          "texto": "Zona livre: espaço para parar sem bater"
+        }
+      ],
+      "narracao": "Dois conceitos entram na análise de risco. O fator de queda é a distância que o trabalhador percorreria na queda, dividida pelo comprimento do equipamento que vai detê-la. {b}Exemplo: a quatro metros de altura, com talabarte de um vírgula oito metro ancorado no pé, a queda pode passar da zona livre disponível, e o montador bate no chão antes de o sistema parar. {a}Ancorando acima da cabeça, o fator de queda diminui, e a queda para antes. {z}Zona livre de queda é o espaço mínimo abaixo, para que o trabalhador não bata na estrutura, em obstáculo ou no solo. Quem decide o sistema é a análise de risco."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "inspecaoSpiq",
+      "titulo": "Inspeção do equipamento",
+      "itens": [
+        {
+          "m": "r",
+          "texto": "Fitas, costuras, fivelas, conectores, etiqueta"
+        },
+        {
+          "m": "pe",
+          "texto": "Rotineira antes do uso; periódica ≥ 1 vez por ano"
+        },
+        {
+          "m": "d",
+          "texto": "Defeito ou queda retida: descartar",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{r}Antes de cada uso, olhe as fitas: cortes, queimaduras de solda, desfiamento. As costuras, as fivelas, os conectores e a etiqueta. {pe}Essa é a inspeção rotineira. A periódica é feita, no mínimo, a cada doze meses. {d}Equipamento com defeito, deformação, degradação, ou que segurou uma queda, com o absorvedor aberto, é recusado e descartado."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "resgate",
+      "titulo": "Emergência e resgate",
+      "itens": [
+        {
+          "m": "s",
+          "texto": "Suspenso no cinto: o menor tempo possível",
+          "cor": "vermelho"
+        },
+        {
+          "m": "pl",
+          "texto": "Plano antes: procedimento, equipe, tempo, equipamento"
+        },
+        {
+          "m": "eq",
+          "texto": "Resgate só por equipe treinada"
+        },
+        {
+          "m": "ni",
+          "texto": "Demais: acionar emergência e isolar a área"
+        }
+      ],
+      "narracao": "{s}Depois de uma queda retida, o trabalhador fica suspenso no cinto, e esse tempo precisa ser o menor possível. {pl}Por isso, o resgate é planejado antes de começar: procedimento, equipe, tempo estimado e equipamentos. {eq}Quem faz o resgate é treinado em resgate e primeiros socorros. {ni}Os demais acionam a emergência, avisam o encarregado e isolam a área. Resgate improvisado cria uma segunda vítima."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O absorvedor do talabarte está aberto. O que fazer?",
+      "resposta": "Descartar",
+      "conta": "ele já segurou uma queda · sai de uso",
+      "narracao": "Sua vez: na inspeção, você vê que o absorvedor do talabarte está aberto. O que fazer? {pensa}[[pausa:3]] {resp}Recusar e descartar. Ele já segurou uma queda, e sai de uso."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Paraquedista + talabarte com absorvedor",
+          "chave": "c1"
+        },
+        {
+          "texto": "Conectado o tempo todo, em ancoragem liberada",
+          "chave": "c2"
+        },
+        {
+          "texto": "Ancorar alto: respeitar a zona livre",
+          "chave": "c3"
+        },
+        {
+          "texto": "Inspecionar antes; plano de resgate pronto",
+          "chave": "c4"
+        }
+      ],
+      "rodape": "Este vídeo é apoio: a prática é presencial.",
+      "narracao": "Na obra: {c1}cinturão paraquedista e talabarte com absorvedor. {c2}Conectado o tempo todo, em ancoragem liberada. {c3}Ancorar alto, respeitando a zona livre. {c4}Inspecionar antes, com o plano de resgate pronto. {fim}Lembre: este vídeo é apoio. A prática é presencial."
+    }
+  ]
+}

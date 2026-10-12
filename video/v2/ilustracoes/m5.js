@@ -31,7 +31,7 @@
       + doc("p", 410, "PQR", `<g transform="translate(0 170)"><path d="M-70 30q70 -110 140 0" fill="none" stroke="${C.aco}" stroke-width="22"/>${ok("", 0, 70, 22)}</g>`, "ensaios que provam a receita")
       + doc("q", 670, "Soldador", `<g transform="translate(0 150)"><circle cy="-20" r="30" fill="${C.ambar}"/><path d="M-50 60q50 -70 100 0" fill="${C.azul}"/>${T(0, 100, "processo · posição", 15, C.escuro, "middle")}${T(0, 120, "tipo de junta", 15, C.escuro, "middle")}</g>`, "qualificado (AWS D1.1, cap. 4)")
       + `<g data-k="v" transform="translate(670 470)">${T(0, 0, "+ de 6 meses sem usar o processo:", 17, C.vermelho, "middle", 700)}${T(0, 24, "qualificação perde a validade", 17, C.vermelho, "middle", 700)}</g>
-      <g data-k="n" transform="translate(300 495)"><rect x="-260" y="-36" width="520" height="70" rx="10" fill="${C.vermelho}"/>${T(0, -6, "Sem WPS aprovada ou sem soldador", 21, "#fff", "middle", 700)}${T(0, 20, "qualificado, a solda não começa.", 21, "#fff", "middle", 700)}</g>`,
+      <g data-k="n" transform="translate(270 500)"><rect x="-230" y="-36" width="460" height="70" rx="10" fill="${C.vermelho}"/>${T(0, -6, "Sem WPS aprovada ou sem soldador", 21, "#fff", "middle", 700)}${T(0, 20, "qualificado, a solda não começa.", 21, "#fff", "middle", 700)}</g>`,
     quadro(raiz, t, m, c, q) { ["w", "p", "q", "v", "n"].forEach((k) => vis(q(k), P(t, m[k]))); },
   };
   // posições: chapa + tocha em 4 orientações
@@ -113,7 +113,7 @@
   ];
   D.defeitos = {
     largo: true,
-    svg: () => DEF.map(([nome, sub, corpo], i) => `<g data-k="d${i + 1}" transform="translate(${160 + (i % 4) * 287} ${40 + Math.floor(i / 4) * 255})"><rect x="-130" y="0" width="260" height="230" rx="12" fill="#fff" stroke="${LP}" stroke-width="2"/><g transform="translate(0 110) scale(1.05)">${corpo}</g>${T(0, 40, nome, 22, i === 0 ? C.vermelho : C.escuro, "middle", 700)}${T(0, 200, sub, 16, C.cinza, "middle")}</g>`).join(""),
+    svg: () => DEF.map(([nome, sub, corpo], i) => `<g data-k="d${i + 1}" transform="translate(${160 + (i % 4) * 287} ${40 + Math.floor(i / 4) * 255})"><rect x="-130" y="0" width="260" height="230" rx="12" fill="#fff" stroke="${LP}" stroke-width="2"/><g transform="translate(0 112) scale(1.2)">${corpo}</g>${T(0, 40, nome, 24, i === 0 ? C.vermelho : C.escuro, "middle", 700)}${T(0, 204, sub, 18, C.cinza, "middle")}</g>`).join(""),
     quadro(raiz, t, m, c, q) { for (let i = 1; i <= 8; i++) vis(q(`d${i}`), P(t, m[`d${i}`])); },
   };
   D.aceitacao = {

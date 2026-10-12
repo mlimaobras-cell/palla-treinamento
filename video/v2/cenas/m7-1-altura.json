@@ -1,0 +1,63 @@
+{
+  "codigo": "M7-1-altura",
+  "titulo": "NRs e trabalho em altura",
+  "capitulo": "Módulo 7 · Segurança, NRs e documentação de obra · Aula 7.1",
+  "eyebrow": "M7 · Segurança",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m7.js"],
+  "fontes": ["Caderno do Módulo 7, itens 1.1 e 1.2", "NR-01, NR-06, NR-11, NR-12, NR-18 e NR-35, citadas no caderno"],
+  "pendencias": ["Revisão vigente das NRs na data de cada turma e oferta da NR-35 completa como treinamento à parte: [VALIDAR]."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "talabarte",
+      "objetivo": "Conhecer as NRs da montagem e as regras para subir e voltar inteiro.",
+      "narracao": "Módulo sete, aula um: NRs e trabalho em altura. Na montagem, quase tudo acontece acima de dois metros. Esta aula dá noções; ela não substitui o treinamento obrigatório de NR trinta e cinco."
+    },
+    {
+      "tipo": "ilustra", "desenho": "nrs", "titulo": "As NRs da montagem", "painel": false,
+      "narracao": "As normas regulamentadoras que mais aparecem na montagem: {n1}a NR um, de gerenciamento de riscos: os riscos da obra identificados, avaliados e controlados. {n6}A NR seis, de EPI. {n11}A NR onze, de movimentação de cargas: operador treinado e içamento planejado. {n12}A NR doze, de máquinas: só opera quem é treinado, com as proteções no lugar. {n18}A NR dezoito, da construção: canteiro organizado e treinamentos. {n35}E a NR trinta e cinco, de trabalho em altura. {av}Estas são noções. Cada NR tem o seu treinamento obrigatório."
+    },
+    {
+      "tipo": "ilustra", "desenho": "doisMetros", "titulo": "Trabalho em altura",
+      "itens": [
+        { "m": "m", "texto": "Acima de 2,00 m com risco de queda" },
+        { "m": "t", "texto": "NR-35 válida, com reciclagem" },
+        { "m": "a", "texto": "ASO com aptidão para altura" },
+        { "m": "p", "texto": "Análise de risco; PT no não rotineiro" }
+      ],
+      "narracao": "{m}É trabalho em altura toda atividade acima de dois metros do nível inferior, onde haja risco de queda. Na montagem metálica, quase tudo se enquadra. Para subir, você precisa de: {t}treinamento de NR trinta e cinco válido, com o inicial de no mínimo oito horas, e reciclagem periódica. {a}ASO que considere a aptidão para trabalho em altura. {p}E análise de risco da atividade. Quando a atividade não for rotineira, permissão de trabalho assinada."
+    },
+    {
+      "tipo": "ilustra", "desenho": "ordemProtecao", "titulo": "Ordem das proteções", "painel": false,
+      "narracao": "A proteção segue uma ordem. {ev}Primeiro, evitar o trabalho em altura sempre que houver outro meio. Por exemplo: pré-montar tesouras e terças no chão. {co}Depois, eliminar o risco de queda com proteção coletiva: guarda-corpo, plataforma com proteção, rede. Ela protege todos. {in}Por último, reduzir as consequências da queda com o sistema individual: cinturão e talabarte."
+    },
+    {
+      "tipo": "ilustra", "desenho": "talabarte", "titulo": "Sempre conectado",
+      "itens": [
+        { "m": "ci", "texto": "Cinturão paraquedista inspecionado e ajustado" },
+        { "m": "c", "texto": "Talabarte duplo: conecta o segundo..." },
+        { "m": "s", "texto": "...e só então solta o primeiro", "cor": "verde" },
+        { "m": "an", "texto": "Ancoragem projetada; nunca em telha, tubo ou peça solta", "cor": "vermelho" },
+        { "m": "rs", "texto": "Plano de resgate antes de começar" }
+      ],
+      "narracao": "{ci}O cinturão tipo paraquedista é inspecionado e ajustado antes de cada uso: costuras, fivelas, fitas e etiqueta. {d}A regra é cem por cento do tempo conectado. {c}Com o talabarte duplo, ao mudar de ponto, conecte o segundo gancho, {s}e só então solte o primeiro. {an}A ancoragem e a linha de vida são projetadas por profissional legalmente habilitado. Nunca ancore em tubulação, telha ou peça solta, e prefira ancoragem acima da cintura. Equipamento que segurou uma queda sai de uso. {rs}E toda frente em altura tem plano de emergência e resgate, com equipe e equipamento, antes de começar."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Ao passar por um pilar, quando soltar o primeiro gancho?",
+      "resposta": "Depois",
+      "conta": "de conectar o segundo · 100% do tempo conectado",
+      "narracao": "Sua vez: ao passar por um pilar com o talabarte duplo, quando você solta o primeiro gancho? {pensa}[[pausa:3]] {resp}Só depois de conectar o segundo. Cem por cento do tempo conectado."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Acima de 2 m: NR-35, ASO e análise de risco", "chave": "c1" },
+        { "texto": "Evitar → coletiva → individual", "chave": "c2" },
+        { "texto": "Talabarte duplo: 100% conectado", "chave": "c3" },
+        { "texto": "Plano de resgate antes de subir", "chave": "c4" }
+      ],
+      "rodape": "Ninguém sobe sem estar conectado.",
+      "narracao": "Na obra: {c1}acima de dois metros, NR trinta e cinco, ASO e análise de risco. {c2}Evitar, depois proteção coletiva, por último a individual. {c3}Talabarte duplo, cem por cento conectado. {c4}E plano de resgate antes de subir. {fim}Ninguém sobe sem estar conectado."
+    }
+  ]
+}

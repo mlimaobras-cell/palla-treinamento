@@ -1,0 +1,58 @@
+{
+  "codigo": "M8-3-deck-inspecao",
+  "titulo": "Riscos de telhado, steel deck e inspeção",
+  "capitulo": "Módulo 8 · Cobertura e fechamento · Aula 8.3",
+  "eyebrow": "M8 · Cobertura",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m8.js"],
+  "fontes": ["Caderno do Módulo 8, itens 1.9 a 1.11 e 1.13 (revisão 2)", "Petrobras N-293, 5.5 e 5.8, citada no caderno"],
+  "pendencias": ["Esquema de pintura e camada mínima padrão da Palla: [VALIDAR]."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "riscosTelhado",
+      "objetivo": "Controlar os riscos do telhado, montar o steel deck com segurança e inspecionar antes da entrega.",
+      "narracao": "Módulo oito, aula três: riscos de telhado, steel deck e inspeção. Você vai ver o que a APR do telhado precisa cobrir, os cuidados com o steel deck, e o que se inspeciona antes da entrega."
+    },
+    {
+      "tipo": "ilustra", "desenho": "riscosTelhado", "titulo": "Riscos de telhado", "painel": false,
+      "narracao": "Riscos que a APR do telhado tem de cobrir: {t}circular só sobre terças ou passarelas. Nunca pisar na telha, na manta ou no zenital. {b}Bordas e aberturas de zenital ou claraboia protegidas antes de começar. {lv}Linha de vida da cobertura projetada e instalada antes da primeira telha. {v}E o vento sobre chapa solta, o efeito vela: telhas e sobras amarradas. {ex}Corte de telha com proteção facial e respiratória. E sol e calor: hidratação e pausas."
+    },
+    {
+      "tipo": "ilustra", "desenho": "deck", "titulo": "Steel deck",
+      "itens": [
+        { "m": "es", "texto": "Estocar seco, inclinado, sobre berços, com lona" },
+        { "m": "fx", "texto": "Fixação preliminar no mesmo dia" },
+        { "m": "pi", "texto": "Pinos nas ondas baixas, depois do deck" },
+        { "m": "nd", "texto": "Nada solto e nada estocado sobre o deck", "cor": "vermelho" }
+      ],
+      "narracao": "{es}Os fardos de steel deck são estocados em local seco e ventilado, sobre berços, inclinados, e cobertos com lona. Se molharem, desfaz a pilha e seca. Galvanizado não fica muito tempo estocado na obra, nem com carga sobre a pilha. {fx}Na montagem, o topo da viga está nivelado, seco e limpo. Os painéis recebem fixação preliminar no mesmo dia. {pi}Os pinos são aplicados depois do deck, nas ondas baixas, com o controle do Módulo cinco. {nd}No fim do expediente, nenhum painel solto, e nada estocado sobre o deck além do equipamento da montagem, apoiado em tábuas."
+    },
+    {
+      "tipo": "ilustra", "desenho": "inspecaoCob", "titulo": "Inspeção antes da entrega",
+      "itens": [
+        { "m": "ar", "texto": "Transpasses vedados; arruela de neoprene" },
+        { "m": "li", "texto": "Limalha varrida: ela enferruja e mancha" },
+        { "m": "rt", "texto": "Retoque, camada e aderência; verde no projeto" },
+        { "m": "ab", "texto": "Foto e registro no diário" }
+      ],
+      "narracao": "Antes da entrega: {ar}telhas e cumeeiras com transpasses vedados, e arruela de neoprene em cada autobrocante. Rufos, capas, manta e calhas também são conferidos, com estanqueidade e caimento. {li}A limalha de autobrocante deixada sobre a telha enferruja e mancha a cobertura: varra ao fim de cada trecho. {rt}O retoque de pintura é visual em todos os pontos danificados, com medição de camada seca e teste de aderência por etapa. Marque em verde no projeto. {ab}E tudo fotografado e registrado no diário."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Sobrou limalha sobre a telha. Tem problema?",
+      "resposta": "Sim: varrer",
+      "conta": "a limalha enferruja e mancha a cobertura",
+      "narracao": "Sua vez: sobrou limalha de autobrocante sobre a telha. Tem problema? {pensa}[[pausa:3]] {resp}Tem. A limalha enferruja e mancha a cobertura. Varra ao fim de cada trecho."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Linha de vida antes da primeira telha", "chave": "c1" },
+        { "texto": "Bordas e zenitais protegidos", "chave": "c2" },
+        { "texto": "Deck: nada solto, nada estocado em cima", "chave": "c3" },
+        { "texto": "Neoprene, limalha varrida, verde no projeto", "chave": "c4" }
+      ],
+      "rodape": "Tudo inspecionado, marcado, fotografado e registrado.",
+      "narracao": "Na obra: {c1}linha de vida antes da primeira telha. {c2}Bordas e zenitais protegidos. {c3}No deck, nada solto e nada estocado em cima. {c4}E arruela de neoprene, limalha varrida, verde no projeto. {fim}Tudo inspecionado, marcado, fotografado e registrado."
+    }
+  ]
+}

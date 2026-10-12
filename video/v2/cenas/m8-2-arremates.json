@@ -1,0 +1,65 @@
+{
+  "codigo": "M8-2-arremates",
+  "titulo": "Calha, rufo e fechamento lateral",
+  "capitulo": "Módulo 8 · Cobertura e fechamento · Aula 8.2",
+  "eyebrow": "M8 · Cobertura",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m8.js"],
+  "fontes": ["Caderno do Módulo 8, itens 1.6 a 1.8"],
+  "pendencias": ["Espaçamento de rebites, transpasse de rufo e especificação de autobrocantes vêm de instruções de referência: confirmar com o projeto e os fornecedores da Palla [VALIDAR]. O vídeo não cita a especificação dos autobrocantes."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "calha",
+      "objetivo": "Vedar calhas e rufos, e içar o fechamento lateral com plataforma elevatória com segurança.",
+      "narracao": "Módulo oito, aula dois: calha, rufo e fechamento lateral. Você vai ver como vedar calhas e rufos, e como içar o fechamento com plataforma elevatória."
+    },
+    {
+      "tipo": "ilustra", "desenho": "calha", "titulo": "Calha externa",
+      "aviso": "Valores de referência; vale o projeto e o fabricante.",
+      "itens": [
+        { "m": "lc", "texto": "Locação e geometria pelo projeto executivo" },
+        { "m": "mt", "texto": "Emenda: duas linhas de mastic" },
+        { "m": "rb", "texto": "Rebite hermético em espaçamento curto" },
+        { "m": "sp", "texto": "Suporte e nivelador com os fixadores do projeto" }
+      ],
+      "narracao": "{lc}Confira a locação e a geometria da calha pelo projeto executivo. Coloque fita mastic na tampa, gabarite os furos, e refile o excesso. {mt}Na emenda entre módulos: duas linhas de mastic, {rb}e rebite hermético. A referência é um rebite a cada quarenta milímetros. {sp}Os suportes e o perfil nivelador são fixados com os autobrocantes do projeto, com mastic na crista da telha no ponto de apoio. {lv}Trabalho na borda: linha de vida obrigatória. E as fotos da vedação vão para o diário."
+    },
+    {
+      "tipo": "ilustra", "desenho": "rufo", "titulo": "Rufo lateral",
+      "aviso": "Valores de referência; vale o projeto e o fabricante.",
+      "itens": [
+        { "m": "ma", "texto": "Esticar a manta e encaixar os perfis" },
+        { "m": "tr", "texto": "Transpasse vedado com mastic e selante" },
+        { "m": "fi", "texto": "Fixação nos pontos do projeto" }
+      ],
+      "narracao": "{ma}Antes de fixar o rufo, estique a manta e encaixe os perfis, pressionando contra ela. {tr}O transpasse entre peças é vedado com fita mastic e selante. A referência é de cem milímetros. {fi}E a fixação, na estrutura e no próprio rufo, segue os pontos do projeto. A emenda entre peças de rufo também leva rebite hermético."
+    },
+    {
+      "tipo": "ilustra", "desenho": "pemt", "titulo": "Fechamento com plataforma (PEMT)",
+      "itens": [
+        { "m": "pl", "texto": "Operador treinado; check-list a cada turno" },
+        { "m": "mo", "texto": "Moitão na terça; cinta e manilha conferidas" },
+        { "m": "ni", "texto": "Plataforma travada; ninguém na projeção", "cor": "vermelho" },
+        { "m": "ta", "texto": "Talabarte na ancoragem da plataforma" }
+      ],
+      "narracao": "No fechamento lateral com plataforma elevatória: {pl}a estrutura do fechamento já está alinhada e apertada. O operador é treinado no equipamento, e faz o check-list a cada turno: freios, nivelamento, bateria ou combustível, e guarda-corpo. {mo}O moitão vai na terça, com proteção da pintura, e a cinta e a manilha são conferidas para a carga. {ni}Iça-se com a plataforma travada, e ninguém na projeção da carga. {ta}O talabarte fica ancorado na própria plataforma, com APR e PT do dia. No fim do turno, a plataforma é recolhida e a área sinalizada."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Na plataforma, onde prender o talabarte?",
+      "resposta": "Na ancoragem dela",
+      "conta": "ponto de ancoragem da plataforma · nunca no guarda-corpo",
+      "narracao": "Sua vez: na plataforma elevatória, onde você prende o talabarte? {pensa}[[pausa:3]] {resp}No ponto de ancoragem da própria plataforma. Nunca no guarda-corpo."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Calha: mastic duplo e rebite hermético", "chave": "c1" },
+        { "texto": "Rufo: manta esticada, transpasse vedado", "chave": "c2" },
+        { "texto": "PEMT: check-list, travada, ninguém embaixo", "chave": "c3" },
+        { "texto": "Borda: linha de vida; fotos no diário", "chave": "c4" }
+      ],
+      "rodape": "Vedação boa é a que não vaza na primeira chuva.",
+      "narracao": "Na obra: {c1}calha com mastic duplo e rebite hermético. {c2}Rufo com a manta esticada e o transpasse vedado. {c3}Plataforma com check-list, travada, e ninguém embaixo. {c4}Na borda, linha de vida, e fotos no diário. {fim}Vedação boa é a que não vaza na primeira chuva."
+    }
+  ]
+}

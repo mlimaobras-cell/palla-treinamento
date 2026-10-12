@@ -1,0 +1,67 @@
+{
+  "codigo": "M6-1-instrumentos",
+  "titulo": "Instrumentos e referências",
+  "capitulo": "Módulo 6 · Metrologia e topografia de montagem · Aula 6.1",
+  "eyebrow": "M6 · Topografia",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m6.js"],
+  "fontes": ["Caderno do Módulo 6, itens 1.1 a 1.4", "ABNT NBR 8800:2008, 12.3.4, citada no caderno"],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "referencias",
+      "objetivo": "Entender por que alinhar antes de fixar, conhecer os instrumentos e trabalhar a partir das referências da obra.",
+      "narracao": "Módulo seis, aula um: instrumentos e referências. Você vai entender por que se alinha antes de fixar, para que serve cada instrumento, e como usar as referências da obra."
+    },
+    {
+      "tipo": "ilustra", "desenho": "acumula", "titulo": "Alinhar antes de fixar",
+      "aviso": "NBR 8800, 12.3.4, citada no caderno.",
+      "itens": [
+        { "m": "n", "texto": "Ligação definitiva só depois de alinhar, nivelar e aprumar" },
+        { "m": "e", "texto": "Pilar fora de prumo empurra a viga e o próximo pilar", "cor": "vermelho" },
+        { "m": "c", "texto": "Estaiado enquanto se alinha; depois, torque e solda", "cor": "verde" }
+      ],
+      "narracao": "{n}A NBR oito mil e oitocentos manda completar as ligações definitivas, parafusadas ou soldadas, só depois que a parte da estrutura que vai ficar rígida estiver alinhada, nivelada e aprumada. {e}Por quê? Porque o erro se acumula: o pilar fora de prumo empurra a viga, que empurra o próximo pilar. Depois do torque e da solda, corrigir prumo custa desmontar. {c}A segurança continua garantida: a estrutura fica estaiada enquanto se alinha. Primeiro alinhar, depois fixar de vez."
+    },
+    {
+      "tipo": "ilustra", "desenho": "instrumentos", "titulo": "Instrumentos", "painel": false,
+      "narracao": "Os instrumentos da montagem: {i1}a trena de aço, para distâncias entre eixos, chumbadores e furos. {i2}A linha de náilon, para alinhar chumbadores, bases e terças. {i3}O prumo e o nível de bolha, para verificações rápidas. {i4}A mangueira de nível, para transferir nível entre pontos próximos. {i5}O nível óptico ou a laser, para o nível das bases e do topo das vigas em toda a obra. {i6}O teodolito ou a estação total, para eixos e prumo de pilares altos. {i7}E o paquímetro e o esquadro, para peças, chapas, furos e o esquadro das ligações."
+    },
+    {
+      "tipo": "ilustra", "desenho": "calibracao", "titulo": "Calibração",
+      "itens": [
+        { "m": "id", "texto": "Identificação permanente e próxima calibração" },
+        { "m": "ce", "texto": "Certificado válido, cópia arquivada" },
+        { "m": "ve", "texto": "Vencido: sai de uso até recalibrar", "cor": "vermelho" }
+      ],
+      "narracao": "{id}Todo instrumento de controle tem identificação permanente, e a data da próxima calibração controlada. {ce}Tem certificado de calibração válido, com cópia arquivada na obra. Isso vale para teodolito, trenas, torquímetro, calibre de solda, máquina de solda, estufa e medidor de camada de tinta. {ve}Instrumento vencido sai de uso, até ser recalibrado."
+    },
+    {
+      "tipo": "ilustra", "desenho": "referencias", "titulo": "Referências da obra",
+      "itens": [
+        { "m": "mc", "texto": "Marcos de eixo: protegidos, nunca removidos" },
+        { "m": "rn", "texto": "Referência de nível: o nível zero" },
+        { "m": "tr", "texto": "Transferir eixo e nível à frente de trabalho" },
+        { "m": "cf", "texto": "Conferir sempre de volta na referência", "cor": "verde" }
+      ],
+      "narracao": "{mc}Os marcos de eixo são pontos fixos que marcam os eixos no terreno. São protegidos, e nunca removidos. {rn}A referência de nível é um ponto com cota conhecida: o nível zero da obra. {tr}Eixo e nível são transferidos até a frente de trabalho, {cf}e sempre conferidos de volta na referência. Medir a partir da peça vizinha acumula erro. A partir do eixo e da referência, não."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Por que medir do eixo e não da peça vizinha?",
+      "resposta": "Não acumula erro",
+      "conta": "cada medida parte da mesma referência",
+      "narracao": "Sua vez: por que medir a partir do eixo, e não da peça vizinha? {pensa}[[pausa:3]] {resp}Porque não acumula erro. Cada medida parte da mesma referência."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Alinhar, nivelar e aprumar antes de fixar", "chave": "c1" },
+        { "texto": "Instrumento com certificado válido", "chave": "c2" },
+        { "texto": "Marcos de eixo protegidos", "chave": "c3" },
+        { "texto": "Medir do eixo; conferir de volta", "chave": "c4" }
+      ],
+      "rodape": "Depois do torque, corrigir prumo é desmontar.",
+      "narracao": "Na obra: {c1}alinhar, nivelar e aprumar antes de fixar. {c2}Instrumento com certificado válido. {c3}Marcos de eixo protegidos. {c4}E medir do eixo, conferindo de volta. {fim}Depois do torque, corrigir prumo é desmontar."
+    }
+  ]
+}

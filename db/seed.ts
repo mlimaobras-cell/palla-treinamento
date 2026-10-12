@@ -14,6 +14,10 @@ const SENHA_TESTE = "Palla@2026";
 // SEED_PRODUCAO=1: carrega só catálogo, funções, matriz e conteúdos. Não cria usuários de teste nem obra de exemplo,
 // e não recarrega conteúdo de curso que já existe (recarregar apaga o progresso das aulas). SEED_RECARREGAR=1 força.
 const PRODUCAO = process.env.SEED_PRODUCAO === "1";
+if (PRODUCAO && !process.env.DATABASE_URL) {
+  console.error("DATABASE_URL não definida. Configure a variável de ambiente no Netlify (Project configuration → Environment variables).");
+  process.exit(1);
+}
 const RECARREGAR = process.env.SEED_RECARREGAR === "1";
 
 async function upsertCurso(c: (typeof cursosSeed)[number], ordem: number, rtId: string | null) {

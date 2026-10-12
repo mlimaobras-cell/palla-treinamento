@@ -1,0 +1,164 @@
+{
+  "codigo": "M3-2-armazenagem",
+  "titulo": "Armazenagem e movimentação manual",
+  "capitulo": "Módulo 3 · Montagem, içamento e rigging · Aula 3.2",
+  "eyebrow": "M3 · Armazenagem",
+  "scripts": [
+    "ilustracoes/base.js",
+    "ilustracoes/m3.js"
+  ],
+  "pendencias": [],
+  "fontes": [
+    "Caderno do Módulo 3, itens 1.3 e 1.4 (revisão 2)"
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "desenho": "armazenagemVigas",
+      "objetivo": "Guardar cada material no lugar certo e reconhecer uma pilha perigosa.",
+      "narracao": "Módulo três, aula dois: armazenagem e movimentação manual. Você vai aprender a guardar cada material no lugar certo, e a reconhecer uma pilha perigosa."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "armazenagemVigas",
+      "titulo": "Pilares e vigas",
+      "itens": [
+        {
+          "m": "c",
+          "texto": "Sobre caibros, nunca no chão"
+        },
+        {
+          "m": "a",
+          "texto": "Alma em pé: a água escorre"
+        },
+        {
+          "m": "h",
+          "texto": "Pilha de no máximo 2 m"
+        },
+        {
+          "m": "e",
+          "texto": "Pilha estável e corredor livre"
+        }
+      ],
+      "narracao": "{c}Pilares e vigas ficam sobre caibros, nunca direto no chão. {a}A alma fica a noventa graus do solo, em pé. Assim a água escorre e não se acumula na peça. {h}A pilha tem no máximo dois metros de altura. {e}E antes de liberar a circulação, confira se a pilha está estável e se os corredores estão livres."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "armazenagemOutros",
+      "titulo": "Cada material no seu lugar",
+      "itens": [
+        {
+          "m": "t",
+          "texto": "Telhas: lona, inclinação, calço ≤ 2 m"
+        },
+        {
+          "m": "k",
+          "texto": "Calhas e rufos: pilha ≤ 1,5 m"
+        },
+        {
+          "m": "m",
+          "texto": "Manta: seca, coberta, fora do chão"
+        },
+        {
+          "m": "p",
+          "texto": "Parafusos: almoxarifado, fechado"
+        },
+        {
+          "m": "s",
+          "texto": "Tintas: ventilado, sem fogo perto"
+        },
+        {
+          "m": "d",
+          "texto": "Danificadas: separadas e identificadas",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{t}Telhas e painéis ficam cobertos com lona presa ao solo, na inclinação do fabricante, com calços a cada dois metros, no máximo. {k}Calhas, rufos e arremates, sobre caibros, em pilha de no máximo um metro e meio, com ventilação. {m}A manta isolante, em local seco e coberto, na embalagem, afastada do solo. {p}Parafusos e selantes, no almoxarifado, em embalagem fechada e com acesso restrito. {s}Tintas e solventes, em local coberto e ventilado, longe de fontes de ignição. {d}E as peças danificadas ficam separadas e identificadas, para retrabalho ou descarte."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "manual",
+      "titulo": "Movimentação manual",
+      "aviso": "Limite de peso por pessoa: orientação do SESMT da Palla.",
+      "itens": [
+        {
+          "m": "d",
+          "texto": "Peça longa ou pesada: em dupla"
+        },
+        {
+          "m": "p",
+          "texto": "Joelhos dobrados, costas retas, carga perto do corpo"
+        },
+        {
+          "m": "a",
+          "texto": "Nunca arrastar no chão",
+          "cor": "vermelho"
+        },
+        {
+          "m": "l",
+          "texto": "Acima do limite do SESMT: dupla ou carrinho"
+        }
+      ],
+      "narracao": "{d}Peças leves, como terças, arremates e caixas de parafusos, também exigem cuidado. Peça longa ou pesada é carregada em dupla. {p}Dobre os joelhos, mantenha as costas retas e a carga perto do corpo, sempre de luva. {a}Nunca arraste a peça no chão. {l}O peso máximo por pessoa é o definido pelo SESMT da Palla: acima dele, use dupla ou carrinho."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "pilhaErrada",
+      "titulo": "O que está errado nesta pilha?",
+      "itens": [
+        {
+          "m": "r1",
+          "texto": "1. Direto no chão",
+          "cor": "vermelho"
+        },
+        {
+          "m": "r2",
+          "texto": "2. Alma deitada: junta água",
+          "cor": "vermelho"
+        },
+        {
+          "m": "r3",
+          "texto": "3. Acima de 2 m",
+          "cor": "vermelho"
+        },
+        {
+          "m": "r4",
+          "texto": "Certo: caibros, alma em pé, até 2 m",
+          "cor": "verde"
+        }
+      ],
+      "narracao": "Observe esta pilha. O que está errado? {pensa}[[pausa:4]] {r1}Ela está direto no chão. {r2}As peças estão com a alma deitada e acumulam água. {r3}E a pilha passa de dois metros. {r4}O certo: caibros, alma em pé, e no máximo dois metros."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Qual a altura máxima de uma pilha de pilares e vigas?",
+      "resposta": "2 m",
+      "conta": "sobre caibros, com a alma em pé",
+      "narracao": "Sua vez: qual a altura máxima de uma pilha de pilares e vigas? {pensa}[[pausa:3]] {resp}Dois metros, sobre caibros e com a alma em pé."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Caibros, alma em pé, pilha até 2 m",
+          "chave": "c1"
+        },
+        {
+          "texto": "Cada material no seu lugar",
+          "chave": "c2"
+        },
+        {
+          "texto": "Danificada: separada e identificada",
+          "chave": "c3"
+        },
+        {
+          "texto": "Peso grande: dupla ou carrinho",
+          "chave": "c4"
+        }
+      ],
+      "rodape": "Corredores livres e pilhas estáveis.",
+      "narracao": "Na obra: {c1}caibros, alma em pé e pilha de até dois metros. {c2}Cada material no seu lugar. {c3}Peça danificada, separada e identificada. {c4}Peso grande, em dupla ou com carrinho. {fim}E corredores livres, com pilhas estáveis."
+    }
+  ]
+}

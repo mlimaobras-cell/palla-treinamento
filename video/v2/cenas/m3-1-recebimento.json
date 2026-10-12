@@ -1,0 +1,81 @@
+{
+  "codigo": "M3-1-recebimento",
+  "titulo": "Recebimento e descarga",
+  "capitulo": "Módulo 3 · Montagem, içamento e rigging · Aula 3.1",
+  "eyebrow": "M3 · Recebimento",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m3.js"],
+  "fontes": ["Caderno do Módulo 3, itens 1.1 e 1.2 (revisão 2)"],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "descarga",
+      "objetivo": "Preparar a área, descarregar com segurança e conferir todas as peças com o romaneio.",
+      "narracao": "Módulo três, aula um: recebimento e descarga. Você vai ver como preparar a área, descarregar com segurança e conferir as peças com o romaneio."
+    },
+    {
+      "tipo": "ilustra", "desenho": "preparacao", "titulo": "Antes da primeira carga",
+      "aviso": "No canteiro, vale o procedimento aprovado.",
+      "itens": [
+        { "m": "a", "texto": "Área britada, nivelada e isolada" },
+        { "m": "b", "texto": "Almoxarifado e ponto de energia" },
+        { "m": "c", "texto": "Descarga nivelada e sinalizada" },
+        { "m": "d", "texto": "Romaneio e nota fiscal × pedido" },
+        { "m": "e", "texto": "Planos, integração, APR e PT em dia" },
+        { "m": "f", "texto": "Área não pronta? Aviso por escrito ao cliente", "cor": "vermelho" }
+      ],
+      "narracao": "{a}Antes do primeiro caminhão, a área de armazenagem precisa estar britada, nivelada e isolada, conferida com quinze dias de antecedência. {b}É preciso ter almoxarifado e ponto de energia, {c}e a área de descarga nivelada e sinalizada. {d}O romaneio e a nota fiscal são conferidos com o pedido. {e}E o plano de montagem, o plano de içamento, a integração, a APR e a permissão de trabalho precisam estar em dia. {f}Se a área não estiver pronta, o encarregado avisa o cliente por escrito, antes de autorizar a descarga."
+    },
+    {
+      "tipo": "ilustra", "desenho": "descarga", "titulo": "Descarga passo a passo",
+      "aviso": "No canteiro, vale o plano de içamento aprovado.",
+      "itens": [
+        { "m": "v", "texto": "1. Vistoria com fotos, ainda na carreta" },
+        { "m": "i", "texto": "2. Área isolada; equipamento perto da carreta" },
+        { "m": "m", "texto": "3. Cinta compatível + calço nas quinas" },
+        { "m": "b", "texto": "4. Acima de 6 m: balancim" },
+        { "m": "g", "texto": "5. Corda-guia. Ninguém sob a carga", "cor": "vermelho" },
+        { "m": "op", "texto": "Operador qualificado; longe da rede elétrica" }
+      ],
+      "narracao": "{v}Primeiro, a vistoria: a carga é olhada e fotografada ainda em cima da carreta. {i}Depois, a área é isolada e sinalizada, e o equipamento fica perto da carreta. {m}A peça é amarrada com cinta, cabo ou corrente compatível com o peso, com calço de borracha para proteger a pintura. {b}Peça com mais de seis metros sobe com balancim, para não flexionar. {g}E a peça é guiada pela corda-guia: ninguém fica embaixo da carga. {op}O operador é qualificado, com certificado válido, e o equipamento nunca trabalha perto de rede elétrica."
+    },
+    {
+      "tipo": "ilustra", "desenho": "romaneio", "titulo": "Conferência com o romaneio",
+      "itens": [
+        { "m": "c", "texto": "100% conferido na hora da descarga" },
+        { "m": "o", "texto": "Marca, quantidade, amassados, pintura, roscas" },
+        { "m": "d", "texto": "Divergência: anotar no romaneio, com assinatura do motorista", "cor": "vermelho" },
+        { "m": "r", "texto": "Foto e RNC no mesmo dia", "cor": "vermelho" },
+        { "m": "p", "texto": "Retirar logo o plástico de telhas e painéis" }
+      ],
+      "narracao": "{c}Cada peça é conferida contra o romaneio na hora em que sai do caminhão. Para pilares, vigas, tesouras, terças, contraventos, tirantes e parafusos, a conferência é de cem por cento. {o}Olhe a marca, a quantidade, os amassados, a pintura e as roscas. {d}Achou divergência ou dano? Anote no romaneio, com a assinatura do motorista. {f}Fotografe, {r}e abra o relatório de não conformidade, a RNC, no mesmo dia. {t}Depois que o caminhão vai embora, fica difícil provar o problema. {p}E retire logo o plástico das telhas e dos painéis."
+    },
+    {
+      "tipo": "ilustra", "desenho": "erroSobCarga", "titulo": "Erro frequente: entrar sob a carga",
+      "aviso": "No canteiro, vale o plano de içamento aprovado.",
+      "itens": [
+        { "m": "e", "texto": "Entrar sob a peça para ajeitar ou guiar com a mão", "cor": "vermelho" },
+        { "m": "c", "texto": "Se a amarração falhar, não há tempo de sair", "cor": "vermelho" },
+        { "m": "k", "texto": "Parar, descer a peça e guiar pela corda-guia, de fora da área", "cor": "verde" }
+      ],
+      "narracao": "Erro frequente: {e}na pressa, alguém entra embaixo da peça para ajeitar a amarração ou guiar com a mão. {c}Se a cinta escorregar ou o equipamento falhar, não há tempo de sair. {k}A correção: parar o içamento, descer a peça, e guiar sempre pela corda-guia, de fora da área isolada."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A peça chegou amassada. O que você faz?",
+      "resposta": "Anota no romaneio",
+      "conta": "com assinatura do motorista · foto · RNC no mesmo dia",
+      "narracao": "Sua vez: a peça chegou amassada. O que você faz? {pensa}[[pausa:3]] {resp}Anota no romaneio, com a assinatura do motorista, fotografa, e abre a RNC no mesmo dia."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Área pronta, isolada e sinalizada", "chave": "c1" },
+        { "texto": "Vistoria com fotos antes de descarregar", "chave": "c2" },
+        { "texto": "Calço nas quinas; balancim acima de 6 m", "chave": "c3" },
+        { "texto": "100% conferido com o romaneio", "chave": "c4" }
+      ],
+      "rodape": "Ninguém sob carga suspensa.",
+      "narracao": "Na obra: {c1}área pronta, isolada e sinalizada. {c2}Vistoria com fotos antes de descarregar. {c3}Calço nas quinas, e balancim acima de seis metros. {c4}Cem por cento conferido com o romaneio. {fim}E ninguém sob a carga."
+    }
+  ]
+}

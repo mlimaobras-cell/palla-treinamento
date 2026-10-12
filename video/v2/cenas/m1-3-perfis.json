@@ -1,0 +1,60 @@
+{
+  "codigo": "M1-3-perfis",
+  "titulo": "Perfis e aços estruturais",
+  "capitulo": "Módulo 1 · Fundamentos de estruturas metálicas · Aula 1.3",
+  "eyebrow": "M1 · Perfis e aços",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m1.js"],
+  "fontes": ["Caderno do Módulo 1, itens 1.5 e 1.6", "ABNT NBR 5884, citada no caderno"],
+  "pendencias": ["Exemplos de perfis (W 310 × 32,7; CS 300 × 62; Ue 150×60×20×2,25) são do caderno; [VALIDAR] trocar por perfis de um projeto real da Palla."],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "nomePerfil",
+      "objetivo": "Diferenciar os tipos de perfil, ler o nome de um perfil e entender por que o aço não se troca sem o projeto.",
+      "narracao": "Módulo um, aula três: perfis e aços. Você vai diferenciar os tipos de perfil, aprender a ler o nome de um perfil, e entender por que um aço não se troca por outro."
+    },
+    {
+      "tipo": "ilustra", "desenho": "perfis", "titulo": "Três famílias de perfis", "painel": false,
+      "narracao": "Os perfis se dividem em três famílias. {l}Os laminados saem prontos da usina: perfis W e H, I, U, cantoneiras, barras e tubos. São usados em pilares, vigas e contraventamentos. {s}Os soldados são montados na fábrica com chapas soldadas, nas séries CS, de coluna, VS, de viga, e CVS. Servem para peças grandes e fora de catálogo. {f}E os formados a frio são chapa fina dobrada: U, U enrijecido e Z. Aparecem em terças, longarinas e estruturas leves. Cuidado: eles amassam com facilidade."
+    },
+    {
+      "tipo": "ilustra", "desenho": "nomePerfil", "titulo": "Como ler o nome",
+      "aviso": "Exemplos do caderno; confira sempre a lista de material do projeto.",
+      "itens": [
+        { "m": "a", "texto": "W 310: altura nominal de 310 mm" },
+        { "m": "k", "texto": "× 32,7: quilos por metro" },
+        { "m": "o", "texto": "CS e Ue seguem a mesma lógica" }
+      ],
+      "narracao": "Como ler o nome de um perfil. Veja o W trezentos e dez, vezes trinta e dois vírgula sete. {a}O trezentos e dez é a altura nominal, em milímetros. {k}E o trinta e dois vírgula sete é a massa: trinta e dois vírgula sete quilos por metro. {o}No CS trezentos por sessenta e dois, é uma coluna soldada, com trezentos milímetros de altura e sessenta e dois quilos por metro. E no U enrijecido, os números são a altura, a aba, o enrijecedor e a espessura, em milímetros."
+    },
+    {
+      "tipo": "ilustra", "desenho": "acos", "titulo": "Aços estruturais",
+      "aviso": "Valores mínimos: certificado do material e projeto.",
+      "itens": [
+        { "m": "e", "texto": "Escoamento: deforma e não volta" },
+        { "m": "r", "texto": "Resistência: rompe" },
+        { "m": "t", "texto": "A36: 250 MPa · A572 Gr 50: 345 MPa" },
+        { "m": "t", "texto": "SAC/CIVIL 300 e 350 · ZAR 345 (galvanizado)" },
+        { "m": "c", "texto": "Todo aço chega com certificado; não se troca sem o projeto", "cor": "vermelho" }
+      ],
+      "narracao": "Dois números definem o aço. {e}O escoamento: a tensão em que o aço começa a deformar, e não volta mais. {r}E a resistência: a tensão em que ele rompe. {t}O ASTM A trinta e seis tem escoamento mínimo de duzentos e cinquenta megapascais. O A quinhentos e setenta e dois grau cinquenta, comum nos perfis W e H, tem trezentos e quarenta e cinco. Também aparecem os aços SAC e CIVIL, e o ZAR trezentos e quarenta e cinco, galvanizado, nas terças. {c}Todo material chega com certificado de qualidade. E aços diferentes não se trocam sem autorização do projeto."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O que significa W 310 × 32,7?",
+      "resposta": "310 mm · 32,7 kg/m",
+      "conta": "altura nominal · massa por metro",
+      "narracao": "Sua vez: o que significa W trezentos e dez, vezes trinta e dois vírgula sete? {pensa}[[pausa:3]] {resp}Perfil W com altura nominal de trezentos e dez milímetros, e trinta e dois vírgula sete quilos por metro."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Laminado, soldado ou formado a frio", "chave": "c1" },
+        { "texto": "Nome: altura em mm × kg por metro", "chave": "c2" },
+        { "texto": "Formado a frio amassa fácil: cuidado", "chave": "c3" },
+        { "texto": "Aço só se troca com autorização do projeto", "chave": "c4" }
+      ],
+      "rodape": "Na dúvida, confira a lista de material.",
+      "narracao": "Na obra: {c1}reconheça o perfil laminado, o soldado e o formado a frio. {c2}No nome, a altura em milímetros e os quilos por metro. {c3}O formado a frio amassa fácil: cuidado no manuseio. {c4}E o aço só se troca com autorização do projeto. {fim}Na dúvida, confira a lista de material."
+    }
+  ]
+}

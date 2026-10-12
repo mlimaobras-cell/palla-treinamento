@@ -1,0 +1,107 @@
+{
+  "codigo": "M3-5-acessorios",
+  "titulo": "Acessórios e inspeção",
+  "capitulo": "Módulo 3 · Montagem, içamento e rigging · Aula 3.5",
+  "eyebrow": "M3 · Rigging",
+  "scripts": [
+    "ilustracoes/base.js",
+    "ilustracoes/m3.js"
+  ],
+  "pendencias": [],
+  "fontes": [
+    "Caderno do Módulo 3, itens 1.7 e 1.14 (revisão 2)",
+    "ABNT NBR 15637 (cintas de poliéster), conforme citada no caderno"
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "desenho": "acessorios",
+      "objetivo": "Escolher e inspecionar os acessórios de içamento e reconhecer quando descartar.",
+      "narracao": "Módulo três, aula cinco: acessórios e inspeção. Você vai aprender a escolher e inspecionar os acessórios, e a reconhecer quando descartar."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "acessorios",
+      "titulo": "Cada acessório, seu uso",
+      "painel": false,
+      "aviso": "No canteiro, vale o plano de içamento aprovado.",
+      "narracao": "{c}A cinta de poliéster protege a pintura. {a}O cabo de aço é para cargas pesadas, com proteção nas quinas. {r}A corrente de içamento também é para cargas pesadas, sempre com plaqueta. {m}A manilha liga a cinta ou o cabo à peça. {g}O gancho é o ponto de içamento, com trava. {b}E o balancim é usado em peças longas."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "eloFraco",
+      "titulo": "O conjunto vale o mais fraco",
+      "itens": [
+        {
+          "m": "i",
+          "texto": "Capacidade marcada; sem identificação, não usa"
+        },
+        {
+          "m": "f",
+          "texto": "Conjunto = acessório mais fraco"
+        },
+        {
+          "m": "e",
+          "texto": "Aqui, a manilha limita tudo",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{i}Todo acessório tem a capacidade marcada. Sem identificação, não é usado. {f}E a capacidade do conjunto é a do acessório mais fraco: {e}se a manilha é a de menor capacidade, é ela que limita o içamento inteiro."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "cintaUso",
+      "titulo": "Cinta: forma de uso e etiqueta",
+      "painel": false,
+      "aviso": "Capacidade: etiqueta da cinta (NBR 15637).",
+      "narracao": "{cor}A cor da cinta indica a capacidade em uso vertical, mas a cor não substitui a etiqueta. {v}Na vertical, vale cem por cento da capacidade da etiqueta. {e}Enforcada, cai para cerca de oitenta por cento. {k}Em cesto, com os ramos na vertical, sobe para duzentos por cento. {s}Sem etiqueta legível, a cinta não é usada."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "defeitos",
+      "titulo": "Inspecione antes de cada uso",
+      "painel": false,
+      "aviso": "Acessório reprovado é inutilizado e retirado da obra.",
+      "narracao": "Inspecione antes de cada uso. {c}Cinta com corte, rasgo, costura danificada, queimadura ou etiqueta ilegível: descarte. {a}Cabo de aço com fios rompidos, amassamento, dobra permanente ou gaiola de passarinho: descarte. {r}Corrente com elo alongado, trincado ou sem plaqueta. {m}Manilha com corpo deformado, pino torto ou trocado. {g}Gancho com a abertura aumentada, torção, trinca ou sem trava. {x}Acessório reprovado é inutilizado e retirado da obra."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "galvanizado",
+      "titulo": "Peça galvanizada",
+      "painel": false,
+      "aviso": "Petrobras N-293, 5.4.5, citada no caderno.",
+      "narracao": "{e}Em peça galvanizada, o cabo de aço não pode encostar na peça. {k}Use cinta, com proteção nas quinas. E em peça pintada, evite cabo direto sobre a pintura."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A etiqueta desta cinta está ilegível. Pode usar?",
+      "resposta": "Não",
+      "conta": "sem etiqueta legível, a cinta sai de uso",
+      "narracao": "Sua vez: a etiqueta desta cinta está ilegível. Pode usar? {pensa}[[pausa:3]] {resp}Não. Sem etiqueta legível, a cinta sai de uso."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Sem identificação, não usa",
+          "chave": "c1"
+        },
+        {
+          "texto": "Conjunto = acessório mais fraco",
+          "chave": "c2"
+        },
+        {
+          "texto": "Forma de uso muda a capacidade",
+          "chave": "c3"
+        },
+        {
+          "texto": "Inspecione antes de cada uso",
+          "chave": "c4"
+        }
+      ],
+      "rodape": "Reprovado: inutilizar e retirar.",
+      "narracao": "Na obra: {c1}sem identificação, não usa. {c2}O conjunto vale o acessório mais fraco. {c3}A forma de uso muda a capacidade. {c4}Inspecione antes de cada uso. {fim}E acessório reprovado é inutilizado e retirado."
+    }
+  ]
+}

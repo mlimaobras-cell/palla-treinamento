@@ -21,8 +21,11 @@ const tempos = r.cenas.map((c: { tipo: string }, i: number) => {
   p.on("pageerror", (e) => console.error("ERRO NA PÁGINA:", e.message));
   await p.goto("file://" + path.resolve(__dirname, "modelo-v2.html"));
   await p.evaluate(([m, tp]) => (window as any).montar(m, tp), [r, tempos] as const);
-  for (const pt of pontos) {
-    const [c, s] = pt.split(":").map(Number);
+  const lista = pontos[0] === "auto"
+    ? tempos.flatMap((x: { duracao: number }, i: number) => [`${i + 1}:${(x.duracao * .55).toFixed(1)}`, `${i + 1}:${(x.duracao - 1.2).toFixed(1)}`])
+    : pontos;
+  for (const pt of lista) {
+    const [c, s] = (pt as string).split(":").map(Number);
     await p.evaluate((x) => (window as any).irPara(x), tempos[c - 1].inicio + s);
     await p.screenshot({ path: path.join(saida, `c${c}-${s}.png`) });
   }

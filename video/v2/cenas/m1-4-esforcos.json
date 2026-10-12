@@ -1,0 +1,65 @@
+{
+  "codigo": "M1-4-esforcos",
+  "titulo": "Esforços, ligações e o caminho da peça",
+  "capitulo": "Módulo 1 · Fundamentos de estruturas metálicas · Aula 1.4",
+  "eyebrow": "M1 · Esforços",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m1.js"],
+  "fontes": ["Caderno do Módulo 1, itens 1.7 a 1.10"],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "furoProibido",
+      "objetivo": "Reconhecer os esforços nas peças, as formas de ligação, o caminho da peça e os cuidados contra corrosão.",
+      "narracao": "Módulo um, aula quatro: esforços, ligações e o caminho da peça. Você vai ver como cada peça trabalha, por que não se fura peça na obra, e como proteger o aço."
+    },
+    {
+      "tipo": "ilustra", "desenho": "esforcos", "titulo": "Cinco esforços", "painel": false,
+      "narracao": "Cada peça trabalha de um jeito. {tr}A tração puxa a peça, como no tirante e na diagonal de contraventamento. {co}A compressão empurra, como no pilar. O risco é a flambagem: a peça entorta de lado. {fl}A flexão dobra a peça, como a viga e a terça carregadas no vão. {ci}O cisalhamento corta, como no parafuso de ligação e na alma da viga perto do apoio. {to}E a torção gira a peça, quando a carga fica fora do eixo."
+    },
+    {
+      "tipo": "ilustra", "desenho": "furoProibido", "titulo": "Erro frequente: furar para encaixar",
+      "itens": [
+        { "m": "f", "texto": "Furar, cortar ou soldar para \"facilitar\"", "cor": "vermelho" },
+        { "m": "r", "texto": "Muda a forma como a peça resiste", "cor": "vermelho" },
+        { "m": "e", "texto": "Parar e chamar a engenharia", "cor": "verde" }
+      ],
+      "narracao": "Erro frequente: {f}a peça não encaixa, e alguém resolve abrir um furo, cortar ou soldar para facilitar. {r}Cada furo ou corte muda a forma como a peça resiste a esses esforços. {e}A correção: parar, e chamar a engenharia. Só ela autoriza furo, corte ou solda na obra."
+    },
+    {
+      "tipo": "ilustra", "desenho": "ligacoes", "titulo": "Ligações", "painel": false,
+      "narracao": "As peças se ligam de duas formas. {p}A parafusada é a mais usada na obra: chapas furadas na fábrica e parafusos de alta resistência, apertados conforme o projeto. Isso é o Módulo quatro. {s}A soldada é feita principalmente na fábrica. Na obra, só onde o projeto prevê, por soldador qualificado e com procedimento. Isso é o Módulo cinco."
+    },
+    {
+      "tipo": "ilustra", "desenho": "caminho", "titulo": "O caminho da peça", "painel": false,
+      "narracao": "Toda peça percorre um caminho. {pr}O projeto, com cálculo e desenhos. {fa}A fabricação: corte, furação, solda e inspeção. {pi}A pintura, com jateamento e camadas de espessura controlada. {ex}A expedição: peças marcadas, carregamento e romaneio. {mo}A montagem, que é onde você entra. {db}E o data book, com relatórios, certificados e o projeto como construído. {pt}Cada etapa tem inspeção e registro, definidos no Plano de Inspeção e Testes, o PIT."
+    },
+    {
+      "tipo": "ilustra", "desenho": "corrosao", "titulo": "Proteção contra corrosão",
+      "itens": [
+        { "m": "z", "texto": "Pintura ou galvanização (zinco)" },
+        { "m": "a", "texto": "Pintura arranhada = ponto de corrosão", "cor": "vermelho" },
+        { "m": "r", "texto": "Registrar e retocar conforme o procedimento", "cor": "verde" },
+        { "m": "c", "texto": "Cinta de poliéster, calço de madeira, nunca arrastar" }
+      ],
+      "narracao": "{z}O aço é protegido por pintura ou por galvanização, uma camada de zinco, comum em terças, telhas e parafusos. {a}Se a pintura for arranhada no transporte ou na montagem, ali começa a corrosão. {r}Por isso, todo arranhão é registrado e retocado, conforme o procedimento. {c}E para evitar o dano: cinta de poliéster no içamento, calço de madeira, e nunca arrastar peça no chão."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A pintura arranhou no içamento. O que fazer?",
+      "resposta": "Registrar e retocar",
+      "conta": "conforme o procedimento · evita corrosão",
+      "narracao": "Sua vez: a pintura de uma peça foi arranhada no içamento. O que fazer? {pensa}[[pausa:3]] {resp}Registrar, e fazer o retoque conforme o procedimento. A tinta não é só estética: ela protege contra a corrosão."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Pilar comprimido pode flambar", "chave": "c1" },
+        { "texto": "Furo, corte ou solda: só com a engenharia", "chave": "c2" },
+        { "texto": "Cada etapa tem inspeção no PIT", "chave": "c3" },
+        { "texto": "Arranhou: registrar e retocar", "chave": "c4" }
+      ],
+      "rodape": "Peça alterada na obra muda o cálculo.",
+      "narracao": "Na obra: {c1}pilar comprimido pode flambar. {c2}Furo, corte ou solda, só com a engenharia. {c3}Cada etapa tem inspeção no PIT. {c4}E arranhou, registra e retoca. {fim}Peça alterada na obra muda o cálculo."
+    }
+  ]
+}

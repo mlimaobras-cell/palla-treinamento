@@ -34,6 +34,7 @@ h1, h2, h3, .num { font-family: "Chakra Petch", sans-serif; font-weight: 700; }
 .painel .itens { margin-top: 22px; display: grid; gap: 14px; }
 .painel .it { font-size: 28px; line-height: 1.25; padding: 12px 16px; background: #fff; border: 1px solid var(--linha); border-left: 6px solid var(--azul); border-radius: 8px; }
 .painel .it.vermelho { border-left-color: var(--vermelho); }
+.painel .itens.compacto { gap: 9px; margin-top: 16px; } .painel .itens.compacto .it { font-size: 23px; padding: 8px 12px; }
 .painel .it.verde { border-left-color: var(--verde); }
 .painel .grande { font: 700 92px/1 "Chakra Petch"; color: var(--escuro); margin-top: 18px; }
 .painel .sub { font-size: 28px; color: var(--cinza); margin-top: 6px; }
@@ -221,16 +222,17 @@ const CENAS = {
   abertura: {
     html: (c, meta) => `<div class="topo"><span class="eyebrow"></span><img src="${LOGO}"></div>
       <div class="ab"><div class="cap" data-s="1">${meta.capitulo}</div><h1 data-s="2">${meta.titulo}</h1><div class="linha" data-s="3"></div>
-      <div class="obj" data-s="4"><span>Objetivo da aula</span><p>${c.objetivo}</p></div></div>${svgLingada()}`,
+      <div class="obj" data-s="4"><span>Objetivo da aula</span><p>${c.objetivo}</p></div></div>${c.desenho ? svgDesenho(c) : svgLingada()}`,
     montar(raiz) { const s = raiz.querySelector("svg"); Object.assign(s.style, { width: "520px", height: "393px", left: "740px", top: "250px" }); },
-    quadro(raiz, t) {
+    quadro(raiz, t, c) {
       [.1, .4, .8, 1.4].forEach((ini, i) => surge(raiz.querySelector(`[data-s="${i + 1}"]`), t, ini));
       const s = raiz.querySelector("svg"); s.style.opacity = prog(t, 1.0, .8);
-      desenhaLingada(raiz, { topo: 400, ang: 60, prumo: 1, peso: 0 });
+      if (c.desenho) DESENHOS[c.desenho].quadro(raiz, 99, new Proxy({}, { get: () => 0 }), c, Q(raiz));
+      else desenhaLingada(raiz, { topo: 400, ang: 60, prumo: 1, peso: 0 });
     },
   },
   lingada: {
-    html: (c) => `<div class="topo"><span class="eyebrow">M3 · Içamento</span><img src="${LOGO}"></div>${svgLingada()}
+    html: (c, meta) => `<div class="topo"><span class="eyebrow">${meta.eyebrow ?? "M3 · Içamento"}</span><img src="${LOGO}"></div>${svgLingada()}
       <div class="painel"><h2 data-s="t">${c.titulo}</h2><div class="itens" data-k="painel"></div></div>
       <div class="aviso">Ilustração conceitual. <b>No canteiro, vale o plano de içamento aprovado.</b></div>`,
     montar(raiz, c) {
@@ -271,7 +273,7 @@ const CENAS = {
     },
   },
   conta: {
-    html: (c) => `<div class="topo"><span class="eyebrow">M3 · Içamento</span><img src="${LOGO}"></div>${svgLingada()}
+    html: (c, meta) => `<div class="topo"><span class="eyebrow">${meta.eyebrow ?? "M3 · Içamento"}</span><img src="${LOGO}"></div>${svgLingada()}
       <div class="painel" style="left:520px;top:92px;width:712px"><h2 data-s="t">${c.titulo}</h2></div>
       <div class="conta" style="top:170px">
         <div class="lin" data-m="p1"><i>1</i>2.000 kg ÷ 2 pernas = <b>&nbsp;1.000 kg</b></div>
@@ -289,12 +291,12 @@ const CENAS = {
     },
   },
   pergunta: {
-    html: (c) => `<div class="topo"><span class="eyebrow">M3 · Içamento</span><img src="${LOGO}"></div>
+    html: (c, meta) => `<div class="topo"><span class="eyebrow">${meta.eyebrow ?? "M3 · Içamento"}</span><img src="${LOGO}"></div>
       <div class="pg"><div class="card" data-s="1"><div class="tag">Pergunta para você</div><h2>${c.pergunta.replace(/(\d) (kg|m|t)\b/g, "$1&nbsp;$2")}</h2>
       <svg width="130" height="130" viewBox="0 0 130 130" data-k="relogio"><circle cx="65" cy="65" r="54" stroke="rgba(255,255,255,.18)" stroke-width="12" fill="none"/>
       <circle data-k="anel" cx="65" cy="65" r="54" stroke="#F2A0A8" stroke-width="12" fill="none" stroke-linecap="round" transform="rotate(-90 65 65)" stroke-dasharray="339.3"/>
       <text data-k="seg" x="65" y="80" text-anchor="middle" font-family="Chakra Petch" font-weight="700" font-size="44" fill="#fff"></text></svg>
-      <div class="resp" data-s="2"><b>${c.resposta}</b><span>${c.conta}</span></div></div></div>`,
+      <div class="resp" data-s="2"><b${c.resposta.length > 12 ? ' style="font-size:54px"' : ""}>${c.resposta}</b><span>${c.conta}</span></div></div></div>`,
     quadro(raiz, t, c, m) {
       surge(raiz.querySelector('[data-s="1"]'), t, .1);
       const dur = m.resp - m.pensa, x = clamp((t - m.pensa) / dur);
@@ -305,7 +307,7 @@ const CENAS = {
     },
   },
   checklist: {
-    html: (c) => `<div class="topo"><span class="eyebrow">M3 · Içamento</span><img src="${LOGO}"></div>
+    html: (c, meta) => `<div class="topo"><span class="eyebrow">${meta.eyebrow ?? "M3 · Içamento"}</span><img src="${LOGO}"></div>
       <div class="ck"><h2 data-s="t">${c.titulo}</h2><ul>${c.itens.map((it) => `<li data-m="${it.chave}"><span class="ok">✓</span>${it.texto}</li>`).join("")}</ul>
       <div class="rod" data-m="fim">${c.rodape}</div></div>`,
     quadro(raiz, t, c, m) {
@@ -315,8 +317,50 @@ const CENAS = {
   },
 };
 
+// ------------------------------------------------------------------ tipos genéricos (ilustrações em video/v2/ilustracoes/*.js)
+window.DESENHOS = {};
+const Q = (raiz) => (k) => raiz.querySelector(`[data-k="${k}"]`);
+function svgDesenho(c) {
+  const u = `s${++SVG_N}`, d = DESENHOS[c.desenho];
+  if (!d) throw new Error("Desenho não encontrado: " + c.desenho);
+  return `<svg class="cena-svg" viewBox="${d.largo ? "0 0 1180 560" : "0 0 820 620"}">${defsPadrao(u)}${d.svg(u, c)}</svg>`;
+}
+function defsPadrao(u) {
+  const seta = (id, cor) => `<marker id="${id}-${u}" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="${cor}"/></marker>`;
+  return `<defs><pattern id="hach-${u}" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="14" fill="#D13542" opacity=".55"/></pattern>
+    <pattern id="brita-${u}" width="22" height="14" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="3" fill="#A9AFC2"/><circle cx="15" cy="10" r="2.5" fill="#BFC4D3"/><circle cx="18" cy="3" r="2" fill="#9AA0B8"/></pattern>
+    ${seta("pv", "#D13542")}${seta("pa", "#404D91")}${seta("pl", "#C77A12")}${seta("pg", "#1F8A5B")}${seta("pe", "#1E2550")}</defs>`;
+}
+CENAS.ilustra = {
+  html: (c, meta) => `<div class="topo"><span class="eyebrow">${meta.eyebrow ?? ""}</span><img src="${LOGO}"></div>${svgDesenho(c)}
+    ${c.painel === false ? "" : `<div class="painel"><h2 data-s="t">${c.titulo}</h2><div class="itens ${(c.itens ?? []).length > 4 ? "compacto" : ""}">${(c.itens ?? []).map((it, i) => `<div class="it ${it.cor ?? ""}" data-m="${it.m}" data-i="${i}">${it.texto}</div>`).join("")}</div></div>`}
+    ${c.aviso === false ? "" : `<div class="aviso">Ilustração conceitual. <b>${c.aviso ?? "No canteiro, vale o procedimento aprovado."}</b></div>`}`,
+  montar(raiz, c) {
+    if (c.painel === false) { const s = raiz.querySelector("svg"); Object.assign(s.style, { width: "1180px", height: "560px", left: "50px", top: "100px" }); s.setAttribute("viewBox", "0 0 1180 560"); }
+  },
+  quadro(raiz, t, c, m) {
+    surge(raiz.querySelector('[data-s="t"]'), t, .1);
+    raiz.querySelectorAll(".it").forEach((el) => surge(el, t, (m[el.dataset.m] ?? 0) + .3));
+    DESENHOS[c.desenho].quadro(raiz, t, m, c, Q(raiz));
+  },
+};
+CENAS.contaG = {
+  html: (c, meta) => `<div class="topo"><span class="eyebrow">${meta.eyebrow ?? ""}</span><img src="${LOGO}"></div>${c.desenho ? svgDesenho(c) : ""}
+    <div class="painel" style="left:520px;top:92px;width:712px"><h2 data-s="t">${c.titulo}</h2></div>
+    <div class="conta" style="top:170px">${c.linhas.map((l, i) => `<div class="${l.nota ? "nota" : `lin ${l.res ? "res" : ""}`}" data-m="${l.m}"${l.pequena ? ' style="font-size:30px"' : ""}>${l.nota ? "" : `<i>${l.n ?? (l.res ? "=" : i + 1)}</i>`}${l.texto}</div>`).join("")}</div>
+    ${c.aviso ? `<div class="aviso">Ilustração conceitual. <b>${c.aviso}</b></div>` : ""}`,
+  montar(raiz, c) { const s = raiz.querySelector("svg"); if (s) Object.assign(s.style, { width: "500px", height: "378px", top: "190px", left: "8px" }); },
+  quadro(raiz, t, c, m) {
+    surge(raiz.querySelector('[data-s="t"]'), t, .1);
+    raiz.querySelectorAll(".conta [data-m]").forEach((el) => surge(el, t, (m[el.dataset.m] ?? 0) + .3));
+    if (c.desenho) DESENHOS[c.desenho].quadro(raiz, t, m, c, Q(raiz));
+  },
+};
+
 let MONTADAS = [];
-window.montar = (meta, tempos) => {
+const carregar = (src) => new Promise((ok, erro) => { const s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = () => erro(new Error("Falha ao carregar " + src)); document.head.appendChild(s); });
+window.montar = async (meta, tempos) => {
+  for (const src of meta.scripts ?? []) await carregar(src);
   const alvo = document.getElementById("cenas");
   MONTADAS = meta.cenas.map((c, i) => {
     const s = document.createElement("section");
@@ -325,9 +369,11 @@ window.montar = (meta, tempos) => {
     s.innerHTML = def.html(c, meta);
     alvo.appendChild(s);
     def.montar?.(s, c);
+    s.dataset.cena = i + 1;
     return { s, c, def, tp: tempos[i] };
   });
-  return Promise.all([...document.images].map((im) => im.decode().catch(() => {}))).then(() => document.fonts.ready);
+  await Promise.all([...document.images].map((im) => im.decode().catch(() => {})));
+  await document.fonts.ready;
 };
 
 window.irPara = (seg) => {

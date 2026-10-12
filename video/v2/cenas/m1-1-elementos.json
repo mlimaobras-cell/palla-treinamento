@@ -1,0 +1,117 @@
+{
+  "codigo": "M1-1-elementos",
+  "titulo": "A estrutura e seus elementos",
+  "capitulo": "Módulo 1 · Fundamentos de estruturas metálicas · Aula 1.1",
+  "eyebrow": "M1 · Fundamentos",
+  "scripts": [
+    "ilustracoes/base.js",
+    "ilustracoes/m1.js"
+  ],
+  "fontes": [
+    "Caderno do Módulo 1, itens 1.1, 1.2 e 1.3"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "desenho": "galpaoElementos",
+      "objetivo": "Entender por que se constrói em aço e reconhecer cada elemento de um galpão metálico.",
+      "narracao": "Módulo um, aula um: a estrutura e seus elementos. Você vai entender por que se constrói em aço, e aprender o nome e a função de cada peça do galpão."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "porqueAco",
+      "titulo": "Por que construir em aço",
+      "itens": [
+        {
+          "m": "f",
+          "texto": "Fabricada na fábrica, montada na obra"
+        },
+        {
+          "m": "r",
+          "texto": "Rapidez e precisão: peças chegam prontas"
+        },
+        {
+          "m": "l",
+          "texto": "Leveza: grandes vãos, fundação menor"
+        },
+        {
+          "m": "e",
+          "texto": "Exige planejamento e montagem cuidadosa",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{f}A estrutura metálica é fabricada na fábrica, e montada na obra. {r}Isso traz rapidez: as peças chegam prontas, enquanto outras frentes avançam. E traz precisão, porque corte, furação e solda têm controle de qualidade. {l}O aço também é leve: vence grandes vãos com menos peso na fundação, e deixa o canteiro mais limpo. {e}Mas tem um preço: exige planejamento. A vantagem do aço só aparece se a montagem for bem feita. E a montagem é o seu trabalho."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "tipos",
+      "titulo": "Tipos de estrutura",
+      "painel": false,
+      "narracao": "Na obra, você vai encontrar quatro tipos principais. {g}O galpão em pórtico: pilares e vigas de cobertura ligados de forma rígida, comum na indústria, na logística e no comércio. {t}A cobertura treliçada, com tesouras de banzos, diagonais e montantes, para grandes vãos, como ginásios e armazéns. {e}O edifício e o mezanino, com laje em steel deck, a fôrma metálica que fica incorporada ao concreto. {s}E as estruturas especiais: passarelas, pipe racks, plataformas, escadas e fachadas."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "galpaoElementos",
+      "titulo": "Elementos do galpão",
+      "itens": [
+        {
+          "m": "ch",
+          "texto": "Chumbador e chapa de base: fixam o pilar"
+        },
+        {
+          "m": "pi",
+          "texto": "Pilar leva as cargas; viga vence o vão"
+        },
+        {
+          "m": "te",
+          "texto": "Terça: cobertura · Longarina: lateral"
+        },
+        {
+          "m": "co",
+          "texto": "Contraventamento: trava contra o vento"
+        },
+        {
+          "m": "ti",
+          "texto": "Tirante: só tração; trava terças"
+        },
+        {
+          "m": "mf",
+          "texto": "Mão-francesa: trava a mesa inferior"
+        }
+      ],
+      "narracao": "Vamos montar o galpão peça por peça. {ch}O chumbador prende a base do pilar na fundação. {ba}A chapa de base distribui a carga do pilar no concreto. {pi}O pilar leva todas as cargas até a fundação. {vi}A viga vence o vão e apoia a cobertura. {te}As terças apoiam as telhas da cobertura. {lo}As longarinas apoiam as telhas do fechamento lateral. {co}O contraventamento, em X, trava a estrutura contra o vento e o movimento. {ti}O tirante trabalha só à tração, e trava terças e longarinas. {mf}E a mão-francesa trava a mesa inferior da viga contra o giro."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Para que serve a longarina?",
+      "resposta": "Fechamento lateral",
+      "conta": "apoia as telhas da parede · a terça apoia as da cobertura",
+      "narracao": "Sua vez: para que serve a longarina? {pensa}[[pausa:3]] {resp}A longarina apoia as telhas do fechamento lateral. Não confunda com a terça, que apoia as telhas da cobertura."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Aço: rápido e preciso, se bem montado",
+          "chave": "c1"
+        },
+        {
+          "texto": "Terça na cobertura, longarina na lateral",
+          "chave": "c2"
+        },
+        {
+          "texto": "Contraventamento trava a estrutura",
+          "chave": "c3"
+        },
+        {
+          "texto": "Tirante só trabalha à tração",
+          "chave": "c4"
+        }
+      ],
+      "rodape": "Saber o nome da peça evita erro de montagem.",
+      "narracao": "Na obra: {c1}o aço é rápido e preciso, se for bem montado. {c2}Terça na cobertura, longarina na lateral. {c3}O contraventamento trava a estrutura. {c4}E o tirante só trabalha à tração. {fim}Saber o nome de cada peça evita erro de montagem."
+    }
+  ]
+}

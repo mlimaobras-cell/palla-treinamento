@@ -8,7 +8,6 @@
     "Caderno do Módulo 3, item 1.6 — plano de içamento elaborado por profissional habilitado"
   ],
   "pendencias": [
-    "‘Prefira 60° ou mais’ é orientação do caderno (prática de mercado): confirmar com o procedimento de rigging da Palla.",
     "Capacidades de cinta não são mostradas: o vídeo manda comparar com a etiqueta e o plano."
   ],
   "cenas": [
@@ -77,5 +76,8 @@
       "rodape": "Ninguém sob carga suspensa.",
       "narracao": "Na obra: {c1}gancho sobre o centro de gravidade. {c2}Conta por perna, com o fator. {c3}Compare com a etiqueta e o plano. {c4}Ângulo baixo? Pare e chame o responsável. {fim}E ninguém sob a carga."
     }
+  ],
+  "decisoes": [
+    "Ângulo de lingada: a Palla adota a preferência por 60° ou mais (confirmado por Mário Lima em 12/10/2026). O caderno também orienta evitar ângulos abaixo de 45°."
   ]
 }

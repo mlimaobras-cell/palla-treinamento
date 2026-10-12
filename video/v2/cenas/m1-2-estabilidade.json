@@ -1,0 +1,42 @@
+{
+  "codigo": "M1-2-estabilidade",
+  "titulo": "Estabilidade durante a montagem",
+  "capitulo": "Módulo 1 · Fundamentos de estruturas metálicas · Aula 1.2",
+  "eyebrow": "M1 · Estabilidade",
+  "scripts": ["ilustracoes/base.js", "ilustracoes/m1.js"],
+  "fontes": ["Caderno do Módulo 1, item 1.4", "ABNT NBR 8800, 12.3.2, citada no caderno"],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura", "desenho": "galpaoElementos",
+      "objetivo": "Entender por que a estrutura incompleta é instável e seguir as regras de contraventamento provisório.",
+      "narracao": "Módulo um, aula dois: estabilidade durante a montagem. Você vai entender por que a estrutura incompleta é perigosa, e as quatro regras para mantê-la de pé."
+    },
+    {
+      "tipo": "ilustra", "desenho": "incompleta", "titulo": "Estrutura incompleta", "painel": false,
+      "narracao": "O projeto calcula a estrutura pronta: com todos os contraventamentos, terças e ligações. {v}Durante a montagem, ela ainda não tem essa rigidez. O vento, o impacto de um equipamento ou o material apoiado podem derrubar o que está solto. {n}Por isso, a NBR oito mil e oitocentos, no item doze ponto três ponto dois, exige contraventamento provisório sempre que necessário."
+    },
+    {
+      "tipo": "ilustra", "desenho": "regrasEstab", "titulo": "Quatro regras", "painel": false,
+      "narracao": "Quatro regras. {p}Primeira: nunca deixe pilar solto sem estaiar. {v}Segunda: monte o primeiro vão contraventado, antes de avançar. {a}Terceira: não acumule material sobre a estrutura incompleta. {r}E quarta: só retire o provisório com autorização."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Por que não se deixa pilar solto?",
+      "resposta": "Pode tombar",
+      "conta": "sem contraventamento, falta rigidez · vento ou impacto derrubam",
+      "narracao": "Sua vez: por que não se deixa um pilar solto? {pensa}[[pausa:3]] {resp}Porque ele pode tombar. Sem o contraventamento, a estrutura ainda não tem rigidez, e o vento ou um impacto bastam para derrubá-la."
+    },
+    {
+      "tipo": "checklist", "titulo": "Leve para a obra",
+      "itens": [
+        { "texto": "Pilar sempre estaiado", "chave": "c1" },
+        { "texto": "Primeiro vão contraventado antes de avançar", "chave": "c2" },
+        { "texto": "Nada acumulado na estrutura incompleta", "chave": "c3" },
+        { "texto": "Provisório só sai com autorização", "chave": "c4" }
+      ],
+      "rodape": "Estrutura incompleta não tem a rigidez da pronta.",
+      "narracao": "Na obra: {c1}pilar sempre estaiado. {c2}Primeiro vão contraventado antes de avançar. {c3}Nada acumulado na estrutura incompleta. {c4}E o provisório só sai com autorização. {fim}A estrutura incompleta não tem a rigidez da estrutura pronta."
+    }
+  ]
+}

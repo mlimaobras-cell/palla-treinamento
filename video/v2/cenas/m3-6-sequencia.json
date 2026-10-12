@@ -1,0 +1,174 @@
+{
+  "codigo": "M3-6-sequencia",
+  "titulo": "Sequência, estaiamento e soltar a carga",
+  "capitulo": "Módulo 3 · Montagem, içamento e rigging · Aula 3.6",
+  "eyebrow": "M3 · Montagem",
+  "scripts": [
+    "ilustracoes/base.js",
+    "ilustracoes/m3.js"
+  ],
+  "pendencias": [
+    "Número mínimo de parafusos antes de soltar o gancho: regra da engenharia da Palla [VALIDAR] — o vídeo remete ao plano de montagem.",
+    "Distância de descarga atmosférica e limite de vento: [VALIDAR] — o vídeo remete ao plano/procedimento."
+  ],
+  "fontes": [
+    "Caderno do Módulo 3, itens 1.10, 1.11 e 1.14 (revisão 2)",
+    "ABNT NBR 8800, 12.3.2, citada no caderno"
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "desenho": "sequencia",
+      "objetivo": "Seguir a sequência de montagem, manter a estrutura estável e soltar a carga com segurança.",
+      "narracao": "Módulo três, aula seis: sequência, estaiamento e como soltar a carga. Você vai ver a ordem da montagem, como manter a estrutura estável, e quando soltar o gancho."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "sequencia",
+      "titulo": "Sequência de montagem",
+      "itens": [
+        {
+          "m": "b",
+          "texto": "1. Bases niveladas, roscas conferidas"
+        },
+        {
+          "m": "p",
+          "texto": "2. Pilares estaiados e no prumo"
+        },
+        {
+          "m": "v",
+          "texto": "3. Primeiro vão travado",
+          "cor": "vermelho"
+        },
+        {
+          "m": "a",
+          "texto": "4. Avanço pelos pórticos"
+        },
+        {
+          "m": "s",
+          "texto": "5. Terças, tirantes, mãos-francesas"
+        },
+        {
+          "m": "g",
+          "texto": "Graute por último"
+        }
+      ],
+      "narracao": "{b}A montagem começa pelas bases: nivelamento com topografia, e roscas dos chumbadores conferidas. {p}Depois, os pilares, estaiados com cabos de aço e no prumo. {v}Em seguida, o primeiro vão travado, com vigas e contraventamento: é ele que dá estabilidade à estrutura. {a}A partir dele, a montagem avança para os próximos pórticos. {s}Depois, a estrutura secundária: terças, tirantes e mãos-francesas. {g}O graute das bases é o último passo, depois do prumo, do alinhamento e do aperto final."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "estais",
+      "titulo": "Estabilização provisória",
+      "itens": [
+        {
+          "m": "e",
+          "texto": "Estais em duas direções desde o 1º pilar"
+        },
+        {
+          "m": "r",
+          "texto": "Saem só após o contraventamento definitivo"
+        },
+        {
+          "m": "n",
+          "texto": "Fim do dia: nada solto ou só encostado",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{e}Os estais de cabo de aço são colocados desde o primeiro pilar, em duas direções, {r}e só saem depois que o contraventamento definitivo está instalado. {n}No fim do dia, nenhuma peça fica solta ou só encostada: vento sobre estrutura sem travamento derruba pilares."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "soltarPilar",
+      "titulo": "Soltar o pilar sem subir nele",
+      "itens": [
+        {
+          "m": "i",
+          "texto": "Içar pelo furo, com manilha"
+        },
+        {
+          "m": "g",
+          "texto": "Guiar pela corda-guia"
+        },
+        {
+          "m": "a",
+          "texto": "Assentar; porcas e arruelas"
+        },
+        {
+          "m": "e",
+          "texto": "Estaiar em duas direções"
+        },
+        {
+          "m": "s",
+          "texto": "Soltar a manilha pela corda no pino ou pela plataforma",
+          "cor": "verde"
+        },
+        {
+          "m": "x",
+          "texto": "Ninguém sobe no pilar",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{i}O pilar é içado pelo furo de içamento, com manilha, {g}e guiado pela corda-guia. {a}Ele é assentado nos chumbadores, com porcas e arruelas colocadas, {e}e estaiado em duas direções. {s}Só então a manilha é solta: por uma corda amarrada ao pino, puxada do chão, ou pela plataforma elevatória, com operador habilitado. {x}Ninguém sobe no pilar para soltar o gancho."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "ganchoViga",
+      "titulo": "Soltar o gancho da viga",
+      "aviso": "Quantidade de parafusos: plano de montagem da Palla.",
+      "itens": [
+        {
+          "m": "p",
+          "texto": "Peça presa por parafusos apertados, como manda o plano"
+        },
+        {
+          "m": "c",
+          "texto": "Porca logo depois de cada parafuso"
+        },
+        {
+          "m": "g",
+          "texto": "Até liberar, o cabo fica tensionado"
+        }
+      ],
+      "narracao": "{p}A viga só é solta do gancho com a peça presa por parafusos suficientes e apertados, como manda o plano de montagem. {c}Coloque a porca logo depois de cada parafuso. {g}E até a liberação, o guindaste mantém a carga, com o cabo tensionado."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "parada",
+      "titulo": "Quando parar",
+      "painel": false,
+      "aviso": "Limites de vento e distância de raios: plano de içamento e procedimento da Palla.",
+      "narracao": "Pare o serviço quando: {v}o vento passar do limite do plano; {c}chover; {r}houver descarga atmosférica próxima; {l}acabar a luz natural sem iluminação planejada; {f}ou houver equipe trabalhando acima ou abaixo. {q}E lembre: qualquer pessoa pode parar o serviço."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O pilar foi assentado e estaiado. Como soltar a manilha?",
+      "resposta": "Pela corda no pino",
+      "conta": "ou pela plataforma, com operador habilitado — nunca subindo no pilar",
+      "narracao": "Sua vez: o pilar foi assentado e estaiado. Como soltar a manilha? {pensa}[[pausa:3]] {resp}Pela corda amarrada ao pino, puxada do chão, ou pela plataforma elevatória. Nunca subindo no pilar."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Primeiro vão travado antes de avançar",
+          "chave": "c1"
+        },
+        {
+          "texto": "Estais até o contraventamento definitivo",
+          "chave": "c2"
+        },
+        {
+          "texto": "Gancho solto só com parafusos do plano",
+          "chave": "c3"
+        },
+        {
+          "texto": "Condição mudou? Pare",
+          "chave": "c4"
+        }
+      ],
+      "rodape": "Ninguém sobe no pilar para soltar o gancho.",
+      "narracao": "Na obra: {c1}primeiro vão travado antes de avançar. {c2}Estais até o contraventamento definitivo. {c3}Gancho solto só com os parafusos do plano. {c4}Condição mudou? Pare. {fim}E ninguém sobe no pilar para soltar o gancho."
+    }
+  ]
+}

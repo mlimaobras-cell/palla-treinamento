@@ -1,0 +1,189 @@
+{
+  "codigo": "M3-3-plano",
+  "titulo": "Plano de içamento e tabela de carga",
+  "capitulo": "Módulo 3 · Montagem, içamento e rigging · Aula 3.3",
+  "eyebrow": "M3 · Içamento",
+  "scripts": [
+    "ilustracoes/base.js",
+    "ilustracoes/m3.js"
+  ],
+  "pendencias": [
+    "Limites de taxa de utilização e critério de içamento crítico: [VALIDAR] com a engenharia da Palla (caderno M3, 1.6). O vídeo não cita números."
+  ],
+  "fontes": [
+    "Caderno do Módulo 3, itens 1.5 e 1.6 (revisão 2)"
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "desenho": "raio",
+      "objetivo": "Entender o que o plano de içamento define e por que o raio muda a capacidade do equipamento.",
+      "narracao": "Módulo três, aula três: plano de içamento e tabela de carga. Você vai entender o que o plano define, e por que o raio muda a capacidade do equipamento."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "equipamentos",
+      "titulo": "Equipamentos de içamento",
+      "itens": [
+        {
+          "m": "g",
+          "texto": "Guindaste: pneus ou esteiras"
+        },
+        {
+          "m": "m",
+          "texto": "Guindauto (munck)"
+        },
+        {
+          "m": "r",
+          "texto": "Grua"
+        },
+        {
+          "m": "t",
+          "texto": "Manipulador telescópico"
+        },
+        {
+          "m": "o",
+          "texto": "Operador qualificado, certificado válido",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{g}Na montagem, os principais equipamentos são o guindaste, sobre pneus ou esteiras, {m}o guindauto, também chamado de munck, {r}a grua, {t}e o manipulador telescópico. {o}Quem opera é sempre um operador qualificado, com certificado válido."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "raio",
+      "titulo": "O raio muda a capacidade",
+      "aviso": "Valores de capacidade: tabela de carga do fabricante.",
+      "itens": [
+        {
+          "m": "r",
+          "texto": "Raio: do centro de giro até a carga"
+        },
+        {
+          "m": "l",
+          "texto": "Lança mais deitada = raio maior"
+        },
+        {
+          "m": "c",
+          "texto": "Raio maior = capacidade menor",
+          "cor": "vermelho"
+        },
+        {
+          "m": "t",
+          "texto": "Vale a tabela do fabricante, no raio real"
+        }
+      ],
+      "narracao": "{r}O raio é a distância horizontal entre o centro de giro do equipamento e a carga. {l}Quando a lança deita para alcançar mais longe, o raio aumenta. {c}E quanto maior o raio, menor a capacidade. {t}Por isso, a capacidade não é um número só: vale a tabela de carga do fabricante, lida no raio real do içamento e na configuração da lança."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "plano",
+      "titulo": "O plano responde a 5 perguntas",
+      "aviso": "Plano elaborado e assinado por profissional habilitado.",
+      "itens": [
+        {
+          "m": "q1",
+          "texto": "1. Peso da peça com acessórios"
+        },
+        {
+          "m": "q2",
+          "texto": "2. Maior raio e altura"
+        },
+        {
+          "m": "q3",
+          "texto": "3. Capacidade nesse raio"
+        },
+        {
+          "m": "q4",
+          "texto": "4. Acessórios e capacidades"
+        },
+        {
+          "m": "q5",
+          "texto": "5. Posição do equipamento e solo"
+        }
+      ],
+      "narracao": "{p}Todo içamento com equipamento tem um plano, elaborado e assinado por profissional habilitado. Ele responde a cinco perguntas. {q1}Quanto pesa a peça, com os acessórios? {q2}Qual o maior raio, e qual a altura? {q3}Quanto o equipamento levanta nesse raio? {q4}Quais acessórios, e com que capacidade? {q5}E onde o equipamento fica, e sobre que solo?"
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "taxa",
+      "titulo": "Taxa de utilização",
+      "aviso": "Limites para içamento crítico: definidos pela engenharia da Palla.",
+      "itens": [
+        {
+          "m": "f",
+          "texto": "Carga total ÷ capacidade no raio"
+        },
+        {
+          "m": "e",
+          "texto": "Exemplo: ¾ da capacidade = 75%"
+        },
+        {
+          "m": "c",
+          "texto": "Mais perto de 100% = mais crítico",
+          "cor": "vermelho"
+        },
+        {
+          "m": "l",
+          "texto": "Limites: engenharia da Palla"
+        }
+      ],
+      "narracao": "{f}O plano também calcula a taxa de utilização: a carga total dividida pela capacidade no raio. {e}Por exemplo: se a carga total é três quartos da capacidade, a taxa é de setenta e cinco por cento. {c}Quanto mais perto de cem por cento, mais crítico é o içamento. {l}Os limites para içamento crítico são definidos pela engenharia da Palla."
+    },
+    {
+      "tipo": "ilustra",
+      "desenho": "erroRaio",
+      "titulo": "Erro frequente: mudar a posição",
+      "aviso": "No canteiro, vale o plano de içamento aprovado.",
+      "itens": [
+        {
+          "m": "e",
+          "texto": "Equipamento mais longe que o previsto",
+          "cor": "vermelho"
+        },
+        {
+          "m": "c",
+          "texto": "Raio maior: capacidade da tabela caiu",
+          "cor": "vermelho"
+        },
+        {
+          "m": "k",
+          "texto": "Parar e refazer o plano antes de içar",
+          "cor": "verde"
+        }
+      ],
+      "narracao": "Erro frequente: {e}o guindaste não consegue ficar onde o plano previu, e é posicionado mais longe. {c}O raio aumentou, e a capacidade da tabela caiu. {k}A correção: parar, e chamar o responsável para refazer o plano antes de içar."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O guindaste vai precisar alcançar mais longe. A capacidade aumenta ou diminui?",
+      "resposta": "Diminui",
+      "conta": "raio maior = capacidade menor na tabela",
+      "narracao": "Sua vez: o guindaste vai precisar alcançar mais longe. A capacidade aumenta ou diminui? {pensa}[[pausa:3]] {resp}Diminui. Raio maior, capacidade menor na tabela."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Todo içamento tem plano assinado",
+          "chave": "c1"
+        },
+        {
+          "texto": "Capacidade: tabela, no raio real",
+          "chave": "c2"
+        },
+        {
+          "texto": "Taxa perto de 100% = crítico",
+          "chave": "c3"
+        },
+        {
+          "texto": "Mudou a posição? Pare e refaça o plano",
+          "chave": "c4"
+        }
+      ],
+      "rodape": "Ninguém sob carga suspensa.",
+      "narracao": "Na obra: {c1}todo içamento tem plano assinado. {c2}A capacidade vem da tabela, no raio real. {c3}Taxa perto de cem por cento é içamento crítico. {c4}Mudou a posição? Pare e refaça o plano. {fim}E ninguém sob a carga."
+    }
+  ]
+}

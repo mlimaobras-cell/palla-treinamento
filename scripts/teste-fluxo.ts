@@ -7,9 +7,11 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { and, eq, inArray } from "drizzle-orm";
 import { db, encerrarDb, schema } from "../db";
 import type { Ator } from "../lib/permissoes";
-import { cadastrarPorConvite, criarConvite } from "../lib/servicos/cadastro";
+import { cadastrarPorConvite, criarConvite, esquemaCadastro } from "../lib/servicos/cadastro";
 import { concluirAula, enviarAvaliacao, iniciarAvaliacao, iniciarDiagnostica, liberarReavaliacao, registrarTempo, segundosMinimos } from "../lib/servicos/aprendizagem";
 import { registrarPratica } from "../lib/servicos/praticas";
+import { gerarLinkNovaSenha, redefinirSenha } from "../lib/servicos/senha";
+import bcrypt from "bcryptjs";
 import {
   aprovarEEmitir, atualizarVencidos, cancelarCertificado, checklistEmissao, emitirComprovanteEtapa,
   pdfDoCertificado, reemitirCertificado, verificarPublico,
@@ -122,13 +124,31 @@ async function main() {
   const cpf = cpfFicticio();
   const { colab: c, usuario } = await cadastrarPorConvite(convite.token, {
     nome: "João Fictício da Silva Teste", cpf, telefone: "11999990000", email: `joao.${Date.now()}@ficticio.teste`,
-    senha: "SenhaTeste123", consentimento: true, ficticio: true,
+    senha: "SenhaTeste123", consentimento: true, ficticio: true, dataNascimento: "15/03/1990",
   });
   checar("Cadastro por convite cria colaborador e login", !!c.id && usuario.perfil === "COLABORADOR");
   checar("CPF guardado cifrado (não aparece em claro no banco)", !c.cpfCifrado.includes(cpf) && c.cpfFinal === cpf.slice(-2));
   await deveFalhar("Convite não pode ser reutilizado", () => cadastrarPorConvite(convite.token, {
     nome: "Outra Pessoa Fictícia", cpf: cpfFicticio(), telefone: "11999990001", email: "outra@ficticio.teste", senha: "SenhaTeste123", consentimento: true,
   }), "já foi utilizado");
+
+  checar("Data de nascimento digitada (dd/mm/aaaa) é gravada", c.dataNascimento?.toISOString().slice(0, 10) === "1990-03-15");
+  const dataRuim = esquemaCadastro.safeParse({
+    nome: "Outra Pessoa Fictícia", cpf: cpfFicticio(), telefone: "11999990001", email: "data@ficticio.teste", senha: "SenhaTeste123", consentimento: true, dataNascimento: "31/02/1990",
+  });
+  checar("Data de nascimento impossível é recusada", !dataRuim.success && dataRuim.error.issues.some((i) => i.message.includes("Data de nascimento")));
+  // Nova senha por link gerado pela equipe (sem e-mail automático)
+  const link1 = await gerarLinkNovaSenha(rh, usuario.id);
+  const link2 = await gerarLinkNovaSenha(rh, usuario.id);
+  const tk = (u: string) => u.split("/redefinir-senha/")[1];
+  await deveFalhar("Link anterior deixa de valer quando outro é gerado", () => redefinirSenha(tk(link1.url), "NovaSenha123", "NovaSenha123"), "já foi usado");
+  await deveFalhar("Senha curta recusada", () => redefinirSenha(tk(link2.url), "curta", "curta"), "pelo menos");
+  await redefinirSenha(tk(link2.url), "NovaSenha123", "NovaSenha123");
+  const uNovo = (await db.query.usuarios.findFirst({ where: eq(schema.usuarios.id, usuario.id) }))!;
+  checar("Nova senha gravada pelo link", await bcrypt.compare("NovaSenha123", uNovo.senhaHash));
+  await deveFalhar("Link de nova senha só vale uma vez", () => redefinirSenha(tk(link2.url), "OutraSenha123", "OutraSenha123"), "já foi usado");
+  const admin = (await db.query.usuarios.findFirst({ where: eq(schema.usuarios.perfil, "ADMIN") }))!;
+  await deveFalhar("RH não gera link de senha de usuário da equipe", () => gerarLinkNovaSenha(rh, admin.id), "Sem permissão");
 
   const colab: Ator = { id: usuario.id, nome: usuario.nome, perfil: "COLABORADOR", colaboradorId: c.id };
   const ms = await db.query.matriculas.findMany({ where: eq(schema.matriculas.colaboradorId, c.id), with: { curso: true } });

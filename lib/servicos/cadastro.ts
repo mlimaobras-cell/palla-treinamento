@@ -89,7 +89,19 @@ export async function buscarConviteValido(token: string) {
 export const esquemaCadastro = z.object({
   nome: z.string().trim().min(5, "Informe o nome completo."),
   cpf: z.string().refine(cpfValido, "CPF inválido."),
-  dataNascimento: z.string().optional(),
+  dataNascimento: z.string().trim().optional()
+    .transform((s, ctx) => {
+      if (!s) return undefined;
+      const m = s.match(/^(\d{2})\/(\d{2})\/(\d{4})$/) ?? s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!m) { ctx.addIssue({ code: "custom", message: "Data de nascimento: use o formato dd/mm/aaaa." }); return z.NEVER; }
+      const [dia, mes, ano] = s.includes("/") ? [m[1], m[2], m[3]] : [m[3], m[2], m[1]];
+      const d = new Date(Date.UTC(Number(ano), Number(mes) - 1, Number(dia), 12));
+      const idade = (Date.now() - d.getTime()) / (365.25 * 86400_000);
+      if (d.getUTCDate() !== Number(dia) || d.getUTCMonth() !== Number(mes) - 1 || idade < 14 || idade > 100) {
+        ctx.addIssue({ code: "custom", message: "Data de nascimento inválida." }); return z.NEVER;
+      }
+      return d;
+    }),
   telefone: z.string().trim().min(10, "Informe o telefone com DDD."),
   email: z.string().trim().toLowerCase().email("E-mail inválido."),
   senha: z.string().min(8, "A senha precisa ter pelo menos 8 caracteres."),
@@ -103,9 +115,9 @@ export async function cadastrarPorConvite(token: string, entrada: z.input<typeof
   const d = esquemaCadastro.parse(entrada);
   const cpfH = hashCpf(d.cpf);
   const jaExiste = await db.query.colaboradores.findFirst({ where: eq(schema.colaboradores.cpfHash, cpfH) });
-  if (jaExiste) throw new Error("Já existe cadastro com este CPF. Faça login ou procure o RH.");
+  if (jaExiste) throw new Error("Você já tem cadastro com este CPF. Use \"Entrar\" no topo da página. Se esqueceu a senha, peça ao RH um link de nova senha.");
   const emailEmUso = await db.query.usuarios.findFirst({ where: eq(schema.usuarios.email, d.email) });
-  if (emailEmUso) throw new Error("Este e-mail já está em uso.");
+  if (emailEmUso) throw new Error("Este e-mail já tem cadastro. Use \"Entrar\" no topo da página. Se esqueceu a senha, peça ao RH um link de nova senha.");
 
   const resultado = await db.transaction(async (tx) => {
     const [colab] = await tx.insert(schema.colaboradores).values({
@@ -113,7 +125,7 @@ export async function cadastrarPorConvite(token: string, entrada: z.input<typeof
       cpfCifrado: cifrarCpf(d.cpf),
       cpfHash: cpfH,
       cpfFinal: somenteDigitos(d.cpf).slice(-2),
-      dataNascimento: d.dataNascimento ? new Date(d.dataNascimento) : null,
+      dataNascimento: d.dataNascimento ?? null,
       telefone: d.telefone,
       email: d.email,
       empresaId: r.convite.empresaId,

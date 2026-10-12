@@ -1,0 +1,2687 @@
+{
+  "id": "0c6a23f6-af88-495a-aabb-08856cc5e9af",
+  "prevId": "f7119c9d-e681-4dff-a762-d7baa90e6a6c",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.anotacoes": {
+      "name": "anotacoes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "matricula_id": {
+          "name": "matricula_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aula_id": {
+          "name": "aula_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "texto": {
+          "name": "texto",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "segundo_video": {
+          "name": "segundo_video",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "criada_em": {
+          "name": "criada_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "anotacao_mat_aula": {
+          "name": "anotacao_mat_aula",
+          "columns": [
+            {
+              "expression": "matricula_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "aula_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "anotacoes_matricula_id_matriculas_id_fk": {
+          "name": "anotacoes_matricula_id_matriculas_id_fk",
+          "tableFrom": "anotacoes",
+          "tableTo": "matriculas",
+          "columnsFrom": [
+            "matricula_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "anotacoes_aula_id_aulas_id_fk": {
+          "name": "anotacoes_aula_id_aulas_id_fk",
+          "tableFrom": "anotacoes",
+          "tableTo": "aulas",
+          "columnsFrom": [
+            "aula_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.arquivos": {
+      "name": "arquivos",
+      "schema": "",
+      "columns": {
+        "caminho": {
+          "name": "caminho",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "colaborador_id": {
+          "name": "colaborador_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bytes": {
+          "name": "bytes",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "criado_em": {
+          "name": "criado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.auditoria": {
+      "name": "auditoria",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "quando": {
+          "name": "quando",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "usuario_id": {
+          "name": "usuario_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "usuario_nome": {
+          "name": "usuario_nome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "acao": {
+          "name": "acao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entidade": {
+          "name": "entidade",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entidade_id": {
+          "name": "entidade_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "detalhes": {
+          "name": "detalhes",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "auditoria_quando": {
+          "name": "auditoria_quando",
+          "columns": [
+            {
+              "expression": "quando",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.aulas": {
+      "name": "aulas",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "capitulo_id": {
+          "name": "capitulo_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ordem": {
+          "name": "ordem",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "titulo": {
+          "name": "titulo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "duracao_min": {
+          "name": "duracao_min",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "duracao_seg": {
+          "name": "duracao_seg",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "video_url": {
+          "name": "video_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "poster_url": {
+          "name": "poster_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "legenda_url": {
+          "name": "legenda_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "roteiro": {
+          "name": "roteiro",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "narracao": {
+          "name": "narracao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "texto_apoio": {
+          "name": "texto_apoio",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "exemplo": {
+          "name": "exemplo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pergunta_fixacao": {
+          "name": "pergunta_fixacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "resumo": {
+          "name": "resumo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "aulas_capitulo_id_capitulos_id_fk": {
+          "name": "aulas_capitulo_id_capitulos_id_fk",
+          "tableFrom": "aulas",
+          "tableTo": "capitulos",
+          "columnsFrom": [
+            "capitulo_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.autorizacoes": {
+      "name": "autorizacoes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "colaborador_id": {
+          "name": "colaborador_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "atividade": {
+          "name": "atividade",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "concedida_por_id": {
+          "name": "concedida_por_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "concedida_em": {
+          "name": "concedida_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "valido_ate": {
+          "name": "valido_ate",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revogada_em": {
+          "name": "revogada_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "observacao": {
+          "name": "observacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "autorizacoes_colaborador_id_colaboradores_id_fk": {
+          "name": "autorizacoes_colaborador_id_colaboradores_id_fk",
+          "tableFrom": "autorizacoes",
+          "tableTo": "colaboradores",
+          "columnsFrom": [
+            "colaborador_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "autorizacoes_concedida_por_id_usuarios_id_fk": {
+          "name": "autorizacoes_concedida_por_id_usuarios_id_fk",
+          "tableFrom": "autorizacoes",
+          "tableTo": "usuarios",
+          "columnsFrom": [
+            "concedida_por_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.capitulos": {
+      "name": "capitulos",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "curso_id": {
+          "name": "curso_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ordem": {
+          "name": "ordem",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "titulo": {
+          "name": "titulo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "capitulos_curso_id_cursos_id_fk": {
+          "name": "capitulos_curso_id_cursos_id_fk",
+          "tableFrom": "capitulos",
+          "tableTo": "cursos",
+          "columnsFrom": [
+            "curso_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.certificados": {
+      "name": "certificados",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "numero": {
+          "name": "numero",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "codigo_verificacao": {
+          "name": "codigo_verificacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "matricula_id": {
+          "name": "matricula_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "tipo_certificado",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "status_certificado",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'VALIDO'"
+        },
+        "emitido_em": {
+          "name": "emitido_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "data_inicio": {
+          "name": "data_inicio",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_conclusao": {
+          "name": "data_conclusao",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "valido_ate": {
+          "name": "valido_ate",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "local": {
+          "name": "local",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aprovado_por_id": {
+          "name": "aprovado_por_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "aprovado_em": {
+          "name": "aprovado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dados_snapshot": {
+          "name": "dados_snapshot",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hash_sha256": {
+          "name": "hash_sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "substitui_id": {
+          "name": "substitui_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "motivo_status": {
+          "name": "motivo_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "alterado_em": {
+          "name": "alterado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ciencia_trabalhador_em": {
+          "name": "ciencia_trabalhador_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "certificados_matricula_id_matriculas_id_fk": {
+          "name": "certificados_matricula_id_matriculas_id_fk",
+          "tableFrom": "certificados",
+          "tableTo": "matriculas",
+          "columnsFrom": [
+            "matricula_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "certificados_aprovado_por_id_usuarios_id_fk": {
+          "name": "certificados_aprovado_por_id_usuarios_id_fk",
+          "tableFrom": "certificados",
+          "tableTo": "usuarios",
+          "columnsFrom": [
+            "aprovado_por_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "certificados_numero_unique": {
+          "name": "certificados_numero_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "numero"
+          ]
+        },
+        "certificados_codigo_verificacao_unique": {
+          "name": "certificados_codigo_verificacao_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "codigo_verificacao"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.colaboradores": {
+      "name": "colaboradores",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nome": {
+          "name": "nome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cpf_cifrado": {
+          "name": "cpf_cifrado",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cpf_hash": {
+          "name": "cpf_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cpf_final": {
+          "name": "cpf_final",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_nascimento": {
+          "name": "data_nascimento",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "telefone": {
+          "name": "telefone",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "empresa_id": {
+          "name": "empresa_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "funcao_id": {
+          "name": "funcao_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "obra_id": {
+          "name": "obra_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "consentimento_lgpd_em": {
+          "name": "consentimento_lgpd_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "versao_aviso_privacidade": {
+          "name": "versao_aviso_privacidade",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "afastado_desde": {
+          "name": "afastado_desde",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "criado_em": {
+          "name": "criado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "dado_ficticio": {
+          "name": "dado_ficticio",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "colaboradores_empresa_id_empresas_id_fk": {
+          "name": "colaboradores_empresa_id_empresas_id_fk",
+          "tableFrom": "colaboradores",
+          "tableTo": "empresas",
+          "columnsFrom": [
+            "empresa_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "colaboradores_funcao_id_funcoes_id_fk": {
+          "name": "colaboradores_funcao_id_funcoes_id_fk",
+          "tableFrom": "colaboradores",
+          "tableTo": "funcoes",
+          "columnsFrom": [
+            "funcao_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "colaboradores_obra_id_obras_id_fk": {
+          "name": "colaboradores_obra_id_obras_id_fk",
+          "tableFrom": "colaboradores",
+          "tableTo": "obras",
+          "columnsFrom": [
+            "obra_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "colaboradores_cpf_hash_unique": {
+          "name": "colaboradores_cpf_hash_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "cpf_hash"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.contratantes": {
+      "name": "contratantes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nome": {
+          "name": "nome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.convites": {
+      "name": "convites",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "token": {
+          "name": "token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "obra_id": {
+          "name": "obra_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "funcao_id": {
+          "name": "funcao_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "empresa_id": {
+          "name": "empresa_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nome_sugerido": {
+          "name": "nome_sugerido",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "expira_em": {
+          "name": "expira_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "usado_em": {
+          "name": "usado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "criado_por_id": {
+          "name": "criado_por_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "criado_em": {
+          "name": "criado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "convites_obra_id_obras_id_fk": {
+          "name": "convites_obra_id_obras_id_fk",
+          "tableFrom": "convites",
+          "tableTo": "obras",
+          "columnsFrom": [
+            "obra_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "convites_funcao_id_funcoes_id_fk": {
+          "name": "convites_funcao_id_funcoes_id_fk",
+          "tableFrom": "convites",
+          "tableTo": "funcoes",
+          "columnsFrom": [
+            "funcao_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "convites_empresa_id_empresas_id_fk": {
+          "name": "convites_empresa_id_empresas_id_fk",
+          "tableFrom": "convites",
+          "tableTo": "empresas",
+          "columnsFrom": [
+            "empresa_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "convites_criado_por_id_usuarios_id_fk": {
+          "name": "convites_criado_por_id_usuarios_id_fk",
+          "tableFrom": "convites",
+          "tableTo": "usuarios",
+          "columnsFrom": [
+            "criado_por_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "convites_token_unique": {
+          "name": "convites_token_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "token"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.cursos": {
+      "name": "cursos",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "codigo": {
+          "name": "codigo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "titulo": {
+          "name": "titulo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "tipo_curso",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "norma_referencia": {
+          "name": "norma_referencia",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "norma_versao": {
+          "name": "norma_versao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "objetivo": {
+          "name": "objetivo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "publico_alvo": {
+          "name": "publico_alvo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pre_requisitos": {
+          "name": "pre_requisitos",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "conteudo_programatico": {
+          "name": "conteudo_programatico",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "carga_horaria": {
+          "name": "carga_horaria",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "carga_origem": {
+          "name": "carga_origem",
+          "type": "origem_parametro",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "validade_meses": {
+          "name": "validade_meses",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "validade_origem": {
+          "name": "validade_origem",
+          "type": "origem_parametro",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "validade_observacao": {
+          "name": "validade_observacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "modalidade": {
+          "name": "modalidade",
+          "type": "modalidade",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "exige_pratica": {
+          "name": "exige_pratica",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "pratica_descricao": {
+          "name": "pratica_descricao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "exige_autorizacao": {
+          "name": "exige_autorizacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "exige_aptidao_aso": {
+          "name": "exige_aptidao_aso",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "requisitos_instrutor": {
+          "name": "requisitos_instrutor",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nota_minima": {
+          "name": "nota_minima",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 70
+        },
+        "max_tentativas": {
+          "name": "max_tentativas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 3
+        },
+        "exige_diagnostica": {
+          "name": "exige_diagnostica",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "tempo_minimo_aula_pct": {
+          "name": "tempo_minimo_aula_pct",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 80
+        },
+        "observacao_legal": {
+          "name": "observacao_legal",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status_conteudo": {
+          "name": "status_conteudo",
+          "type": "status_conteudo",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'RASCUNHO'"
+        },
+        "projeto_pedagogico_valido_ate": {
+          "name": "projeto_pedagogico_valido_ate",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ativo": {
+          "name": "ativo",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "ordem": {
+          "name": "ordem",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "responsavel_tecnico_id": {
+          "name": "responsavel_tecnico_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "cursos_responsavel_tecnico_id_usuarios_id_fk": {
+          "name": "cursos_responsavel_tecnico_id_usuarios_id_fk",
+          "tableFrom": "cursos",
+          "tableTo": "usuarios",
+          "columnsFrom": [
+            "responsavel_tecnico_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "cursos_codigo_unique": {
+          "name": "cursos_codigo_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "codigo"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.documentos": {
+      "name": "documentos",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "colaborador_id": {
+          "name": "colaborador_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "tipo_documento",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "descricao": {
+          "name": "descricao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "arquivo_path": {
+          "name": "arquivo_path",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "arquivo_nome": {
+          "name": "arquivo_nome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "emitido_em": {
+          "name": "emitido_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "valido_ate": {
+          "name": "valido_ate",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "aptidoes": {
+          "name": "aptidoes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "emitente": {
+          "name": "emitente",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "status_documento",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'PENDENTE_CONFERENCIA'"
+        },
+        "conferido_por_id": {
+          "name": "conferido_por_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "conferido_em": {
+          "name": "conferido_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "observacao": {
+          "name": "observacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "enviado_em": {
+          "name": "enviado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "documentos_colaborador_id_colaboradores_id_fk": {
+          "name": "documentos_colaborador_id_colaboradores_id_fk",
+          "tableFrom": "documentos",
+          "tableTo": "colaboradores",
+          "columnsFrom": [
+            "colaborador_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "documentos_conferido_por_id_usuarios_id_fk": {
+          "name": "documentos_conferido_por_id_usuarios_id_fk",
+          "tableFrom": "documentos",
+          "tableTo": "usuarios",
+          "columnsFrom": [
+            "conferido_por_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.empresas": {
+      "name": "empresas",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nome": {
+          "name": "nome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cnpj": {
+          "name": "cnpj",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "propria": {
+          "name": "propria",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "empresas_cnpj_unique": {
+          "name": "empresas_cnpj_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "cnpj"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.funcoes": {
+      "name": "funcoes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "codigo": {
+          "name": "codigo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nome": {
+          "name": "nome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "descricao": {
+          "name": "descricao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ordem": {
+          "name": "ordem",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "funcoes_codigo_unique": {
+          "name": "funcoes_codigo_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "codigo"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.liberacoes": {
+      "name": "liberacoes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "colaborador_id": {
+          "name": "colaborador_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "obra_id": {
+          "name": "obra_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aprovada_por_id": {
+          "name": "aprovada_por_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aprovada_em": {
+          "name": "aprovada_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "semaforo": {
+          "name": "semaforo",
+          "type": "semaforo",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "observacao": {
+          "name": "observacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revogada_em": {
+          "name": "revogada_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "motivo_revogacao": {
+          "name": "motivo_revogacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "liberacoes_colaborador_id_colaboradores_id_fk": {
+          "name": "liberacoes_colaborador_id_colaboradores_id_fk",
+          "tableFrom": "liberacoes",
+          "tableTo": "colaboradores",
+          "columnsFrom": [
+            "colaborador_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "liberacoes_obra_id_obras_id_fk": {
+          "name": "liberacoes_obra_id_obras_id_fk",
+          "tableFrom": "liberacoes",
+          "tableTo": "obras",
+          "columnsFrom": [
+            "obra_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "liberacoes_aprovada_por_id_usuarios_id_fk": {
+          "name": "liberacoes_aprovada_por_id_usuarios_id_fk",
+          "tableFrom": "liberacoes",
+          "tableTo": "usuarios",
+          "columnsFrom": [
+            "aprovada_por_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.matriculas": {
+      "name": "matriculas",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "colaborador_id": {
+          "name": "colaborador_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "curso_id": {
+          "name": "curso_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "classificacao": {
+          "name": "classificacao",
+          "type": "classificacao",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "status_matricula",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'MATRICULADO'"
+        },
+        "matriculado_em": {
+          "name": "matriculado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "iniciado_em": {
+          "name": "iniciado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "teoria_concluida_em": {
+          "name": "teoria_concluida_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "concluido_em": {
+          "name": "concluido_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "valido_ate": {
+          "name": "valido_ate",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reavaliacao_liberada_em": {
+          "name": "reavaliacao_liberada_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "observacao": {
+          "name": "observacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "matricula_colab": {
+          "name": "matricula_colab",
+          "columns": [
+            {
+              "expression": "colaborador_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "matriculas_colaborador_id_colaboradores_id_fk": {
+          "name": "matriculas_colaborador_id_colaboradores_id_fk",
+          "tableFrom": "matriculas",
+          "tableTo": "colaboradores",
+          "columnsFrom": [
+            "colaborador_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "matriculas_curso_id_cursos_id_fk": {
+          "name": "matriculas_curso_id_cursos_id_fk",
+          "tableFrom": "matriculas",
+          "tableTo": "cursos",
+          "columnsFrom": [
+            "curso_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.matriz_funcao": {
+      "name": "matriz_funcao",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "funcao_id": {
+          "name": "funcao_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "curso_id": {
+          "name": "curso_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "obra_id": {
+          "name": "obra_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "classificacao": {
+          "name": "classificacao",
+          "type": "classificacao",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "observacao": {
+          "name": "observacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "matriz_funcao_funcao_id_funcoes_id_fk": {
+          "name": "matriz_funcao_funcao_id_funcoes_id_fk",
+          "tableFrom": "matriz_funcao",
+          "tableTo": "funcoes",
+          "columnsFrom": [
+            "funcao_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "matriz_funcao_curso_id_cursos_id_fk": {
+          "name": "matriz_funcao_curso_id_cursos_id_fk",
+          "tableFrom": "matriz_funcao",
+          "tableTo": "cursos",
+          "columnsFrom": [
+            "curso_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "matriz_funcao_obra_id_obras_id_fk": {
+          "name": "matriz_funcao_obra_id_obras_id_fk",
+          "tableFrom": "matriz_funcao",
+          "tableTo": "obras",
+          "columnsFrom": [
+            "obra_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "matriz_unica": {
+          "name": "matriz_unica",
+          "nullsNotDistinct": true,
+          "columns": [
+            "funcao_id",
+            "curso_id",
+            "obra_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.obras": {
+      "name": "obras",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "codigo": {
+          "name": "codigo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nome": {
+          "name": "nome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "endereco": {
+          "name": "endereco",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "contratante_id": {
+          "name": "contratante_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gestor_id": {
+          "name": "gestor_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "exigencias_extras": {
+          "name": "exigencias_extras",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "texto_integracao": {
+          "name": "texto_integracao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ativa": {
+          "name": "ativa",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "criada_em": {
+          "name": "criada_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "obras_contratante_id_contratantes_id_fk": {
+          "name": "obras_contratante_id_contratantes_id_fk",
+          "tableFrom": "obras",
+          "tableTo": "contratantes",
+          "columnsFrom": [
+            "contratante_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "obras_gestor_id_usuarios_id_fk": {
+          "name": "obras_gestor_id_usuarios_id_fk",
+          "tableFrom": "obras",
+          "tableTo": "usuarios",
+          "columnsFrom": [
+            "gestor_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "obras_codigo_unique": {
+          "name": "obras_codigo_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "codigo"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.progresso_aulas": {
+      "name": "progresso_aulas",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "matricula_id": {
+          "name": "matricula_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aula_id": {
+          "name": "aula_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "segundos": {
+          "name": "segundos",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "posicao_max_seg": {
+          "name": "posicao_max_seg",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "primeiro_acesso_em": {
+          "name": "primeiro_acesso_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "ultimo_acesso_em": {
+          "name": "ultimo_acesso_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "concluida_em": {
+          "name": "concluida_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "progresso_unico": {
+          "name": "progresso_unico",
+          "columns": [
+            {
+              "expression": "matricula_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "aula_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "progresso_aulas_matricula_id_matriculas_id_fk": {
+          "name": "progresso_aulas_matricula_id_matriculas_id_fk",
+          "tableFrom": "progresso_aulas",
+          "tableTo": "matriculas",
+          "columnsFrom": [
+            "matricula_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "progresso_aulas_aula_id_aulas_id_fk": {
+          "name": "progresso_aulas_aula_id_aulas_id_fk",
+          "tableFrom": "progresso_aulas",
+          "tableTo": "aulas",
+          "columnsFrom": [
+            "aula_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.questoes": {
+      "name": "questoes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "curso_id": {
+          "name": "curso_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "tipo_questao",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "enunciado": {
+          "name": "enunciado",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "imagem_url": {
+          "name": "imagem_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "alternativas": {
+          "name": "alternativas",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "correta": {
+          "name": "correta",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "comentario": {
+          "name": "comentario",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "codigo": {
+          "name": "codigo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nivel": {
+          "name": "nivel",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "diagnostica": {
+          "name": "diagnostica",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "ativa": {
+          "name": "ativa",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "questoes_curso_id_cursos_id_fk": {
+          "name": "questoes_curso_id_cursos_id_fk",
+          "tableFrom": "questoes",
+          "tableTo": "cursos",
+          "columnsFrom": [
+            "curso_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.redefinicoes_senha": {
+      "name": "redefinicoes_senha",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "token_hash": {
+          "name": "token_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "usuario_id": {
+          "name": "usuario_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expira_em": {
+          "name": "expira_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "usado_em": {
+          "name": "usado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "criado_por_id": {
+          "name": "criado_por_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "criado_em": {
+          "name": "criado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "redefinicoes_senha_usuario_id_usuarios_id_fk": {
+          "name": "redefinicoes_senha_usuario_id_usuarios_id_fk",
+          "tableFrom": "redefinicoes_senha",
+          "tableTo": "usuarios",
+          "columnsFrom": [
+            "usuario_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "redefinicoes_senha_criado_por_id_usuarios_id_fk": {
+          "name": "redefinicoes_senha_criado_por_id_usuarios_id_fk",
+          "tableFrom": "redefinicoes_senha",
+          "tableTo": "usuarios",
+          "columnsFrom": [
+            "criado_por_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "redefinicoes_senha_token_hash_unique": {
+          "name": "redefinicoes_senha_token_hash_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "token_hash"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.registros_praticos": {
+      "name": "registros_praticos",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "matricula_id": {
+          "name": "matricula_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "instrutor_id": {
+          "name": "instrutor_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "abrangencia": {
+          "name": "abrangencia",
+          "type": "abrangencia_pratica",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data": {
+          "name": "data",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "local": {
+          "name": "local",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "equipamento": {
+          "name": "equipamento",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "conteudo": {
+          "name": "conteudo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "duracao_min": {
+          "name": "duracao_min",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nota_avaliacao": {
+          "name": "nota_avaliacao",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "resultado": {
+          "name": "resultado",
+          "type": "resultado_pratica",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "observacoes": {
+          "name": "observacoes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evidencias": {
+          "name": "evidencias",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'[]'::jsonb"
+        },
+        "criado_em": {
+          "name": "criado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "registros_praticos_matricula_id_matriculas_id_fk": {
+          "name": "registros_praticos_matricula_id_matriculas_id_fk",
+          "tableFrom": "registros_praticos",
+          "tableTo": "matriculas",
+          "columnsFrom": [
+            "matricula_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "registros_praticos_instrutor_id_usuarios_id_fk": {
+          "name": "registros_praticos_instrutor_id_usuarios_id_fk",
+          "tableFrom": "registros_praticos",
+          "tableTo": "usuarios",
+          "columnsFrom": [
+            "instrutor_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.tentativas": {
+      "name": "tentativas",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "matricula_id": {
+          "name": "matricula_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "tipo_tentativa",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'FINAL'"
+        },
+        "numero": {
+          "name": "numero",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "iniciada_em": {
+          "name": "iniciada_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "finalizada_em": {
+          "name": "finalizada_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "questoes": {
+          "name": "questoes",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "respostas": {
+          "name": "respostas",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nota": {
+          "name": "nota",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "aprovado": {
+          "name": "aprovado",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_agent": {
+          "name": "user_agent",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "tentativas_matricula_id_matriculas_id_fk": {
+          "name": "tentativas_matricula_id_matriculas_id_fk",
+          "tableFrom": "tentativas",
+          "tableTo": "matriculas",
+          "columnsFrom": [
+            "matricula_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.usuarios": {
+      "name": "usuarios",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nome": {
+          "name": "nome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "senha_hash": {
+          "name": "senha_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "perfil": {
+          "name": "perfil",
+          "type": "perfil",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ativo": {
+          "name": "ativo",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "qualificacao": {
+          "name": "qualificacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "registro_profissional": {
+          "name": "registro_profissional",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "colaborador_id": {
+          "name": "colaborador_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "criado_em": {
+          "name": "criado_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "ultimo_acesso_em": {
+          "name": "ultimo_acesso_em",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "usuarios_email_unique": {
+          "name": "usuarios_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        },
+        "usuarios_colaborador_id_unique": {
+          "name": "usuarios_colaborador_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "colaborador_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.abrangencia_pratica": {
+      "name": "abrangencia_pratica",
+      "schema": "public",
+      "values": [
+        "PRATICA",
+        "TEORIA_E_PRATICA"
+      ]
+    },
+    "public.classificacao": {
+      "name": "classificacao",
+      "schema": "public",
+      "values": [
+        "OBRIGATORIO",
+        "INTERNO",
+        "RECOMENDADO",
+        "CONDICIONAL"
+      ]
+    },
+    "public.modalidade": {
+      "name": "modalidade",
+      "schema": "public",
+      "values": [
+        "EAD",
+        "SEMIPRESENCIAL",
+        "PRESENCIAL"
+      ]
+    },
+    "public.origem_parametro": {
+      "name": "origem_parametro",
+      "schema": "public",
+      "values": [
+        "LEGAL",
+        "EMPREGADOR",
+        "A_VALIDAR"
+      ]
+    },
+    "public.perfil": {
+      "name": "perfil",
+      "schema": "public",
+      "values": [
+        "ADMIN",
+        "RH",
+        "SST",
+        "INSTRUTOR",
+        "RESPONSAVEL_TECNICO",
+        "GESTOR_OBRA",
+        "COLABORADOR"
+      ]
+    },
+    "public.resultado_pratica": {
+      "name": "resultado_pratica",
+      "schema": "public",
+      "values": [
+        "APTO",
+        "NAO_APTO"
+      ]
+    },
+    "public.semaforo": {
+      "name": "semaforo",
+      "schema": "public",
+      "values": [
+        "VERDE",
+        "AMARELO",
+        "VERMELHO"
+      ]
+    },
+    "public.status_certificado": {
+      "name": "status_certificado",
+      "schema": "public",
+      "values": [
+        "VALIDO",
+        "CANCELADO",
+        "SUBSTITUIDO"
+      ]
+    },
+    "public.status_conteudo": {
+      "name": "status_conteudo",
+      "schema": "public",
+      "values": [
+        "RASCUNHO",
+        "EM_REVISAO",
+        "APROVADO"
+      ]
+    },
+    "public.status_documento": {
+      "name": "status_documento",
+      "schema": "public",
+      "values": [
+        "PENDENTE_CONFERENCIA",
+        "CONFERIDO",
+        "REJEITADO"
+      ]
+    },
+    "public.status_matricula": {
+      "name": "status_matricula",
+      "schema": "public",
+      "values": [
+        "MATRICULADO",
+        "EM_ANDAMENTO",
+        "TEORIA_CONCLUIDA",
+        "PENDENTE_PRATICA",
+        "AGUARDANDO_APROVACAO",
+        "CAPACITADO",
+        "REPROVADO",
+        "VENCIDO",
+        "CANCELADA"
+      ]
+    },
+    "public.tipo_certificado": {
+      "name": "tipo_certificado",
+      "schema": "public",
+      "values": [
+        "INTEGRAL",
+        "COMPROVANTE_ETAPA"
+      ]
+    },
+    "public.tipo_curso": {
+      "name": "tipo_curso",
+      "schema": "public",
+      "values": [
+        "LEGAL",
+        "INTERNO",
+        "INTERNO_COMPLEMENTAR"
+      ]
+    },
+    "public.tipo_documento": {
+      "name": "tipo_documento",
+      "schema": "public",
+      "values": [
+        "ASO",
+        "FICHA_EPI",
+        "DOCUMENTO_CONTRATANTE",
+        "CERTIFICADO_EXTERNO",
+        "OUTRO"
+      ]
+    },
+    "public.tipo_questao": {
+      "name": "tipo_questao",
+      "schema": "public",
+      "values": [
+        "MULTIPLA_ESCOLHA",
+        "SITUACIONAL"
+      ]
+    },
+    "public.tipo_tentativa": {
+      "name": "tipo_tentativa",
+      "schema": "public",
+      "values": [
+        "DIAGNOSTICA",
+        "FINAL"
+      ]
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

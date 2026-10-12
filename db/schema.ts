@@ -118,6 +118,17 @@ export const convites = pgTable("convites", {
   criadoEm: agora("criado_em"),
 });
 
+/** Links de nova senha gerados pela equipe (sem e-mail automático): guarda só o hash do token, vale 48 h e uma vez. */
+export const redefinicoesSenha = pgTable("redefinicoes_senha", {
+  id: id(),
+  tokenHash: text("token_hash").notNull().unique(),
+  usuarioId: text("usuario_id").notNull().references(() => usuarios.id, { onDelete: "cascade" }),
+  expiraEm: data("expira_em").notNull(),
+  usadoEm: data("usado_em"),
+  criadoPorId: text("criado_por_id").references(() => usuarios.id),
+  criadoEm: agora("criado_em"),
+});
+
 /** Arquivos enviados (ASO, fichas de EPI…) quando ARMAZENAMENTO=banco — usado em hospedagem sem disco persistente. */
 export const arquivos = pgTable("arquivos", {
   caminho: text("caminho").primaryKey(),

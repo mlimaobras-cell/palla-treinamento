@@ -33,6 +33,7 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
               <Campo rotulo="Senha"><Entrada name="senha" type="password" autoComplete="current-password" required /></Campo>
             </Formulario>
           </div>
+          <p className="mt-3 text-sm"><Link className="font-medium text-palla-azul hover:underline" href="/esqueci-senha">Esqueci minha senha</Link></p>
           <p className="mt-8 text-sm text-tinta-suave">
             Primeiro acesso? Use o link de cadastro que você recebeu do RH.
           </p>

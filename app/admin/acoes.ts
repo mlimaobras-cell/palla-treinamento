@@ -9,6 +9,7 @@ import { exigirEquipe } from "@/lib/sessao";
 import { alterarFuncaoObra, criarConvite, matricularCondicional, matricularPelaMatriz } from "@/lib/servicos/cadastro";
 import { liberarReavaliacao } from "@/lib/servicos/aprendizagem";
 import { registrarPratica } from "@/lib/servicos/praticas";
+import { gerarLinkNovaSenha } from "@/lib/servicos/senha";
 import { aprovarEEmitir, cancelarCertificado, reemitirCertificado } from "@/lib/servicos/certificacao";
 import {
   aprovarLiberacao, concederAutorizacao, conferirDocumento, enviarDocumento, revogarAutorizacao, revogarLiberacao, salvarArquivo,
@@ -228,4 +229,15 @@ export async function cancelarCertificadoAcao(certId: string, _: Estado, f: Form
 export async function reemitirCertificadoAcao(certId: string, _: Estado, f: FormData): Promise<Estado> {
   const a = await exigirEquipe("capacitacao.aprovar");
   return executar(async () => { const n = await reemitirCertificado(a, certId, txt(f, "motivo")); return `Reemitido como ${n.numero}.`; }, ["/admin/certificados"]);
+}
+
+// ------------------------------------------------ acesso: link de nova senha (sem e-mail automático)
+export async function gerarLinkSenhaAcao(colaboradorId: string, _: Estado, _f: FormData): Promise<Estado> {
+  const a = await exigirEquipe("colaborador.ver");
+  return executar(async () => {
+    const u = await db.query.usuarios.findFirst({ where: eq(schema.usuarios.colaboradorId, colaboradorId) });
+    if (!u) throw new Error("Este colaborador ainda não tem acesso à plataforma.");
+    const r = await gerarLinkNovaSenha(a, u.id);
+    return `Link de nova senha (vale 48 h, uma vez): ${r.url}`;
+  }, [`/admin/colaboradores/${colaboradorId}`]);
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CabecalhoPublico } from "@/components/marca";
+import { CampoData } from "@/components/campo-data";
 import { Formulario } from "@/components/formulario";
 import { Aviso, Campo, Entrada } from "@/components/ui";
 import { buscarConviteValido } from "@/lib/servicos/cadastro";
@@ -18,6 +19,13 @@ export default async function Convite({ params }: { params: Promise<{ token: str
           <Aviso tom="erro">{r.erro} <Link href="/login" className="font-semibold underline">Ir para o login</Link></Aviso>
         ) : (
           <>
+            <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-linha bg-white px-4 py-3 text-sm">
+              <span className="text-tinta-suave">Já tem cadastro na plataforma?</span>
+              <span className="flex gap-4">
+                <Link href="/login" className="font-semibold text-palla-azul hover:underline">Entrar</Link>
+                <Link href="/esqueci-senha" className="font-medium text-palla-azul hover:underline">Esqueci minha senha</Link>
+              </span>
+            </div>
             <p className="text-sm font-semibold uppercase tracking-wider text-palla-vermelho">Cadastro do colaborador</p>
             <h1 className="mt-1 text-2xl font-semibold text-palla-azul-escuro">Bem-vindo à Palla Construções</h1>
             <p className="mt-2 text-sm text-tinta-suave">
@@ -32,7 +40,7 @@ export default async function Convite({ params }: { params: Promise<{ token: str
                 <Campo rotulo="Nome completo"><Entrada name="nome" defaultValue={r.convite.nomeSugerido ?? ""} autoComplete="name" required /></Campo>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Campo rotulo="CPF"><Entrada name="cpf" inputMode="numeric" placeholder="000.000.000-00" required /></Campo>
-                  <Campo rotulo="Data de nascimento"><Entrada name="dataNascimento" type="date" /></Campo>
+                  <Campo rotulo="Data de nascimento"><CampoData name="dataNascimento" /></Campo>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Campo rotulo="Celular com DDD"><Entrada name="telefone" type="tel" inputMode="tel" autoComplete="tel" required /></Campo>

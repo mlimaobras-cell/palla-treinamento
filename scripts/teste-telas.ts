@@ -48,6 +48,11 @@ async function main() {
   m.on("pageerror", (e) => erros.push(e.message));
   await m.goto(link);
   await m.screenshot({ path: `${OUT}/02-cadastro-celular.png`, fullPage: true });
+  if ((await m.locator('a[href="/login"]:has-text("Entrar")').count()) === 0) erros.push("Convite: falta o link Entrar para quem já tem cadastro");
+  await m.locator('input[name="dataNascimento"]').pressSequentially("15031990");
+  const dataDigitada = await m.inputValue('input[name="dataNascimento"]');
+  console.log("Data digitada:", dataDigitada);
+  if (dataDigitada !== "15/03/1990") erros.push(`Data de nascimento digitada ficou "${dataDigitada}"`);
   await m.fill('input[name="cpf"]', cpfFicticio());
   await m.fill('input[name="telefone"]', "11988887777");
   const email = `maria.${Date.now()}@ficticio.teste`;

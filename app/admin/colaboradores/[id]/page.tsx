@@ -12,7 +12,7 @@ import { avaliarColaborador, SEMAFORO_TEXTO } from "@/lib/servicos/conformidade"
 import { matrizEfetiva } from "@/lib/servicos/cadastro";
 import {
   alterarFuncaoObraAcao, aprovarLiberacaoAcao, concederAutorizacaoAcao, conferirDocumentoAcao, enviarDocumentoEquipeAcao,
-  liberarReavaliacaoAcao, matricularCondicionalAcao, reaplicarMatrizAcao, registrarAfastamentoAcao, revogarAutorizacaoAcao, revogarLiberacaoAcao,
+  gerarLinkSenhaAcao, liberarReavaliacaoAcao, matricularCondicionalAcao, reaplicarMatrizAcao, registrarAfastamentoAcao, revogarAutorizacaoAcao, revogarLiberacaoAcao,
 } from "../../acoes";
 
 export default async function Colaborador({ params }: { params: Promise<{ id: string }> }) {
@@ -22,6 +22,7 @@ export default async function Colaborador({ params }: { params: Promise<{ id: st
   if (!existe) notFound();
   const { colaborador: c, itens, semaforo, liberacaoAtiva } = await avaliarColaborador(id);
   if (a.perfil === "GESTOR_OBRA" && c.obra?.gestorId !== a.id) notFound();
+  const usuario = await db.query.usuarios.findFirst({ where: eq(schema.usuarios.colaboradorId, id) });
   const [funcao, funcoes, obras, docs, autorizacoes, matriz] = await Promise.all([
     db.query.funcoes.findFirst({ where: eq(schema.funcoes.id, c.funcaoId) }),
     db.query.funcoes.findMany({ orderBy: (f, { asc }) => asc(f.ordem) }),
@@ -40,6 +41,13 @@ export default async function Colaborador({ params }: { params: Promise<{ id: st
       <Link href="/admin/colaboradores" className="text-sm font-medium text-palla-azul">← Colaboradores</Link>
       <div className="mt-2"><TituloPagina titulo={c.nome} subtitulo={`${funcao?.nome} · ${c.obra ? `${c.obra.codigo} — ${c.obra.nome}` : "sem obra"} · CPF ${mascararCpf(c.cpfFinal)}`} acao={<Semaforo valor={semaforo} grande />} /></div>
       {c.dadoFicticio && <div className="mb-4"><Aviso tom="alerta">Registro de teste com dados fictícios.</Aviso></div>}
+      {usuario && ["ADMIN", "RH", "SST"].includes(a.perfil) && (
+        <details className="mb-5 rounded-xl border border-linha bg-white px-5 py-3 text-sm">
+          <summary className="cursor-pointer font-medium text-palla-azul-escuro">Acesso à plataforma · {usuario.email}<span className="ml-2 text-xs font-normal text-tinta-suave">último acesso: {usuario.ultimoAcessoEm ? fmtDataHora(usuario.ultimoAcessoEm) : "nunca"}</span></summary>
+          <p className="mt-2 text-tinta-suave">Esqueceu a senha? Gere um link e mande para o colaborador (WhatsApp, por exemplo). Ele cria a nova senha pelo celular; o histórico de aulas e avaliações não muda.</p>
+          <Formulario acao={gerarLinkSenhaAcao.bind(null, id)} rotulo="Gerar link de nova senha" variante="secundario" className="mt-3 space-y-3"><span /></Formulario>
+        </details>
+      )}
 
       <div className="grid gap-5 xl:grid-cols-[1.4fr_1fr]">
         <div className="space-y-5">

@@ -43,6 +43,13 @@
       "when": 1791818854528,
       "tag": "0005_videoaulas",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1791822114418,
+      "tag": "0006_redefinicao_senha",
+      "breakpoints": true
     }
   ]
 }

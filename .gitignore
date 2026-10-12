@@ -1,0 +1,14 @@
+node_modules
+.next
+.env
+armazenamento
+saida-testes
+*.tsbuildinfo
+video/originais
+video/tmp
+video/tmp-audio
+video/voz
+*.log
+video/log-*.txt
+video/pagina/videos
+public/videos/curso/web/NR35-apoio.mp4

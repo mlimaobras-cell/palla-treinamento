@@ -1,0 +1,348 @@
+{
+ "codigo": "M4-parafusos",
+ "titulo": "Ligações parafusadas e torque",
+ "capitulo": "Curso de Montagem de Estruturas Metálicas · Módulo 4",
+ "cenas": [
+  {
+   "tipo": "abertura",
+   "narracao": "Olá! Este é o módulo quatro: ligações parafusadas e torque. Aqui você vai aprender a escolher o parafuso certo, apertar do jeito certo e conferir se a ligação ficou pronta."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "O conjunto",
+   "titulo": "O A325 sempre trabalha em conjunto",
+   "itens": [
+    {
+     "titulo": "Parafuso",
+     "texto": "ASTM A325. Cabeça sextavada pesada, com A325 e a marca do fabricante."
+    },
+    {
+     "titulo": "Porca",
+     "texto": "ASTM A563, com o grau marcado, como DH. Porca comum é erro."
+    },
+    {
+     "titulo": "Arruela",
+     "texto": "ASTM F436, endurecida. Vai sob a parte que gira no aperto."
+    }
+   ],
+   "narracao": "O parafuso de alta resistência nunca trabalha sozinho. Ele forma um conjunto. O parafuso A trezentos e vinte e cinco tem cabeça sextavada pesada, com a marcação A trezentos e vinte e cinco e a marca do fabricante. A porca é a A quinhentos e sessenta e três, com o grau marcado. Porca comum nesse parafuso é erro. E a arruela é a F quatrocentos e trinta e seis, endurecida, colocada sempre sob a parte que gira no aperto. Parafuso sem marcação é não conforme: separe e registre."
+  },
+  {
+   "tipo": "alerta",
+   "pequeno": "O conjunto",
+   "titulo": "Tipos e acabamentos",
+   "texto": "Tipo 1 é o aço comum, preto ou galvanizado. Tipo 3 é o aço patinável, para estrutura aparente sem pintura.",
+   "caixa": "Atenção: galvanizado",
+   "itens": [
+    "Exige porca A563 grau DH",
+    "Porca com sobremedida de rosca e lubrificada",
+    "Nunca misture porca e parafuso de lotes diferentes"
+   ],
+   "narracao": "O parafuso tipo um é o aço comum do mercado, que pode vir preto ou galvanizado. O tipo três é o aço patinável, usado em estrutura aparente sem pintura. O galvanizado merece atenção: ele exige porca grau DH, com sobremedida de rosca e lubrificação de fábrica. Nunca misture a porca de um lote com o parafuso de outro: ela pode travar antes de chegar na protensão."
+  },
+  {
+   "tipo": "tabela",
+   "pequeno": "O conjunto",
+   "titulo": "Bitolas mais usadas",
+   "itens": [
+    {
+     "titulo": "1/2\" e 5/8\"",
+     "texto": "Ligações secundárias: terças e travamentos"
+    },
+    {
+     "titulo": "3/4\" a 1\"",
+     "texto": "Ligações principais: viga-pilar, emendas e bases"
+    },
+    {
+     "titulo": "Chave certa",
+     "texto": "Confira a boca da ferramenta antes de subir"
+    }
+   ],
+   "narracao": "Na prática, as ligações secundárias, como terças e travamentos, usam parafusos de meia polegada e cinco oitavos. As ligações principais, como viga com pilar, emendas e bases, usam de três quartos a uma polegada. E uma dica simples: confira a chave certa para a bitola antes de subir na estrutura."
+  },
+  {
+   "tipo": "alerta",
+   "pequeno": "O conjunto",
+   "titulo": "Comprimento = pega + acréscimo",
+   "texto": "A pega é a soma das espessuras das chapas. O acréscimo cobre arruela, porca e sobra de rosca.",
+   "caixa": "Exemplo",
+   "itens": [
+    "Parafuso 3/4\" e duas chapas de 16 mm",
+    "Pega: 32 mm. Acréscimo: 25,4 mm",
+    "Total 57,4 mm: use o comercial acima",
+    "Calço na ligação? Recalcule"
+   ],
+   "narracao": "Para definir o comprimento do parafuso, some a pega e o acréscimo. A pega é a soma das espessuras de todas as chapas. O acréscimo cobre a arruela, a porca e a sobra de rosca. Exemplo: parafuso de três quartos unindo duas chapas de dezesseis milímetros. A pega é trinta e dois, o acréscimo é vinte e cinco vírgula quatro. Total: cinquenta e sete vírgula quatro milímetros. Use o comprimento comercial imediatamente acima. E se entrar um calço na ligação, recalcule."
+  },
+  {
+   "tipo": "tabela",
+   "pequeno": "Ligação e aperto",
+   "titulo": "Três tipos de ligação",
+   "itens": [
+    {
+     "titulo": "Contato",
+     "texto": "Aperto firme, com chave comum. Caso mais comum em galpões."
+    },
+    {
+     "titulo": "Protendida",
+     "texto": "Carga cíclica ou exigência de projeto: protensão mínima da tabela."
+    },
+    {
+     "titulo": "Atrito",
+     "texto": "Protensão mínima e superfícies de contato preparadas."
+    }
+   ],
+   "narracao": "Existem três tipos de ligação, com três níveis de aperto. Na ligação por contato, basta o aperto firme, com o esforço pleno de um montador numa chave comum. É o caso mais comum em galpões. A ligação protendida exige a protensão mínima da tabela. E a ligação por atrito exige a protensão mínima e as superfícies de contato preparadas conforme o projeto."
+  },
+  {
+   "tipo": "frase",
+   "titulo": "Quem define o aperto é <em>o projeto</em>, não o montador.",
+   "texto": "Sem indicação, trate as ligações principais como protendidas e consulte o responsável técnico.",
+   "narracao": "Regra de ouro: quem define o aperto é o projeto, não o montador. Se não houver indicação, trate as ligações principais como protendidas e consulte o responsável técnico. E lembre: apertar o máximo possível também é erro."
+  },
+  {
+   "tipo": "tabela",
+   "pequeno": "Ligação e aperto",
+   "titulo": "Protensão mínima de instalação",
+   "itens": [
+    {
+     "titulo": "1/2\"",
+     "texto": "53 kN · cerca de 5,4 toneladas-força"
+    },
+    {
+     "titulo": "5/8\"",
+     "texto": "85 kN · cerca de 8,7 toneladas-força"
+    },
+    {
+     "titulo": "3/4\"",
+     "texto": "125 kN · cerca de 12,7 toneladas-força"
+    },
+    {
+     "titulo": "7/8\"",
+     "texto": "174 kN · cerca de 17,7 toneladas-força"
+    },
+    {
+     "titulo": "1\"",
+     "texto": "227 kN · cerca de 23,1 toneladas-força"
+    }
+   ],
+   "narracao": "A protensão é a força de tração que fica no corpo do parafuso depois do aperto. É cerca de setenta por cento da resistência mínima à tração. Para ter uma ideia: um parafuso de meia polegada segura cerca de cinco toneladas e meia. O de cinco oitavos, quase nove. O de três quartos, cerca de doze vírgula sete toneladas. O de sete oitavos, quase dezoito. E o de uma polegada, mais de vinte e três toneladas. Fonte: NBR oito mil e oitocentos."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Métodos de protensão",
+   "titulo": "Quatro formas de chegar na protensão",
+   "itens": [
+    {
+     "titulo": "Rotação da porca",
+     "texto": "Marca de giz e uma fração de volta. Preferencial em obra."
+    },
+    {
+     "titulo": "Chave calibrada",
+     "texto": "Torque calibrado todo dia, por bitola e por lote."
+    },
+    {
+     "titulo": "Arruela DTI",
+     "texto": "Ressaltos que esmagam sob carga, conferidos com lâmina."
+    },
+    {
+     "titulo": "Parafuso TC",
+     "texto": "A ponta estriada rompe ao atingir a protensão."
+    }
+   ],
+   "narracao": "Existem quatro formas de chegar na protensão, e todas começam igual: a ligação toda em aperto firme, com as chapas encostadas. A rotação da porca usa uma marca de giz e uma fração de volta, e é o método preferencial em obra. A chave calibrada usa um torque calibrado todo dia, por bitola e por lote. A arruela DTI tem ressaltos que esmagam sob carga. E o parafuso TC tem uma ponta estriada que rompe quando a protensão é atingida. O método é definido pelo projeto."
+  },
+  {
+   "tipo": "fluxo",
+   "pequeno": "Métodos de protensão",
+   "titulo": "Rotação da porca",
+   "itens": [
+    {
+     "titulo": "Aperto firme",
+     "texto": "Ligação toda"
+    },
+    {
+     "titulo": "Marcar",
+     "texto": "Porca, ponta e chapa"
+    },
+    {
+     "titulo": "Girar",
+     "texto": "1/3, 1/2 ou 2/3 de volta"
+    },
+    {
+     "titulo": "Conferir",
+     "texto": "As marcas são a inspeção",
+     "forte": true
+    }
+   ],
+   "rodape": "Até 4 diâmetros: 1/3 de volta · de 4 a 8: 1/2 volta · de 8 a 12: 2/3 de volta",
+   "narracao": "Veja a rotação da porca passo a passo. Primeiro, aperto firme em toda a ligação. Depois, marque com giz a porca, a ponta do parafuso e a chapa, na mesma linha. Em seguida, gire a porca a fração de volta da tabela: um terço de volta para parafusos curtos, até quatro diâmetros; meia volta até oito diâmetros; e dois terços até doze. Por fim, confira o deslocamento das marcas. As próprias marcas são a inspeção."
+  },
+  {
+   "tipo": "alerta",
+   "pequeno": "Ligação e aperto",
+   "titulo": "Torque de tabela",
+   "texto": "A tabela de torque serve para escolher a ferramenta, nunca como critério de aceitação.",
+   "caixa": "Por quê?",
+   "itens": [
+    "Galvanizado lubrificado precisa de menos torque",
+    "O torque do preto pode romper o galvanizado",
+    "Parafuso sujo ou oxidado não chega na protensão",
+    "Torque de trabalho é calibrado com o lote da obra"
+   ],
+   "narracao": "E a tabela de torque? Ela serve para escolher a ferramenta, nunca como critério de aceitação. O motivo é o atrito. Parafuso galvanizado e lubrificado precisa de menos torque, e o torque do parafuso preto pode romper o galvanizado. Já o parafuso sujo, oxidado ou reaproveitado não chega na protensão com o torque da tabela. Por isso, o torque de trabalho é calibrado na obra, com o próprio lote."
+  },
+  {
+   "tipo": "frase",
+   "titulo": "O torque não é o objetivo. <em>A protensão é.</em>",
+   "texto": "O mesmo torque pode gerar protensões muito diferentes, conforme lubrificação, galvanização, sujeira e reuso.",
+   "narracao": "Guarde esta frase: o torque não é o objetivo. A protensão é. O mesmo torque pode gerar protensões muito diferentes, conforme a lubrificação, a galvanização, a sujeira e o reuso do parafuso."
+  },
+  {
+   "tipo": "fluxo",
+   "pequeno": "Execução",
+   "titulo": "Sequência de aperto",
+   "itens": [
+    {
+     "titulo": "Montagem",
+     "texto": "Tudo encostado, furos alinhados com pino"
+    },
+    {
+     "titulo": "Aperto firme",
+     "texto": "Do centro para as bordas"
+    },
+    {
+     "titulo": "Protensão",
+     "texto": "Pelo método, do centro para as bordas"
+    },
+    {
+     "titulo": "Repasse",
+     "texto": "Até nenhum parafuso girar",
+     "forte": true
+    }
+   ],
+   "rodape": "Gire de preferência a porca. Se girar a cabeça, a arruela vai sob ela.",
+   "narracao": "A sequência de aperto tem quatro etapas. Na montagem, coloque todos os parafusos com porca e arruela, só encostados, e alinhe os furos com pino, nunca com o parafuso. Depois, o aperto firme, do centro para as bordas, até as chapas encostarem. Em bases, aperte em estrela. Em seguida, a protensão, pelo método especificado, de novo do centro para as bordas. E por fim, o repasse, até nenhum parafuso girar mais. Apertar um parafuso alivia os vizinhos: por isso o repasse é obrigatório."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Métodos de protensão",
+   "titulo": "Arruela DTI e parafuso TC",
+   "itens": [
+    {
+     "titulo": "Arruela DTI",
+     "texto": "Calibre de 0,38 mm não entra em pelo menos metade dos vãos: protendido. Folga zero em todos: sobrecarga."
+    },
+    {
+     "titulo": "Parafuso TC",
+     "texto": "Ponta rompida comprova a protensão só com conjunto limpo, lubrificado de fábrica e aperto contínuo."
+    }
+   ],
+   "narracao": "Dois métodos têm conferência própria. Na arruela DTI, usa-se um calibre de lâmina de zero vírgula trinta e oito milímetros: quando ele não entra em pelo menos metade dos vãos, a protensão foi atingida. Se todos os ressaltos estiverem esmagados, sem folga nenhuma, é sobrecarga, e a arruela é rejeitada. No parafuso TC, a ponta rompida comprova a protensão só se o conjunto estiver limpo, lubrificado de fábrica, e o aperto tiver sido feito de uma vez. Ponta rompida em parafuso reaproveitado não vale como evidência."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Controle de qualidade",
+   "titulo": "Inspeção do aperto",
+   "itens": [
+    {
+     "titulo": "Visual em 100%",
+     "texto": "Marcação, arruela no lado girado, ponta rente ou acima da porca."
+    },
+    {
+     "titulo": "Torque de arbitragem",
+     "texto": "Na dúvida, em 10% dos parafusos, mínimo de 2."
+    },
+    {
+     "titulo": "Tolerância",
+     "texto": "Mais ou menos 30 graus; 45 graus para 2/3 de volta."
+    },
+    {
+     "titulo": "Registro",
+     "texto": "Torquímetro, marcação em azul, foto e relatório de torque."
+    }
+   ],
+   "narracao": "Na inspeção, o visual é feito em cem por cento dos parafusos: marcação, arruela no lado girado, ponta rente ou acima da porca e as marcas de giz. Na dúvida, aplica-se o torque de arbitragem em dez por cento dos parafusos, no mínimo dois. A tolerância de rotação é de trinta graus, ou quarenta e cinco para dois terços de volta. E tudo é registrado: torquímetro usado, marcação em azul no projeto, foto e relatório de torque."
+  },
+  {
+   "tipo": "alerta",
+   "pequeno": "Controle de qualidade",
+   "titulo": "Ponta, furo e reutilização",
+   "texto": "Depois do aperto, a ponta do parafuso fica no mínimo rente à face da porca; o ideal é sobrar de 2 a 3 fios. O furo padrão é o diâmetro do parafuso mais 1,5 mm.",
+   "caixa": "Reutilização",
+   "itens": [
+    "Galvanizado protendido: nunca reutilizar",
+    "Regra da Palla: não reutilizar nenhum parafuso já protendido",
+    "Rompido, alongado ou de origem desconhecida: descartar",
+    "Furo só se alarga com alargador, nunca com maçarico"
+   ],
+   "narracao": "Três controles finais. A ponta do parafuso fica, no mínimo, rente à face da porca, e o ideal é sobrar de dois a três fios. O furo padrão é o diâmetro do parafuso mais um vírgula cinco milímetros, e furo só se alarga com alargador, com aprovação, nunca com maçarico. E a reutilização: parafuso galvanizado já protendido nunca é reutilizado. Algumas referências admitem reusar o preto uma vez, mas normas de cliente proíbem, e a regra recomendada para a Palla é não reutilizar nenhum parafuso já protendido. Parafuso rompido, alongado ou de origem desconhecida vai para o descarte, com registro."
+  },
+  {
+   "tipo": "alerta",
+   "pequeno": "Controle de qualidade",
+   "titulo": "Proibido em campo",
+   "texto": "Furo que não coincide: pare, registre e siga a solução da engenharia.",
+   "caixa": "Nunca faça",
+   "itens": [
+    "Cano na chave ou extensão para apertar mais",
+    "Parafuso de diâmetro menor",
+    "Ovalizar ou forçar furo",
+    "Aperto final antes da conferência dimensional"
+   ],
+   "narracao": "Algumas coisas são proibidas em campo. Usar cano na chave ou qualquer extensão que gere aperto excessivo. Usar parafuso de diâmetro menor, mesmo que seja de material mais resistente. Ovalizar ou forçar furo para fazer coincidir. E dar o aperto final antes do exame dimensional das peças. Se o furo não coincidir, pare, registre e siga a solução da engenharia."
+  },
+  {
+   "tipo": "tabela",
+   "pequeno": "Em obra",
+   "titulo": "Os erros mais comuns",
+   "itens": [
+    {
+     "titulo": "Tabela genérica",
+     "texto": "Usada como critério final de torque"
+    },
+    {
+     "titulo": "Torque do preto",
+     "texto": "Aplicado em parafuso galvanizado lubrificado"
+    },
+    {
+     "titulo": "Protender antes",
+     "texto": "Sem o aperto firme da ligação toda"
+    },
+    {
+     "titulo": "Misturar lotes",
+     "texto": "Ou usar porca comum em A325"
+    },
+    {
+     "titulo": "Arruela",
+     "texto": "Faltando, ou arruelas empilhadas"
+    },
+    {
+     "titulo": "Chave de impacto",
+     "texto": "Usada como controle de torque"
+    }
+   ],
+   "narracao": "Estes são os erros mais comuns em campo. Usar tabela genérica como critério final. Aplicar torque de parafuso preto em galvanizado. Protender antes do aperto firme da ligação toda. Misturar lotes, ou usar porca comum. Faltar arruela, ou empilhar arruelas. E usar a chave de impacto como controle de torque. Quantos destes você já viu na obra?"
+  },
+  {
+   "tipo": "resumo",
+   "titulo": "Resumo do módulo 4",
+   "itens": [
+    "Parafuso, porca e arruela em conjunto",
+    "Sem marcação, não conforme",
+    "Comprimento: pega mais acréscimo",
+    "O projeto define o aperto",
+    "A protensão é o objetivo",
+    "Rotação da porca: marque e gire",
+    "Do centro para as bordas, com repasse",
+    "Inspecione e registre"
+   ],
+   "narracao": "Recapitulando. Parafuso, porca e arruela trabalham em conjunto. Sem marcação, não conforme. Comprimento é pega mais acréscimo. O projeto define o aperto. A protensão é o objetivo, não o torque. Na rotação da porca, marque e gire. Aperte do centro para as bordas, com repasse. E inspecione e registre tudo."
+  },
+  {
+   "tipo": "encerramento",
+   "texto": "Próximo módulo: soldagem estrutural.",
+   "narracao": "Muito bem! No próximo módulo, vamos falar de soldagem estrutural. Até lá!"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+// Banco do Caderno do Módulo 8 – Cobertura e Fechamento (inclui complementares da revisão 2).
+// Valores de manta, calha e rufo são referências do material de origem; conferir com o fabricante/projeto de cada obra.
+import type { Q } from "./tipos";
+
+export const m8: Q[] = [
+  ["M8-01", "B", "Qual a largura mínima da faixa de manta no beiral do oitão?", ["50 mm", "100 mm", "150 mm", "300 mm"], "c", "Mínimo de 150 mm no beiral do oitão (referência do material)."],
+  ["M8-02", "B", "Ainda sem telha sobre a manta, o trabalhador deve:", ["Caminhar sobre a manta com cuidado", "Pisar somente sobre a estrutura secundária, com linha de vida", "Usar tábuas soltas sobre a manta", "Trabalhar sem cinto para ganhar agilidade"], "b", "A manta não sustenta peso."],
+  ["M8-03", "B", "Como deve ser feita a emenda entre painéis de manta?", ["Topo a topo, sem sobreposição", "Com dobra de sobreposição, grampeada em intervalos regulares", "Colada com fita adesiva comum", "Não há emenda, a manta é inteiriça"], "b", "Dobra de sobreposição e grampos."],
+  ["M8-04", "B", "Por que a gabaritagem da primeira telha é tão importante?", ["Porque é a única que leva parafuso", "Porque define o alinhamento de todas as outras e a intercalação com o zenital", "Porque é a mais pesada", "Não é importante; corrige-se no fim"], "b", "O erro na primeira telha se acumula."],
+  ["M8-05", "B", "Com que frequência se confere a medida das telhas na saída da perfiladeira?", ["Uma vez por dia", "A cada 2 telhas fabricadas", "A cada 20 telhas", "Só quando o cliente reclamar"], "b", "A perfiladeira perde parâmetro."],
+  ["M8-06", "B", "No fim do expediente, na cobertura:", ["Telhas soltas podem ficar, desde que empilhadas", "Nenhuma telha solta; áreas sem telha zipada sinalizadas", "Basta cobrir com lona", "Não há cuidado especial"], "b", "O vento leva telha solta; há risco de queda em área aberta."],
+  ["M8-07", "I", "Como se veda a emenda entre módulos de calha externa?", ["Uma linha de silicone e parafuso a cada 200 mm", "Duas linhas de mastic e rebite hermético a cada 40 mm", "Solda elétrica", "Fita adesiva aluminizada"], "b", "Duas linhas de mastic + rebite hermético a cada 40 mm (referência do material)."],
+  ["M8-08", "I", "Qual o transpasse de referência entre peças de rufo lateral superior?", ["20 mm", "50 mm", "100 mm", "300 mm"], "c", "100 mm, vedado com mastic e selante (referência do material)."],
+  ["M8-09", "B", "Na plataforma elevatória (PEMT), onde se ancora o talabarte?", ["Na terça mais próxima", "Na própria plataforma, conforme o fabricante", "Não precisa, a plataforma tem guarda-corpo", "Na telha já fixada"], "b", "Ancoragem na plataforma, conforme o fabricante."],
+  ["M8-10", "I", "Quais são as verificações do retoque de pintura em campo?", ["Só visual", "Visual do retoque, medição de camada seca e teste de aderência", "Só medição de camada", "Ensaio de ultrassom"], "b", "Visual, camada seca e aderência."],
+  ["M8-11", "B", "Por que varrer a limalha dos autobrocantes sobre a telha?", ["Por estética apenas", "Ela enferruja e mancha a cobertura", "Para reaproveitar o material", "Por exigência da NR-06"], "b", "Corrosão e mancha."],
+  ["M8-12", "I", "Na inspeção da ligação das calhas com as caixas coletoras, o critério de referência é:", ["Inspecionar todas as peças", "Inspecionar 1 transpasse a cada 2 peças de calha", "Inspecionar só a primeira calha", "Não se inspeciona"], "b", "Critério do PIT de montagem."],
+  ["M8-13", "B", "Na cobertura, por onde se circula?", ["Sobre a telha, perto das ondas altas", "Sobre a manta, com cuidado", "Só sobre terças ou passarelas, com linha de vida", "Sobre o zenital, que é mais resistente"], "c", "Telha, manta e zenital não sustentam pessoas."],
+  ["M8-14", "I", "Steel deck galvanizado pode ficar estocado na obra por quanto tempo, no máximo?", ["30 dias", "6 meses", "Sem limite, se coberto", "7 dias"], "a", "N-293, 5.5.6: risco de ferrugem branca."],
+  ["M8-15", "I", "Onde vai ser soldado o pino (stud), a face superior da viga deve estar:", ["Com fundo de primer", "Pintada com a tinta de acabamento", "Engraxada", "Sem pintura, seca e limpa"], "d", "N-293, 5.8.4."],
+  ["M8-16", "B", "Quando a estrutura é liberada para a pintura de campo?", ["Assim que a peça é montada", "Depois de aprovadas todas as inspeções e ensaios", "No fim da obra, sem inspeção", "Antes do torque"], "b", "Pintura só depois da liberação das inspeções."],
+];

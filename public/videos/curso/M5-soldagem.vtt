@@ -1,0 +1,374 @@
+WEBVTT
+
+1
+00:00:00.700 --> 00:00:00.977
+Olá!
+
+2
+00:00:00.977 --> 00:00:04.578
+Este é o módulo cinco: soldagem estrutural aplicada.
+
+3
+00:00:04.578 --> 00:00:12.889
+Vamos ver como a solda de campo é planejada, executada, inspecionada e registrada, e como fazer tudo isso com segurança.
+
+4
+00:00:15.189 --> 00:00:17.691
+Três processos aparecem na montagem.
+
+5
+00:00:17.691 --> 00:00:25.615
+O eletrodo revestido é o mais comum na obra: tolera vento e posições difíceis, mas o eletrodo básico exige estufa.
+
+6
+00:00:25.615 --> 00:00:28.256
+O MIG MAG usa arame e gás de proteção.
+
+7
+00:00:28.256 --> 00:00:32.704
+É produtivo, mas o vento sopra o gás, então precisa de anteparo.
+
+8
+00:00:32.704 --> 00:00:39.377
+E o arame tubular tem fluxo dentro do arame, com versões autoprotegidas que servem para o campo.
+
+9
+00:00:39.377 --> 00:00:42.504
+O processo de cada junta é o que está na WPS.
+
+10
+00:00:42.504 --> 00:00:44.589
+Não se troca processo na obra.
+
+11
+00:00:46.289 --> 00:00:48.533
+Três documentos garantem a solda.
+
+12
+00:00:48.533 --> 00:00:56.214
+A WPS é a receita: processo, consumível, junta, posição, corrente, tensão, pré-aquecimento e sequência de passes.
+
+13
+00:00:56.214 --> 00:01:00.769
+O PQR é o registro dos ensaios que provaram que a receita funciona.
+
+14
+00:01:00.769 --> 00:01:08.383
+E o soldador qualificado é aquele aprovado em teste para o processo, a posição e o tipo de junta que vai soldar.
+
+15
+00:01:08.383 --> 00:01:12.801
+Sem WPS aprovada ou sem soldador qualificado, a solda não começa.
+
+16
+00:01:14.501 --> 00:01:19.124
+O eletrodo básico, como o sete zero um oito, absorve umidade do ar.
+
+17
+00:01:19.124 --> 00:01:22.367
+E umidade na solda causa trinca por hidrogênio.
+
+18
+00:01:22.367 --> 00:01:26.507
+Por isso, confira o certificado e a validade no recebimento.
+
+19
+00:01:26.507 --> 00:01:28.715
+Lata aberta, eletrodo na estufa.
+
+20
+00:01:28.715 --> 00:01:32.785
+No posto de trabalho, o eletrodo fica no cochicho aquecido.
+
+21
+00:01:32.785 --> 00:01:38.512
+Pela norma AWS, o eletrodo básico pode ficar no máximo quatro horas fora da estufa.
+
+22
+00:01:38.512 --> 00:01:42.100
+Passou disso, volta para ressecagem ou é descartado.
+
+23
+00:01:42.100 --> 00:01:44.791
+E eletrodo molhado vai para o descarte.
+
+24
+00:01:46.491 --> 00:01:48.668
+Antes de soldar, prepare a junta.
+
+25
+00:01:48.668 --> 00:01:55.792
+Limpeza: nada de óleo, graxa, carepa, ferrugem, tinta ou umidade, numa faixa de pelo menos vinte milímetros.
+
+26
+00:01:55.792 --> 00:02:02.191
+Geometria: o ângulo do bisel, a face e a abertura da raiz conforme a WPS, conferidos com calibre.
+
+27
+00:02:02.191 --> 00:02:09.183
+Alinhamento: o desalinhamento máximo é de dez por cento da espessura, ou três milímetros, o que for menor.
+
+28
+00:02:09.183 --> 00:02:12.283
+E se estiver fora da tolerância, corrija antes.
+
+29
+00:02:12.283 --> 00:02:14.724
+Solda não corrige junta mal ajustada.
+
+30
+00:02:16.424 --> 00:02:18.556
+Atenção à temperatura e ao clima.
+
+31
+00:02:18.556 --> 00:02:27.603
+O pré-aquecimento é feito quando a WPS exigir, conforme a espessura e o tipo de aço, e é conferido com termômetro de contato ou giz térmico.
+
+32
+00:02:27.603 --> 00:02:31.867
+Entre passes, mantenha a temperatura mínima durante todo o cordão.
+
+33
+00:02:31.867 --> 00:02:38.911
+E não solde com chuva, superfície molhada ou vento forte, sem uma proteção aprovada pelo responsável técnico.
+
+34
+00:02:40.611 --> 00:02:47.513
+No ponteamento, cada ponto tem no mínimo cinquenta milímetros, com intervalo máximo de quatrocentos milímetros.
+
+35
+00:02:47.513 --> 00:02:52.923
+E antes de interromper uma junta, preencha pelo menos vinte e cinco por cento da seção.
+
+36
+00:02:52.923 --> 00:02:57.835
+Os dispositivos auxiliares, como cachorro, batoque e cunha, nunca saem a golpe.
+
+37
+00:02:57.835 --> 00:03:03.929
+Corte acima da peça, esmerilhe o local e inspecione com líquido penetrante ou partícula magnética.
+
+38
+00:03:05.629 --> 00:03:10.966
+Durante a solda, siga os parâmetros da WPS: corrente, tensão, velocidade e passes.
+
+39
+00:03:10.966 --> 00:03:14.741
+Remova a escória e inspecione cada passe antes do próximo.
+
+40
+00:03:14.741 --> 00:03:18.255
+Siga a sequência definida, para controlar a distorção.
+
+41
+00:03:18.255 --> 00:03:22.030
+O resfriamento é natural, nunca com água ou ar comprimido.
+
+42
+00:03:22.030 --> 00:03:25.935
+E no final, limpe escória e respingos e faça a autoinspeção.
+
+43
+00:03:25.935 --> 00:03:30.556
+Cada soldador marca o seu sinete junto ao cordão, para rastreabilidade.
+
+44
+00:03:32.256 --> 00:03:39.561
+Quando o desenho não especifica, a solda de filete tem uma perna mínima, conforme a espessura da chapa.
+
+45
+00:03:39.561 --> 00:03:42.043
+Até seis milímetros, perna de três.
+
+46
+00:03:42.043 --> 00:03:44.241
+De seis a doze, perna de cinco.
+
+47
+00:03:44.241 --> 00:03:46.440
+De doze a vinte, perna de seis.
+
+48
+00:03:46.440 --> 00:03:49.489
+E acima de vinte, perna de oito milímetros.
+
+49
+00:03:49.489 --> 00:03:52.326
+Se o projeto pedir mais, vale o projeto.
+
+50
+00:03:52.326 --> 00:03:54.808
+Meça sempre com o calibre de solda.
+
+51
+00:03:56.508 --> 00:03:59.900
+Todas as soldas de campo passam por inspeção visual.
+
+52
+00:03:59.900 --> 00:04:08.902
+Ela exige iluminação mínima de mil lux, olho a no máximo seiscentos milímetros da solda e ângulo de observação de pelo menos trinta graus.
+
+53
+00:04:08.902 --> 00:04:12.490
+A perna e o reforço são medidos com o calibre de solda.
+
+54
+00:04:12.490 --> 00:04:18.035
+A solda inspecionada é marcada em amarelo na vista superior do projeto e fotografada.
+
+55
+00:04:19.735 --> 00:04:22.571
+Na solda de campo, cada um tem o seu papel.
+
+56
+00:04:22.571 --> 00:04:32.596
+O soldador solda pela WPS, faz a autoinspeção de cada cordão e avisa na hora qualquer condição ruim, como clima, ajuste da junta ou falta de consumível.
+
+57
+00:04:32.596 --> 00:04:42.291
+O inspetor ou encarregado confere a qualificação e a WPS antes de começar, faz a inspeção visual de todas as soldas e bloqueia a solda com defeito.
+
+58
+00:04:42.291 --> 00:04:48.425
+Ensaios complementares, como líquido penetrante ou ultrassom, seguem a amostragem do projeto.
+
+59
+00:04:48.425 --> 00:04:53.899
+E o responsável técnico aprova as WPS, define os reparos e libera a etapa seguinte.
+
+60
+00:04:53.899 --> 00:04:58.912
+Uma descontinuidade só vira defeito quando passa dos critérios de aceitação.
+
+61
+00:05:00.612 --> 00:05:02.819
+Conheça os defeitos mais comuns.
+
+62
+00:05:02.819 --> 00:05:06.613
+A trinca, fissura no cordão ou ao lado, é a mais grave.
+
+63
+00:05:06.613 --> 00:05:10.958
+A falta de fusão é a solda colada, sem fundir no metal de base.
+
+64
+00:05:10.958 --> 00:05:13.924
+A mordedura é um sulco na margem do cordão.
+
+65
+00:05:13.924 --> 00:05:18.959
+A porosidade são furinhos de gás, causados por umidade, vento ou sujeira.
+
+66
+00:05:18.959 --> 00:05:21.649
+A cratera é um buraco no fim do cordão.
+
+67
+00:05:21.649 --> 00:05:24.684
+A sobreposição é metal derramado sem fundir.
+
+68
+00:05:24.684 --> 00:05:27.856
+A inclusão de escória fica presa entre passes.
+
+69
+00:05:27.856 --> 00:05:31.236
+E a perna pequena é o cordão menor que o projeto.
+
+70
+00:05:32.936 --> 00:05:36.360
+Fixe esta regra: trinca não tem tamanho aceitável.
+
+71
+00:05:36.360 --> 00:05:39.921
+Qualquer trinca, em qualquer lugar, reprova a solda.
+
+72
+00:05:39.921 --> 00:05:40.880
+Sem discussão.
+
+73
+00:05:42.580 --> 00:05:51.778
+Cada junta inspecionada vai para a planilha de inspeção, com o sinete do soldador, a WPS, o pré-aquecimento, o resultado, a data e o inspetor.
+
+74
+00:05:51.778 --> 00:06:00.264
+A rejeição é imediata em quatro casos: qualquer trinca, falta de fusão visível, soldador sem qualificação e junta sem WPS aprovada.
+
+75
+00:06:00.264 --> 00:06:04.604
+Solda reprovada gera registro de não conformidade e ação corretiva.
+
+76
+00:06:06.304 --> 00:06:08.354
+Por fim, os riscos da soldagem.
+
+77
+00:06:08.354 --> 00:06:16.421
+Incêndio: permissão de trabalho a quente, extintor no posto, manta antichama e vigia de fogo, sem nada inflamável embaixo.
+
+78
+00:06:16.421 --> 00:06:23.034
+Choque elétrico: cabos sem emendas expostas, garra de aterramento perto da solda e máquina aterrada.
+
+79
+00:06:23.034 --> 00:06:30.837
+Radiação e queimadura: máscara com filtro adequado, avental, luvas, mangas de raspa e biombo para proteger quem passa.
+
+80
+00:06:30.837 --> 00:06:37.582
+E fumos: ventilação e posição fora da fumaça, com atenção redobrada em peças galvanizadas ou pintadas.
+
+81
+00:06:37.582 --> 00:06:39.764
+Em altura, isole a área de baixo.
+
+82
+00:06:41.464 --> 00:06:42.580
+Recapitulando.
+
+83
+00:06:42.580 --> 00:06:44.334
+O processo é o da WPS.
+
+84
+00:06:44.334 --> 00:06:48.959
+Sem WPS aprovada e sem soldador qualificado, não se solda.
+
+85
+00:06:48.959 --> 00:06:51.430
+Eletrodo básico fica na estufa.
+
+86
+00:06:51.430 --> 00:06:54.859
+A junta tem que estar limpa e bem ajustada.
+
+87
+00:06:54.859 --> 00:06:58.686
+Não solde com chuva ou vento forte sem proteção.
+
+88
+00:06:58.686 --> 00:07:01.237
+Dispositivos nunca saem a golpe.
+
+89
+00:07:01.237 --> 00:07:04.905
+Toda solda de campo passa por inspeção visual.
+
+90
+00:07:04.905 --> 00:07:06.819
+E trinca reprova sempre.
+
+91
+00:07:08.519 --> 00:07:09.292
+Excelente!
+
+92
+00:07:09.292 --> 00:07:14.705
+No próximo módulo, vamos para a metrologia e a topografia de montagem.
+
+93
+00:07:14.705 --> 00:07:15.247
+Até lá!
+

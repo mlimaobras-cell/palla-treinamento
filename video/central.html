@@ -1,0 +1,160 @@
+<title>Central do Curso Palla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Central de downloads do curso: faixa de identificação Palla, depois uma linha por módulo com slides + caderno, trilhas, avaliações e pendências */
+:root{
+  --bg:#F5F6FA; --surface:#FDFDFE; --line:#DDE1EE; --band:#ECEEF6; --fg:#2B3352; --muted:#5A6380;
+  --navy:#404D91; --red:#D13542; --navy-soft:#E3E7F4; --pink:#FBE9EB; --ok:#1f7a4a; --ok-bg:#e2f2e9;
+  --display:"Chakra Petch",Arial,sans-serif; --body:"IBM Plex Sans",Arial,Helvetica,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141936; --surface:#1E2550; --line:#323B6E; --band:#252D5C; --fg:#E8EAF6; --muted:#A9B0D3;
+  --navy:#A9B4F0; --red:#F07A85; --navy-soft:#2A3366; --pink:#3A2030; --ok:#6fd39d; --ok-bg:#163326; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141936; --surface:#1E2550; --line:#323B6E; --band:#252D5C; --fg:#E8EAF6; --muted:#A9B0D3;
+  --navy:#A9B4F0; --red:#F07A85; --navy-soft:#2A3366; --pink:#3A2030; --ok:#6fd39d; --ok-bg:#163326; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 16px 64px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.1;text-wrap:balance}
+h2{font-size:26px;font-weight:700;color:var(--navy)}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+section{margin-top:44px;display:flex;flex-direction:column;gap:14px}
+.lede{color:var(--muted);max-width:70ch;margin:0}
+a{color:var(--navy);font-weight:600;text-underline-offset:3px}
+a:hover{color:var(--red)}
+/* cabeçalho */
+.hero{display:grid;grid-template-columns:1fr auto;background:var(--surface);border:1px solid var(--line);border-left:8px solid var(--red)}
+.hero-main{padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.hero h1{font-size:clamp(28px,5vw,44px);color:var(--navy)}
+.hero p{margin:0;color:var(--muted);max-width:62ch}
+.stats{display:grid;grid-template-columns:repeat(3,auto);background:var(--navy);color:#F5F6FA}
+.stats div{padding:18px 20px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(255,255,255,.15)}
+.stats .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.stats .v{font-family:var(--display);font-size:30px;font-weight:700;font-variant-numeric:tabular-nums}
+:root[data-theme="dark"] .stats{color:#141936}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .stats{color:#141936}}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.stats div:first-child{border-left:0}}
+/* módulos */
+.mods{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--surface)}
+.mod{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;padding:14px 18px;border-top:1px solid var(--line)}
+.mod:first-child{border-top:0}
+.num{font-family:var(--display);font-size:30px;font-weight:700;color:var(--red)}
+.mod h3{font-size:19px;color:var(--fg)}
+.meta{font-size:13px;color:var(--muted)}
+.links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid var(--line);background:var(--band);text-decoration:none;font-size:13.5px;border-radius:4px;white-space:nowrap}
+.btn:hover{border-color:var(--red)}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:var(--navy-soft);color:var(--navy);margin-left:6px;vertical-align:2px}
+.tag.opt{background:var(--pink);color:var(--red)}
+@media (max-width:760px){.mod{grid-template-columns:44px 1fr}.links{grid-column:1 / -1;justify-content:flex-start}}
+/* trilhas */
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:8px}
+.card h3{font-size:20px;color:var(--navy)}
+.card .h{font-family:var(--display);font-size:28px;font-weight:700;color:var(--red);font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-family:var(--mono);font-size:12px;padding:2px 7px;border:1px solid var(--line);background:var(--band)}
+.card p{margin:0;font-size:13.5px;color:var(--muted)}
+/* tabela pendências */
+.tbl{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);font-size:14px}
+.tbl th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line);background:var(--band)}
+.tbl td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+.tbl td:first-child{font-family:var(--mono);font-size:13px;white-space:nowrap;color:var(--red)}
+.scroll{overflow-x:auto}
+.note{background:var(--pink);border-left:4px solid var(--red);padding:12px 16px;font-size:14px}
+.note p{margin:0}
+ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+footer{margin-top:48px;color:var(--muted);font-size:13px}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-main">
+      <span class="eyebrow">Palla Construções · Curso completo</span>
+      <h1>Montagem de Estruturas Metálicas</h1>
+      <p>Central de material do curso: slides e caderno de cada módulo (apostila, roteiro de videoaula, banco de questões, ficha prática) e as avaliações de todas as trilhas.</p>
+    </div>
+    <div class="stats">
+      <div><span class="k">Módulos</span><span class="v">8</span></div>
+      <div><span class="k">Slides</span><span class="v">162</span></div>
+      <div><span class="k">Questões</span><span class="v">136</span></div>
+    </div>
+  </header>
+
+  <section>
+    <span class="eyebrow">Como baixar</span>
+    <h2>Abrir, analisar, exportar</h2>
+    <ol class="steps">
+      <li><b>Slides:</b> abra o deck e use <i>Compartilhar › Exportar</i> para baixar em PowerPoint (.pptx) ou PDF. As notas do instrutor estão em cada slide.</li>
+      <li><b>Cadernos e Avaliações:</b> abra o documento e exporte para Word (.docx) ou PDF. No documento de Avaliações, cada prova é uma aba, para exportar e imprimir em separado.</li>
+      <li>Você pode comentar direto nos documentos e slides. Os comentários ficam registrados para a revisão.</li>
+      <li><b>Revisão 2:</b> o que veio das fontes complementares (N-293, APRs, instruções de montagem) está nos cadernos como "Complementos (revisão 2)" e "Questões complementares", e em 11 slides novos. O caderno do M7 traz o modelo de APR da Palla (seção 5).</li>
+    </ol>
+  </section>
+
+  <section>
+    <span class="eyebrow">Material por módulo</span>
+    <h2>Os 8 módulos</h2>
+    <div class="mods">
+      <div class="mod"><span class="num">M1</span><div><h3>Fundamentos de estruturas metálicas</h3><span class="meta">8 h · todas as trilhas · 16 slides · 12 questões</span></div><div class="links"><a class="btn" href="https://claude.ai/artifact/UL59PQitCJj4BSCr7VNhzC" target="_blank" rel="noopener">Slides</a><a class="btn" href="https://claude.ai/code/artifact/48eb4367-af2a-4f3c-b297-28f47adbb04b" target="_blank" rel="noopener">Caderno</a></div></div>
+      <div class="mod"><span class="num">M2</span><div><h3>Leitura e interpretação de projetos</h3><span class="meta">8 h · todas as trilhas · 16 slides · 12 questões</span></div><div class="links"><a class="btn" href="https://claude.ai/artifact/FXFogSsANS8Dh1KdSFpafW" target="_blank" rel="noopener">Slides</a><a class="btn" href="https://claude.ai/code/artifact/5b602fdd-53b2-486b-b6e0-18674cfd0142" target="_blank" rel="noopener">Caderno</a></div></div>
+      <div class="mod"><span class="num">M3</span><div><h3>Montagem, içamento e rigging</h3><span class="meta">16 h · Auxiliar (parte), Montador, Encarregado · 22 slides · 21 questões</span></div><div class="links"><a class="btn" href="https://claude.ai/artifact/3BevveZfonURKTwPSHgqwH" target="_blank" rel="noopener">Slides</a><a class="btn" href="https://claude.ai/code/artifact/caca6f13-56ea-4484-8cca-51f2ef671efa" target="_blank" rel="noopener">Caderno</a></div></div>
+      <div class="mod"><span class="num">M4</span><div><h3>Ligações parafusadas e torque <span class="tag">piloto</span></h3><span class="meta">12 h · Montador, Encarregado · 26 slides · 20 questões</span></div><div class="links"><a class="btn" href="https://claude.ai/artifact/7ewDHePamHgkn48g97TqAB" target="_blank" rel="noopener">Slides</a><a class="btn" href="https://claude.ai/code/artifact/58622b68-d230-49ce-b349-b0f7a712e6c0" target="_blank" rel="noopener">Caderno</a></div></div>
+      <div class="mod"><span class="num">M5</span><div><h3>Soldagem estrutural aplicada</h3><span class="meta">12 h · Soldador, Montador, Encarregado · 24 slides · 21 questões</span></div><div class="links"><a class="btn" href="https://claude.ai/artifact/UsVs7st1rQY4s7xnjVQP4e" target="_blank" rel="noopener">Slides</a><a class="btn" href="https://claude.ai/code/artifact/e252d412-8b9c-4a51-afe5-838e50d4bb54" target="_blank" rel="noopener">Caderno</a></div></div>
+      <div class="mod"><span class="num">M6</span><div><h3>Metrologia e topografia de montagem</h3><span class="meta">12 h · Encarregado · 20 slides · 17 questões</span></div><div class="links"><a class="btn" href="https://claude.ai/artifact/3z9XBuBhX4ikG7Qc3QJMye" target="_blank" rel="noopener">Slides</a><a class="btn" href="https://claude.ai/code/artifact/f550d515-82c2-48a2-b6b6-8c9776519aee" target="_blank" rel="noopener">Caderno</a></div></div>
+      <div class="mod"><span class="num">M7</span><div><h3>Segurança, NRs e documentação de obra</h3><span class="meta">12 h · todas as trilhas · 21 slides · 17 questões</span></div><div class="links"><a class="btn" href="https://claude.ai/artifact/Y26EWBc4fmLqfKMkzQKWcg" target="_blank" rel="noopener">Slides</a><a class="btn" href="https://claude.ai/code/artifact/79ab2cfe-dd52-42b8-bb4a-4ef1c2e50b74" target="_blank" rel="noopener">Caderno</a></div></div>
+      <div class="mod"><span class="num">M8</span><div><h3>Cobertura e fechamento <span class="tag opt">opcional</span></h3><span class="meta">8 h · Montador, Encarregado · 17 slides · 16 questões</span></div><div class="links"><a class="btn" href="https://claude.ai/artifact/HC6EKNH3Q8YZakBx2DFBQ2" target="_blank" rel="noopener">Slides</a><a class="btn" href="https://claude.ai/code/artifact/233e57e3-7985-4dd3-b40d-bef9356e955b" target="_blank" rel="noopener">Caderno</a></div></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Documentos gerais</span>
+    <h2>Programa, avaliações, vídeos e certificado</h2>
+    <div class="grid4">
+      <div class="card"><h3>Programa do Curso</h3><p>Ementa, carga horária (88 h), trilhas, cronograma e critérios.</p><a href="https://claude.ai/code/artifact/53c80c6d-56a9-4f0f-9c19-1e7a5c64894e" target="_blank" rel="noopener">Abrir o programa →</a></div>
+      <div class="card"><h3>Avaliações do Curso</h3><p>Provas diagnóstica e final de cada trilha (8 abas), gabaritos, comparativo, lista de presença e certificado.</p><a href="https://claude.ai/code/artifact/abc21582-89e5-46f1-a26f-871c546f12bb" target="_blank" rel="noopener">Abrir as avaliações →</a></div>
+      <div class="card"><h3>Videoaulas</h3><p>Vídeo narrado de cada módulo (M1 a M8), com legendas, para estudar e revisar.</p><a href="https://claude.ai/artifact/2tTpsgEiZUWHFinth5vNwb" target="_blank" rel="noopener">Assistir às videoaulas →</a></div>
+      <div class="card"><h3>Certificado</h3><p>Emissor em A4 deitado: preencha os dados do aluno e baixe o PDF. O verso traz o QR Code das videoaulas.</p><a href="https://claude.ai/artifact/ML75iw1SyPoEUaAW52yRHa" target="_blank" rel="noopener">Emitir certificado →</a></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Trilhas</span>
+    <h2>Quem faz o quê</h2>
+    <div class="grid4">
+      <div class="card"><h3>Auxiliar de Montagem</h3><span class="h">36 h</span><div class="chips"><span class="chip">M1</span><span class="chip">M2</span><span class="chip">M3 parte</span><span class="chip">M7</span></div><p>Provas: 12 questões na diagnóstica, 25 na final.</p></div>
+      <div class="card"><h3>Soldador</h3><span class="h">40 h</span><div class="chips"><span class="chip">M1</span><span class="chip">M2</span><span class="chip">M5</span><span class="chip">M7</span></div><p>Provas: 12 questões na diagnóstica, 25 na final.</p></div>
+      <div class="card"><h3>Montador</h3><span class="h">56 h</span><div class="chips"><span class="chip">M1</span><span class="chip">M2</span><span class="chip">M3</span><span class="chip">M4</span><span class="chip">M5</span></div><p>Provas: 15 questões na diagnóstica, 30 na final. M8 opcional.</p></div>
+      <div class="card"><h3>Encarregado de Obra</h3><span class="h">80 h</span><div class="chips"><span class="chip">M1</span><span class="chip">M2</span><span class="chip">M3</span><span class="chip">M4</span><span class="chip">M5</span><span class="chip">M6</span><span class="chip">M7</span></div><p>Provas: 20 questões na diagnóstica, 40 na final. M8 opcional.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Antes da primeira turma</span>
+    <h2>Itens a validar</h2>
+    <p class="lede">Pontos escritos a partir das normas e dos procedimentos de referência e marcados com [VALIDAR] no material. Eles precisam da decisão ou do documento da Palla.</p>
+    <div class="scroll"><table class="tbl">
+      <tr><th>Onde</th><th>O que falta</th></tr>
+      <tr><td>Todos</td><td>Fotos de obras próprias da Palla nos slides; banco de fotos de defeitos (solda, pintura)</td></tr>
+      <tr><td>M1</td><td>Perfis reais de um projeto Palla nos exemplos; vídeo de fábrica parceira</td></tr>
+      <tr><td>M2</td><td>Padrão de marcas das peças nos projetos; procedimento de controle de documentos em obra; projeto Palla para o estudo de caso</td></tr>
+      <tr><td>M3</td><td>Limites do plano de içamento (taxa de utilização, içamento crítico). Confirmar as referências já no material: 2 parafusos por ligação antes de soltar o gancho (engenharia) e 23 kg de carga manual (SESMT). Distância de parada por raios. Checklist de acessórios</td></tr>
+      <tr><td>M4</td><td>Disponibilidade da célula de calibração (Skidmore); lista de comprimentos de parafusos do fornecedor; regra de reuso de A325 (recomendado: não reutilizar)</td></tr>
+      <tr><td>M5</td><td>WPS de campo da Palla (teste de stud bolt resolvido pela AWS D1.1, 7.7.1)</td></tr>
+      <tr><td>M6</td><td>Tolerâncias de posição de chumbadores adotadas pela Palla ou pelo projeto; padrão de nivelamento (porca niveladora ou calço)</td></tr>
+      <tr><td>M7</td><td>Treinamento completo de NR-35 à parte; revisão vigente das NRs em cada turma (inclusive o absorvedor de energia); matriz de risco do modelo de APR alinhada ao PGR; modelos de PT, diário de obra e RNC; inspeção periódica de ferramentas</td></tr>
+      <tr><td>M8</td><td>Esquema de pintura e camada mínima padrão; detalhamento dos fornecedores de telha e calha</td></tr>
+      <tr><td>Avaliações</td><td>Política de recuperação; metas do comparativo; dados do certificado (CNPJ, assinaturas, emissor)</td></tr>
+      <tr><td>Vídeos</td><td>Locais de gravação, obra e equipe autorizadas</td></tr>
+    </table></div>
+  </section>
+
+  <section>
+    <div class="note"><p><b>Direitos autorais:</b> NBR 8800 e AWS D1.1 são citadas por item, sem reprodução. Os PDFs das normas não devem ser distribuídos aos alunos. Os procedimentos de terceiros (PIT, instruções de trabalho) serviram só de referência; o material está todo com a identidade da Palla.</p></div>
+  </section>
+
+  <footer>Palla Construções · Curso de Montagem de Estruturas Metálicas · Instrutor Eng. Mário Sérgio Barbosa Lima · atualizado em 11/10/2026 (videoaulas e emissor de certificado)</footer>
+</div>
+

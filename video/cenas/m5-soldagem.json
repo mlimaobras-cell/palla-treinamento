@@ -1,0 +1,329 @@
+{
+ "codigo": "M5-soldagem",
+ "titulo": "Soldagem estrutural aplicada",
+ "capitulo": "Curso de Montagem de Estruturas Metálicas · Módulo 5",
+ "cenas": [
+  {
+   "tipo": "abertura",
+   "narracao": "Olá! Este é o módulo cinco: soldagem estrutural aplicada. Vamos ver como a solda de campo é planejada, executada, inspecionada e registrada, e como fazer tudo isso com segurança."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Fundamentos",
+   "titulo": "Processos usados na montagem",
+   "itens": [
+    {
+     "titulo": "Eletrodo revestido",
+     "texto": "O mais comum na obra. Tolera vento e posições difíceis."
+    },
+    {
+     "titulo": "MIG/MAG",
+     "texto": "Arame e gás. Produtivo, mas o vento sopra o gás: precisa de anteparo."
+    },
+    {
+     "titulo": "Arame tubular",
+     "texto": "Fluxo interno. Versões autoprotegidas servem para campo."
+    }
+   ],
+   "narracao": "Três processos aparecem na montagem. O eletrodo revestido é o mais comum na obra: tolera vento e posições difíceis, mas o eletrodo básico exige estufa. O MIG MAG usa arame e gás de proteção. É produtivo, mas o vento sopra o gás, então precisa de anteparo. E o arame tubular tem fluxo dentro do arame, com versões autoprotegidas que servem para o campo. O processo de cada junta é o que está na WPS. Não se troca processo na obra."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Fundamentos",
+   "titulo": "WPS, PQR e soldador qualificado",
+   "itens": [
+    {
+     "titulo": "WPS",
+     "texto": "A receita da solda: processo, consumível, junta, posição, parâmetros."
+    },
+    {
+     "titulo": "PQR",
+     "texto": "O registro dos ensaios que provaram que a receita funciona."
+    },
+    {
+     "titulo": "Soldador qualificado",
+     "texto": "Aprovado em teste para o processo, a posição e a junta."
+    }
+   ],
+   "narracao": "Três documentos garantem a solda. A WPS é a receita: processo, consumível, junta, posição, corrente, tensão, pré-aquecimento e sequência de passes. O PQR é o registro dos ensaios que provaram que a receita funciona. E o soldador qualificado é aquele aprovado em teste para o processo, a posição e o tipo de junta que vai soldar. Sem WPS aprovada ou sem soldador qualificado, a solda não começa."
+  },
+  {
+   "tipo": "alerta",
+   "pequeno": "Fundamentos",
+   "titulo": "Consumíveis: umidade é inimiga",
+   "texto": "Eletrodo básico, como o E7018, absorve umidade do ar. Umidade na solda causa trinca por hidrogênio.",
+   "caixa": "Cuidados",
+   "itens": [
+    "Certificado e validade conferidos no recebimento",
+    "Lata aberta: eletrodo na estufa",
+    "No posto: cochicho aquecido",
+    "Fora da estufa por mais de 4 horas: não use",
+    "Eletrodo molhado é descartado"
+   ],
+   "narracao": "O eletrodo básico, como o sete zero um oito, absorve umidade do ar. E umidade na solda causa trinca por hidrogênio. Por isso, confira o certificado e a validade no recebimento. Lata aberta, eletrodo na estufa. No posto de trabalho, o eletrodo fica no cochicho aquecido. Pela norma AWS, o eletrodo básico pode ficar no máximo quatro horas fora da estufa. Passou disso, volta para ressecagem ou é descartado. E eletrodo molhado vai para o descarte."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Execução",
+   "titulo": "Preparação da junta",
+   "itens": [
+    {
+     "titulo": "Limpeza",
+     "texto": "Sem óleo, carepa, ferrugem, tinta ou umidade: 20 mm em volta."
+    },
+    {
+     "titulo": "Geometria",
+     "texto": "Bisel, face e abertura da raiz conforme a WPS."
+    },
+    {
+     "titulo": "Alinhamento",
+     "texto": "Desalinhamento máximo: 10% da espessura ou 3 mm."
+    },
+    {
+     "titulo": "Fora da tolerância",
+     "texto": "Corrija antes. Solda não corrige junta mal ajustada."
+    }
+   ],
+   "narracao": "Antes de soldar, prepare a junta. Limpeza: nada de óleo, graxa, carepa, ferrugem, tinta ou umidade, numa faixa de pelo menos vinte milímetros. Geometria: o ângulo do bisel, a face e a abertura da raiz conforme a WPS, conferidos com calibre. Alinhamento: o desalinhamento máximo é de dez por cento da espessura, ou três milímetros, o que for menor. E se estiver fora da tolerância, corrija antes. Solda não corrige junta mal ajustada."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Execução",
+   "titulo": "Temperatura e clima",
+   "itens": [
+    {
+     "titulo": "Pré-aquecimento",
+     "texto": "Quando a WPS exigir. Conferir com termômetro de contato ou giz térmico."
+    },
+    {
+     "titulo": "Entre passes",
+     "texto": "Manter a temperatura mínima durante todo o cordão."
+    },
+    {
+     "titulo": "Não soldar",
+     "texto": "Com chuva, superfície molhada ou vento forte sem proteção."
+    }
+   ],
+   "narracao": "Atenção à temperatura e ao clima. O pré-aquecimento é feito quando a WPS exigir, conforme a espessura e o tipo de aço, e é conferido com termômetro de contato ou giz térmico. Entre passes, mantenha a temperatura mínima durante todo o cordão. E não solde com chuva, superfície molhada ou vento forte, sem uma proteção aprovada pelo responsável técnico."
+  },
+  {
+   "tipo": "alerta",
+   "pequeno": "Execução",
+   "titulo": "Ponteamento e dispositivos",
+   "texto": "Cada ponto com no mínimo 50 mm, a cada 400 mm no máximo. Antes de interromper, preencha pelo menos 25% da seção.",
+   "caixa": "Cachorro, batoque e cunha",
+   "itens": [
+    "Nunca saem a golpe",
+    "Corte acima da peça",
+    "Esmerilhe o local",
+    "Inspecione com líquido penetrante ou partícula magnética"
+   ],
+   "narracao": "No ponteamento, cada ponto tem no mínimo cinquenta milímetros, com intervalo máximo de quatrocentos milímetros. E antes de interromper uma junta, preencha pelo menos vinte e cinco por cento da seção. Os dispositivos auxiliares, como cachorro, batoque e cunha, nunca saem a golpe. Corte acima da peça, esmerilhe o local e inspecione com líquido penetrante ou partícula magnética."
+  },
+  {
+   "tipo": "fluxo",
+   "pequeno": "Execução",
+   "titulo": "Durante e depois da solda",
+   "itens": [
+    {
+     "titulo": "Parâmetros",
+     "texto": "Os da WPS"
+    },
+    {
+     "titulo": "Escória",
+     "texto": "Limpar a cada passe"
+    },
+    {
+     "titulo": "Sequência",
+     "texto": "Controla a distorção"
+    },
+    {
+     "titulo": "Resfriamento",
+     "texto": "Natural, nunca água"
+    },
+    {
+     "titulo": "Autoinspeção",
+     "texto": "E o sinete do soldador",
+     "forte": true
+    }
+   ],
+   "narracao": "Durante a solda, siga os parâmetros da WPS: corrente, tensão, velocidade e passes. Remova a escória e inspecione cada passe antes do próximo. Siga a sequência definida, para controlar a distorção. O resfriamento é natural, nunca com água ou ar comprimido. E no final, limpe escória e respingos e faça a autoinspeção. Cada soldador marca o seu sinete junto ao cordão, para rastreabilidade."
+  },
+  {
+   "tipo": "tabela",
+   "pequeno": "Execução",
+   "titulo": "Perna mínima da solda de filete",
+   "itens": [
+    {
+     "titulo": "Chapa até 6 mm",
+     "texto": "Perna mínima de 3 mm"
+    },
+    {
+     "titulo": "De 6 a 12 mm",
+     "texto": "Perna mínima de 5 mm"
+    },
+    {
+     "titulo": "De 12 a 20 mm",
+     "texto": "Perna mínima de 6 mm"
+    },
+    {
+     "titulo": "Acima de 20 mm",
+     "texto": "Perna mínima de 8 mm"
+    },
+    {
+     "titulo": "Projeto maior?",
+     "texto": "Vale o que o projeto pede"
+    }
+   ],
+   "narracao": "Quando o desenho não especifica, a solda de filete tem uma perna mínima, conforme a espessura da chapa. Até seis milímetros, perna de três. De seis a doze, perna de cinco. De doze a vinte, perna de seis. E acima de vinte, perna de oito milímetros. Se o projeto pedir mais, vale o projeto. Meça sempre com o calibre de solda."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Qualidade",
+   "titulo": "Inspeção visual de 100% das soldas",
+   "itens": [
+    {
+     "titulo": "1000 lux",
+     "texto": "Iluminação mínima na superfície."
+    },
+    {
+     "titulo": "600 mm",
+     "texto": "Distância máxima do olho à solda."
+    },
+    {
+     "titulo": "30 graus",
+     "texto": "Ângulo mínimo de observação."
+    },
+    {
+     "titulo": "Marcar em amarelo",
+     "texto": "No projeto, com foto da solda inspecionada."
+    }
+   ],
+   "narracao": "Todas as soldas de campo passam por inspeção visual. Ela exige iluminação mínima de mil lux, olho a no máximo seiscentos milímetros da solda e ângulo de observação de pelo menos trinta graus. A perna e o reforço são medidos com o calibre de solda. A solda inspecionada é marcada em amarelo na vista superior do projeto e fotografada."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Qualidade",
+   "titulo": "Quem faz o quê na solda de campo",
+   "itens": [
+    {
+     "titulo": "Soldador",
+     "texto": "Solda pela WPS, faz a autoinspeção e avisa qualquer condição ruim."
+    },
+    {
+     "titulo": "Inspetor ou encarregado",
+     "texto": "Confere qualificação e WPS antes, faz a inspeção visual de 100% e bloqueia solda com defeito."
+    },
+    {
+     "titulo": "Responsável técnico",
+     "texto": "Aprova as WPS, define reparos e libera a etapa seguinte."
+    }
+   ],
+   "narracao": "Na solda de campo, cada um tem o seu papel. O soldador solda pela WPS, faz a autoinspeção de cada cordão e avisa na hora qualquer condição ruim, como clima, ajuste da junta ou falta de consumível. O inspetor ou encarregado confere a qualificação e a WPS antes de começar, faz a inspeção visual de todas as soldas e bloqueia a solda com defeito. Ensaios complementares, como líquido penetrante ou ultrassom, seguem a amostragem do projeto. E o responsável técnico aprova as WPS, define os reparos e libera a etapa seguinte. Uma descontinuidade só vira defeito quando passa dos critérios de aceitação."
+  },
+  {
+   "tipo": "tabela",
+   "pequeno": "Qualidade",
+   "titulo": "Os defeitos mais comuns",
+   "itens": [
+    {
+     "titulo": "Trinca",
+     "texto": "Fissura no cordão ou ao lado. A mais grave."
+    },
+    {
+     "titulo": "Falta de fusão",
+     "texto": "Solda colada sem fundir no metal de base"
+    },
+    {
+     "titulo": "Mordedura",
+     "texto": "Sulco no metal de base, na margem do cordão"
+    },
+    {
+     "titulo": "Porosidade",
+     "texto": "Furinhos de gás: umidade, vento, sujeira"
+    },
+    {
+     "titulo": "Cratera",
+     "texto": "Buraco no fim do cordão"
+    },
+    {
+     "titulo": "Sobreposição",
+     "texto": "Metal derramado sem fundir na borda"
+    },
+    {
+     "titulo": "Inclusão de escória",
+     "texto": "Escória presa entre passes"
+    },
+    {
+     "titulo": "Perna pequena",
+     "texto": "Cordão menor que o projeto"
+    }
+   ],
+   "narracao": "Conheça os defeitos mais comuns. A trinca, fissura no cordão ou ao lado, é a mais grave. A falta de fusão é a solda colada, sem fundir no metal de base. A mordedura é um sulco na margem do cordão. A porosidade são furinhos de gás, causados por umidade, vento ou sujeira. A cratera é um buraco no fim do cordão. A sobreposição é metal derramado sem fundir. A inclusão de escória fica presa entre passes. E a perna pequena é o cordão menor que o projeto."
+  },
+  {
+   "tipo": "frase",
+   "titulo": "Trinca não tem <em>tamanho aceitável.</em>",
+   "texto": "Qualquer trinca, em qualquer lugar, reprova a solda. Sem discussão.",
+   "narracao": "Fixe esta regra: trinca não tem tamanho aceitável. Qualquer trinca, em qualquer lugar, reprova a solda. Sem discussão."
+  },
+  {
+   "tipo": "alerta",
+   "pequeno": "Registro",
+   "titulo": "Planilha de inspeção de solda",
+   "texto": "Cada junta é registrada com o soldador, a WPS, o pré-aquecimento, o resultado da inspeção, a data e o inspetor.",
+   "caixa": "Rejeição imediata",
+   "itens": [
+    "Qualquer trinca",
+    "Falta de fusão visível",
+    "Soldador sem qualificação",
+    "Junta sem WPS aprovada"
+   ],
+   "narracao": "Cada junta inspecionada vai para a planilha de inspeção, com o sinete do soldador, a WPS, o pré-aquecimento, o resultado, a data e o inspetor. A rejeição é imediata em quatro casos: qualquer trinca, falta de fusão visível, soldador sem qualificação e junta sem WPS aprovada. Solda reprovada gera registro de não conformidade e ação corretiva."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Segurança",
+   "titulo": "Riscos da soldagem",
+   "itens": [
+    {
+     "titulo": "Incêndio",
+     "texto": "Permissão de trabalho a quente, extintor, manta e vigia de fogo."
+    },
+    {
+     "titulo": "Choque elétrico",
+     "texto": "Cabos sem emendas expostas, garra perto da solda, máquina aterrada."
+    },
+    {
+     "titulo": "Radiação e queimadura",
+     "texto": "Máscara com filtro, avental, luvas e mangas de raspa. Biombo."
+    },
+    {
+     "titulo": "Fumos",
+     "texto": "Ventilação e posição fora da fumaça. Atenção ao galvanizado."
+    }
+   ],
+   "narracao": "Por fim, os riscos da soldagem. Incêndio: permissão de trabalho a quente, extintor no posto, manta antichama e vigia de fogo, sem nada inflamável embaixo. Choque elétrico: cabos sem emendas expostas, garra de aterramento perto da solda e máquina aterrada. Radiação e queimadura: máscara com filtro adequado, avental, luvas, mangas de raspa e biombo para proteger quem passa. E fumos: ventilação e posição fora da fumaça, com atenção redobrada em peças galvanizadas ou pintadas. Em altura, isole a área de baixo."
+  },
+  {
+   "tipo": "resumo",
+   "titulo": "Resumo do módulo 5",
+   "itens": [
+    "O processo é o da WPS",
+    "Sem WPS e soldador qualificado, não solda",
+    "Eletrodo básico na estufa",
+    "Junta limpa e bem ajustada",
+    "Sem chuva e sem vento forte",
+    "Dispositivos nunca a golpe",
+    "Inspeção visual em 100%",
+    "Trinca reprova sempre"
+   ],
+   "narracao": "Recapitulando. O processo é o da WPS. Sem WPS aprovada e sem soldador qualificado, não se solda. Eletrodo básico fica na estufa. A junta tem que estar limpa e bem ajustada. Não solde com chuva ou vento forte sem proteção. Dispositivos nunca saem a golpe. Toda solda de campo passa por inspeção visual. E trinca reprova sempre."
+  },
+  {
+   "tipo": "encerramento",
+   "texto": "Próximo módulo: metrologia e topografia de montagem.",
+   "narracao": "Excelente! No próximo módulo, vamos para a metrologia e a topografia de montagem. Até lá!"
+  }
+ ]
+}

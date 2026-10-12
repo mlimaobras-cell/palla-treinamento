@@ -1,0 +1,17 @@
+# GRUPO PALLA | TREINAMENTO E INTEGRAÇÃO — publicação no Netlify (Next.js com runtime oficial).
+# Variáveis obrigatórias no painel do Netlify: DATABASE_URL, DATABASE_SSL=1, DATABASE_POOL_MAX=3,
+# SESSION_SECRET, CPF_KEY_HEX, CPF_HMAC_KEY, APP_URL, ARMAZENAMENTO=banco, EMPRESA_NOME, EMPRESA_CNPJ.
+# O build carrega catálogo e conteúdos que ainda não existem no banco (SEED_PRODUCAO não cria usuários de teste
+# e não apaga progresso). O schema do banco é criado/alterado por migração SQL, fora do build.
+[build]
+  command = "SEED_PRODUCAO=1 npx tsx db/seed.ts && npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+[[headers]]
+  for = "/videos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

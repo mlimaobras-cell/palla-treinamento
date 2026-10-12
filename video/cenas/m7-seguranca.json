@@ -1,0 +1,265 @@
+{
+ "codigo": "M7-seguranca",
+ "titulo": "Segurança, NRs e documentação de obra",
+ "capitulo": "Curso de Montagem de Estruturas Metálicas · Módulo 7",
+ "cenas": [
+  {
+   "tipo": "abertura",
+   "narracao": "Olá! Este é o módulo sete: segurança, normas regulamentadoras e documentação de obra. Vamos ver as regras que protegem a equipe e os registros que protegem a equipe e a empresa."
+  },
+  {
+   "tipo": "frase",
+   "titulo": "Este módulo <em>não substitui</em> o treinamento de cada NR.",
+   "texto": "Para trabalhar em altura, é obrigatório o treinamento de NR-35, teórico e prático, com certificado válido e ASO que ateste a aptidão.",
+   "narracao": "Antes de começar, um aviso importante. Este módulo dá noções das normas, mas não substitui o treinamento obrigatório de cada uma. Para trabalhar em altura, por exemplo, é obrigatório o treinamento de NR trinta e cinco, teórico e prático, com certificado válido e atestado de saúde que comprove a aptidão."
+  },
+  {
+   "tipo": "tabela",
+   "pequeno": "Normas regulamentadoras",
+   "titulo": "As NRs da montagem",
+   "itens": [
+    {
+     "titulo": "NR-01",
+     "texto": "Riscos da obra identificados e controlados no PGR"
+    },
+    {
+     "titulo": "NR-06",
+     "texto": "EPI com CA, entregue com ficha, usado e conservado"
+    },
+    {
+     "titulo": "NR-11",
+     "texto": "Operador treinado e içamento planejado"
+    },
+    {
+     "titulo": "NR-12",
+     "texto": "Só opera quem é treinado; proteções no lugar"
+    },
+    {
+     "titulo": "NR-18",
+     "texto": "Condições do canteiro, treinamentos e organização"
+    },
+    {
+     "titulo": "NR-35",
+     "texto": "Trabalho em altura: treinamento, análise de risco, permissão e proteção"
+    }
+   ],
+   "narracao": "Estas são as normas que mais aparecem na montagem. A NR um trata do gerenciamento de riscos: os riscos da obra identificados e controlados. A NR seis, do EPI. A NR onze, da movimentação de cargas, com operador treinado e içamento planejado. A NR doze, das máquinas: só opera quem é treinado, com as proteções no lugar. A NR dezoito, da construção civil. E a NR trinta e cinco, do trabalho em altura."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "NR-35",
+   "titulo": "Trabalho em altura",
+   "itens": [
+    {
+     "titulo": "Acima de 2 m",
+     "texto": "Com risco de queda, é trabalho em altura."
+    },
+    {
+     "titulo": "Treinamento",
+     "texto": "Inicial de no mínimo 8 horas, teórico e prático, renovado periodicamente."
+    },
+    {
+     "titulo": "ASO",
+     "texto": "Atestado de saúde que considera a aptidão para altura."
+    }
+   ],
+   "narracao": "Pela NR trinta e cinco, todo trabalho acima de dois metros do nível inferior, com risco de queda, é trabalho em altura. Ele exige treinamento inicial de no mínimo oito horas, teórico e prático, renovado periodicamente. E exige atestado de saúde ocupacional que considere a aptidão para altura. Antes de subir, faça a análise de risco e, quando não for rotina, tenha a permissão de trabalho assinada. Na montagem, quase tudo é trabalho em altura. Quem não tem treinamento válido não sobe, nem para apertar só um parafuso."
+  },
+  {
+   "tipo": "fluxo",
+   "pequeno": "NR-35",
+   "titulo": "Ordem das medidas de proteção",
+   "itens": [
+    {
+     "titulo": "Evitar",
+     "texto": "Pré-montar no chão"
+    },
+    {
+     "titulo": "Eliminar o risco",
+     "texto": "Guarda-corpo, plataforma, rede"
+    },
+    {
+     "titulo": "Reduzir as consequências",
+     "texto": "Cinturão, talabarte, linha de vida",
+     "forte": true
+    }
+   ],
+   "rodape": "O cinto é a última barreira, não a primeira.",
+   "narracao": "As medidas de proteção seguem uma ordem. Primeiro, evitar o trabalho em altura: pré-montar no chão sempre que possível. Segundo, eliminar o risco de queda, com guarda-corpo, plataforma protegida ou rede. E só então, reduzir as consequências da queda, com o sistema individual: cinturão, talabarte e linha de vida. O cinto é a última barreira, não a primeira."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "NR-35",
+   "titulo": "Zona livre de queda e resgate",
+   "itens": [
+    {
+     "titulo": "Zona livre de queda",
+     "texto": "Espaço para o sistema parar a queda antes de bater em algo."
+    },
+    {
+     "titulo": "Resgate",
+     "texto": "Plano, equipe treinada e equipamento prontos antes de começar."
+    }
+   ],
+   "narracao": "Dois conceitos salvam vidas. A zona livre de queda é o espaço abaixo do trabalhador para o sistema parar a queda antes que ele bata em algo. Ancoragem baixa e talabarte longo aumentam essa distância. E o resgate: ficar suspenso no cinto é perigoso. Toda frente em altura tem plano de resgate, equipe treinada e equipamento pronto antes de começar."
+  },
+  {
+   "tipo": "alerta",
+   "pequeno": "NR-06",
+   "titulo": "EPI: entregar, usar, cuidar",
+   "texto": "EPI básico: capacete com jugular, óculos, luva adequada, botina com biqueira, cinturão e talabarte duplo em altura, protetor auricular com ruído.",
+   "caixa": "Regras",
+   "itens": [
+    "Só EPI com Certificado de Aprovação",
+    "Entrega registrada em ficha assinada",
+    "Uso obrigatório na atividade",
+    "Danificado: avisar e trocar na hora"
+   ],
+   "narracao": "O EPI básico da montagem é o capacete com jugular, os óculos de segurança, a luva adequada à tarefa, a botina com biqueira, o cinturão com talabarte duplo em altura e o protetor auricular quando houver ruído. As regras são simples: só EPI com Certificado de Aprovação, entrega registrada em ficha assinada, uso obrigatório na atividade, e EPI danificado, avise e troque na hora."
+  },
+  {
+   "tipo": "alerta",
+   "pequeno": "Antes de começar",
+   "titulo": "APR e permissão de trabalho",
+   "texto": "A APR lista, para cada etapa da tarefa, o risco e a medida de controle. A permissão de trabalho autoriza por escrito a atividade de risco que não é rotina.",
+   "caixa": "Mudou a condição?",
+   "itens": [
+    "Tempo, equipamento ou local",
+    "Pare",
+    "Revise a APR com a equipe",
+    "Depois continue"
+   ],
+   "narracao": "Antes de começar, a análise preliminar de riscos, a APR. Para cada etapa da tarefa, ela diz qual é o risco e qual é a medida de controle, e é feita com a equipe que vai executar. Já a permissão de trabalho é a autorização escrita para atividade de risco que não é rotina, como altura, trabalho a quente ou içamento crítico, com validade e responsáveis. E se a condição mudar, seja o tempo, o equipamento ou o local, pare, revise a APR e só depois continue."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Todo dia",
+   "titulo": "Diálogo Diário de Segurança",
+   "itens": [
+    {
+     "titulo": "10 a 15 minutos",
+     "texto": "Antes de qualquer atividade, com toda a equipe."
+    },
+    {
+     "titulo": "Um tema",
+     "texto": "Ligado às atividades do dia."
+    },
+    {
+     "titulo": "Lista de presença",
+     "texto": "Assinada e arquivada para auditoria."
+    }
+   ],
+   "narracao": "Todo dia começa com o diálogo diário de segurança, o DDS. São de dez a quinze minutos, antes de qualquer atividade, com toda a equipe, própria e terceira. Um tema, ligado às atividades do dia: altura, carga, EPI, clima ou emergência. E uma lista de presença assinada, arquivada para a auditoria do cliente. O encarregado conduz, mas todos podem e devem falar."
+  },
+  {
+   "tipo": "fluxo",
+   "pequeno": "Antes do primeiro acesso",
+   "titulo": "Integração: ninguém entra sem ela",
+   "itens": [
+    {
+     "titulo": "Admissão",
+     "texto": "ASO e NRs da função"
+    },
+    {
+     "titulo": "Nova obra",
+     "texto": "Riscos e rotas de fuga do canteiro"
+    },
+    {
+     "titulo": "Terceiros",
+     "texto": "Documentos da empresa e de cada um"
+    },
+    {
+     "titulo": "Acesso",
+     "texto": "Lista assinada e crachá",
+     "forte": true
+    }
+   ],
+   "rodape": "Sem integração, ASO ou treinamento válido: bloqueio no portão.",
+   "narracao": "Ninguém começa a trabalhar sem integração, e ela acontece em três situações. Na admissão, confere-se o atestado de saúde compatível com a função e os treinamentos obrigatórios, e entrega-se o kit de EPI com ficha assinada. Em cada obra nova, mesmo quem já é da casa passa pela integração daquele canteiro: riscos específicos, regras do cliente, rotas de fuga e ponto de encontro. E os terceiros apresentam a documentação da empresa e de cada profissional, e recebem a mesma integração. Tudo vai para a lista de presença assinada. Sem integração, sem atestado ou com treinamento vencido, o acesso é bloqueado no portão."
+  },
+  {
+   "tipo": "alerta",
+   "pequeno": "Documentação",
+   "titulo": "Diário de obra",
+   "texto": "Preenchido todos os dias corridos, inclusive sem atividade, com o motivo: chuva, falta de material, espera do cliente.",
+   "caixa": "O que registrar",
+   "itens": [
+    "O que foi feito: etapas, eixos, metragem",
+    "Efetivo e equipamentos",
+    "Ocorrências, visitas e decisões",
+    "Fotos do dia"
+   ],
+   "narracao": "O diário de obra é preenchido todos os dias corridos, inclusive nos dias sem atividade, com o motivo: chuva, falta de material ou espera do cliente. Registre o que foi feito, com etapas, eixos e metragem. O efetivo e os equipamentos. As ocorrências, visitas e decisões. E as fotos do dia. O diário é a prova do que aconteceu, e protege a equipe e a empresa em atrasos, cobranças e garantias."
+  },
+  {
+   "tipo": "cartoes",
+   "pequeno": "Documentação",
+   "titulo": "Não conformidade e retrabalho",
+   "itens": [
+    {
+     "titulo": "RNC na hora",
+     "texto": "Divergência, dano ou falha: registrar no momento, com fotos e medida."
+    },
+    {
+     "titulo": "Retrabalho",
+     "texto": "Nenhum sem aprovação prévia da engenharia."
+    }
+   ],
+   "narracao": "Quando algo sai do previsto, como divergência de romaneio, dano, falha de execução ou desvio de inspeção, registre o relatório de não conformidade na hora, nunca no fim da obra, com descrição, fotos e a medida do desvio. E nenhum retrabalho começa sem aprovação prévia da engenharia. Registrar não conformidade não é caçar culpado: é corrigir e evitar que se repita."
+  },
+  {
+   "tipo": "tabela",
+   "pequeno": "Entrega",
+   "titulo": "Documentos de entrega da obra",
+   "itens": [
+    {
+     "titulo": "Relatório de torque",
+     "texto": "Feito ao longo da obra, com torquímetro calibrado"
+    },
+    {
+     "titulo": "Inspeção final",
+     "texto": "Junto com o cliente, ao fim de cada etapa"
+    },
+    {
+     "titulo": "Termo de entrega",
+     "texto": "Assinado pelo cliente após a inspeção"
+    },
+    {
+     "titulo": "Manual de garantia",
+     "texto": "Entregue com ciência formal da manutenção"
+    },
+    {
+     "titulo": "Data book",
+     "texto": "Certificados, relatórios, ensaios e projeto as built"
+    }
+   ],
+   "narracao": "Na entrega da obra, vários documentos se juntam. O relatório de torque, feito ao longo da obra. A inspeção final, junto com o cliente. O termo de entrega, assinado pelo cliente. O manual de garantia, com a ciência formal da manutenção. E o data book, que reúne certificados, relatórios de solda, de ensaios e de pintura, e o projeto como construído."
+  },
+  {
+   "tipo": "frase",
+   "titulo": "Em altura, sempre conectado. <em>O que não foi registrado não aconteceu.</em>",
+   "texto": "As duas regras do módulo: segurança e registro.",
+   "narracao": "As duas regras deste módulo: em altura, sempre conectado. E o que não foi registrado, não aconteceu."
+  },
+  {
+   "tipo": "resumo",
+   "titulo": "Resumo do módulo 7",
+   "itens": [
+    "Este módulo não substitui a NR-35",
+    "Acima de 2 metros é altura",
+    "Evitar, eliminar, reduzir",
+    "Resgate planejado antes",
+    "EPI com CA e ficha",
+    "APR revisada se mudar",
+    "DDS todo dia",
+    "Diário e RNC na hora"
+   ],
+   "narracao": "Recapitulando. Este módulo não substitui o treinamento de NR trinta e cinco. Acima de dois metros, com risco de queda, é trabalho em altura. Primeiro evitar, depois eliminar e só então reduzir as consequências. Resgate planejado antes de começar. EPI com certificado de aprovação e ficha assinada. APR revisada sempre que a condição mudar. DDS todo dia. E diário de obra e não conformidade registrados na hora."
+  },
+  {
+   "tipo": "encerramento",
+   "texto": "Próximo módulo: cobertura e fechamento.",
+   "narracao": "Parabéns! No próximo módulo, vamos falar de cobertura e fechamento. Até lá!"
+  }
+ ]
+}

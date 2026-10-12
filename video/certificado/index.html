@@ -1,0 +1,362 @@
+<title>Certificado do Curso Palla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Emissor de certificado: formulário à esquerda, as duas folhas A4 deitadas à direita (em tamanho real, reduzidas na tela) */
+:root{
+  --bg:#ECEEF6; --surface:#FDFDFE; --line:#DDE1EE; --band:#F5F6FA; --fg:#2B3352; --muted:#5A6380;
+  --navy:#404D91; --red:#D13542; --pink:#FBE9EB; --ok:#1f7a4a; --ok-bg:#e2f2e9;
+  --display:"Chakra Petch",Arial,sans-serif; --body:"IBM Plex Sans",Arial,Helvetica,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  /* a folha impressa é sempre clara, em qualquer tema */
+  --p-bg:#FFFFFF; --p-fg:#2B3352; --p-navy:#404D91; --p-red:#D13542; --p-dark:#1E2550; --p-muted:#5A6380; --p-line:#DDE1EE; --p-soft:#F3F4F9;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141936; --surface:#1E2550; --line:#323B6E; --band:#252D5C; --fg:#E8EAF6; --muted:#A9B0D3;
+  --navy:#A9B4F0; --red:#F07A85; --pink:#3A2030; --ok:#6fd39d; --ok-bg:#163326; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141936; --surface:#1E2550; --line:#323B6E; --band:#252D5C; --fg:#E8EAF6; --muted:#A9B0D3;
+  --navy:#A9B4F0; --red:#F07A85; --pink:#3A2030; --ok:#6fd39d; --ok-bg:#163326; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:14.5px;line-height:1.5;margin:0}
+.wrap{max-width:1480px;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:980px){.wrap{grid-template-columns:1fr}}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.12;text-wrap:balance}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+
+/* formulário */
+form{background:var(--surface);border:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:12px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+@media (max-width:980px){form{position:static}}
+form h1{font-size:22px;color:var(--navy)}
+label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;font-weight:600;color:var(--muted)}
+input,select{font:inherit;font-weight:400;color:var(--fg);background:var(--band);border:1px solid var(--line);padding:7px 9px;border-radius:4px;width:100%}
+.dupla{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.check{flex-direction:row;align-items:center;gap:8px;font-weight:500;color:var(--fg)}
+.check input{width:auto}
+.estado{padding:10px 12px;border-left:4px solid var(--red);background:var(--pink);font-size:13px}
+.estado.ok{border-color:var(--ok);background:var(--ok-bg)}
+.estado b{display:block;font-family:var(--display);font-size:15px}
+button{font:inherit;font-weight:600;cursor:pointer;padding:10px 14px;border-radius:4px;border:1px solid var(--navy);background:var(--navy);color:var(--bg)}
+button[disabled]{opacity:.55;cursor:default}
+.nota{font-size:12px;color:var(--muted);margin:0}
+
+/* folhas */
+.folhas{display:flex;flex-direction:column;gap:18px;min-width:0}
+.moldura{width:100%;overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+.escala{transform-origin:0 0}
+.folha{width:1123px;height:794px;background:var(--p-bg);color:var(--p-fg);position:relative;overflow:hidden;font-family:var(--body)}
+.folha .borda{position:absolute;inset:22px;border:1.5px solid var(--p-navy)}
+.folha .borda::after{content:"";position:absolute;inset:6px;border:.75px solid var(--p-line)}
+.folha .faixa{position:absolute;left:0;top:0;bottom:0;width:14px;background:var(--p-red)}
+.folha .marca{position:absolute;right:-80px;bottom:-60px;width:560px;opacity:.05}
+.folha .in{position:absolute;inset:54px 64px 46px 74px;display:flex;flex-direction:column}
+.cab{display:flex;justify-content:space-between;align-items:flex-start}
+.cab img{height:62px;width:auto}
+.cab .num{font-family:var(--mono);font-size:11px;color:var(--p-muted);text-align:right;line-height:1.6}
+.titulo{margin-top:30px;display:flex;flex-direction:column;gap:6px}
+.titulo .sup{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--p-red)}
+.titulo h2{font-size:58px;color:var(--p-navy);letter-spacing:.02em}
+.texto{margin-top:22px;font-size:18px;line-height:1.65;max-width:900px}
+.texto .nome{display:block;font-family:var(--display);font-size:36px;font-weight:700;color:var(--p-dark);margin:4px 0 6px;border-bottom:1.5px solid var(--p-red);padding-bottom:4px;width:max-content;max-width:100%}
+.texto b{color:var(--p-dark)}
+.resumo{margin-top:18px;display:flex;gap:34px;font-size:13px}
+.resumo div{display:flex;flex-direction:column}
+.resumo span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--p-muted)}
+.resumo b{font-family:var(--display);font-size:22px;color:var(--p-navy);font-variant-numeric:tabular-nums}
+.ass{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:70px;padding-right:40px}
+.ass div{border-top:1px solid var(--p-fg);padding-top:6px;font-size:13px;line-height:1.45}
+.ass b{display:block;font-size:14px}
+.local{font-size:14px;margin-bottom:46px}
+/* verso */
+.verso h3{font-size:24px;color:var(--p-navy)}
+.cols{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;margin-top:16px;flex:1;min-height:0}
+table.prog{width:100%;border-collapse:collapse;font-size:13.5px}
+table.prog th{background:var(--p-navy);color:#fff;text-align:left;font-weight:600;padding:7px 10px;font-size:12px}
+table.prog td{padding:7px 10px;border-bottom:1px solid var(--p-line);vertical-align:top}
+table.prog td:last-child,table.prog th:last-child{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+table.prog tr.tot td{font-weight:700;border-bottom:0;color:var(--p-navy)}
+.qrbox{display:flex;gap:16px;align-items:center;background:var(--p-soft);border:1px solid var(--p-line);padding:16px}
+.qrbox .qr{width:132px;height:132px;flex:none;background:#fff;padding:6px}
+.qrbox .qr img,.qrbox .qr canvas{width:120px!important;height:120px!important}
+.qrbox p{margin:0;font-size:13px;line-height:1.5}
+.qrbox .url{font-family:var(--mono);font-size:11px;color:var(--p-navy);word-break:break-all}
+.aviso-f{margin-top:14px;font-size:11.5px;line-height:1.5;color:var(--p-muted);border-left:3px solid var(--p-red);padding-left:10px}
+.dados{font-size:12.5px;line-height:1.7;margin-top:14px}
+.dados span{color:var(--p-muted)}
+/* ficha de evidência (A4 em pé), no modelo da Palla */
+.moldura.retrato{max-width:640px}
+.ficha{width:794px;height:1123px;background:var(--p-bg);color:var(--p-fg);position:relative;overflow:hidden;font-family:var(--body)}
+.f-borda{position:absolute;inset:20px;border:2px solid var(--p-navy)}
+.f-risco{position:absolute;height:5px;width:110px;background:var(--p-red)}
+.f-risco.a{left:20px;top:26px}.f-risco.b{right:20px;bottom:26px}
+.f-in{position:absolute;inset:44px 56px 30px;display:flex;flex-direction:column}
+.f-cab{display:flex;justify-content:space-between;align-items:center}
+.f-cab img{height:52px;width:auto}
+.f-cab div{text-align:right;font-size:11px;color:var(--p-muted);line-height:1.5}
+.f-cab b{color:var(--p-navy);font-size:13px}
+.f-linha{height:1px;background:var(--p-line);margin:14px 0 18px;position:relative}
+.f-linha::before{content:"";position:absolute;left:0;top:-1px;width:76px;height:3px;background:var(--p-red)}
+.ficha h2{font-family:var(--display);font-size:25px;color:var(--p-navy);text-align:center;text-transform:uppercase;letter-spacing:.03em}
+.f-sub{text-align:center;font-size:12px;font-style:italic;color:var(--p-muted);margin:2px 0 16px}
+.f-dados{width:100%;border-collapse:collapse;font-size:12.5px}
+.f-dados th,.f-dados td{border:1px solid var(--p-line);padding:8px 10px;text-align:left;vertical-align:top}
+.f-dados th{width:100px;font-family:var(--display);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--p-navy);background:var(--p-soft)}
+.ficha h3{font-family:var(--display);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--p-navy);margin:18px 0 8px}
+.f-ver{width:100%;border-collapse:collapse;font-size:12.5px}
+.f-ver th{background:var(--p-navy);color:#fff;font-family:var(--display);font-size:10px;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:7px 12px}
+.f-ver th:last-child,.f-ver td:last-child{width:60px;text-align:center}
+.f-ver td{padding:7px 12px;border-bottom:1px solid var(--p-line)}
+.f-ver tr:nth-child(odd) td{background:var(--p-soft)}
+.f-ver td span{color:var(--p-red);font-weight:600;margin-right:6px}
+.f-ver td i{display:inline-block;width:20px;height:20px;border:1.5px solid var(--p-navy);border-radius:2px;vertical-align:middle;background:#fff}
+.f-nota{font-size:10px;font-style:italic;color:var(--p-muted);margin:6px 0 0}
+.f-obs{display:flex;flex-direction:column;gap:24px;margin-top:6px}
+.f-obs i{display:block;border-bottom:1px solid var(--p-line)}
+.f-ass{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.f-ass div{border-top:1.5px solid var(--p-fg);padding-top:5px;text-align:center;display:flex;flex-direction:column;font-size:11.5px}
+.f-ass span{font-family:var(--display);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--p-red)}
+.f-data{text-align:center;font-size:12px;margin:14px 0 0}
+.f-rod{text-align:center;font-size:9.5px;font-style:italic;color:var(--p-muted);margin:22px 0 0}
+/* comprovante parcial */
+.parcial .titulo h2{font-size:40px;color:var(--p-dark)}
+.parcial .borda{border-style:dashed}
+.selo{position:absolute;right:64px;top:150px;transform:rotate(-6deg);border:2px solid var(--p-red);color:var(--p-red);font-family:var(--display);font-weight:700;font-size:15px;padding:6px 12px;letter-spacing:.06em;text-transform:uppercase}
+</style>
+
+<div class="wrap">
+  <form id="f" autocomplete="off">
+    <span class="eyebrow">Curso de Montagem de Estruturas Metálicas</span>
+    <h1>Emitir certificado</h1>
+    <label>Nome completo<input id="nome" value="Exemplo da Silva Santos"></label>
+    <div class="dupla">
+      <label>CPF<input id="cpf" value="000.000.000-00" inputmode="numeric"></label>
+      <label>Nº do certificado<input id="numero" value="PALLA-MEM-2026-0001"></label>
+    </div>
+    <label>Trilha<select id="trilha"></select></label>
+    <label class="check"><input type="checkbox" id="m8"> Incluir o módulo 8 (opcional)</label>
+    <div class="dupla">
+      <label>Início<input type="date" id="ini" value="2026-10-05"></label>
+      <label>Conclusão<input type="date" id="fim" value="2026-10-23"></label>
+    </div>
+    <label>Local (cidade – UF)<input id="local" value="Cidade – UF"></label>
+    <div class="dupla">
+      <label>Prova final (%)<input id="prova" type="number" min="0" max="100" value="85"></label>
+      <label>Frequência (%)<input id="freq" type="number" min="0" max="100" value="100"></label>
+    </div>
+    <label>Avaliação prática<select id="pratica"><option value="aprovado">Aprovado</option><option value="pendente">Pendente</option><option value="reprovado">Não aprovado</option></select></label>
+    <label>Função do colaborador<input id="funcao" value="Montador de Estruturas Metálicas"></label>
+    <label>Horário das aulas<input id="horario" value="08:00–12:00 e 13:00–17:00"></label>
+    <label>Instrutor<input id="instrutor" value="Eng. Mário Sérgio Barbosa Lima"></label>
+    <label>Qualificação do instrutor<input id="qualif" value="Engenheiro · CREA-SP 5062506772"></label>
+    <label>Responsável pela capacitação<input id="resp" value="Mário Sérgio Barbosa Lima"></label>
+    <div class="estado" id="estado"></div>
+    <button type="button" id="baixar">Baixar PDF</button>
+    <p class="nota">O PDF sai com três folhas: certificado, verso e o registro de realização (evidência) para assinar.</p>
+    <p class="nota" id="nota-dl">Os dados digitados ficam só nesta tela e não são salvos. Assinatura à mão no papel ou por assinatura eletrônica válida do próprio responsável.</p>
+  </form>
+
+  <div class="folhas">
+    <div class="moldura"><div class="escala"><div class="folha" id="p1"></div></div></div>
+    <div class="moldura"><div class="escala"><div class="folha verso" id="p2"></div></div></div>
+    <div class="moldura retrato"><div class="escala"><div class="ficha" id="p3"></div></div></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const VIDEOAULAS = "https://claude.ai/artifact/2tTpsgEiZUWHFinth5vNwb";
+const MOD = {
+  M1: ["Fundamentos de estruturas metálicas", 8],
+  M2: ["Leitura e interpretação de projetos", 8],
+  M3: ["Montagem, içamento e rigging", 16],
+  M3p: ["Montagem, içamento e rigging (parte do auxiliar)", 8],
+  M4: ["Ligações parafusadas e torque", 12],
+  M5: ["Soldagem estrutural aplicada", 12],
+  M6: ["Metrologia e topografia de montagem", 12],
+  M7: ["Segurança, NRs e documentação de obra", 12],
+  M8: ["Cobertura e fechamento", 8]
+};
+const TRILHAS = {
+  "Auxiliar de Montagem": { mods: ["M1", "M2", "M3p", "M7"], m8: false },
+  "Soldador": { mods: ["M1", "M2", "M5", "M7"], m8: false },
+  "Montador": { mods: ["M1", "M2", "M3", "M4", "M5"], m8: true },
+  "Encarregado de Obra": { mods: ["M1", "M2", "M3", "M4", "M5", "M6", "M7"], m8: true }
+};
+const CNPJ = "92.525.393/0001-75";
+const NOTA_MIN = 70; // parâmetro interno da Palla
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const dataBR = (iso) => { if (!iso) return "[data]"; const [a, m, d] = iso.split("-"); return `${d}/${m}/${a}`; };
+const MESES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+const extenso = (iso) => { if (!iso) return "[data]"; const [a, m, d] = iso.split("-"); return `${Number(d)} de ${MESES[Number(m) - 1]} de ${a}`; };
+
+const sel = $("trilha");
+Object.keys(TRILHAS).forEach((t) => { const o = document.createElement("option"); o.value = o.textContent = t; sel.appendChild(o); });
+sel.value = "Montador";
+
+function estado(v) {
+  const falta = [];
+  if (v.pratica !== "aprovado") falta.push(v.pratica === "pendente" ? "avaliação prática pendente" : "avaliação prática não aprovada");
+  if (!(Number(v.prova) >= NOTA_MIN)) falta.push(`prova final abaixo de ${NOTA_MIN}%`);
+  if (!v.freq) falta.push("frequência não informada");
+  return falta;
+}
+
+function render() {
+  const v = Object.fromEntries(["nome","cpf","numero","trilha","ini","fim","local","prova","freq","pratica","resp","funcao","horario","instrutor","qualif"].map((k) => [k, $(k).value]));
+  const tr = TRILHAS[v.trilha];
+  $("m8").disabled = !tr.m8; if (!tr.m8) $("m8").checked = false;
+  const mods = tr.mods.concat($("m8").checked ? ["M8"] : []);
+  const horas = mods.reduce((s, m) => s + MOD[m][1], 0);
+  const falta = estado(v);
+  const completo = falta.length === 0;
+
+  const e = $("estado");
+  e.className = "estado" + (completo ? " ok" : "");
+  e.innerHTML = completo ? "<b>Certificado de conclusão</b>Todos os requisitos lançados foram atendidos."
+    : `<b>Comprovante de etapa concluída</b>Falta: ${falta.join("; ")}. O certificado de conclusão só sai com todos os requisitos.`;
+
+  const linhas = mods.map((m) => `<tr><td>${m.replace("p", "")}</td><td>${MOD[m][0]}</td><td>${MOD[m][1]} h</td></tr>`).join("");
+  const p1 = $("p1");
+  p1.className = "folha" + (completo ? "" : " parcial");
+  p1.innerHTML = `
+    <div class="faixa"></div><div class="borda"></div><img class="marca" src="logo-palla.png" alt="">
+    ${completo ? "" : '<div class="selo">Etapa concluída · curso em andamento</div>'}
+    <div class="in">
+      <div class="cab"><img src="logo-palla.png" alt="Palla Construções"><div class="num">${esc(v.numero)}<br>Palla Construções Ltda<br>CNPJ ${CNPJ}</div></div>
+      <div class="titulo"><span class="sup">Curso de Montagem de Estruturas Metálicas</span>
+        <h2>${completo ? "Certificado de conclusão" : "Comprovante de etapa concluída"}</h2></div>
+      <div class="texto">
+        ${completo ? "Certificamos que" : "Declaramos que"}
+        <span class="nome">${esc(v.nome) || "[nome completo]"}</span>
+        CPF ${esc(v.cpf)}, ${completo ? "concluiu com aproveitamento" : "cumpriu as etapas registradas no verso do"} o <b>Curso de Montagem de Estruturas Metálicas, trilha ${esc(v.trilha)}</b>,
+        ${completo ? `com carga horária de <b>${horas} horas</b>,` : ""} realizado de ${dataBR(v.ini)} a ${dataBR(v.fim)}, na modalidade presencial, em ${esc(v.local)}, ministrado pela Palla Construções.
+      </div>
+      <div class="resumo">
+        <div><span>Carga horária</span><b>${horas} h</b></div>
+        <div><span>Prova final</span><b>${esc(v.prova || "–")}%</b></div>
+        <div><span>Frequência</span><b>${esc(v.freq || "–")}%</b></div>
+        <div><span>Prática</span><b>${{ aprovado: "Aprovado", pendente: "Pendente", reprovado: "Não aprovado" }[v.pratica]}</b></div>
+      </div>
+      <div class="local" style="margin-top:22px">${esc(v.local.split("–")[0].trim() || "[cidade]")}, ${extenso(v.fim)}.</div>
+      <div class="ass">
+        <div><b>${esc(v.instrutor)}</b>Instrutor · ${esc(v.qualif)}</div>
+        <div><b>${esc(v.resp)}</b>Responsável pela capacitação · Palla Construções</div>
+      </div>
+    </div>`;
+
+  $("p2").innerHTML = `
+    <div class="faixa"></div><div class="borda"></div>
+    <div class="in">
+      <div class="cab"><img src="logo-palla.png" alt="Palla Construções"><div class="num">${esc(v.numero)}<br>Verso</div></div>
+      <div class="cols">
+        <div>
+          <h3>Conteúdo programático</h3>
+          <table class="prog" style="margin-top:12px"><tr><th>Módulo</th><th>Conteúdo</th><th>Carga</th></tr>${linhas}<tr class="tot"><td></td><td>Total da trilha ${esc(v.trilha)}</td><td>${horas} h</td></tr></table>
+          <div class="dados"><span>Participante:</span> ${esc(v.nome)} · <span>Período:</span> ${dataBR(v.ini)} a ${dataBR(v.fim)}<br>
+          <span>Avaliação:</span> prova final ${esc(v.prova || "–")}% (mínimo interno ${NOTA_MIN}%) · prática ${{ aprovado: "aprovada", pendente: "pendente", reprovado: "não aprovada" }[v.pratica]} · frequência ${esc(v.freq || "–")}%<br>
+          <span>Instrutor:</span> ${esc(v.instrutor)}, ${esc(v.qualif)}<br><span>Emissor:</span> Palla Construções Ltda, CNPJ ${CNPJ}</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <h3>Videoaulas do curso</h3>
+          <div class="qrbox"><div class="qr" id="qr"></div>
+            <div style="display:flex;flex-direction:column;gap:6px"><p><b>Aponte a câmera do celular</b> para rever as videoaulas narradas dos módulos, com legendas.</p><p class="url">${VIDEOAULAS}</p></div></div>
+          <p style="margin:0;font-size:13px;line-height:1.5">Os vídeos resumem o conteúdo de cada módulo para revisão. Eles não substituem a carga horária, as avaliações nem a parte prática registradas neste documento.</p>
+          <div class="aviso-f">Capacitação interna da Palla Construções. Este documento não substitui os treinamentos obrigatórios das Normas Regulamentadoras (por exemplo NR-35, NR-11 e NR-12), que têm conteúdo, carga horária e requisitos próprios, e não é autorização para executar atividades.</div>
+        </div>
+      </div>
+    </div>`;
+  ficha(v, mods, horas);
+  ajustar();
+  if (window.QRCode) new QRCode($("qr"), { text: VIDEOAULAS, width: 240, height: 240, colorDark: "#1E2550", colorLight: "#FFFFFF", correctLevel: QRCode.CorrectLevel.M });
+}
+
+function ficha(v, mods, horas) {
+  const itens = ["Colaborador presente durante toda a carga horária","Conteúdo programático ministrado integralmente","Orientações de segurança e uso de EPI repassadas","Atividade prática realizada sob supervisão","Avaliação teórica aplicada — colaborador aprovado","Avaliação prática aplicada — colaborador aprovado","Lista de presença assinada pelo colaborador"];
+  const campo = (k, val) => `<th>${k}</th><td>${esc(val)}</td>`;
+  $("p3").innerHTML = `
+    <div class="f-borda"></div><div class="f-risco a"></div><div class="f-risco b"></div>
+    <div class="f-in">
+      <div class="f-cab"><img src="logo-palla.png" alt="Palla Construções"><div><b>PALLA CONSTRUÇÕES LTDA</b><br>CNPJ ${CNPJ}</div></div>
+      <div class="f-linha"></div>
+      <h2>Registro de realização de treinamento</h2>
+      <p class="f-sub">Evidência de treinamento — marque OK nos itens comprovados</p>
+      <table class="f-dados">
+        <tr>${campo("Colaborador", v.nome)}<th></th><td></td></tr>
+        <tr>${campo("CPF", v.cpf)}${campo("Função", v.funcao)}</tr>
+        <tr>${campo("Treinamento", `Curso de Montagem de Estruturas Metálicas — trilha ${v.trilha} (${mods.map((m) => m.replace("p", "")).join(", ")})`)}<th></th><td></td></tr>
+        <tr>${campo("Carga horária", horas + " horas")}${campo("Data(s)", `${dataBR(v.ini)} a ${dataBR(v.fim)}`)}</tr>
+        <tr>${campo("Horário", v.horario)}<th></th><td></td></tr>
+        <tr>${campo("Local", v.local)}<th></th><td></td></tr>
+        <tr>${campo("Instrutor", `${v.instrutor} · ${v.qualif}`)}<th></th><td></td></tr>
+      </table>
+      <h3>Verificação</h3>
+      <table class="f-ver"><tr><th>Item</th><th>OK</th></tr>
+        ${itens.map((t, i) => `<tr><td><span>${i + 1}.</span> ${t}</td><td><i></i></td></tr>`).join("")}
+      </table>
+      <p class="f-nota">Itens não aplicáveis ao treinamento devem ficar em branco.</p>
+      <h3>Observações</h3>
+      <div class="f-obs"><i></i><i></i><i></i></div>
+      <div class="f-ass">
+        <div><b>${esc(v.nome)}</b><span>Colaborador</span></div>
+        <div><b>${esc(v.instrutor)}</b><span>Instrutor</span></div>
+        <div><b>${esc(v.resp)}</b><span>Responsável pela capacitação</span></div>
+      </div>
+      <p class="f-data">Data: ____/____/________</p>
+      <p class="f-rod">Documento de evidência anexado ao registro de realização no sistema PALLA CERTIFICADOS. Não substitui o certificado.</p>
+    </div>`;
+  // colunas vazias das linhas de largura total viram uma célula só
+  $("p3").querySelectorAll(".f-dados tr").forEach((tr) => { const c = tr.children; if (c.length === 4 && !c[2].textContent) { c[1].colSpan = 3; c[2].remove(); c[2].remove(); } });
+}
+
+function ajustar() {
+  document.querySelectorAll(".moldura").forEach((m) => {
+    const s = m.querySelector(".escala");
+    const el = s.firstElementChild;
+    const k = Math.min(1, m.clientWidth / el.offsetWidth);
+    s.style.transform = `scale(${k})`;
+    m.style.height = el.offsetHeight * k + "px";
+  });
+}
+
+$("f").addEventListener("input", render);
+$("f").addEventListener("submit", (e) => e.preventDefault());
+window.addEventListener("resize", ajustar);
+render();
+
+// PDF: duas folhas A4 deitadas, entregues pelo recurso de download do visualizador
+let downloads = null;
+const btn = $("baixar");
+btn.disabled = true;
+(async () => {
+  try { downloads = await window.claude?.use?.("downloads"); } catch {}
+  if (downloads && window.jspdf && window.html2canvas) btn.disabled = false;
+  else { btn.hidden = true; }
+})();
+btn.addEventListener("click", async () => {
+  btn.disabled = true; const txt = btn.textContent; btn.textContent = "Gerando PDF…";
+  try {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
+    const escalas = [...document.querySelectorAll(".escala")];
+    escalas.forEach((s) => (s.dataset.t = s.style.transform, s.style.transform = "none"));
+    for (const [i, id] of ["p1", "p2", "p3"].entries()) {
+      const c = await html2canvas($(id), { scale: 2, backgroundColor: "#FFFFFF", useCORS: true });
+      const retrato = id === "p3";
+      if (i) pdf.addPage("a4", retrato ? "portrait" : "landscape");
+      pdf.addImage(c.toDataURL("image/jpeg", 0.92), "JPEG", 0, 0, retrato ? 210 : 297, retrato ? 297 : 210);
+    }
+    escalas.forEach((s) => (s.style.transform = s.dataset.t));
+    const nome = ($("nome").value || "participante").normalize("NFD").replace(/[^\w ]/g, "").trim().replace(/\s+/g, "-");
+    await downloads.save({ filename: `certificado-${nome}.pdf`, data: pdf.output("blob") });
+    btn.textContent = "PDF salvo";
+  } catch (e) {
+    btn.textContent = e && e.code === "declined" ? "Download cancelado" : "Não foi possível gerar o PDF";
+  } finally {
+    ajustar();
+    setTimeout(() => { btn.textContent = txt; btn.disabled = false; }, 2500);
+  }
+});
+</script>

@@ -1,0 +1,86 @@
+{
+  "codigo": "INT-01-4-1",
+  "titulo": "Regras de ouro e direito de recusa",
+  "curso": "Integração institucional Palla Construções",
+  "capitulo": "Capítulo 4 · Segurança em primeiro lugar",
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "narracao": "Integração Palla Construções. Capítulo quatro: segurança em primeiro lugar. Nesta aula, você vai conhecer as nossas regras de ouro e o seu direito de recusa."
+    },
+    {
+      "tipo": "destaque",
+      "pequeno": "Regras sem exceção",
+      "grande": "7 regras de ouro",
+      "texto": "Valem para todos, em todas as obras, todos os dias.",
+      "narracao": "Algumas regras não têm exceção na Palla. Elas valem para todo mundo, em todas as obras, todos os dias. São as sete regras de ouro."
+    },
+    {
+      "tipo": "regra", "numero": 1, "icone": "altura",
+      "titulo": "Em altura, sempre conectado",
+      "texto": "Acima de 2 metros, o cinto fica preso a um ponto de ancoragem adequado o tempo todo.",
+      "tag": "NR-35",
+      "narracao": "Regra número um. Em altura, sempre conectado. Acima de dois metros, o seu cinto fica preso a um ponto de ancoragem adequado, o tempo todo, inclusive na hora de se deslocar."
+    },
+    {
+      "tipo": "regra", "numero": 2, "icone": "carga",
+      "titulo": "Ninguém sob carga suspensa",
+      "texto": "Nem parado, nem de passagem. A área de içamento fica isolada.",
+      "tag": "NR-11 · NR-18",
+      "narracao": "Regra número dois. Ninguém fica embaixo de carga suspensa. Nem parado, nem de passagem. Uma peça de estrutura que cai não dá segunda chance."
+    },
+    {
+      "tipo": "regra", "numero": 3, "icone": "maquina",
+      "titulo": "Só opera quem é capacitado e autorizado",
+      "texto": "Máquina, guindaste ou plataforma: sem treinamento e autorização, não opera.",
+      "tag": "NR-12 · NR-18",
+      "narracao": "Regra número três. Só opera máquina ou equipamento quem foi capacitado e autorizado. Guindaste, plataforma elevatória, esmerilhadeira: sem treinamento e sem autorização, não opera."
+    },
+    {
+      "tipo": "regra", "numero": 4, "icone": "protecao",
+      "titulo": "Proteção de máquina não se retira",
+      "texto": "Só com bloqueio das energias e autorização para manutenção.",
+      "tag": "NR-12",
+      "narracao": "Regra número quatro. Proteções de máquinas nunca são retiradas. A remoção só acontece para manutenção, com bloqueio das energias e autorização."
+    },
+    {
+      "tipo": "regra", "numero": 5, "icone": "documento",
+      "titulo": "Tarefa crítica só com APR e PT",
+      "texto": "Análise de risco e Permissão de Trabalho antes de começar, quando exigidas.",
+      "tag": "NR-18",
+      "narracao": "Regra número cinco. Tarefa crítica só começa com a análise de risco e a permissão de trabalho, quando exigidas. Assinar sem ler não vale: a assinatura diz que você conhece os riscos."
+    },
+    {
+      "tipo": "regra", "numero": 6, "icone": "capacete",
+      "titulo": "EPI correto, completo e em bom estado",
+      "texto": "Capacete com jugular, óculos, luvas, botina e o que a tarefa pedir.",
+      "tag": "NR-6",
+      "narracao": "Regra número seis. Equipamento de proteção individual correto, completo e em bom estado. Capacete com jugular, óculos, luvas, botina e o que mais a tarefa exigir."
+    },
+    {
+      "tipo": "regra", "numero": 7, "icone": "isolamento",
+      "titulo": "Área de montagem sempre isolada",
+      "texto": "Fita, cones e placa. Só entra quem está na tarefa.",
+      "tag": "NR-18",
+      "narracao": "Regra número sete. A área de içamento e de montagem fica sempre isolada, com fita, cones e placa. Só entra quem está na tarefa."
+    },
+    {
+      "tipo": "recusa",
+      "titulo": "Direito de recusa",
+      "texto": "Diante de risco grave e iminente, pare a atividade e comunique a liderança.",
+      "rodape": "Ninguém é punido por parar uma tarefa insegura. · NR-1",
+      "narracao": "E se você perceber um risco grave e iminente? Pare a atividade e comunique a liderança. Esse é o direito de recusa, previsto na norma regulamentadora número um. Na Palla, ninguém é punido por parar uma tarefa insegura."
+    },
+    {
+      "tipo": "resumo",
+      "titulo": "Resumo da aula",
+      "itens": ["Em altura, sempre conectado", "Ninguém sob carga suspensa", "Só opera quem é capacitado e autorizado", "Proteção de máquina não se retira", "Tarefa crítica só com APR e PT", "EPI correto, completo e em bom estado", "Área de montagem sempre isolada"],
+      "narracao": "Recapitulando as sete regras de ouro: em altura, sempre conectado. Ninguém sob carga suspensa. Só opera quem é capacitado e autorizado. Proteção de máquina não se retira. Tarefa crítica só com análise de risco e permissão de trabalho. Equipamento de proteção correto e completo. E área de montagem sempre isolada."
+    },
+    {
+      "tipo": "encerramento",
+      "texto": "Segurança e qualidade andam juntas.",
+      "narracao": "Segurança e qualidade andam juntas. Até a próxima aula."
+    }
+  ]
+}

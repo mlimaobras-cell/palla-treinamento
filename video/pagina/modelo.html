@@ -1,0 +1,198 @@
+<title>Videoaulas do Curso Palla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Sala de aula: player grande à esquerda, lista dos 8 módulos à direita (embaixo no celular); filtro por trilha no topo */
+:root{
+  --bg:#F5F6FA; --surface:#FDFDFE; --line:#DDE1EE; --band:#ECEEF6; --fg:#2B3352; --muted:#5A6380;
+  --navy:#404D91; --red:#D13542; --navy-soft:#E3E7F4; --pink:#FBE9EB; --ok:#1f7a4a; --ok-bg:#e2f2e9; --stage:#1E2550;
+  --display:"Chakra Petch",Arial,sans-serif; --body:"IBM Plex Sans",Arial,Helvetica,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141936; --surface:#1E2550; --line:#323B6E; --band:#252D5C; --fg:#E8EAF6; --muted:#A9B0D3;
+  --navy:#A9B4F0; --red:#F07A85; --navy-soft:#2A3366; --pink:#3A2030; --ok:#6fd39d; --ok-bg:#163326; --stage:#0E122B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141936; --surface:#1E2550; --line:#323B6E; --band:#252D5C; --fg:#E8EAF6; --muted:#A9B0D3;
+  --navy:#A9B4F0; --red:#F07A85; --navy-soft:#2A3366; --pink:#3A2030; --ok:#6fd39d; --ok-bg:#163326; --stage:#0E122B; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5;margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.12;text-wrap:balance}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+a{color:var(--navy);font-weight:600;text-underline-offset:3px}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--stage);color:#F5F6FA;padding:14px 20px;border-left:8px solid var(--red)}
+.top img{height:44px;width:auto}
+.top .t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.top h1{font-size:clamp(20px,3.4vw,28px)}
+.top span{font-size:13px;color:#C9CFEA}
+
+.filtro{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filtro .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.chipbtn{border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:4px;font-size:13.5px}
+.chipbtn[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--bg);font-weight:600}
+
+.sala{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:20px;align-items:start}
+@media (max-width:900px){.sala{grid-template-columns:1fr}}
+.player{display:flex;flex-direction:column;gap:12px;min-width:0}
+.tela{position:relative;aspect-ratio:16/9;max-width:100%;background:var(--stage);border:1px solid var(--line)}
+.tela video{position:absolute;inset:0;width:100%;height:100%;background:#000}
+.tela .vazio{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#C9CFEA;text-align:center;padding:16px}
+.tela .vazio b{font-family:var(--display);font-size:22px;color:#F5F6FA}
+.info{display:flex;flex-direction:column;gap:6px}
+.info h2{font-size:clamp(22px,3vw,30px);color:var(--navy)}
+.meta{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:600}
+.acoes{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--line);background:var(--band);text-decoration:none;font-size:13.5px;border-radius:4px;font-weight:600;color:var(--navy)}
+.btn:hover{border-color:var(--red)}
+.btn.prim{background:var(--navy);color:var(--bg);border-color:var(--navy)}
+
+.lista{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--surface)}
+.lista h3{font-size:15px;padding:12px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;color:var(--fg)}
+.lista h3 span{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:400}
+.item{width:100%;display:grid;grid-template-columns:112px minmax(0,1fr);gap:12px;padding:10px 12px;border:0;border-top:1px solid var(--line);background:none;text-align:left;align-items:center}
+.item:first-of-type{border-top:0}
+.item:hover{background:var(--band)}
+.item[aria-current="true"]{background:var(--navy-soft);box-shadow:inset 4px 0 0 var(--red)}
+.item[disabled]{cursor:default;opacity:.6}
+.thumb{position:relative;aspect-ratio:16/9;width:100%;background:var(--stage);overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .d{position:absolute;right:4px;bottom:4px;background:rgba(14,18,43,.85);color:#F5F6FA;font-family:var(--mono);font-size:11px;padding:1px 5px;font-variant-numeric:tabular-nums}
+.thumb .m{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;justify-content:center;width:100%;font-family:var(--display);font-size:26px;font-weight:700;color:#F5F6FA}
+.item .n{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--red);text-transform:uppercase}
+.item .tt{font-weight:600;font-size:14px;line-height:1.3}
+.item .st{font-size:12px;color:var(--muted)}
+.item .st.ok{color:var(--ok);font-weight:600}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:1px 6px;border-radius:3px;background:var(--pink);color:var(--red);margin-left:4px}
+
+.aviso{background:var(--pink);border-left:4px solid var(--red);padding:14px 18px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.aviso p{margin:0;max-width:95ch}
+footer{color:var(--muted);font-size:13px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="t">
+      <span class="eyebrow" style="color:#F07A85">Curso de Montagem de Estruturas Metálicas</span>
+      <h1>Videoaulas dos módulos</h1>
+      <span>Palla Construções · narração e legendas em português</span>
+    </div>
+    <img src="logo-palla-branco.png" alt="Palla Construções">
+  </header>
+
+  <div class="filtro" role="group" aria-label="Filtrar por trilha">
+    <span class="lbl">Minha trilha</span>
+  </div>
+
+  <div class="sala">
+    <div class="player">
+      <div class="tela" id="tela"></div>
+      <div class="info">
+        <span class="eyebrow" id="i-mod"></span>
+        <h2 id="i-tit"></h2>
+        <div class="meta" id="i-meta"></div>
+      </div>
+      <div class="acoes" id="i-acoes"></div>
+    </div>
+    <nav class="lista" aria-label="Módulos">
+      <h3>Módulos <span id="cont"></span></h3>
+      <div id="itens"></div>
+    </nav>
+  </div>
+
+  <div class="aviso">
+    <b>Para que servem estes vídeos</b>
+    <p>São o resumo narrado de cada módulo, para estudar antes da aula e revisar depois. Eles não substituem a carga horária do módulo, a avaliação nem a parte prática com o instrutor. O módulo 7 dá noções de NRs e não substitui os treinamentos obrigatórios. O vídeo de NR-35 é só apoio: desde 16/07/2026 o treinamento de NR-35 é presencial (item 35.4.5), com teoria, prática e avaliação feitas com o instrutor.</p>
+  </div>
+
+  <footer>Palla Construções · Curso de Montagem de Estruturas Metálicas · Instrutor Eng. Mário Sérgio Barbosa Lima · vídeos gerados em __DATA__</footer>
+</div>
+
+<script>
+const MODULOS = __DADOS__;
+const TRILHAS = {
+  "Todas": null,
+  "Auxiliar de Montagem": ["M1","M2","M3","M7","NR35"],
+  "Soldador": ["M1","M2","M5","M7","NR35"],
+  "Montador": ["M1","M2","M3","M4","M5","M8","NR35"],
+  "Encarregado": ["M1","M2","M3","M4","M5","M6","M7","M8","NR35"]
+};
+const $ = (s) => document.querySelector(s);
+const ler = (k, d) => { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch { return d; } };
+const gravar = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, "0")}`;
+let trilha = ler("trilha", "Todas");
+let vistos = ler("vistos", {});
+let atual = null;
+
+function filtro() {
+  const g = $(".filtro");
+  Object.keys(TRILHAS).forEach((t) => {
+    const b = document.createElement("button");
+    b.className = "chipbtn"; b.type = "button"; b.textContent = t; b.id = "trilha-" + t.replace(/\s/g, "-");
+    b.setAttribute("aria-pressed", String(t === trilha));
+    b.onclick = () => { trilha = t; gravar("trilha", t); g.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); lista(); };
+    g.appendChild(b);
+  });
+}
+
+function lista() {
+  const alvo = TRILHAS[trilha];
+  const ms = MODULOS.filter((m) => !alvo || alvo.includes(m.id));
+  const box = $("#itens"); box.innerHTML = "";
+  ms.forEach((m) => {
+    const b = document.createElement("button");
+    b.className = "item"; b.type = "button"; b.id = "item-" + m.id;
+    b.disabled = !m.video;
+    if (atual && atual.id === m.id) b.setAttribute("aria-current", "true");
+    const nr = m.id === "NR35";
+    const opc = m.opcional ? '<span class="tag">opcional</span>' : nr ? '<span class="tag">apoio · presencial</span>' : "";
+    const st = !m.video ? "Em produção" : vistos[m.id] ? "Assistido" : nr ? "8 h presenciais com instrutor" : `${m.horas} h no curso`;
+    b.innerHTML = `<div class="thumb">${m.capa ? `<img src="${m.capa}" alt="">` : `<span class="m">${nr ? "NR-35" : m.id}</span>`}${m.duracao ? `<span class="d">${mmss(m.duracao)}</span>` : ""}</div>
+      <div><div class="n">${nr ? "NR-35" : "Módulo " + m.id.slice(1)}${opc}</div><div class="tt">${m.titulo}</div><div class="st${vistos[m.id] ? " ok" : ""}">${st}</div></div>`;
+    b.onclick = () => abrir(m, true);
+    box.appendChild(b);
+  });
+  $("#cont").textContent = `${ms.filter((m) => vistos[m.id]).length} de ${ms.length} assistidos`;
+}
+
+function abrir(m, tocar) {
+  atual = m;
+  try { history.replaceState(null, "", "#" + m.id.toLowerCase()); } catch {}
+  const tela = $("#tela");
+  tela.innerHTML = "";
+  if (m.video) {
+    const v = document.createElement("video");
+    v.controls = true; v.preload = "metadata"; v.playsInline = true; v.poster = m.capa || "";
+    v.innerHTML = `<source src="${m.video}" type="video/mp4">`;
+    fetch(m.legenda).then((r) => r.ok ? r.text() : Promise.reject()).then((txt) => {
+      const t = document.createElement("track");
+      t.kind = "subtitles"; t.srclang = "pt-BR"; t.label = "Português"; t.default = true;
+      t.src = URL.createObjectURL(new Blob([txt], { type: "text/vtt" }));
+      v.appendChild(t);
+    }).catch(() => {});
+    v.addEventListener("ended", () => { vistos[m.id] = true; gravar("vistos", vistos); lista(); });
+    v.addEventListener("timeupdate", () => { if (!vistos[m.id] && v.duration && v.currentTime / v.duration > 0.9) { vistos[m.id] = true; gravar("vistos", vistos); lista(); } });
+    tela.appendChild(v);
+    if (tocar) v.play().catch(() => {});
+  } else {
+    tela.innerHTML = `<div class="vazio"><b>${m.id} em produção</b><span>Este vídeo será publicado em breve.</span></div>`;
+  }
+  const nr = m.id === "NR35";
+  $("#i-mod").textContent = nr ? `NR-35 · ${m.trilhas}` : `Módulo ${m.id.slice(1)} · ${m.trilhas}`;
+  $("#i-tit").textContent = m.titulo;
+  $("#i-meta").innerHTML = `${m.duracao ? `<span>Vídeo: <b>${mmss(m.duracao)}</b></span>` : ""}<span>${nr ? "Treinamento: <b>8 h presenciais</b> (este vídeo não conta como carga)" : `Carga horária do módulo: <b>${m.horas} h</b>`}</span><span>Legendas: <b>português</b></span>`;
+  $("#i-acoes").innerHTML = (m.slides ? `<a class="btn prim" href="${m.slides}" target="_blank" rel="noopener">Slides do módulo</a>` : "") + `<a class="btn${m.slides ? "" : " prim"}" href="${m.caderno}" target="_blank" rel="noopener">${nr ? "Caderno do instrutor" : "Caderno do aluno"}</a>`;
+  lista();
+}
+
+filtro();
+const hash = (location.hash || "").slice(1).toUpperCase();
+const inicial = MODULOS.find((m) => m.id === hash && m.video) || MODULOS.find((m) => m.video) || MODULOS[0];
+abrir(inicial, false);
+lista();
+</script>

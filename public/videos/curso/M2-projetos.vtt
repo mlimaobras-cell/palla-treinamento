@@ -1,0 +1,310 @@
+WEBVTT
+
+1
+00:00:00.700 --> 00:00:00.970
+Olá!
+
+2
+00:00:00.970 --> 00:00:04.884
+Este é o módulo dois: leitura e interpretação de projetos.
+
+3
+00:00:04.884 --> 00:00:12.847
+Aqui você vai aprender a encontrar no desenho tudo o que precisa para montar cada peça no lugar certo, do jeito certo.
+
+4
+00:00:15.147 --> 00:00:17.152
+Existem três tipos de desenho.
+
+5
+00:00:17.152 --> 00:00:23.638
+O desenho de projeto é feito pelo calculista e define materiais, cargas e o tipo de cada ligação.
+
+6
+00:00:23.638 --> 00:00:29.989
+O desenho de fabricação detalha cada peça, com medidas, furos e soldas, e é usado pela fábrica.
+
+7
+00:00:29.989 --> 00:00:36.474
+E o desenho de montagem mostra onde cada peça vai, com marcas, eixos, níveis e ligações de campo.
+
+8
+00:00:36.474 --> 00:00:39.483
+Esse é o documento principal da nossa equipe.
+
+9
+00:00:41.183 --> 00:00:46.517
+O desenho de montagem precisa trazer as informações para montar sem adivinhar.
+
+10
+00:00:46.517 --> 00:00:49.662
+Procure nele a marca e a posição de cada peça.
+
+11
+00:00:49.662 --> 00:00:53.423
+O nível das placas de base e a locação dos chumbadores.
+
+12
+00:00:53.423 --> 00:00:56.364
+O tipo, a dimensão e o local dos parafusos.
+
+13
+00:00:56.364 --> 00:00:57.663
+As soldas de campo.
+
+14
+00:00:57.663 --> 00:01:00.604
+E os elementos provisórios de estabilidade.
+
+15
+00:01:00.604 --> 00:01:05.185
+Se alguma informação faltar, não adivinhe: pergunte ao encarregado.
+
+16
+00:01:06.885 --> 00:01:09.901
+Junto com o desenho, andam outros documentos.
+
+17
+00:01:09.901 --> 00:01:14.591
+As notas gerais dizem o aço, os parafusos, a pintura e as tolerâncias.
+
+18
+00:01:14.591 --> 00:01:19.885
+A lista de material traz todas as peças, com marca, perfil, comprimento e peso.
+
+19
+00:01:19.885 --> 00:01:22.632
+A lista de parafusos resume cada ligação.
+
+20
+00:01:22.632 --> 00:01:25.312
+O romaneio diz o que veio em cada carga.
+
+21
+00:01:25.312 --> 00:01:31.812
+E o plano de montagem traz a sequência, os equipamentos de içamento e os travamentos provisórios.
+
+22
+00:01:33.512 --> 00:01:37.065
+No canto inferior direito de cada folha fica o carimbo.
+
+23
+00:01:37.065 --> 00:01:43.268
+Ele identifica a obra, o número do desenho, a revisão, a data, a escala e o responsável técnico.
+
+24
+00:01:43.268 --> 00:01:47.338
+E aqui vai uma regra de ouro: monte sempre pela última revisão.
+
+25
+00:01:47.338 --> 00:01:51.215
+Desenho substituído é recolhido ou carimbado como cancelado.
+
+26
+00:01:51.215 --> 00:01:55.608
+Montar por desenho velho é uma das causas mais comuns de retrabalho.
+
+27
+00:01:57.308 --> 00:02:00.340
+O desenho mostra a estrutura de vários jeitos.
+
+28
+00:02:00.340 --> 00:02:04.361
+A planta é a vista de cima, com eixos, bases, vigas e terças.
+
+29
+00:02:04.361 --> 00:02:09.371
+A elevação é a vista de frente ou de lado, com pilares, longarinas e níveis.
+
+30
+00:02:09.371 --> 00:02:13.523
+O corte mostra a estrutura fatiada, com o pórtico e as alturas.
+
+31
+00:02:13.523 --> 00:02:17.676
+E o detalhe amplia uma ligação, com chapas, parafusos e soldas.
+
+32
+00:02:19.376 --> 00:02:21.544
+Três referências guiam a montagem.
+
+33
+00:02:21.544 --> 00:02:25.560
+Os eixos são linhas com números numa direção e letras na outra.
+
+34
+00:02:25.560 --> 00:02:30.278
+O pilar B três, por exemplo, fica no cruzamento do eixo B com o eixo três.
+
+35
+00:02:30.278 --> 00:02:37.610
+As cotas são distâncias em milímetros: meça sempre a partir do eixo, nunca da peça vizinha, para não acumular erro.
+
+36
+00:02:37.610 --> 00:02:42.901
+E os níveis são alturas em relação a uma referência da obra, como mais seis metros.
+
+37
+00:02:44.601 --> 00:02:47.391
+Cada peça tem uma marca, que é o nome dela.
+
+38
+00:02:47.391 --> 00:02:56.991
+E a mesma marca aparece em três lugares: na etiqueta ou na pintura da peça, no romaneio da carga e no desenho de montagem, no lugar onde a peça vai.
+
+39
+00:02:56.991 --> 00:03:00.753
+Atenção: duas vigas parecidas podem ter furação diferente.
+
+40
+00:03:00.753 --> 00:03:02.245
+Confira sempre a marca.
+
+41
+00:03:03.945 --> 00:03:06.494
+Veja como um parafuso aparece no desenho.
+
+42
+00:03:06.494 --> 00:03:19.426
+Quatro, diâmetro três quartos, por sessenta e cinco, A trezentos e vinte e cinco, quer dizer: quatro parafusos de três quartos de polegada, com sessenta e cinco milímetros de comprimento, de alta resistência.
+
+43
+00:03:19.426 --> 00:03:23.156
+O projeto também diz o tipo de aperto, normal ou protendido.
+
+44
+00:03:23.156 --> 00:03:28.565
+E antes de subir, confira na lista de parafusos a bitola, o comprimento e a quantidade.
+
+45
+00:03:30.265 --> 00:03:32.808
+O símbolo de solda também tem regras.
+
+46
+00:03:32.808 --> 00:03:34.320
+A seta aponta a junta.
+
+47
+00:03:34.320 --> 00:03:39.200
+O triângulo indica solda de filete: abaixo da linha, é do lado da seta.
+
+48
+00:03:39.200 --> 00:03:45.385
+A bandeira é o símbolo mais importante para nós: quer dizer solda de campo, feita na obra.
+
+49
+00:03:45.385 --> 00:03:48.409
+O número indica o tamanho da perna da solda.
+
+50
+00:03:48.409 --> 00:03:51.501
+E a cauda traz observações ou o procedimento.
+
+51
+00:03:53.201 --> 00:03:56.231
+Três informações não podem passar despercebidas.
+
+52
+00:03:56.231 --> 00:04:02.541
+A contraflecha, que é a curvatura para cima dada na fábrica: a viga é montada com a curva para cima.
+
+53
+00:04:02.541 --> 00:04:07.148
+Montada ao contrário, fica com a barriga para baixo, e isso é erro grave.
+
+54
+00:04:07.148 --> 00:04:10.809
+Os pesos e os pontos de içamento, quando o projeto indica.
+
+55
+00:04:10.809 --> 00:04:14.721
+E a orientação da peça, com o lado certo das abas e dos furos.
+
+56
+00:04:16.421 --> 00:04:18.395
+Na prática, são cinco passos.
+
+57
+00:04:18.395 --> 00:04:21.322
+Primeiro, leia a marca na etiqueta da peça.
+
+58
+00:04:21.322 --> 00:04:25.407
+Segundo, confira a marca no romaneio e na lista de material.
+
+59
+00:04:25.407 --> 00:04:29.831
+Terceiro, ache a marca na planta ou na elevação e anote os eixos.
+
+60
+00:04:29.831 --> 00:04:32.486
+Quarto, confira o nível e a orientação.
+
+61
+00:04:32.486 --> 00:04:36.366
+Quinto, abra o detalhe da ligação e a lista de parafusos.
+
+62
+00:04:36.366 --> 00:04:39.293
+Só então a peça está pronta para ser içada.
+
+63
+00:04:40.993 --> 00:04:45.419
+E a lição mais importante deste módulo: na dúvida, pare e pergunte.
+
+64
+00:04:45.419 --> 00:04:46.475
+O projeto manda.
+
+65
+00:04:46.475 --> 00:04:51.561
+Montar fora do projeto custa muito mais caro do que perguntar ao encarregado.
+
+66
+00:04:53.261 --> 00:04:54.386
+Recapitulando.
+
+67
+00:04:54.386 --> 00:04:57.279
+O desenho de montagem é o principal.
+
+68
+00:04:57.279 --> 00:04:59.930
+Monte sempre pela última revisão.
+
+69
+00:04:59.930 --> 00:05:01.858
+Meça a partir dos eixos.
+
+70
+00:05:01.858 --> 00:05:04.430
+Confira a marca em três lugares.
+
+71
+00:05:04.430 --> 00:05:07.081
+A bandeira indica solda de campo.
+
+72
+00:05:07.081 --> 00:05:09.572
+Contraflecha, sempre para cima.
+
+73
+00:05:09.572 --> 00:05:11.259
+Siga os cinco passos.
+
+74
+00:05:11.259 --> 00:05:13.027
+E na dúvida, pergunte.
+
+75
+00:05:14.727 --> 00:05:15.857
+Ótimo trabalho!
+
+76
+00:05:15.857 --> 00:05:20.756
+No próximo módulo, vamos para a montagem, o içamento e o rigging.
+
+77
+00:05:20.756 --> 00:05:21.284
+Até lá!
+

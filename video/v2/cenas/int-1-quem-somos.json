@@ -1,0 +1,221 @@
+{
+  "codigo": "INT-1-quem-somos",
+  "titulo": "Quem somos: Grupo Palla e Palla Construções",
+  "capitulo": "Integração institucional · Aula 1",
+  "eyebrow": "Integração · Aula 1",
+  "scripts": [],
+  "fontes": [
+    "Apresentação institucional Palla Soluções em Aço (2026)",
+    "Apresentação institucional Palla Soluções em Alumínio (2026)"
+  ],
+  "pendencias": [
+    "Confirmar o nome usado nos certificados: Palla Construções ou Palla Construções e Montagem"
+  ],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/fabrica-aerea.jpg"
+        }
+      ],
+      "cap": "Integração institucional",
+      "titulo": "Quem somos",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Como trabalhamos, o que esperamos de você e o que você pode esperar de nós"
+        }
+      ],
+      "narracao": "Seja bem-vindo à Palla Construções, empresa do Grupo Palla. Você está começando a sua integração. {o}Ela foi feita para que você chegue à obra sabendo como trabalhamos, o que esperamos de você, e o que você pode esperar de nós."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/grupo-capa.jpg",
+          "zoom": "sai"
+        }
+      ],
+      "narracao": "O Grupo Palla tem trinta e sete anos de história, desde mil novecentos e oitenta e oito. São três empresas, com um só compromisso: construir o futuro.",
+      "limpo": true
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/produtos-pilha.jpg",
+          "legenda": "Palla Soluções em Aço"
+        },
+        {
+          "src": "fotos/institucional/aluminio-edificio.jpg",
+          "m": "alu",
+          "legenda": "Palla Soluções em Alumínio"
+        },
+        {
+          "src": "fotos/institucional/icamento-ponte.jpg",
+          "m": "con",
+          "legenda": "Palla Construções e Montagem"
+        }
+      ],
+      "titulo": "Três empresas",
+      "itens": [
+        {
+          "m": "aco",
+          "texto": "Aço: estruturas metálicas para grandes projetos"
+        },
+        {
+          "m": "alu",
+          "texto": "Alumínio: esquadrias, fachadas em vidro e claraboias"
+        },
+        {
+          "m": "con",
+          "texto": "Construções e Montagem: a obra e a montagem industrial"
+        }
+      ],
+      "narracao": "{aco}A Palla Soluções em Aço projeta e fabrica estruturas metálicas para grandes projetos. {alu}A Palla Soluções em Alumínio trabalha com esquadrias, fachadas em vidro e claraboias. {con}E a Palla Construções e Montagem leva tudo isso para a obra, com soluções em construção civil e montagem industrial."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/escritorio.jpg",
+          "legenda": "Engenharia e projeto"
+        },
+        {
+          "src": "fotos/institucional/parque-fabril.jpg",
+          "m": "f",
+          "legenda": "Parque fabril"
+        },
+        {
+          "src": "fotos/institucional/equipamentos.jpg",
+          "m": "e",
+          "legenda": "Fabricação"
+        },
+        {
+          "src": "fotos/institucional/transporte.jpg",
+          "m": "t",
+          "legenda": "Transporte até a obra"
+        },
+        {
+          "src": "fotos/institucional/aranhas.jpg",
+          "m": "m",
+          "legenda": "Equipamentos de montagem"
+        }
+      ],
+      "titulo": "Do projeto à montagem",
+      "itens": [
+        {
+          "m": "p",
+          "texto": "Cálculo estrutural e projeto"
+        },
+        {
+          "m": "f",
+          "texto": "Fabricação e pintura"
+        },
+        {
+          "m": "t",
+          "texto": "Transporte"
+        },
+        {
+          "m": "m",
+          "texto": "Montagem com supervisão e técnico de segurança"
+        }
+      ],
+      "narracao": "O grupo cuida da obra do começo ao fim. {p}Cálculo estrutural e projeto. {f}Fabricação no parque fabril, {e}com linhas de corte, solda e pintura. {t}Transporte das peças até a obra. {m}E a montagem, com mão de obra, equipamentos, supervisão, e técnico de segurança do trabalho."
+    },
+    {
+      "tipo": "foto",
+      "layout": "baixo",
+      "fotos": [
+        {
+          "src": "fotos/institucional/arcelormittal.jpg",
+          "legenda": "ArcelorMittal Gonvarri · Hortolândia/SP"
+        },
+        {
+          "src": "fotos/institucional/cargolift.jpg",
+          "m": "l",
+          "legenda": "Cargolift Hub II · Curitiba/PR"
+        },
+        {
+          "src": "fotos/institucional/main-plaza.jpg",
+          "m": "c",
+          "legenda": "Shopping Main Plaza · São Paulo/SP"
+        },
+        {
+          "src": "fotos/institucional/graneleiro.jpg",
+          "m": "a",
+          "legenda": "Graneleiro · Santa Helena/GO"
+        },
+        {
+          "src": "fotos/institucional/viaduto.jpg",
+          "m": "v",
+          "legenda": "Viaduto · Porto Alegre/RS"
+        },
+        {
+          "src": "fotos/institucional/araujo-vianna.jpg",
+          "m": "au",
+          "legenda": "Auditório Araújo Vianna · Porto Alegre/RS"
+        }
+      ],
+      "titulo": "Atuamos em todo o Brasil",
+      "narracao": "Atuamos em todo o Brasil: {i}indústrias, {l}centros logísticos, {c}shoppings e supermercados, prédios de vários andares, {a}armazéns agrícolas, {v}passarelas, viadutos e pontes, {au}e obras especiais, como a cobertura do Auditório Araújo Vianna, em Porto Alegre."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/gestamp-taubate.jpg",
+          "legenda": "Gestamp · Taubaté/SP"
+        }
+      ],
+      "titulo": "O trabalho da montagem",
+      "itens": [
+        {
+          "m": "r",
+          "texto": "Receber e conferir as peças"
+        },
+        {
+          "m": "i",
+          "texto": "Içar e posicionar"
+        },
+        {
+          "m": "a",
+          "texto": "Alinhar, parafusar e soldar"
+        },
+        {
+          "m": "l",
+          "texto": "Inspecionar e liberar a etapa"
+        }
+      ],
+      "narracao": "Na obra, o trabalho da montagem é {r}receber as peças e conferir, {i}içar e posicionar, {a}alinhar, parafusar e soldar, {l}até a estrutura estar inspecionada e pronta para a próxima etapa."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Quais são as três empresas do Grupo Palla?",
+      "resposta": "Aço · Alumínio · Montagem",
+      "conta": "Palla Soluções em Aço, Palla Soluções em Alumínio e Palla Construções e Montagem",
+      "narracao": "Sua vez: quais são as três empresas do Grupo Palla? {pensa}[[pausa:3]] {resp}Palla Soluções em Aço, Palla Soluções em Alumínio, e Palla Construções e Montagem."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Grupo Palla: 37 anos, três empresas",
+          "chave": "c1"
+        },
+        {
+          "texto": "Do projeto à montagem, com qualidade",
+          "chave": "c2"
+        },
+        {
+          "texto": "Cada estrutura depende de cada pessoa da equipe",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Nenhuma obra vale mais do que a sua vida.",
+      "narracao": "Para levar para a obra: {c1}o Grupo Palla tem trinta e sete anos e três empresas. {c2}Cuidamos da obra do projeto à montagem, com qualidade. {c3}E cada estrutura que entregamos depende do trabalho bem feito de cada pessoa da equipe. {fim}Por isso, lembre sempre: nenhuma obra vale mais do que a sua vida."
+    }
+  ]
+}

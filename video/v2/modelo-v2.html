@@ -75,6 +75,23 @@ svg text { font-family: "IBM Plex Sans"; }
 .ck ul { list-style: none; margin-top: 24px; display: grid; gap: 14px; }
 .ck li { display: flex; align-items: center; gap: 22px; font-size: 36px; background: #fff; border: 1px solid var(--linha); border-radius: 10px; padding: 12px 24px; }
 .ck li .ok { flex: none; width: 52px; height: 52px; border-radius: 50%; background: var(--verde); color: #fff; display: grid; place-items: center; font: 700 32px "Chakra Petch"; }
+/* foto (vídeos institucionais): imagens reais da empresa com zoom lento, troca nas marcas da narração */
+.ft-fotos { position: absolute; inset: 0; background: #11152E; }
+.ft-fotos img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; will-change: transform, opacity; }
+.ft-veu { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,18,44,.88) 0, rgba(14,18,44,.62) 38%, rgba(14,18,44,0) 66%); }
+.ft-veu.baixo { background: linear-gradient(0deg, rgba(14,18,44,.85) 0, rgba(14,18,44,.35) 32%, rgba(14,18,44,0) 52%); }
+.ft-topo { position: absolute; left: 48px; right: 48px; top: 28px; display: flex; justify-content: space-between; align-items: center; }
+.ft-topo .eyebrow { font: 600 22px "IBM Plex Sans"; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--vermelho); padding: 6px 14px; border-radius: 4px; }
+.ft-topo .logo { background: #fff; border-radius: 8px; padding: 8px 14px; } .ft-topo .logo img { height: 34px; display: block; }
+.ft-txt { position: absolute; left: 64px; top: 150px; width: 640px; color: #fff; }
+.ft-txt .cap { font: 600 24px "IBM Plex Sans"; letter-spacing: .1em; text-transform: uppercase; color: #F2A0A8; }
+.ft-txt h2 { font-size: 66px; line-height: 1.02; margin-top: 12px; text-shadow: 0 2px 18px rgba(0,0,0,.35); }
+.ft-txt .linha { height: 8px; width: 160px; background: var(--vermelho); margin-top: 22px; }
+.ft-txt .itens { margin-top: 26px; display: grid; gap: 12px; }
+.ft-txt .it { font-size: 30px; line-height: 1.22; padding: 10px 18px; background: rgba(255,255,255,.12); border-left: 6px solid var(--vermelho); border-radius: 6px; backdrop-filter: blur(2px); }
+.ft-txt .it.ativo { background: rgba(255,255,255,.24); }
+.ft-leg { position: absolute; right: 40px; bottom: 30px; font: 600 24px "IBM Plex Sans"; color: #fff; background: rgba(14,18,44,.78); padding: 8px 16px; border-radius: 6px; border-left: 5px solid var(--vermelho); }
+.ft-fonte { position: absolute; left: 48px; bottom: 24px; font-size: 18px; color: rgba(255,255,255,.7); }
 .ck .rod { margin-top: 22px; display: inline-block; background: var(--vermelho); color: #fff; font: 700 38px "Chakra Petch"; padding: 12px 26px; border-radius: 8px; }
 </style>
 </head>
@@ -296,7 +313,7 @@ const CENAS = {
       <svg width="130" height="130" viewBox="0 0 130 130" data-k="relogio"><circle cx="65" cy="65" r="54" stroke="rgba(255,255,255,.18)" stroke-width="12" fill="none"/>
       <circle data-k="anel" cx="65" cy="65" r="54" stroke="#F2A0A8" stroke-width="12" fill="none" stroke-linecap="round" transform="rotate(-90 65 65)" stroke-dasharray="339.3"/>
       <text data-k="seg" x="65" y="80" text-anchor="middle" font-family="Chakra Petch" font-weight="700" font-size="44" fill="#fff"></text></svg>
-      <div class="resp" data-s="2"><b${c.resposta.length > 12 ? ' style="font-size:54px"' : ""}>${c.resposta}</b><span>${c.conta}</span></div></div></div>`,
+      <div class="resp" data-s="2"${c.resposta.length > 18 ? ' style="flex-direction:column;gap:8px"' : ""}><b${c.resposta.length > 12 ? ' style="font-size:54px;white-space:nowrap"' : ""}>${c.resposta}</b><span>${c.conta}</span></div></div></div>`,
     quadro(raiz, t, c, m) {
       surge(raiz.querySelector('[data-s="1"]'), t, .1);
       const dur = m.resp - m.pensa, x = clamp((t - m.pensa) / dur);
@@ -342,6 +359,34 @@ CENAS.ilustra = {
     surge(raiz.querySelector('[data-s="t"]'), t, .1);
     raiz.querySelectorAll(".it").forEach((el) => surge(el, t, (m[el.dataset.m] ?? 0) + .3));
     DESENHOS[c.desenho].quadro(raiz, t, m, c, Q(raiz));
+  },
+};
+// Foto: c.fotos = [{ src, m?, legenda? }] (a primeira entra no início; as outras na marca m), c.titulo, c.cap, c.itens [{m, texto}]
+CENAS.foto = {
+  html: (c, meta) => `<div class="ft-fotos">${c.fotos.map((f, i) => `<img src="${f.src}" data-i="${i}">`).join("")}</div>
+    ${c.titulo || c.itens ? `<div class="ft-veu ${c.layout === "baixo" ? "baixo" : ""}"></div>` : ""}
+    ${c.limpo ? "" : `<div class="ft-topo"><span class="eyebrow">${meta.eyebrow ?? ""}</span><span class="logo"><img src="${LOGO}"></span></div>`}
+    ${c.titulo || c.itens ? `<div class="ft-txt"${c.layout === "baixo" ? ' style="top:auto;bottom:84px;width:1100px"' : ""}>${c.cap ? `<div class="cap" data-s="c">${c.cap}</div>` : ""}${c.titulo ? `<h2 data-s="t">${c.titulo}</h2><div class="linha" data-s="l"></div>` : ""}
+      <div class="itens">${(c.itens ?? []).map((it) => `<div class="it" data-m="${it.m}">${it.texto}</div>`).join("")}</div></div>` : ""}
+    <div class="ft-leg" data-k="leg" style="opacity:0"></div>
+    ${c.limpo ? "" : `<div class="ft-fonte">${c.fonte ?? "Foto: acervo Grupo Palla"}</div>`}`,
+  quadro(raiz, t, c, m) {
+    const ini = c.fotos.map((f, i) => (i === 0 ? -1 : (m[f.m] ?? 0) - .3));
+    const imgs = raiz.querySelectorAll(".ft-fotos img");
+    let atual = 0;
+    imgs.forEach((im, i) => {
+      const a = prog(t, ini[i], .7), fim = i + 1 < ini.length ? ini[i + 1] : 1e9;
+      if (t >= ini[i]) atual = i;
+      im.style.opacity = i === 0 ? 1 : a;
+      const vida = Math.max(0, t - Math.max(0, ini[i]));
+      const dir = c.fotos[i].zoom === "sai" ? -1 : 1;
+      im.style.transform = `scale(${1.04 + dir * .045 * Math.min(1, vida / 12)}) translateX(${(i % 2 ? -1 : 1) * Math.min(1, vida / 12) * 10}px)`;
+      im.style.display = t > fim + 1 ? "none" : "block";
+    });
+    ["c", "t", "l"].forEach((k, i) => surge(raiz.querySelector(`[data-s="${k}"]`), t, .15 + i * .25));
+    raiz.querySelectorAll(".ft-txt .it").forEach((el) => { surge(el, t, (m[el.dataset.m] ?? 0) + .1); });
+    const leg = raiz.querySelector('[data-k="leg"]'), txt = c.fotos[atual].legenda;
+    if (txt) { if (leg.textContent !== txt) leg.textContent = txt; leg.style.opacity = prog(t, Math.max(.3, ini[atual] + .5), .5); } else leg.style.opacity = 0;
   },
 };
 CENAS.contaG = {

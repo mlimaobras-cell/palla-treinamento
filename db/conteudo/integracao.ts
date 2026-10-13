@@ -20,7 +20,11 @@ export const capitulosIntegracao: CapituloSeed[] = [
     aulas: [
       {
         titulo: "Quem somos: Grupo Palla e Palla Construções",
-        duracaoMin: 6,
+        duracaoMin: 3,
+        videoUrl: "/videos/v2/INT-1-quem-somos.mp4",
+        legendaUrl: "/videos/v2/INT-1-quem-somos.vtt",
+        posterUrl: "/videos/v2/INT-1-quem-somos.jpg",
+        duracaoSeg: 137,
         roteiro: `CENA 1 — Abertura: marca do Grupo Palla, "37 anos, 1988–2026".
 CENA 2 — As três empresas do grupo: Palla Soluções em Aço, Palla Soluções em Alumínio e Palla Construções e Montagem.
 CENA 3 — Do projeto à montagem: cálculo, projeto, fabricação, pintura, transporte e montagem com supervisão e técnico de segurança.
@@ -51,7 +55,7 @@ O que o grupo entrega:
 
 Segmentos atendidos: indústria; prédios de múltiplos andares; centros logísticos e de distribuição; comércio (supermercados e shopping centers); torres de processo; armazéns agrícolas; passarelas, viadutos e pontes.
 
-Algumas obras de referência: ampliação ArcelorMittal Gonvarri (Hortolândia/SP), ampliações Gestamp (Sorocaba/SP e Taubaté/SP), Ardagh (Jacareí/SP), ACG do Brasil (Pouso Alegre/MG), Shopping Mooca e Shopping Main Plaza (São Paulo/SP), Fundação Zerrenner, Auditório Araújo Vianna (Porto Alegre/RS) e a ponte do Rio Paranaíba (MG).
+Algumas obras de referência: ampliação ArcelorMittal Gonvarri (Hortolândia/SP), ampliações Gestamp (Sorocaba/SP e Taubaté/SP), Ardagh (Jacareí/SP), ACG do Brasil (Pouso Alegre/MG), Cargolift Hub II (Curitiba/PR), Shopping Mooca, Shopping Main Plaza e W Torre Iguatemi (São Paulo/SP), Fundação Zerrenner, graneleiro em Santa Helena/GO, viaduto em Porto Alegre/RS, passarela em Cachoeira do Sul/RS, Auditório Araújo Vianna (Porto Alegre/RS) e a ponte do Rio Paranaíba (MG).
 
 O que a montagem faz no dia a dia:
 • Recebimento, conferência e armazenamento das peças na obra.

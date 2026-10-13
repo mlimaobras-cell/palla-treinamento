@@ -21,42 +21,82 @@ export const capitulosIntegracao: CapituloSeed[] = [
       {
         titulo: "Quem somos: Grupo Palla e Palla Construções",
         duracaoMin: 6,
-        roteiro: `CENA 1 (0:00–0:30) — Abertura com imagens aéreas de obras de estrutura metálica da Palla. Logotipo Palla Construções ao centro.
-CENA 2 (0:30–2:30) — Apresentador(a) da diretoria em frente a uma estrutura montada. Texto de narração, bloco 1.
-CENA 3 (2:30–4:30) — Linha do tempo animada com marcos da empresa. [A PREENCHER PELA PALLA: datas e marcos]
-CENA 4 (4:30–6:00) — Mosaico de obras e equipes. Encerramento com a frase "Aqui, segurança e qualidade andam juntas".`,
+        roteiro: `CENA 1 — Abertura: marca do Grupo Palla, "37 anos, 1988–2026".
+CENA 2 — As três empresas do grupo: Palla Soluções em Aço, Palla Soluções em Alumínio e Palla Construções e Montagem.
+CENA 3 — Do projeto à montagem: cálculo, projeto, fabricação, pintura, transporte e montagem com supervisão e técnico de segurança.
+CENA 4 — Onde atuamos: segmentos e obras de referência em vários estados.
+CENA 5 — Encerramento: "nenhuma obra vale mais do que a sua vida".
+Fonte: apresentações institucionais Palla Soluções em Aço e Palla Soluções em Alumínio (material enviado pela empresa em 12/10/2026).`,
         narracao: `Seja bem-vindo à Palla Construções, empresa do Grupo Palla.
 Você está começando a sua integração. Ela foi feita para que você chegue à obra sabendo como trabalhamos, o que esperamos de você e o que você pode esperar de nós.
-A Palla Construções atua na montagem de estruturas metálicas: recebemos as peças, conferimos, içamos, posicionamos, alinhamos, parafusamos e soldamos até a estrutura estar pronta para as próximas etapas da obra.
-[A PREENCHER PELA PALLA: história do Grupo Palla, ano de fundação, onde atua, principais obras e números oficiais.]
-O que importa agora é você saber uma coisa: cada estrutura que entregamos depende do trabalho bem feito de cada pessoa da equipe, e nenhuma obra vale mais do que a sua vida.`,
-        textoApoio: `O Grupo Palla reúne empresas ligadas à construção. A Palla Construções é a empresa do grupo responsável pela montagem de estruturas metálicas e pelos treinamentos internos das equipes que atuam nas obras.
+O Grupo Palla tem trinta e sete anos de história, desde 1988, e reúne três empresas com um só compromisso: construir o futuro.
+A Palla Soluções em Aço projeta e fabrica estruturas metálicas para grandes projetos. A Palla Soluções em Alumínio trabalha com esquadrias, fachadas em vidro e claraboias. E a Palla Construções e Montagem leva tudo isso para a obra, com soluções em construção civil e montagem industrial.
+O grupo cuida da obra do começo ao fim: cálculo estrutural, projeto, fabricação, pintura, transporte e montagem, com mão de obra, equipamentos, supervisão e técnico de segurança do trabalho.
+Atuamos em todo o Brasil: indústrias, centros logísticos, shoppings e supermercados, prédios de vários andares, armazéns agrícolas, passarelas, viadutos e pontes.
+Na obra, o trabalho da montagem é receber as peças, conferir, içar, posicionar, alinhar, parafusar e soldar até a estrutura estar pronta.
+E o que importa agora é você saber uma coisa: cada estrutura que entregamos depende do trabalho bem feito de cada pessoa da equipe, e nenhuma obra vale mais do que a sua vida.`,
+        textoApoio: `O GRUPO PALLA
+37 anos de história (1988–2026). Três empresas, um só compromisso: construir o futuro.
 
-O que a Palla Construções faz no dia a dia:
+• Palla Soluções em Aço (Palla Soluções Metálicas): estruturas metálicas de alta performance para grandes projetos. Engenharia, fabricação e montagem.
+• Palla Soluções em Alumínio: esquadrias, fachadas em pele de vidro e claraboias; atua há mais de 20 anos no ramo.
+• Palla Construções e Montagem: soluções completas em construção civil e montagem industrial.
+
+O que o grupo entrega:
+• Apoio técnico para desenvolver soluções construtivas.
+• Cálculo estrutural e projetos.
+• Fabricação, fornecimento e transporte de estrutura metálica, telhas, painéis térmicos, isolamento termoacústico, linhas de vida, ventilação natural e iluminação zenital.
+• Parque fabril com linhas de pintura líquida e pintura a pó.
+• Montagem com mão de obra e equipamentos próprios, com supervisão e técnico de segurança do trabalho.
+
+Segmentos atendidos: indústria; prédios de múltiplos andares; centros logísticos e de distribuição; comércio (supermercados e shopping centers); torres de processo; armazéns agrícolas; passarelas, viadutos e pontes.
+
+Algumas obras de referência: ampliação ArcelorMittal Gonvarri (Hortolândia/SP), ampliações Gestamp (Sorocaba/SP e Taubaté/SP), Ardagh (Jacareí/SP), ACG do Brasil (Pouso Alegre/MG), Shopping Mooca e Shopping Main Plaza (São Paulo/SP), Fundação Zerrenner, Auditório Araújo Vianna (Porto Alegre/RS) e a ponte do Rio Paranaíba (MG).
+
+O que a montagem faz no dia a dia:
 • Recebimento, conferência e armazenamento das peças na obra.
 • Planejamento e sequência de montagem.
 • Içamento e posicionamento de pilares, vigas e contraventamentos.
 • Alinhamento, nivelamento, ligações parafusadas e soldadas.
 • Inspeção e liberação das etapas para o cliente.
 
-[A PREENCHER PELA PALLA: histórico, empresas do grupo, áreas de atuação, obras de referência.]`,
-        exemplo: "Numa obra de galpão, a Palla recebe as peças da fábrica, monta pilares e vigas na sequência do projeto e entrega a estrutura alinhada e com as ligações inspecionadas para a equipe de cobertura.",
-        perguntaFixacao: "Qual é a atividade principal da Palla Construções dentro de uma obra?",
-        resumo: "A Palla Construções, do Grupo Palla, monta estruturas metálicas. Qualidade e segurança fazem parte do mesmo trabalho.",
+Fonte: apresentações institucionais do Grupo Palla (2026).
+[VALIDAR PELA PALLA: a apresentação usa "Palla Construções e Montagem"; a plataforma usa "Palla Construções". Confirmar a razão social que aparece nos certificados.]`,
+        exemplo: "Numa obra de galpão, a fábrica da Palla entrega as peças pintadas e identificadas; a equipe de montagem recebe, confere, monta pilares e vigas na sequência do projeto e entrega a estrutura alinhada e com as ligações inspecionadas para a equipe de cobertura.",
+        perguntaFixacao: "Quais são as três empresas do Grupo Palla?",
+        resumo: "O Grupo Palla tem 37 anos e três empresas: Soluções em Aço, Soluções em Alumínio e Construções e Montagem. Qualidade e segurança fazem parte do mesmo trabalho.",
       },
       {
         titulo: "Missão, visão, valores e organização da empresa",
         duracaoMin: 6,
-        roteiro: `CENA 1 — Cartelas com Missão, Visão e Valores (texto oficial).
-CENA 2 — Organograma simplificado animado: diretoria, engenharia, segurança do trabalho, RH, suprimentos, equipes de obra.
-CENA 3 — Foco na equipe de obra: gerente de montagem, supervisor, encarregado, montadores, soldadores, ajudantes, sinaleiro e operadores.`,
-        narracao: `Toda empresa precisa saber para onde vai. Na Palla, isso está na nossa missão, na nossa visão e nos nossos valores.
-[A PREENCHER PELA PALLA: texto oficial da missão, da visão e dos valores.]
+        roteiro: `CENA 1 — Cartelas com Missão, Visão e Valores (texto oficial do Grupo Palla).
+CENA 2 — Diretoria do grupo.
+CENA 3 — Foco na equipe de obra: gerente de montagem, supervisor, encarregado, montadores, soldadores, ajudantes, sinaleiro e operadores, com Segurança do Trabalho e RH.`,
+        narracao: `Toda empresa precisa saber para onde vai. No Grupo Palla, isso está na missão, na visão e nos valores.
+A nossa missão é buscar constantemente a solução diferenciada dos nossos produtos, com qualidade e competitividade.
+A nossa visão é atender as expectativas dos clientes, buscando o avanço dos colaboradores, em parceria com os fornecedores, garantindo a satisfação dos clientes e respeitando o meio ambiente e a comunidade.
+E os nossos valores são cinco: ética e transparência nos relacionamentos; responsabilidade em cada decisão; crescimento e valorização dos colaboradores; foco no resultado; e melhoria contínua.
+Perceba que valorizar quem trabalha aqui está na visão e nos valores. Isso inclui você.
 Agora, veja como a empresa se organiza. Na obra, você vai trabalhar com uma equipe liderada pelo encarregado de montagem, que responde ao supervisor e à gerência de montagem. A Segurança do Trabalho acompanha todas as frentes, e o RH cuida dos seus documentos e do seu cadastro.
 Saber quem é quem é importante: é assim que você sabe a quem pedir orientação, a quem comunicar um problema e quem pode liberar uma tarefa.`,
-        textoApoio: `MISSÃO: [A PREENCHER PELA PALLA]
-VISÃO: [A PREENCHER PELA PALLA]
-VALORES: [A PREENCHER PELA PALLA]
+        textoApoio: `MISSÃO
+Buscar constantemente a solução diferenciada de seus produtos com qualidade e competitividade.
+
+VISÃO
+Atender as expectativas dos clientes, buscando o avanço de seus colaboradores, em parceria com os fornecedores, garantindo a satisfação dos clientes, respeitando o meio ambiente e a comunidade.
+
+VALORES
+• Ética e transparência nos relacionamentos.
+• Responsabilidade em cada decisão.
+• Crescimento e valorização dos colaboradores.
+• Foco no resultado, buscando o desenvolvimento da empresa.
+• Melhoria contínua nos processos internos para alcançar a satisfação dos clientes.
+
+Diretoria do Grupo Palla:
+• Jaimir J. Palla — Presidente Fundador.
+• Antoninho Ferro — Diretor Executivo.
+• Joubert Morais — Diretor Comercial.
+• Edimar Palla — Diretor de Orçamentos.
 
 Organização típica de uma frente de montagem:
 • Gerente de montagem: planeja e responde pelas obras.
@@ -67,9 +107,10 @@ Organização típica de uma frente de montagem:
 • Segurança do Trabalho: orienta, inspeciona e pode paralisar tarefas inseguras.
 • RH: cadastro, documentos, benefícios e dúvidas trabalhistas.
 
-[A PREENCHER PELA PALLA: organograma oficial e contatos.]`,
-        perguntaFixacao: "Na sua frente de trabalho, quem distribui as tarefas do dia e conduz o DDS?",
-        resumo: "Conheça a missão, a visão e os valores da Palla e saiba quem é quem: encarregado, supervisor, gerência, Segurança do Trabalho e RH.",
+Fonte: apresentação institucional do Grupo Palla (2026).
+[A PREENCHER PELA PALLA: organograma da Palla Construções e contatos de RH e Segurança do Trabalho.]`,
+        perguntaFixacao: "Cite dois valores do Grupo Palla.",
+        resumo: "Missão: soluções diferenciadas com qualidade e competitividade. Valores: ética, responsabilidade, valorização das pessoas, foco no resultado e melhoria contínua. Na obra: encarregado, supervisor, gerência, SST e RH.",
       },
     ],
   },
@@ -122,6 +163,16 @@ Deveres:
 • Comunicar perda, dano ou alteração que torne o EPI impróprio.
 • Submeter-se aos exames médicos previstos.
 • Comunicar imediatamente incidentes e condições inseguras.
+
+Viagens a serviço e reembolso de despesas (Política de Viagens e Reembolso de Despesas, versão 1.0, emitida em 15/09/2026, aprovada pela Diretoria):
+• Nenhuma viagem sem autorização prévia da empresa. Passagens, hospedagem e aluguel de veículo são pedidos ao RH por e-mail, com a aprovação do responsável.
+• Hospedagem: diária limitada a R$ 150,00, a até 20 km do destino. O que passar do limite fica por conta do colaborador.
+• Alimentação: até R$ 20,00 no café, R$ 50,00 no almoço e R$ 50,00 no jantar, no máximo R$ 120,00 por dia.
+• Veículo próprio: só em extrema necessidade, com autorização prévia; R$ 1,05 por km, comprovado por GPS ou Google Maps.
+• Despesas pessoais (cigarro, bebida alcoólica, doces, barbeiro, remédios e outras) não são reembolsadas.
+• Prestação de contas em até 3 dias úteis após o retorno, com nota fiscal, cupom fiscal ou recibo legível. O reembolso sai em até 5 dias úteis.
+• Novo adiantamento só depois de prestar contas do anterior. Saldo a favor da empresa é devolvido em até 5 dias úteis.
+[VALIDAR PELA PALLA: a política foi emitida pela Palla Soluções Metálicas; confirmar se vale igual para os colaboradores da Palla Construções e se os valores continuam vigentes.]
 
 Direitos trabalhistas, benefícios e jornada: [A PREENCHER PELA PALLA/RH].`,
         perguntaFixacao: "O tempo que você passa em treinamento obrigatório conta como tempo de trabalho?",

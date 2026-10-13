@@ -12,7 +12,7 @@ import { avaliarColaborador, SEMAFORO_TEXTO } from "@/lib/servicos/conformidade"
 import { matrizEfetiva } from "@/lib/servicos/cadastro";
 import {
   alterarFuncaoObraAcao, aprovarLiberacaoAcao, concederAutorizacaoAcao, conferirDocumentoAcao, enviarDocumentoEquipeAcao,
-  gerarLinkSenhaAcao, liberarReavaliacaoAcao, matricularCondicionalAcao, reaplicarMatrizAcao, registrarAfastamentoAcao, revogarAutorizacaoAcao, revogarLiberacaoAcao,
+  gerarLinkSenhaAcao, liberarReavaliacaoAcao, matricularAvulsoAcao, matricularCondicionalAcao, reaplicarMatrizAcao, registrarAfastamentoAcao, revogarAutorizacaoAcao, revogarLiberacaoAcao,
 } from "../../acoes";
 
 export default async function Colaborador({ params }: { params: Promise<{ id: string }> }) {
@@ -23,16 +23,18 @@ export default async function Colaborador({ params }: { params: Promise<{ id: st
   const { colaborador: c, itens, semaforo, liberacaoAtiva } = await avaliarColaborador(id);
   if (a.perfil === "GESTOR_OBRA" && c.obra?.gestorId !== a.id) notFound();
   const usuario = await db.query.usuarios.findFirst({ where: eq(schema.usuarios.colaboradorId, id) });
-  const [funcao, funcoes, obras, docs, autorizacoes, matriz] = await Promise.all([
+  const [funcao, funcoes, obras, docs, autorizacoes, matriz, cursos] = await Promise.all([
     db.query.funcoes.findFirst({ where: eq(schema.funcoes.id, c.funcaoId) }),
     db.query.funcoes.findMany({ orderBy: (f, { asc }) => asc(f.ordem) }),
     db.query.obras.findMany(),
     db.query.documentos.findMany({ where: eq(schema.documentos.colaboradorId, id), orderBy: desc(schema.documentos.enviadoEm), with: { conferidoPor: true } }),
     db.query.autorizacoes.findMany({ where: eq(schema.autorizacoes.colaboradorId, id), with: { concedidaPor: true } }),
     matrizEfetiva(c.funcaoId, c.obraId),
+    db.query.cursos.findMany({ where: eq(schema.cursos.ativo, true), orderBy: (k, { asc }) => asc(k.ordem) }),
   ]);
   const mats = c.matriculas.filter((m) => m.status !== "CANCELADA").sort((x, y) => x.curso.ordem - y.curso.ordem);
   const condicionais = matriz.filter((l) => l.classificacao === "CONDICIONAL" && !mats.some((m) => m.cursoId === l.cursoId));
+  const avulsos = cursos.filter((k) => !mats.some((m) => m.cursoId === k.id) && !matriz.some((l) => l.cursoId === k.id));
   const atividades = [...new Set(mats.map((m) => m.curso.exigeAutorizacao).filter(Boolean) as string[])];
   const aptidoes = [...new Set(mats.map((m) => m.curso.exigeAptidaoAso).filter(Boolean) as string[])];
 
@@ -105,6 +107,20 @@ export default async function Colaborador({ params }: { params: Promise<{ id: st
                 <Formulario acao={matricularCondicionalAcao.bind(null, id)} rotulo="Incluir na trilha" className="mt-3 space-y-3">
                   <Campo rotulo="Curso"><Selecao name="cursoId">{condicionais.map((l) => <option key={l.cursoId} value={l.cursoId}>{l.curso.codigo} · {l.curso.titulo}</option>)}</Selecao></Campo>
                   <Campo rotulo="Atividade que torna o curso aplicável" ajuda="Ex.: atuará em montagem dentro de reservatório (espaço confinado)."><Entrada name="justificativa" required /></Campo>
+                </Formulario>
+              </details>
+            )}
+            {avulsos.length > 0 && pode(a, "matriz.editar") && (
+              <details className="mt-3 rounded-lg border border-linha p-3 text-sm">
+                <summary className="cursor-pointer font-semibold text-palla-azul">Incluir outro curso, fora da trilha da função ({avulsos.length} disponíveis)</summary>
+                <p className="mt-2 text-xs text-tinta-suave">Entra como <strong>recomendado</strong>: o colaborador faz o curso e tudo fica registrado, mas ele não conta para a liberação de acesso à obra.</p>
+                <Formulario acao={matricularAvulsoAcao.bind(null, id)} rotulo="Incluir na trilha" className="mt-3 space-y-3">
+                  <fieldset className="max-h-64 space-y-1.5 overflow-y-auto rounded-md border border-linha p-2">
+                    {avulsos.map((k) => (
+                      <label key={k.id} className="flex items-start gap-2"><input type="checkbox" name="cursoId" value={k.id} className="mt-1" /><span><span className="font-mono text-xs text-tinta-suave">{k.codigo}</span> {k.titulo}</span></label>
+                    ))}
+                  </fieldset>
+                  <Campo rotulo="Motivo" ajuda="Ex.: acompanhar o conteúdo do mini curso da equipe de montagem."><Entrada name="motivo" required /></Campo>
                 </Formulario>
               </details>
             )}

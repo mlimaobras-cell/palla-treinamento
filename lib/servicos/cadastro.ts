@@ -57,6 +57,20 @@ export async function matricularCondicional(ator: Ator, colaboradorId: string, c
   return m;
 }
 
+/**
+ * Inclui um curso que não está na matriz da função (ex.: o mini curso para um engenheiro acompanhar).
+ * Entra como RECOMENDADO: aparece para o colaborador e fica registrado, mas não conta para a liberação de acesso.
+ */
+export async function matricularAvulso(ator: Ator, colaboradorId: string, cursoId: string, motivo: string) {
+  exigir(ator, "matriz.editar");
+  if (!motivo.trim()) throw new Error("Informe o motivo da inclusão.");
+  const ja = await db.query.matriculas.findFirst({ where: (m, { and, eq, ne }) => and(eq(m.colaboradorId, colaboradorId), eq(m.cursoId, cursoId), ne(m.status, "CANCELADA")) });
+  if (ja) throw new Error("O colaborador já está matriculado neste curso.");
+  const [m] = await db.insert(schema.matriculas).values({ colaboradorId, cursoId, classificacao: "RECOMENDADO", observacao: `Incluído pela equipe: ${motivo}` }).returning();
+  await auditar(ator, "matricula.avulsa", "matricula", m.id, { motivo });
+  return m;
+}
+
 export async function criarConvite(
   ator: Ator,
   dados: { obraId: string; funcaoId: string; empresaId: string; nomeSugerido?: string; validadeDias?: number },

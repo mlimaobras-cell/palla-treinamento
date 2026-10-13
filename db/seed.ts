@@ -55,8 +55,21 @@ async function carregarConteudo(cursoId: string, capitulos: CapituloSeed[], ques
       where: eq(schema.capitulos.cursoId, cursoId), orderBy: (c, { asc }) => asc(c.ordem),
       with: { aulas: { orderBy: (a, { asc }) => asc(a.ordem) } },
     });
-    if (assinatura(atuais.flatMap((c) => c.aulas)) === assinatura(capitulos.flatMap((c) => c.aulas))) return;
+    const aulasAtuais = atuais.flatMap((c) => c.aulas), aulasFonte = capitulos.flatMap((c) => c.aulas);
     const matriculas = await db.query.matriculas.findFirst({ where: eq(schema.matriculas.cursoId, cursoId) });
+    // Mesma estrutura (mesmas aulas, na mesma ordem): atualiza textos e vídeos no lugar, sem tocar no progresso de ninguém.
+    if (matriculas && aulasAtuais.length === aulasFonte.length && aulasAtuais.every((a, i) => a.titulo === aulasFonte[i].titulo)) {
+      let n = 0;
+      for (const [i, a] of aulasAtuais.entries()) {
+        const f = aulasFonte[i];
+        const novo = { roteiro: f.roteiro, narracao: f.narracao, textoApoio: f.textoApoio, exemplo: f.exemplo ?? null, perguntaFixacao: f.perguntaFixacao ?? null,
+          resumo: f.resumo, duracaoMin: f.duracaoMin, videoUrl: f.videoUrl ?? null, legendaUrl: f.legendaUrl ?? null, duracaoSeg: f.duracaoSeg ?? null, posterUrl: f.posterUrl ?? null };
+        if ((Object.keys(novo) as (keyof typeof novo)[]).some((k) => (a[k] ?? null) !== novo[k])) { await db.update(schema.aulas).set(novo).where(eq(schema.aulas.id, a.id)); n++; }
+      }
+      if (n) console.log(`Curso ${cursoId}: ${n} aula(s) atualizada(s) no lugar (há matrículas; progresso mantido).`);
+      return;
+    }
+    if (assinatura(aulasAtuais) === assinatura(aulasFonte)) return;
     if (matriculas) {
       console.warn(`Curso ${cursoId}: conteúdo novo na fonte, mas há matrículas. Não recarregado (use SEED_RECARREGAR com cuidado).`);
       return;
@@ -124,7 +137,7 @@ async function main() {
   // Cursos e conteúdos
   const ids = new Map<string, string>();
   for (const [i, c] of cursosSeed.entries()) ids.set(c.codigo, await upsertCurso(c, i, rtId));
-  await carregarConteudo(ids.get("INT-01")!, capitulosIntegracao, questoesIntegracao);
+  await carregarConteudo(ids.get("INT-01")!, capitulosIntegracao, questoesIntegracao, true);
   await carregarConteudo(ids.get("PAL-52")!, capitulosMontagemSegura, questoesMontagemSegura);
   // NR-35 é presencial (35.4.5): as aulas abaixo são só material de apoio e o banco é da prova escrita presencial.
   await carregarConteudo(ids.get("NR35-ALT")!, capitulosNr35, questoesNr35, true);

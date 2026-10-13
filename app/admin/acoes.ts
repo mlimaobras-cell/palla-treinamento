@@ -6,7 +6,7 @@ import { auditar } from "@/lib/auditoria";
 import { dataOuNull, executar, txt } from "@/lib/acao";
 import { exigir } from "@/lib/permissoes";
 import { exigirEquipe } from "@/lib/sessao";
-import { alterarFuncaoObra, criarConvite, matricularCondicional, matricularPelaMatriz } from "@/lib/servicos/cadastro";
+import { alterarFuncaoObra, criarConvite, matricularAvulso, matricularCondicional, matricularPelaMatriz } from "@/lib/servicos/cadastro";
 import { liberarReavaliacao } from "@/lib/servicos/aprendizagem";
 import { registrarPratica } from "@/lib/servicos/praticas";
 import { gerarLinkNovaSenha } from "@/lib/servicos/senha";
@@ -103,6 +103,16 @@ export async function matricularCondicionalAcao(colaboradorId: string, _: Estado
   return executar(async () => {
     await matricularCondicional(a, colaboradorId, txt(f, "cursoId"), txt(f, "justificativa"));
     return "Curso condicional incluído na trilha.";
+  }, [`/admin/colaboradores/${colaboradorId}`]);
+}
+
+export async function matricularAvulsoAcao(colaboradorId: string, _: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirEquipe("matriz.editar");
+  const cursoIds = f.getAll("cursoId").map(String).filter(Boolean);
+  return executar(async () => {
+    if (!cursoIds.length) throw new Error("Escolha ao menos um curso.");
+    for (const c of cursoIds) await matricularAvulso(a, colaboradorId, c, txt(f, "motivo"));
+    return `${cursoIds.length} curso(s) incluído(s) como recomendado(s).`;
   }, [`/admin/colaboradores/${colaboradorId}`]);
 }
 

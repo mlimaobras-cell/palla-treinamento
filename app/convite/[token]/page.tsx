@@ -5,6 +5,7 @@ import { Formulario } from "@/components/formulario";
 import { Aviso, Campo, Entrada } from "@/components/ui";
 import { buscarConviteValido } from "@/lib/servicos/cadastro";
 import { cadastrar } from "./acoes";
+import { CampoSenha } from "@/components/campo-senha";
 
 export const metadata = { title: "Cadastro" };
 
@@ -46,7 +47,7 @@ export default async function Convite({ params }: { params: Promise<{ token: str
                   <Campo rotulo="Celular com DDD"><Entrada name="telefone" type="tel" inputMode="tel" autoComplete="tel" required /></Campo>
                   <Campo rotulo="E-mail"><Entrada name="email" type="email" autoComplete="email" required /></Campo>
                 </div>
-                <Campo rotulo="Crie uma senha" ajuda="Mínimo de 8 caracteres."><Entrada name="senha" type="password" autoComplete="new-password" minLength={8} required /></Campo>
+                <Campo rotulo="Crie uma senha" ajuda="Mínimo de 8 caracteres."><CampoSenha name="senha" autoComplete="new-password" minLength={8} required /></Campo>
                 <label className="flex gap-3 rounded-lg bg-palla-azul-claro p-3 text-sm">
                   <input type="checkbox" name="consentimento" className="mt-1 h-4 w-4" required />
                   <span>Li o <Link href="/aviso-privacidade" target="_blank" className="font-semibold text-palla-azul underline">aviso de privacidade</Link> e estou ciente de como meus dados pessoais serão tratados para fins de integração, treinamento e controle de acesso às obras.</span>

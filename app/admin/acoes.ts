@@ -42,7 +42,21 @@ export async function criarConviteAcao(_: Estado, f: FormData): Promise<Estado> 
       obraId: txt(f, "obraId"), funcaoId: txt(f, "funcaoId"), empresaId: txt(f, "empresaId"),
       nomeSugerido: txt(f, "nomeSugerido"), validadeDias: Number(txt(f, "validadeDias") || 15),
     });
-    return `Link gerado: ${(process.env.APP_URL ?? "").replace(/\/$/, "")}/convite/${c.token}`;
+    const nome = txt(f, "nomeSugerido").trim().toLowerCase();
+    const mesmoNome = nome ? (await db.query.colaboradores.findMany({ columns: { nome: true } })).some((x) => x.nome.trim().toLowerCase() === nome) : false;
+    const aviso = mesmoNome ? "Atenção: já existe colaborador cadastrado com este nome. Se a pessoa só esqueceu a senha, use \"Link de nova senha\" nesta página: o link de cadastro vai recusar o CPF já cadastrado. " : "";
+    return `${aviso}Link gerado: ${(process.env.APP_URL ?? "").replace(/\/$/, "")}/convite/${c.token}`;
+  }, ["/admin/obras"]);
+}
+
+/** Link de nova senha a partir da tela de obras e convites, para quem já tem cadastro. */
+export async function linkSenhaPorColaboradorAcao(_: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirEquipe("colaborador.ver");
+  return executar(async () => {
+    const u = await db.query.usuarios.findFirst({ where: eq(schema.usuarios.colaboradorId, txt(f, "colaboradorId")) });
+    if (!u) throw new Error("Escolha um colaborador que já tenha acesso à plataforma.");
+    const r = await gerarLinkNovaSenha(a, u.id);
+    return `Link de nova senha para ${r.nome} (entra com ${r.email}; vale 48 h, uma vez): ${r.url}`;
   }, ["/admin/obras"]);
 }
 

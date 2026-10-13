@@ -4,6 +4,7 @@ import { Formulario } from "@/components/formulario";
 import { Aviso, Campo, Entrada } from "@/components/ui";
 import { buscarRedefinicao, SENHA_MINIMA } from "@/lib/servicos/senha";
 import { redefinir } from "./acoes";
+import { CampoSenha } from "@/components/campo-senha";
 
 export const metadata = { title: "Criar nova senha" };
 
@@ -23,8 +24,8 @@ export default async function RedefinirSenha({ params }: { params: Promise<{ tok
             <p className="mt-2 text-sm text-tinta-suave">Crie uma nova senha para entrar com o e-mail <strong>{r.usuario.email}</strong>.</p>
             <div className="mt-6 rounded-xl border border-linha bg-white p-5">
               <Formulario acao={redefinir.bind(null, token)} rotulo="Salvar e entrar">
-                <Campo rotulo="Nova senha" ajuda={`Mínimo de ${SENHA_MINIMA} caracteres.`}><Entrada name="nova" type="password" autoComplete="new-password" minLength={SENHA_MINIMA} required /></Campo>
-                <Campo rotulo="Repita a nova senha"><Entrada name="confirma" type="password" autoComplete="new-password" minLength={SENHA_MINIMA} required /></Campo>
+                <Campo rotulo="Nova senha" ajuda={`Mínimo de ${SENHA_MINIMA} caracteres.`}><CampoSenha name="nova" autoComplete="new-password" minLength={SENHA_MINIMA} required /></Campo>
+                <Campo rotulo="Repita a nova senha"><CampoSenha name="confirma" autoComplete="new-password" minLength={SENHA_MINIMA} required /></Campo>
               </Formulario>
             </div>
           </>

@@ -3,6 +3,7 @@ import { Formulario } from "@/components/formulario";
 import { Marca } from "@/components/marca";
 import { Campo, Entrada } from "@/components/ui";
 import { entrar } from "./acoes";
+import { CampoSenha } from "@/components/campo-senha";
 
 export const metadata = { title: "Entrar" };
 
@@ -30,7 +31,7 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
             <Formulario acao={entrar} rotulo="Entrar">
               <input type="hidden" name="voltar" value={voltar ?? ""} />
               <Campo rotulo="E-mail"><Entrada name="email" type="email" autoComplete="email" required /></Campo>
-              <Campo rotulo="Senha"><Entrada name="senha" type="password" autoComplete="current-password" required /></Campo>
+              <Campo rotulo="Senha"><CampoSenha name="senha" autoComplete="current-password" required /></Campo>
             </Formulario>
           </div>
           <p className="mt-3 text-sm"><Link className="font-medium text-palla-azul hover:underline" href="/esqueci-senha">Esqueci minha senha</Link></p>

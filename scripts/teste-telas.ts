@@ -30,7 +30,7 @@ async function main() {
   // ---- RH gera o link de cadastro pela tela
   const desk = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const p = await desk.newPage();
-  p.on("pageerror", (e) => erros.push(e.message));
+  p.on("pageerror", (e) => erros.push(`${p.url()} :: ${e.message.slice(0, 60)}`));
   await entrar(p, "rh@palla.teste");
   await p.goto(`${BASE}/admin/obras`);
   await p.fill('input[name="nomeSugerido"]', "Maria Fictícia Teste");
@@ -45,7 +45,7 @@ async function main() {
   // ---- futuro colaborador no celular
   const cel = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
   const m = await cel.newPage();
-  m.on("pageerror", (e) => erros.push(e.message));
+  m.on("pageerror", (e) => erros.push(`${m.url()} :: ${e.message.slice(0, 60)}`));
   await m.goto(link);
   await m.screenshot({ path: `${OUT}/02-cadastro-celular.png`, fullPage: true });
   if ((await m.locator('a[href="/login"]:has-text("Entrar")').count()) === 0) erros.push("Convite: falta o link Entrar para quem já tem cadastro");

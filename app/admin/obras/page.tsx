@@ -4,20 +4,23 @@ import { Formulario } from "@/components/formulario";
 import { AreaTexto, Campo, Cartao, Entrada, Selecao, Selo, Tabela, TituloPagina, Vazio } from "@/components/ui";
 import { fmtData } from "@/lib/formato";
 import { exigirEquipe } from "@/lib/sessao";
-import { criarConviteAcao, criarObraAcao } from "../acoes";
+import { criarConviteAcao, criarObraAcao, linkSenhaPorColaboradorAcao } from "../acoes";
 import { CopiarLink } from "./copiar";
 
 export const metadata = { title: "Obras e convites" };
 
 export default async function Obras() {
-  await exigirEquipe("obra.gerir");
-  const [obras, funcoes, empresas, gestores, convites] = await Promise.all([
+  const a = await exigirEquipe("obra.gerir");
+  const [obras, funcoes, empresas, gestores, convites, comAcesso] = await Promise.all([
     db.query.obras.findMany({ with: { contratante: true, gestor: true, colaboradores: true }, orderBy: (o, { asc }) => asc(o.codigo) }),
     db.query.funcoes.findMany({ orderBy: (f, { asc }) => asc(f.ordem) }),
     db.query.empresas.findMany(),
     db.query.usuarios.findMany({ where: (u, { eq }) => eq(u.perfil, "GESTOR_OBRA") }),
     db.query.convites.findMany({ with: { obra: true, funcao: true }, orderBy: desc(schema.convites.criadoEm), limit: 15 }),
+    db.query.usuarios.findMany({ where: (u, { eq, and }) => and(eq(u.perfil, "COLABORADOR"), eq(u.ativo, true)), with: { colaborador: { with: { funcao: true } } } }),
   ]);
+  const podeSenha = ["ADMIN", "RH", "SST"].includes(a.perfil);
+  const colabsComAcesso = comAcesso.filter((u) => u.colaborador).sort((x, y) => x.colaborador!.nome.localeCompare(y.colaborador!.nome, "pt-BR"));
   const base = (process.env.APP_URL ?? "").replace(/\/$/, "");
   return (
     <>
@@ -65,6 +68,16 @@ export default async function Obras() {
               <Campo rotulo="Validade do link (dias)"><Entrada name="validadeDias" type="number" min={1} max={60} defaultValue={15} /></Campo>
             </Formulario>
           </Cartao>
+          {podeSenha && (
+            <Cartao titulo="Link de nova senha (quem já tem cadastro)">
+              <p className="mb-3 text-sm text-tinta-suave">A pessoa já se cadastrou e esqueceu a senha? Não gere outro link de cadastro: o CPF já existe e ele será recusado. Gere aqui um link de nova senha e mande para ela. O histórico de aulas e avaliações não muda.</p>
+              {colabsComAcesso.length === 0 ? <Vazio>Nenhum colaborador com acesso ainda.</Vazio> : (
+                <Formulario acao={linkSenhaPorColaboradorAcao} rotulo="Gerar link de nova senha">
+                  <Campo rotulo="Colaborador"><Selecao name="colaboradorId" required>{colabsComAcesso.map((u) => <option key={u.id} value={u.colaborador!.id}>{u.colaborador!.nome} · {u.colaborador!.funcao?.nome ?? ""} · {u.email}</option>)}</Selecao></Campo>
+                </Formulario>
+              )}
+            </Cartao>
+          )}
           <Cartao titulo="Nova obra">
             <Formulario acao={criarObraAcao} rotulo="Cadastrar obra" limparAoConcluir>
               <div className="grid gap-3 sm:grid-cols-[120px_1fr]">

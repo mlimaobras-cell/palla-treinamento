@@ -5,6 +5,7 @@ import { Formulario } from "@/components/formulario";
 import { Campo, Cartao, Entrada } from "@/components/ui";
 import { obterAtor } from "@/lib/sessao";
 import { trocarSenha } from "@/app/login/acoes";
+import { CampoSenha } from "@/components/campo-senha";
 
 export const metadata = { title: "Trocar senha" };
 
@@ -18,9 +19,9 @@ export default async function TrocarSenha() {
       <Link href={voltar} className="block text-sm font-medium text-palla-azul">← Voltar</Link>
       <Cartao titulo="Trocar senha">
         <Formulario acao={trocarSenha} rotulo="Salvar nova senha" limparAoConcluir>
-          <Campo rotulo="Senha atual"><Entrada name="atual" type="password" autoComplete="current-password" required /></Campo>
-          <Campo rotulo="Nova senha" ajuda="Pelo menos 10 caracteres."><Entrada name="nova" type="password" autoComplete="new-password" minLength={10} required /></Campo>
-          <Campo rotulo="Repita a nova senha"><Entrada name="confirma" type="password" autoComplete="new-password" minLength={10} required /></Campo>
+          <Campo rotulo="Senha atual"><CampoSenha name="atual" autoComplete="current-password" required /></Campo>
+          <Campo rotulo="Nova senha" ajuda="Pelo menos 10 caracteres."><CampoSenha name="nova" autoComplete="new-password" minLength={10} required /></Campo>
+          <Campo rotulo="Repita a nova senha"><CampoSenha name="confirma" autoComplete="new-password" minLength={10} required /></Campo>
         </Formulario>
       </Cartao>
     </main>

@@ -10,8 +10,9 @@ import { registrarCienciaAcao } from "./acoes";
 
 export const metadata = { title: "Minha trilha" };
 
-export default async function PainelColaborador() {
+export default async function PainelColaborador({ searchParams }: { searchParams: Promise<{ aviso?: string }> }) {
   const a = await exigirColaborador();
+  const { aviso } = await searchParams;
   await atualizarVencidos();
   const { colaborador: c, itens, semaforo } = await avaliarColaborador(a.colaboradorId!);
   const funcao = await db.query.funcoes.findFirst({ where: eq(schema.funcoes.id, c.funcaoId) });
@@ -46,6 +47,12 @@ export default async function PainelColaborador() {
 
   return (
     <div className="space-y-5">
+      {aviso === "equipe" && (
+        <Aviso tom="alerta">
+          Você entrou com uma conta de <strong>colaborador</strong>{c.email ? ` (${c.email})` : ""}, por isso abriu esta tela. O painel da equipe (cursos, matriz, convites, resultados)
+          só abre com uma conta da equipe: clique em <strong>Sair</strong> e entre com o e-mail de administrador.
+        </Aviso>
+      )}
       <section className="overflow-hidden rounded-2xl bg-palla-azul-escuro text-white">
         <div className="relative p-5 sm:p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Bem-vindo à Palla Construções</p>

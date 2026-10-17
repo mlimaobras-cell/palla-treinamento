@@ -56,7 +56,7 @@ export async function exigirColaborador() {
 export async function exigirEquipe(p: Permissao = "painel.ver") {
   const a = await obterAtor();
   if (!a) redirect("/login");
-  if (a.perfil === "COLABORADOR") redirect("/colaborador");
+  if (a.perfil === "COLABORADOR") redirect("/colaborador?aviso=equipe");
   if (!pode(a, p)) redirect("/admin?erro=permissao");
   return a;
 }

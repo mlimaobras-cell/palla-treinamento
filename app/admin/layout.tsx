@@ -4,6 +4,7 @@ import { NOME_PERFIL, pode, type Permissao } from "@/lib/permissoes";
 import { exigirEquipe } from "@/lib/sessao";
 import { sair } from "@/app/login/acoes";
 import { NavLink } from "./nav-link";
+import { InstalarApp } from "@/components/app-pwa";
 
 const MENU: { href: string; rotulo: string; p: Permissao }[] = [
   { href: "/admin", rotulo: "Painel", p: "painel.ver" },
@@ -11,10 +12,12 @@ const MENU: { href: string; rotulo: string; p: Permissao }[] = [
   { href: "/admin/obras", rotulo: "Obras e convites", p: "obra.gerir" },
   { href: "/admin/matriz", rotulo: "Matriz por função", p: "curso.ver" },
   { href: "/admin/cursos", rotulo: "Cursos", p: "curso.ver" },
+  { href: "/admin/videos", rotulo: "Vídeos", p: "curso.ver" },
   { href: "/admin/resultados", rotulo: "Resultados das provas", p: "colaborador.ver" },
   { href: "/admin/praticas", rotulo: "Atividades práticas", p: "pratica.registrar" },
   { href: "/admin/aprovacoes", rotulo: "Aprovações", p: "capacitacao.aprovar" },
   { href: "/admin/certificados", rotulo: "Certificados", p: "colaborador.ver" },
+  { href: "/admin/acessos", rotulo: "Acessos e avisos", p: "colaborador.ver" },
   { href: "/admin/auditoria", rotulo: "Auditoria", p: "auditoria.ver" },
 ];
 
@@ -34,12 +37,14 @@ export default async function LayoutAdmin({ children }: { children: React.ReactN
         <div className="hidden border-t border-white/10 px-5 py-4 text-sm lg:absolute lg:bottom-0 lg:block lg:w-full">
           <p className="truncate font-medium">{a.nome}</p>
           <p className="text-xs text-white/60">{NOME_PERFIL[a.perfil]}</p>
+          <InstalarApp claro className="mt-2" />
           <div className="mt-2 flex gap-4"><Link href="/conta/senha" className="text-xs font-semibold text-white/70 hover:text-white">Trocar senha</Link><form action={sair}><button className="text-xs font-semibold text-white/70 hover:text-white">Sair</button></form></div>
         </div>
       </aside>
       <div className="min-w-0">
         <div className="flex items-center justify-end gap-3 border-b border-linha bg-white px-4 py-2 text-sm lg:hidden">
           <span className="truncate text-tinta-suave">{a.nome} · {NOME_PERFIL[a.perfil]}</span>
+          <InstalarApp />
           <Link href="/conta/senha" className="font-medium text-palla-azul">Senha</Link>
           <form action={sair}><button className="font-semibold text-palla-vermelho">Sair</button></form>
         </div>

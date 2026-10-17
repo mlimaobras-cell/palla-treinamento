@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Marca } from "@/components/marca";
 import { exigirColaborador } from "@/lib/sessao";
 import { sair } from "@/app/login/acoes";
+import { InstalarApp } from "@/components/app-pwa";
 
 export default async function LayoutColaborador({ children }: { children: React.ReactNode }) {
   const a = await exigirColaborador();
@@ -18,7 +19,7 @@ export default async function LayoutColaborador({ children }: { children: React.
           </div>
         </div>
       </header>
-      <main className="mx-auto max-w-3xl px-4 pb-16 pt-5">{children}</main>
+      <main className="mx-auto max-w-3xl px-4 pb-16 pt-5"><InstalarApp className="mb-3 flex justify-end" />{children}</main>
     </div>
   );
 }

@@ -129,6 +129,17 @@ export const redefinicoesSenha = pgTable("redefinicoes_senha", {
   criadoEm: agora("criado_em"),
 });
 
+/** Aparelhos da equipe inscritos para receber notificações (Web Push): ex.: aviso quando um colaborador entra na plataforma. */
+export const inscricoesPush = pgTable("inscricoes_push", {
+  id: id(),
+  usuarioId: text("usuario_id").notNull().references(() => usuarios.id, { onDelete: "cascade" }),
+  endpoint: text("endpoint").notNull().unique(),
+  p256dh: text("p256dh").notNull(),
+  auth: text("auth").notNull(),
+  aparelho: text("aparelho"),
+  criadoEm: agora("criado_em"),
+});
+
 /** Arquivos enviados (ASO, fichas de EPI…) quando ARMAZENAMENTO=banco — usado em hospedagem sem disco persistente. */
 export const arquivos = pgTable("arquivos", {
   caminho: text("caminho").primaryKey(),

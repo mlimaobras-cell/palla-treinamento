@@ -4,6 +4,7 @@ import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { db, schema } from "@/db";
 import { auditar } from "@/lib/auditoria";
+import { avisarLogin } from "@/lib/servicos/avisos";
 import { criarSessao, encerrarSessao, obterAtor } from "@/lib/sessao";
 import type { Estado } from "@/components/formulario";
 
@@ -26,6 +27,7 @@ export async function entrar(_: Estado, f: FormData): Promise<Estado> {
   await criarSessao(u.id);
   await db.update(schema.usuarios).set({ ultimoAcessoEm: new Date() }).where(eq(schema.usuarios.id, u.id));
   await auditar({ id: u.id, nome: u.nome }, "login", "usuario", u.id);
+  await avisarLogin(u);
   const destino = u.perfil === "COLABORADOR" ? "/colaborador" : "/admin";
   redirect(voltar.startsWith(destino) ? voltar : destino);
 }

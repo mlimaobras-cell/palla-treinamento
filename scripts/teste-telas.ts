@@ -155,7 +155,7 @@ async function main() {
 
   // controle de acesso: colaborador não entra no painel
   await m.goto(`${BASE}/admin`);
-  console.log("Colaborador redirecionado ao tentar /admin:", m.url().endsWith("/colaborador"));
+  console.log("Colaborador redirecionado ao tentar /admin:", /\/colaborador(\?aviso=equipe)?$/.test(m.url()) && (await m.locator("text=painel da equipe").count()) > 0);
 
   console.log("Erros de página:", erros.length ? erros : "nenhum");
   await browser.close();

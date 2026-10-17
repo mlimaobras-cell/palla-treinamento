@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Formulario } from "@/components/formulario";
+import { InstalarApp } from "@/components/app-pwa";
 import { Marca } from "@/components/marca";
 import { Campo, Entrada } from "@/components/ui";
 import { entrar } from "./acoes";
@@ -35,6 +36,7 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
             </Formulario>
           </div>
           <p className="mt-3 text-sm"><Link className="font-medium text-palla-azul hover:underline" href="/esqueci-senha">Esqueci minha senha</Link></p>
+          <InstalarApp className="mt-4" />
           <p className="mt-8 text-sm text-tinta-suave">
             Primeiro acesso? Use o link de cadastro que você recebeu do RH.
           </p>

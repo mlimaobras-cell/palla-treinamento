@@ -65,5 +65,21 @@
   "NR18-2-protecoes": 147.6,
   "NR18-3-maquinas-materiais": 116.6,
   "NR18-4-escadas-andaimes": 134.3,
-  "NR18-5-emergencias-montagem": 104.8
+  "NR18-5-emergencias-montagem": 104.8,
+  "GUI-1-equipamento": 93.3,
+  "GUI-2-estabilizacao": 91.7,
+  "GUI-3-inspecao-limites": 81.4,
+  "GUI-4-operacao": 74.5,
+  "NR12-1-riscos": 95.8,
+  "NR12-2-protecoes": 108.3,
+  "NR12-3-bloqueio": 94.6,
+  "NR12-4-esmerilhadeira-furadeira": 119.1,
+  "NR12-5-corte-solda": 105.4,
+  "PEMT-1-tipos-riscos": 86.3,
+  "PEMT-2-inspecao": 75.4,
+  "PEMT-3-condicoes": 98.2,
+  "PEMT-4-operacao-emergencia": 80.6,
+  "SIN-1-papeis": 109.8,
+  "SIN-2-comunicacao": 99.2,
+  "SIN-3-prevencao": 90.7
 }

@@ -1,0 +1,122 @@
+{
+  "codigo": "NR17-apresentacao",
+  "titulo": "Ergonomia na montagem metálica",
+  "capitulo": "NR-17 · Apresentação",
+  "eyebrow": "NR-17 · Ergonomia",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/catalogo.ts (NR17-ERG: NR-17, item 17.5.5; carga e validade por critério interno)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "person-standing",
+      "objetivo": "Conhecer a NR-17 e os cuidados com o corpo na montagem.",
+      "narracao": "NR dezessete: ergonomia. É a norma que trata da adaptação do trabalho às pessoas, para evitar lesões e desgaste."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Na montagem, cuidado com",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "person-standing",
+          "titulo": "Posturas",
+          "texto": "tronco torcido, braços acima da cabeça"
+        },
+        {
+          "m": "l",
+          "icone": "package",
+          "titulo": "Levantamento de cargas",
+          "texto": "peso, distância do corpo"
+        },
+        {
+          "m": "t",
+          "icone": "move-horizontal",
+          "titulo": "Transporte manual",
+          "texto": "percurso, pega, obstáculos"
+        },
+        {
+          "m": "r",
+          "icone": "repeat",
+          "titulo": "Movimentos repetitivos",
+          "texto": "aperto, lixamento, furação"
+        }
+      ],
+      "narracao": "Na montagem metálica, os principais cuidados são com {p}as posturas, como tronco torcido e braços acima da cabeça; {l}o levantamento de cargas; {t}o transporte manual; {r}e os movimentos repetitivos, como aperto, lixamento e furação."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Levantar com segurança",
+      "narracao": "Para levantar: {a}avalie o peso; se for pesado, peça ajuda ou use um equipamento. {j}Mantenha a carga perto do corpo. {c}Dobre os joelhos e mantenha as costas retas. {g}E não gire o tronco segurando a carga: vire o corpo com os pés.",
+      "etapas": [
+        {
+          "m": "a",
+          "titulo": "Avalie o peso e peça ajuda",
+          "texto": "ou use equipamento",
+          "icone": "users"
+        },
+        {
+          "m": "j",
+          "titulo": "Carga perto do corpo",
+          "icone": "package"
+        },
+        {
+          "m": "c",
+          "titulo": "Dobre os joelhos, costas retas",
+          "icone": "arrow-down-to-line"
+        },
+        {
+          "m": "g",
+          "titulo": "Não gire o tronco com a carga",
+          "texto": "vire o corpo com os pés",
+          "icone": "rotate-ccw"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O treinamento",
+      "cards": [
+        {
+          "m": "q",
+          "icone": "users",
+          "titulo": "Para quem",
+          "texto": "trabalhadores que fazem transporte manual de cargas"
+        },
+        {
+          "m": "m",
+          "icone": "graduation-cap",
+          "titulo": "Como",
+          "texto": "online, 1 hora (critério interno da Palla)"
+        }
+      ],
+      "narracao": "{q}O treinamento é para quem faz transporte manual de cargas, como prevê a NR dezessete. {m}Na Palla, ele é online, com uma hora, por critério interno da empresa.",
+      "linha": true,
+      "aviso": "Apresentação: o que é, para quem é e como funciona o treinamento. Não substitui a capacitação."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Carga perto do corpo, joelhos dobrados",
+          "chave": "c1"
+        },
+        {
+          "texto": "Pesado? Peça ajuda ou use equipamento",
+          "chave": "c2"
+        },
+        {
+          "texto": "Dor ou desconforto: comunique",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Seu corpo é sua ferramenta de trabalho.",
+      "narracao": "Para levar: {c1}carga perto do corpo e joelhos dobrados. {c2}Pesado? Peça ajuda ou use um equipamento. {c3}E dor ou desconforto, comunique. {fim}Seu corpo é a sua ferramenta de trabalho."
+    }
+  ]
+}

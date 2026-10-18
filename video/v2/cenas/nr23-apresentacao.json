@@ -1,0 +1,151 @@
+{
+  "codigo": "NR23-apresentacao",
+  "titulo": "Prevenção e combate a incêndios",
+  "capitulo": "NR-23 · Apresentação",
+  "eyebrow": "NR-23 · Incêndios",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/catalogo.ts (NR23-INC: NR-23, item 23.3.2; a NR-23 não fixa carga nem periodicidade)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "flame",
+      "objetivo": "Conhecer a NR-23 e as atitudes básicas de prevenção e emergência.",
+      "narracao": "NR vinte e três: proteção contra incêndios. Na montagem, solda, corte e esmerilhamento produzem fagulhas o dia inteiro."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O fogo precisa de três coisas",
+      "cards": [
+        {
+          "m": "c",
+          "icone": "package",
+          "titulo": "Combustível",
+          "texto": "madeira, papel, tinta, óleo, gás"
+        },
+        {
+          "m": "o",
+          "icone": "wind",
+          "titulo": "Oxigênio",
+          "texto": "o ar"
+        },
+        {
+          "m": "q",
+          "icone": "flame",
+          "titulo": "Calor",
+          "texto": "fagulha, solda, chama",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "O fogo precisa de três coisas: {c}combustível, {o}oxigênio, {q}e calor. Tire uma delas e o fogo apaga. Por isso, a prevenção afasta o calor do combustível."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Classes e extintores",
+      "cards": [
+        {
+          "m": "a",
+          "icone": "box",
+          "titulo": "Classe A",
+          "texto": "sólidos: madeira, papel, tecido"
+        },
+        {
+          "m": "b",
+          "icone": "droplets",
+          "titulo": "Classe B",
+          "texto": "líquidos inflamáveis: óleo, tinta, solvente"
+        },
+        {
+          "m": "e",
+          "icone": "zap",
+          "titulo": "Classe C",
+          "texto": "equipamentos elétricos energizados"
+        }
+      ],
+      "narracao": "Os incêndios mais comuns na obra são de {a}classe A, sólidos como madeira, papel e tecido; {b}classe B, líquidos inflamáveis como óleo, tinta e solvente; {e}e classe C, equipamentos elétricos energizados. Cada extintor indica no rótulo as classes em que pode ser usado. Confira antes de usar.",
+      "aviso": "Use só o extintor indicado para a classe do fogo. Água nunca em equipamento energizado."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Em caso de incêndio",
+      "narracao": "Em caso de incêndio: {al}dê o alarme e acione a emergência da obra. {ex}Num princípio de incêndio, use o extintor, só se for seguro e se você souber usar. {ab}Se não der, abandone pela rota de fuga, sem correr e sem voltar. {pe}E vá para o ponto de encontro.",
+      "etapas": [
+        {
+          "m": "al",
+          "titulo": "Dê o alarme",
+          "texto": "avise e acione a emergência da obra",
+          "icone": "bell-ring",
+          "cor": "vermelho"
+        },
+        {
+          "m": "ex",
+          "titulo": "Princípio de incêndio: extintor",
+          "texto": "só se for seguro e você souber usar",
+          "icone": "fire-extinguisher"
+        },
+        {
+          "m": "ab",
+          "titulo": "Abandone pela rota de fuga",
+          "texto": "sem correr, sem voltar",
+          "icone": "door-open"
+        },
+        {
+          "m": "pe",
+          "titulo": "Ponto de encontro",
+          "texto": "aguarde a contagem",
+          "icone": "map-pin"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O treinamento",
+      "cards": [
+        {
+          "m": "q",
+          "icone": "users",
+          "titulo": "Para quem",
+          "texto": "todos os trabalhadores"
+        },
+        {
+          "m": "m",
+          "icone": "graduation-cap",
+          "titulo": "Como",
+          "texto": "online, informativo, 2 horas (critério interno)"
+        },
+        {
+          "m": "b",
+          "icone": "info",
+          "titulo": "Não é brigada",
+          "texto": "brigadista segue legislação própria"
+        }
+      ],
+      "narracao": "{q}O treinamento é para todos os trabalhadores. {m}Na Palla, ele é online, informativo, com duas horas, por critério interno: a NR vinte e três não fixa carga horária. {b}E atenção: ele não forma brigadista. A brigada de incêndio segue a legislação do estado e as normas técnicas.",
+      "aviso": "Apresentação: o que é, para quem é e como funciona o treinamento. Não substitui a capacitação."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Fagulha longe de combustível",
+          "chave": "c1"
+        },
+        {
+          "texto": "Alarme primeiro; extintor só se for seguro",
+          "chave": "c2"
+        },
+        {
+          "texto": "Rota de fuga e ponto de encontro",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Conheça a rota antes de precisar dela.",
+      "narracao": "Para levar: {c1}fagulha longe de combustível. {c2}Alarme primeiro; extintor, só se for seguro. {c3}Rota de fuga e ponto de encontro. {fim}Conheça a rota antes de precisar dela."
+    }
+  ]
+}

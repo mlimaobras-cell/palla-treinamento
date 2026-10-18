@@ -1,0 +1,122 @@
+{
+  "codigo": "PAL52-1-esmagamento",
+  "titulo": "Esmagamento e queda de peças",
+  "capitulo": "Segurança na montagem metálica · Aula 1",
+  "eyebrow": "PAL-52 · Montagem segura",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/montagem-segura.ts (Curso 5.2 — Segurança na montagem metálica)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/icamento-ponte.jpg"
+        }
+      ],
+      "narracao": "Na montagem, as peças são pesadas, rígidas, e chegam em movimento. {o}Quando uma viga encontra o pilar, qualquer mão no meio é esmagada.",
+      "titulo": "Esmagamento e queda de peças",
+      "cap": "Segurança na montagem · Aula 1",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Peças pesadas, rígidas e em movimento"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Mãos fora da linha de fechamento",
+      "cards": [
+        {
+          "m": "c",
+          "icone": "move-horizontal",
+          "titulo": "Corda-guia",
+          "texto": "guia a peça de longe"
+        },
+        {
+          "m": "p",
+          "icone": "pin",
+          "titulo": "Pino cônico",
+          "texto": "alinha os furos, nunca o dedo"
+        },
+        {
+          "m": "s",
+          "icone": "radio",
+          "titulo": "Combine com o sinaleiro",
+          "texto": "antes de aproximar a mão"
+        },
+        {
+          "m": "a",
+          "icone": "layers",
+          "titulo": "Apoio estável",
+          "texto": "antes de soltar a lingada"
+        }
+      ],
+      "narracao": "A regra prática: as mãos ficam fora da linha de fechamento. {c}Para guiar a peça, use a corda-guia. {p}Para alinhar os furos, o pino cônico, nunca o dedo. {s}Combine com o sinaleiro antes de aproximar a mão da peça. {a}E no chão, calços e apoios estáveis antes de soltar a lingada."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Queda de material",
+      "cards": [
+        {
+          "m": "b",
+          "icone": "package",
+          "titulo": "Bolsa fechada",
+          "texto": "parafusos, porcas e arruelas"
+        },
+        {
+          "m": "f",
+          "icone": "wrench",
+          "titulo": "Ferramenta amarrada",
+          "texto": "ao punho ou ao cinto"
+        },
+        {
+          "m": "n",
+          "icone": "ban",
+          "titulo": "Nada lançado",
+          "texto": "de um nível para outro",
+          "cor": "vermelho"
+        },
+        {
+          "m": "i",
+          "icone": "traffic-cone",
+          "titulo": "Área abaixo isolada",
+          "texto": "enquanto houver trabalho acima"
+        }
+      ],
+      "narracao": "O segundo risco é a queda de material. Um parafuso de uma polegada, caindo de oito metros, vira um projétil. {b}Parafusos, porcas e arruelas vão em bolsa fechada. {f}Ferramentas manuais são amarradas. {n}Nada é lançado de um nível para outro. {i}E a área abaixo fica isolada enquanto houver trabalho acima."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Que ferramenta alinha furos sem colocar o dedo entre as peças?",
+      "resposta": "Pino cônico",
+      "conta": "o alinhador; a peça se guia com corda",
+      "narracao": "Sua vez: qual ferramenta alinha os furos sem colocar o dedo entre as peças? {pensa}[[pausa:3]] {resp}O pino cônico, o alinhador. E a peça se guia com a corda-guia."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Mãos fora da linha de fechamento",
+          "chave": "c1"
+        },
+        {
+          "texto": "Corda-guia e pino cônico",
+          "chave": "c2"
+        },
+        {
+          "texto": "Bolsa, ferramenta amarrada e área isolada",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "A peça não para por causa da sua mão.",
+      "narracao": "Para levar: {c1}mãos fora da linha de fechamento. {c2}Corda-guia e pino cônico. {c3}Bolsa fechada, ferramenta amarrada e área abaixo isolada. {fim}A peça não para por causa da sua mão."
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "codigo": "INT-10-alcool",
+  "titulo": "Política de álcool e drogas",
+  "capitulo": "Integração institucional · Aula 10",
+  "eyebrow": "Integração · Aula 10",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)"
+  ],
+  "pendencias": [
+    "Procedimentos de verificação e medidas: conforme política aprovada pela Palla e assessoria jurídica [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/main-plaza.jpg"
+        }
+      ],
+      "narracao": "Álcool e outras drogas reduzem a atenção, os reflexos e o equilíbrio. {o}Numa obra de estrutura metálica, isso é risco de morte.",
+      "titulo": "Álcool e drogas",
+      "cap": "Integração · Aula 10",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Risco para você e para os colegas"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "É proibido",
+      "cards": [
+        {
+          "m": "p1",
+          "icone": "ban",
+          "titulo": "Sob efeito",
+          "texto": "entrar ou permanecer na obra",
+          "cor": "vermelho"
+        },
+        {
+          "m": "p2",
+          "icone": "wine",
+          "titulo": "Portar ou consumir",
+          "texto": "no canteiro, nos veículos e nos alojamentos",
+          "cor": "vermelho"
+        },
+        {
+          "m": "p3",
+          "icone": "hand",
+          "titulo": "Oferecer",
+          "texto": "a colegas",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{p1}É proibido entrar ou permanecer na obra sob efeito de álcool ou drogas. {p2}E é proibido portar, consumir {p3}ou oferecer essas substâncias no canteiro, nos veículos e nos alojamentos da empresa."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Remédio e ajuda",
+      "cards": [
+        {
+          "m": "m",
+          "icone": "pill",
+          "titulo": "Remédio que dá sono?",
+          "texto": "avise o encarregado ou a SST; não precisa contar o diagnóstico"
+        },
+        {
+          "m": "a",
+          "icone": "hand-helping",
+          "titulo": "Precisa de ajuda?",
+          "texto": "procure o RH; tratado com sigilo",
+          "cor": "verde"
+        }
+      ],
+      "narracao": "{m}Se você usa algum remédio que cause sonolência ou altere os reflexos, avise o encarregado ou a Segurança do Trabalho, sem precisar contar o diagnóstico. A atividade será avaliada. {a}E se você precisar de ajuda, procure o RH. Buscar ajuda é um ato de coragem, e será tratado com sigilo.",
+      "linha": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Você está tomando um remédio que dá sono. O que fazer?",
+      "resposta": "Avisar",
+      "conta": "o encarregado ou a SST antes de começar",
+      "narracao": "Sua vez: você está tomando um remédio que dá sono. O que fazer? {pensa}[[pausa:3]] {resp}Avisar o encarregado ou a Segurança do Trabalho antes de começar, para avaliar a atividade."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Álcool e drogas: proibidos na obra e no alojamento",
+          "chave": "c1"
+        },
+        {
+          "texto": "Remédio que altera reflexos: avise",
+          "chave": "c2"
+        },
+        {
+          "texto": "Ajuda: RH, com sigilo",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Atenção total é segurança.",
+      "narracao": "Para levar: {c1}álcool e drogas são proibidos na obra e no alojamento. {c2}Remédio que altera os reflexos: avise. {c3}E se precisar de ajuda, o RH está aí, com sigilo. {fim}Atenção total é segurança."
+    }
+  ]
+}

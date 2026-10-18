@@ -1,0 +1,121 @@
+{
+  "codigo": "NR26-apresentacao",
+  "titulo": "Sinalização de segurança e produtos químicos",
+  "capitulo": "NR-26 · Apresentação",
+  "eyebrow": "NR-26 · Sinalização",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/catalogo.ts (NR26-SIN: NR-26, item 26.5.2)",
+    "NR-26: cores e rotulagem conforme normas técnicas oficiais"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "triangle-alert",
+      "objetivo": "Conhecer a NR-26: sinalização, rótulos e ficha de dados dos produtos químicos.",
+      "narracao": "NR vinte e seis: sinalização de segurança. É ela que diz o que as placas, as cores e os rótulos estão avisando."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Os tipos de placa",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "ban",
+          "titulo": "Proibição",
+          "texto": "círculo com barra, vermelho",
+          "cor": "vermelho"
+        },
+        {
+          "m": "a",
+          "icone": "triangle-alert",
+          "titulo": "Advertência",
+          "texto": "triângulo, amarelo"
+        },
+        {
+          "m": "o",
+          "icone": "hard-hat",
+          "titulo": "Obrigação",
+          "texto": "círculo azul"
+        },
+        {
+          "m": "e",
+          "icone": "door-open",
+          "titulo": "Emergência",
+          "texto": "retângulo verde: saída, primeiros socorros",
+          "cor": "verde"
+        }
+      ],
+      "narracao": "No canteiro, cada placa tem uma forma e uma cor. {p}A de proibição: círculo com barra, em vermelho. {a}A de advertência: triângulo amarelo. {o}A de obrigação: círculo azul, como uso obrigatório de capacete. {e}E a de emergência: retângulo verde, como saída e primeiros socorros. Fita e cone de isolamento também são sinalização: área isolada, não entre."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Produto químico",
+      "cards": [
+        {
+          "m": "r",
+          "icone": "tag",
+          "titulo": "Rótulo",
+          "texto": "pictogramas, palavra de advertência e frases de perigo"
+        },
+        {
+          "m": "f",
+          "icone": "file-text",
+          "titulo": "FDS",
+          "texto": "ficha com dados de segurança: perigos, uso seguro e emergência"
+        },
+        {
+          "m": "u",
+          "icone": "flask-conical",
+          "titulo": "Na obra",
+          "texto": "tintas, solventes, gases de solda, desengraxantes"
+        }
+      ],
+      "narracao": "Produto químico tem duas fontes de informação. {r}O rótulo, com pictogramas, a palavra de advertência e as frases de perigo. {f}E a FDS, a ficha com dados de segurança, que explica os perigos, o uso seguro e o que fazer numa emergência. {u}Na obra, isso vale para tintas, solventes, gases de solda e desengraxantes. Produto sem rótulo não se usa."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O treinamento",
+      "cards": [
+        {
+          "m": "q",
+          "icone": "users",
+          "titulo": "Para quem",
+          "texto": "quem usa produto químico e quem circula no canteiro"
+        },
+        {
+          "m": "m",
+          "icone": "graduation-cap",
+          "titulo": "Como",
+          "texto": "online, 1 hora (critério interno)"
+        }
+      ],
+      "narracao": "{q}O treinamento é para quem usa produtos químicos, e para todos que circulam no canteiro. {m}Na Palla, ele é online, com uma hora, por critério interno da empresa.",
+      "linha": true,
+      "aviso": "Apresentação: o que é, para quem é e como funciona o treinamento. Não substitui a capacitação."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Forma e cor dizem o tipo da placa",
+          "chave": "c1"
+        },
+        {
+          "texto": "Rótulo e FDS antes de usar o produto",
+          "chave": "c2"
+        },
+        {
+          "texto": "Sem rótulo, não use",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Placa ignorada é aviso perdido.",
+      "narracao": "Para levar: {c1}a forma e a cor dizem o tipo da placa. {c2}Leia o rótulo e a FDS antes de usar o produto. {c3}E produto sem rótulo, não use. {fim}Placa ignorada é aviso perdido."
+    }
+  ]
+}

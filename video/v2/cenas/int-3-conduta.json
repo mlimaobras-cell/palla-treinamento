@@ -1,0 +1,144 @@
+{
+  "codigo": "INT-3-conduta",
+  "titulo": "Código de conduta profissional",
+  "capitulo": "Integração institucional · Aula 3",
+  "eyebrow": "Integração · Aula 3",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/gestamp-taubate.jpg"
+        }
+      ],
+      "narracao": "O código de conduta resume como nos comportamos dentro e fora da obra, {o}sempre que estamos representando a Palla.",
+      "titulo": "Código de conduta",
+      "cap": "Integração · Aula 3",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Como agimos quando representamos a Palla"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Respeito vem primeiro",
+      "cards": [
+        {
+          "m": "r1",
+          "icone": "users",
+          "titulo": "Com todos",
+          "texto": "colegas, clientes, fornecedores e vizinhos da obra"
+        },
+        {
+          "m": "r2",
+          "icone": "ban",
+          "titulo": "Sem humilhação",
+          "texto": "nada de apelidos ofensivos ou brincadeiras que humilham",
+          "cor": "vermelho"
+        },
+        {
+          "m": "r3",
+          "icone": "scale",
+          "titulo": "Sem discriminação",
+          "texto": "de qualquer natureza",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Respeito vem primeiro. {r1}Tratamos colegas, clientes, fornecedores e vizinhos da obra com educação. {r2}Sem apelidos ofensivos e sem brincadeiras que humilhem. {r3}E sem qualquer tipo de discriminação."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Assédio: tolerância zero",
+      "cards": [
+        {
+          "m": "a1",
+          "icone": "shield-x",
+          "titulo": "Não é tolerado",
+          "texto": "assédio moral, assédio sexual e violência",
+          "cor": "vermelho"
+        },
+        {
+          "m": "a2",
+          "icone": "megaphone",
+          "titulo": "Comunique",
+          "texto": "liderança, RH ou o canal oficial de denúncias"
+        },
+        {
+          "m": "a3",
+          "icone": "shield-check",
+          "titulo": "Sem retaliação",
+          "texto": "quem denuncia é protegido",
+          "cor": "verde"
+        }
+      ],
+      "narracao": "{a1}Assédio moral, assédio sexual e violência não são tolerados. {a2}Quem sofrer ou presenciar deve comunicar a liderança, o RH, ou o canal oficial de denúncias. {a3}Com a garantia de que não haverá retaliação."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Honestidade e cuidado",
+      "cards": [
+        {
+          "m": "h1",
+          "icone": "clipboard-check",
+          "titulo": "Registros verdadeiros",
+          "texto": "ponto, produção, inspeção e documentos"
+        },
+        {
+          "m": "h2",
+          "icone": "wrench",
+          "titulo": "Cuidado com os bens",
+          "texto": "ferramentas, equipamentos, materiais e alojamento"
+        },
+        {
+          "m": "h3",
+          "icone": "lock",
+          "titulo": "Sigilo",
+          "texto": "informações do cliente e da obra"
+        },
+        {
+          "m": "h4",
+          "icone": "camera-off",
+          "titulo": "Fotos só com autorização",
+          "texto": "o projeto é do cliente"
+        }
+      ],
+      "narracao": "{h1}Somos honestos: ponto, produção, inspeção e documentos mostram a verdade. {h2}Cuidamos das ferramentas, dos equipamentos, dos materiais e do alojamento. {h3}Guardamos sigilo sobre as informações do cliente e da obra. {h4}E fotos da obra, só com autorização."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Um colega faz piadas sobre a origem de um ajudante novo. O que fazer?",
+      "resposta": "Interromper",
+      "conta": "e comunicar o encarregado ou o RH se continuar",
+      "narracao": "Sua vez: um colega começa a fazer piadas sobre a origem de um ajudante novo. O que você faz? {pensa}[[pausa:3]] {resp}Interrompa, deixe claro que isso não é aceito, e comunique o encarregado ou o RH se continuar."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Respeito a todos, sem discriminação",
+          "chave": "c1"
+        },
+        {
+          "texto": "Assédio: comunique, sem medo de retaliação",
+          "chave": "c2"
+        },
+        {
+          "texto": "Registros verdadeiros e cuidado com os bens",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Conduta também é segurança.",
+      "narracao": "Para levar: {c1}respeito a todos, sem discriminação. {c2}Assédio: comunique, sem medo de retaliação. {c3}Registros verdadeiros e cuidado com os bens. {fim}Conduta também é segurança."
+    }
+  ]
+}

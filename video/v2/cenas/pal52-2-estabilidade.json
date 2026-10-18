@@ -1,0 +1,126 @@
+{
+  "codigo": "PAL52-2-estabilidade",
+  "titulo": "Instabilidade estrutural e estabilidade provisória",
+  "capitulo": "Segurança na montagem metálica · Aula 2",
+  "eyebrow": "PAL-52 · Montagem segura",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/montagem-segura.ts (Curso 5.2 — Segurança na montagem metálica)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/arcelormittal.jpg"
+        }
+      ],
+      "narracao": "A estrutura metálica só fica estável quando está completa. {o}Durante a montagem, ela pode tombar com o vento ou com um esforço lateral.",
+      "titulo": "Estabilidade provisória",
+      "cap": "Segurança na montagem · Aula 2",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Incompleta, a estrutura pode tombar"
+        }
+      ]
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Estável só quando completa",
+      "narracao": "A estrutura só é estável completa: {p}pilares chumbados, {v}vigas ligadas, {c}e contraventamentos instalados. Até lá, vale a sequência de montagem do projeto, com a estabilidade provisória indicada: estais, escoras ou contraventamentos provisórios.",
+      "etapas": [
+        {
+          "m": "p",
+          "titulo": "Pilares chumbados",
+          "texto": "porcas apertadas ou estaiamento provisório",
+          "icone": "anchor"
+        },
+        {
+          "m": "v",
+          "titulo": "Vigas ligadas",
+          "icone": "link"
+        },
+        {
+          "m": "c",
+          "titulo": "Contraventamentos instalados",
+          "texto": "provisórios, conforme o plano",
+          "icone": "x"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Nunca",
+      "cards": [
+        {
+          "m": "l",
+          "icone": "unlink",
+          "titulo": "Soltar a lingada do pilar",
+          "texto": "antes de chumbado ou escorado conforme o plano",
+          "cor": "vermelho"
+        },
+        {
+          "m": "r",
+          "icone": "octagon-x",
+          "titulo": "Retirar estai ou escora",
+          "texto": "sem liberação do encarregado",
+          "cor": "vermelho"
+        },
+        {
+          "m": "w",
+          "icone": "wind",
+          "titulo": "Montar com vento forte",
+          "texto": "pare conforme os limites do plano e do equipamento",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{l}Nunca solte a lingada de um pilar antes de ele estar chumbado ou escorado conforme o plano. {r}Nunca retire um estai, uma escora ou um contraventamento provisório sem a liberação do encarregado. {w}E com vento forte, a montagem para, conforme os limites do plano e do equipamento.",
+      "linha": true
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Viu algo errado?",
+      "cards": [
+        {
+          "m": "d",
+          "icone": "eye",
+          "titulo": "Deformação, folga ou fora de prumo",
+          "texto": "comunique antes de continuar"
+        }
+      ],
+      "narracao": "{d}Viu uma deformação, uma folga anormal ou uma peça fora de prumo? Comunique antes de continuar.",
+      "linha": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Quando é permitido soltar a lingada de um pilar recém-posicionado?",
+      "resposta": "Depois",
+      "conta": "de chumbado com porcas ou estaiado conforme o plano",
+      "narracao": "Sua vez: quando é permitido soltar a lingada de um pilar recém-posicionado? {pensa}[[pausa:3]] {resp}Só depois de chumbado, com as porcas apertadas, ou estaiado conforme o plano de montagem."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Siga a sequência de montagem",
+          "chave": "c1"
+        },
+        {
+          "texto": "Estabilidade provisória antes do próximo vão",
+          "chave": "c2"
+        },
+        {
+          "texto": "Vento forte: pare",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Estrutura incompleta não perdoa pressa.",
+      "narracao": "Para levar: {c1}siga a sequência de montagem. {c2}Estabilidade provisória antes do próximo vão. {c3}Vento forte: pare. {fim}Estrutura incompleta não perdoa pressa."
+    }
+  ]
+}

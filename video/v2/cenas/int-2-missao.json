@@ -1,0 +1,167 @@
+{
+  "codigo": "INT-2-missao",
+  "titulo": "Missão, visão, valores e organização",
+  "capitulo": "Integração institucional · Aula 2",
+  "eyebrow": "Integração · Aula 2",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)",
+    "Apresentação institucional do Grupo Palla (2026)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/escritorio.jpg"
+        }
+      ],
+      "narracao": "Toda empresa precisa saber para onde vai. {o}No Grupo Palla, isso está na missão, na visão e nos valores. E na obra, você também precisa saber quem é quem.",
+      "titulo": "Missão, visão e valores",
+      "cap": "Integração · Aula 2",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Para onde vamos e quem é quem na obra"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Missão e visão",
+      "cards": [
+        {
+          "m": "mi",
+          "icone": "target",
+          "titulo": "Missão",
+          "texto": "Buscar constantemente a solução diferenciada dos nossos produtos, com qualidade e competitividade."
+        },
+        {
+          "m": "vi",
+          "icone": "eye",
+          "titulo": "Visão",
+          "texto": "Atender os clientes, buscando o avanço dos colaboradores, com os fornecedores, respeitando o meio ambiente e a comunidade."
+        }
+      ],
+      "narracao": "{mi}A missão é buscar constantemente a solução diferenciada dos nossos produtos, com qualidade e competitividade. {vi}A visão é atender as expectativas dos clientes, buscando o avanço dos colaboradores, em parceria com os fornecedores, garantindo a satisfação dos clientes, e respeitando o meio ambiente e a comunidade."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Nossos valores",
+      "cards": [
+        {
+          "m": "v1",
+          "icone": "scale",
+          "titulo": "Ética e transparência",
+          "texto": "nos relacionamentos"
+        },
+        {
+          "m": "v2",
+          "icone": "shield-check",
+          "titulo": "Responsabilidade",
+          "texto": "em cada decisão"
+        },
+        {
+          "m": "v3",
+          "icone": "users",
+          "titulo": "Valorização",
+          "texto": "crescimento dos colaboradores"
+        },
+        {
+          "m": "v4",
+          "icone": "target",
+          "titulo": "Foco no resultado",
+          "texto": "desenvolvimento da empresa"
+        },
+        {
+          "m": "v5",
+          "icone": "refresh-cw",
+          "titulo": "Melhoria contínua",
+          "texto": "nos processos internos"
+        }
+      ],
+      "narracao": "São cinco valores: {v1}ética e transparência nos relacionamentos; {v2}responsabilidade em cada decisão; {v3}crescimento e valorização dos colaboradores; {v4}foco no resultado; {v5}e melhoria contínua. Perceba: valorizar quem trabalha aqui está nos valores. Isso inclui você."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Quem é quem na obra",
+      "narracao": "Na obra, a organização é assim: {g}o gerente de montagem planeja e responde pelas obras. {s}O supervisor acompanha as frentes e o cronograma. {e}O encarregado lidera a equipe no dia a dia, distribui as tarefas e conduz o DDS. {m}E a equipe executa: montadores, soldadores, ajudantes, sinaleiro e operadores.",
+      "etapas": [
+        {
+          "m": "g",
+          "titulo": "Gerente de montagem",
+          "texto": "planeja e responde pelas obras",
+          "icone": "briefcase"
+        },
+        {
+          "m": "s",
+          "titulo": "Supervisor",
+          "texto": "acompanha as frentes e o cronograma",
+          "icone": "clipboard-list"
+        },
+        {
+          "m": "e",
+          "titulo": "Encarregado",
+          "texto": "lidera a equipe, distribui tarefas e conduz o DDS",
+          "icone": "hard-hat"
+        },
+        {
+          "m": "m",
+          "titulo": "Equipe",
+          "texto": "montadores, soldadores, ajudantes, sinaleiro e operadores",
+          "icone": "users"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Quem apoia você",
+      "cards": [
+        {
+          "m": "st",
+          "icone": "shield-alert",
+          "titulo": "Segurança do Trabalho",
+          "texto": "orienta, inspeciona e pode parar tarefa insegura"
+        },
+        {
+          "m": "rh",
+          "icone": "id-card",
+          "titulo": "RH",
+          "texto": "cadastro, documentos, benefícios e dúvidas"
+        }
+      ],
+      "narracao": "Duas equipes acompanham todas as frentes. {st}A Segurança do Trabalho orienta, inspeciona, e pode paralisar uma tarefa insegura. {rh}E o RH cuida do seu cadastro, dos documentos e das dúvidas trabalhistas.",
+      "linha": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Quem distribui as tarefas do dia e conduz o DDS?",
+      "resposta": "O encarregado",
+      "conta": "líder da equipe no dia a dia",
+      "narracao": "Sua vez: na sua frente de trabalho, quem distribui as tarefas do dia e conduz o DDS? {pensa}[[pausa:3]] {resp}O encarregado de montagem."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Missão: soluções diferenciadas com qualidade",
+          "chave": "c1"
+        },
+        {
+          "texto": "Cinco valores: ética, responsabilidade, pessoas, resultado, melhoria",
+          "chave": "c2"
+        },
+        {
+          "texto": "Dúvida na tarefa: fale com o encarregado",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Saber quem é quem é saber a quem pedir ajuda.",
+      "narracao": "Para levar: {c1}a missão é entregar soluções diferenciadas com qualidade. {c2}São cinco valores: ética, responsabilidade, valorização das pessoas, foco no resultado e melhoria contínua. {c3}E na dúvida sobre a tarefa, fale com o encarregado. {fim}Saber quem é quem é saber a quem pedir ajuda."
+    }
+  ]
+}

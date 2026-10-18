@@ -1,0 +1,132 @@
+{
+  "codigo": "INT-8-regras-ouro",
+  "titulo": "Regras de ouro e direito de recusa",
+  "capitulo": "Integração institucional · Aula 8",
+  "eyebrow": "Integração · Aula 8",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)",
+    "NR-1 (direito de recusa)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/icamento-ponte.jpg"
+        }
+      ],
+      "narracao": "Algumas regras não têm exceção na Palla. {o}São as nossas regras de ouro.",
+      "titulo": "Regras de ouro",
+      "cap": "Integração · Aula 8",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Regras sem exceção"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Regras de ouro",
+      "cards": [
+        {
+          "m": "r1",
+          "icone": "construction",
+          "titulo": "Em altura, conectado",
+          "texto": "NR-35"
+        },
+        {
+          "m": "r2",
+          "icone": "triangle-alert",
+          "titulo": "Ninguém sob carga suspensa",
+          "texto": "NR-11 e NR-18"
+        },
+        {
+          "m": "r3",
+          "icone": "user-check",
+          "titulo": "Só opera quem é autorizado",
+          "texto": "máquinas e equipamentos"
+        },
+        {
+          "m": "r4",
+          "icone": "shield",
+          "titulo": "Proteção não se retira",
+          "texto": "sem bloqueio e autorização"
+        },
+        {
+          "m": "r5",
+          "icone": "file-check",
+          "titulo": "Tarefa crítica com APR e PT",
+          "texto": "quando exigidas"
+        },
+        {
+          "m": "r6",
+          "icone": "traffic-cone",
+          "titulo": "Área isolada",
+          "texto": "içamento e montagem"
+        }
+      ],
+      "narracao": "{r1}Em altura, sempre conectado. {r2}Ninguém sob carga suspensa. {r3}Só opera máquina ou equipamento quem é capacitado e autorizado. {r4}Proteção de máquina nunca é retirada sem bloqueio e autorização. {r5}Tarefa crítica, só com análise de risco e permissão de trabalho, quando exigidas. {r6}E a área de içamento e de montagem sempre isolada. Junto com elas: EPI correto, completo e em bom estado."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Direito de recusa",
+      "narracao": "{p}Se você perceber um risco grave e iminente, {i}você pode, e deve, interromper a atividade, {c}e comunicar a liderança imediatamente. Esse é o direito de recusa, previsto na NR um. {n}Ninguém será punido por parar uma tarefa insegura.",
+      "etapas": [
+        {
+          "m": "p",
+          "titulo": "Percebeu risco grave e iminente?",
+          "icone": "triangle-alert",
+          "cor": "vermelho"
+        },
+        {
+          "m": "i",
+          "titulo": "Interrompa a atividade",
+          "icone": "hand"
+        },
+        {
+          "m": "c",
+          "titulo": "Comunique a liderança na hora",
+          "icone": "megaphone"
+        },
+        {
+          "m": "n",
+          "titulo": "Ninguém é punido por parar tarefa insegura",
+          "icone": "shield-check",
+          "cor": "verde"
+        }
+      ]
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A linha de vida ainda não foi instalada. Você sobe?",
+      "resposta": "Não",
+      "conta": "comunica e espera a instalação e a liberação",
+      "narracao": "Sua vez: você chega à viga onde vai trabalhar e a linha de vida ainda não foi instalada. Você sobe? {pensa}[[pausa:3]] {resp}Não. Comunica o encarregado e só começa depois da instalação e da liberação da linha."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Seis regras de ouro, sem exceção",
+          "chave": "c1"
+        },
+        {
+          "texto": "Risco grave e iminente: pare e comunique",
+          "chave": "c2"
+        },
+        {
+          "texto": "Parar tarefa insegura nunca é punido",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Na dúvida, pare.",
+      "narracao": "Para levar: {c1}as regras de ouro não têm exceção. {c2}Diante de risco grave e iminente, pare e comunique. {c3}E parar uma tarefa insegura nunca é punido. {fim}Na dúvida, pare."
+    }
+  ]
+}

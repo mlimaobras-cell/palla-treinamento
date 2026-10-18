@@ -1,0 +1,143 @@
+{
+  "codigo": "INT-6-canteiro",
+  "titulo": "Organização do canteiro, acesso e permanência",
+  "capitulo": "Integração institucional · Aula 6",
+  "eyebrow": "Integração · Aula 6",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/cargolift.jpg"
+        }
+      ],
+      "narracao": "Um canteiro organizado é um canteiro mais seguro. {o}E cada obra tem as suas regras.",
+      "titulo": "O canteiro de obras",
+      "cap": "Integração · Aula 6",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Acesso, circulação e organização"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Para entrar na obra",
+      "cards": [
+        {
+          "m": "l",
+          "icone": "user-check",
+          "titulo": "Liberado no sistema",
+          "texto": "integração, treinamentos, ASO e documentos"
+        },
+        {
+          "m": "c",
+          "icone": "id-card",
+          "titulo": "Crachá",
+          "texto": "identificação visível"
+        },
+        {
+          "m": "e",
+          "icone": "hard-hat",
+          "titulo": "EPIs obrigatórios",
+          "texto": "da obra e da função"
+        }
+      ],
+      "narracao": "Para entrar na obra, você precisa estar {l}liberado no sistema: integração, treinamentos da função, ASO e documentos exigidos pela obra e pelo cliente. {c}Com crachá. {e}E com os EPIs obrigatórios."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Dentro do canteiro",
+      "cards": [
+        {
+          "m": "r",
+          "icone": "footprints",
+          "titulo": "Rotas de pedestres",
+          "texto": "circule só por elas"
+        },
+        {
+          "m": "i",
+          "icone": "traffic-cone",
+          "titulo": "Áreas isoladas",
+          "texto": "fita, cone ou placa: não entre",
+          "cor": "vermelho"
+        },
+        {
+          "m": "s",
+          "icone": "triangle-alert",
+          "titulo": "Carga suspensa",
+          "texto": "nunca fique ou passe embaixo",
+          "cor": "vermelho"
+        },
+        {
+          "m": "o",
+          "icone": "trash-2",
+          "titulo": "Frente limpa",
+          "texto": "sobras, parafusos e ferramentas guardados"
+        }
+      ],
+      "narracao": "Dentro do canteiro: {r}use as rotas de pedestres. {i}Respeite as áreas isoladas. {s}Nunca fique, nem passe, sob carga suspensa. {o}E mantenha a frente de trabalho limpa: sobras de material, parafusos e ferramentas no chão causam quedas e cortes."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Convivência",
+      "cards": [
+        {
+          "m": "v",
+          "icone": "coffee",
+          "titulo": "Área de vivência",
+          "texto": "alimentação e descanso só nela"
+        },
+        {
+          "m": "f",
+          "icone": "cigarette-off",
+          "titulo": "Fumar",
+          "texto": "só em local autorizado, longe de inflamáveis"
+        },
+        {
+          "m": "cl",
+          "icone": "building-2",
+          "titulo": "Regras do cliente",
+          "texto": "fazem parte da sua integração"
+        }
+      ],
+      "narracao": "{v}Alimentação e descanso, só na área de vivência. {f}Fumar, só em local autorizado e longe de inflamáveis. {cl}E lembre: cada obra pode ter regras próprias do cliente. Elas fazem parte da sua integração.",
+      "linha": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Ninguém está trabalhando agora. Posso cruzar a área isolada?",
+      "resposta": "Não",
+      "conta": "contorne pela rota de pedestres",
+      "narracao": "Sua vez: ninguém está trabalhando agora na área isolada de içamento. Você pode cruzar por ela? {pensa}[[pausa:3]] {resp}Não. Contorne pela rota de pedestres, mesmo que demore mais."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Entre liberado, com crachá e EPI",
+          "chave": "c1"
+        },
+        {
+          "texto": "Rotas de pedestres e isolamentos",
+          "chave": "c2"
+        },
+        {
+          "texto": "Nunca sob carga suspensa",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Canteiro organizado, obra segura.",
+      "narracao": "Para levar: {c1}entre liberado, com crachá e EPI. {c2}Circule pelas rotas e respeite os isolamentos. {c3}E nunca fique sob carga suspensa. {fim}Canteiro organizado, obra segura."
+    }
+  ]
+}

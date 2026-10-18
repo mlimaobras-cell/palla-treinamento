@@ -1,0 +1,116 @@
+{
+  "codigo": "PAL52-3-suspensa",
+  "titulo": "Movimentação suspensa, isolamento e comunicação",
+  "capitulo": "Segurança na montagem metálica · Aula 3",
+  "eyebrow": "PAL-52 · Montagem segura",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/montagem-segura.ts (Curso 5.2 — Segurança na montagem metálica)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg"
+        }
+      ],
+      "narracao": "Na frente de montagem, várias equipes dividem o mesmo espaço. {o}Se alguém trabalha embaixo da área de içamento, o risco é de todos.",
+      "titulo": "Movimentação suspensa",
+      "cap": "Segurança na montagem · Aula 3",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Espaço dividido, risco dividido"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Antes de içar",
+      "cards": [
+        {
+          "m": "c",
+          "icone": "users",
+          "titulo": "Combine com as outras equipes",
+          "texto": "quem trabalha onde e quando"
+        },
+        {
+          "m": "i",
+          "icone": "traffic-cone",
+          "titulo": "Isole a área",
+          "texto": "e o raio de giro do equipamento"
+        },
+        {
+          "m": "r",
+          "icone": "user-check",
+          "titulo": "Responsável pelo isolamento",
+          "texto": "fita, cones e placa"
+        }
+      ],
+      "narracao": "Antes de começar: {c}o encarregado combina com as outras equipes quem trabalha onde, e quando. {i}A área de içamento e o raio de giro do equipamento ficam isolados, {r}com fita, cones, placa, e um responsável pelo isolamento."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Durante o içamento",
+      "cards": [
+        {
+          "m": "s",
+          "icone": "hand",
+          "titulo": "Um sinaleiro designado",
+          "texto": "identificado; só ele orienta o operador"
+        },
+        {
+          "m": "p",
+          "icone": "list-checks",
+          "titulo": "Sinais padronizados",
+          "texto": "conhecidos por operador e sinaleiro"
+        },
+        {
+          "m": "r",
+          "icone": "radio",
+          "titulo": "Rádio",
+          "texto": "quem fala, ação e confirmação"
+        },
+        {
+          "m": "e",
+          "icone": "octagon-x",
+          "titulo": "Parada de emergência",
+          "texto": "qualquer pessoa pode dar",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Durante o içamento: {s}só o sinaleiro designado orienta o operador. {p}Os sinais seguem o padrão combinado. {r}No rádio: quem fala, a ação e a confirmação. {e}E qualquer pessoa pode dar o sinal de parada de emergência. Se alguém entrar na área isolada, o içamento para."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Quem pode dar o sinal de parada de emergência?",
+      "resposta": "Qualquer pessoa",
+      "conta": "que veja o risco",
+      "narracao": "Sua vez: durante um içamento, quem pode dar o sinal de parada de emergência? {pensa}[[pausa:3]] {resp}Qualquer pessoa que veja o risco."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Combine com as outras equipes",
+          "chave": "c1"
+        },
+        {
+          "texto": "Isole a área e o raio de giro",
+          "chave": "c2"
+        },
+        {
+          "texto": "Um único sinaleiro; alguém entrou, pare",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Ninguém sob a carga.",
+      "narracao": "Para levar: {c1}combine com as outras equipes. {c2}Isole a área e o raio de giro. {c3}Um único sinaleiro. E se alguém entrou na área, pare. {fim}Ninguém sob a carga."
+    }
+  ]
+}

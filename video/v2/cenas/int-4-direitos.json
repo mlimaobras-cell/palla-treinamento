@@ -1,0 +1,149 @@
+{
+  "codigo": "INT-4-direitos",
+  "titulo": "Direitos e deveres dos colaboradores",
+  "capitulo": "Integração institucional · Aula 4",
+  "eyebrow": "Integração · Aula 4",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)",
+    "NR-1 (capacitação e direito de recusa)",
+    "NR-6 (EPI)",
+    "Política de Viagens e Reembolso de Despesas v1.0 (15/09/2026)"
+  ],
+  "pendencias": [
+    "Aplicação da política de viagens à Palla Construções e vigência dos valores: [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg"
+        }
+      ],
+      "narracao": "Trabalhar com segurança é um direito seu. {o}E também é um dever.",
+      "titulo": "Direitos e deveres",
+      "cap": "Integração · Aula 4",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Segurança é direito e dever"
+        }
+      ]
+    },
+    {
+      "tipo": "colunas",
+      "titulo": "Direitos e deveres",
+      "narracao": "Você tem direito a {d1}receber os EPIs adequados, sem custo e em bom estado. {d2}A saber quais são os riscos do seu trabalho e as medidas de controle. {d3}A ser treinado antes de começar. E o tempo de treinamento obrigatório é tempo de trabalho. {d4}E a recusar uma tarefa diante de risco grave e iminente. Você tem o dever de {v1}cumprir as normas e os procedimentos, {v2}usar e conservar o EPI, {v3}participar dos treinamentos e exames, {v4}e comunicar qualquer condição insegura.",
+      "colunas": [
+        {
+          "titulo": "Seus direitos",
+          "icone": "badge-check",
+          "cor": "verde",
+          "itens": [
+            {
+              "m": "d1",
+              "texto": "EPI adequado, gratuito e em bom estado"
+            },
+            {
+              "m": "d2",
+              "texto": "Saber os riscos e as medidas de controle"
+            },
+            {
+              "m": "d3",
+              "texto": "Treinamento antes de começar; conta como trabalho"
+            },
+            {
+              "m": "d4",
+              "texto": "Recusar tarefa com risco grave e iminente"
+            }
+          ]
+        },
+        {
+          "titulo": "Seus deveres",
+          "icone": "clipboard-check",
+          "cor": "azul",
+          "itens": [
+            {
+              "m": "v1",
+              "texto": "Cumprir normas e procedimentos"
+            },
+            {
+              "m": "v2",
+              "texto": "Usar e conservar o EPI"
+            },
+            {
+              "m": "v3",
+              "texto": "Fazer treinamentos e exames"
+            },
+            {
+              "m": "v4",
+              "texto": "Comunicar condição insegura"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Viagens a serviço",
+      "cards": [
+        {
+          "m": "p1",
+          "icone": "file-check",
+          "titulo": "Autorização antes",
+          "texto": "pedidos ao RH por e-mail"
+        },
+        {
+          "m": "p2",
+          "icone": "bed",
+          "titulo": "Hospedagem",
+          "texto": "até R$ 150,00 por dia"
+        },
+        {
+          "m": "p3",
+          "icone": "utensils",
+          "titulo": "Alimentação",
+          "texto": "até R$ 120,00 por dia"
+        },
+        {
+          "m": "p4",
+          "icone": "files",
+          "titulo": "Prestação de contas",
+          "texto": "em até 3 dias úteis, com nota fiscal"
+        }
+      ],
+      "narracao": "Quem viaja a serviço segue a política de viagens da empresa. {p1}Nenhuma viagem sem autorização prévia: passagens, hospedagem e veículo são pedidos ao RH. {p2}A hospedagem tem limite de cento e cinquenta reais por dia. {p3}A alimentação, de cento e vinte reais por dia. {p4}E a prestação de contas é feita em até três dias úteis depois do retorno, com nota fiscal ou recibo.",
+      "aviso": "Política de Viagens e Reembolso v1.0 (15/09/2026). Valores e aplicação: confirmar com o RH."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O tempo de treinamento obrigatório conta como trabalho?",
+      "resposta": "Sim",
+      "conta": "é tempo de trabalho efetivo",
+      "narracao": "Sua vez: o tempo que você passa em treinamento obrigatório conta como tempo de trabalho? {pensa}[[pausa:3]] {resp}Sim. O treinamento previsto nas normas é tempo de trabalho."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "EPI, treinamento e informação são direitos",
+          "chave": "c1"
+        },
+        {
+          "texto": "Recusa diante de risco grave e iminente",
+          "chave": "c2"
+        },
+        {
+          "texto": "Cumprir regras, usar EPI e comunicar riscos",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Direito e dever andam juntos.",
+      "narracao": "Para levar: {c1}EPI, treinamento e informação são seus direitos. {c2}Diante de risco grave e iminente, você pode recusar a tarefa. {c3}E o seu dever é cumprir as regras, usar o EPI e comunicar os riscos. {fim}Direito e dever andam juntos."
+    }
+  ]
+}

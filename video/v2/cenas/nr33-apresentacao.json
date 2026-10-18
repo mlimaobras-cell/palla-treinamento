@@ -1,0 +1,131 @@
+{
+  "codigo": "NR33-apresentacao",
+  "titulo": "Espaços confinados",
+  "capitulo": "NR-33 · Apresentação",
+  "eyebrow": "NR-33 · Espaço confinado",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/catalogo.ts (NR33-TAV e NR33-SUP: NR-33, item 33.6 e Anexo III; NR-33 atualizada 2022)"
+  ],
+  "pendencias": [
+    "Carga horária, prática e periodicidade: conferir na versão vigente da NR-33 (Anexo III) antes da turma [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "triangle-alert",
+      "objetivo": "Conhecer a NR-33 e por que ninguém entra em espaço confinado sem capacitação e permissão.",
+      "narracao": "NR trinta e três: espaços confinados. É uma das atividades com maior risco de morte, inclusive para quem tenta socorrer sem preparo."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O que é espaço confinado",
+      "cards": [
+        {
+          "m": "o",
+          "icone": "ban",
+          "titulo": "Não é feito para ocupação contínua"
+        },
+        {
+          "m": "e",
+          "icone": "door-closed",
+          "titulo": "Entrada e saída limitadas"
+        },
+        {
+          "m": "a",
+          "icone": "wind",
+          "titulo": "Atmosfera perigosa",
+          "texto": "existe ou pode existir",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Espaço confinado é uma área {o}que não foi projetada para ocupação humana contínua, {e}com meios limitados de entrada e saída, {a}e onde existe, ou pode existir, atmosfera perigosa. Exemplos: tanques, reservatórios, silos e galerias. Na obra, quem identifica e classifica é o responsável técnico."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Três funções",
+      "cards": [
+        {
+          "m": "t",
+          "icone": "user-check",
+          "titulo": "Trabalhador autorizado",
+          "texto": "entra e executa"
+        },
+        {
+          "m": "v",
+          "icone": "eye",
+          "titulo": "Vigia",
+          "texto": "fica do lado de fora, o tempo todo"
+        },
+        {
+          "m": "s",
+          "icone": "clipboard-check",
+          "titulo": "Supervisor de entrada",
+          "texto": "emite a permissão e acompanha"
+        }
+      ],
+      "narracao": "Na entrada, há três funções. {t}O trabalhador autorizado, que entra e executa. {v}O vigia, que fica do lado de fora o tempo todo. {s}E o supervisor de entrada, que emite a Permissão de Entrada e Trabalho, a PET, e acompanha a atividade."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O treinamento é presencial",
+      "cards": [
+        {
+          "m": "h",
+          "icone": "clock",
+          "titulo": "Autorizado e vigia",
+          "texto": "16 horas"
+        },
+        {
+          "m": "sp",
+          "icone": "clock",
+          "titulo": "Supervisor",
+          "texto": "40 horas"
+        },
+        {
+          "m": "p",
+          "icone": "hard-hat",
+          "titulo": "Prática",
+          "texto": "no mínimo metade da carga"
+        },
+        {
+          "m": "r",
+          "icone": "refresh-cw",
+          "titulo": "Periódico anual",
+          "texto": "8 horas"
+        }
+      ],
+      "narracao": "O treinamento é presencial, com instrutor. {h}Para trabalhador autorizado e vigia: dezesseis horas. {sp}Para supervisor de entrada: quarenta horas. {p}No mínimo metade da carga é prática. {r}E há um periódico anual de oito horas. Além do curso, é preciso ASO com aptidão para espaço confinado, e autorização da empresa.",
+      "aviso": "Valores do catálogo da plataforma (NR-33, Anexo III). Confirmar na versão vigente da norma."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Um colega desmaiou dentro de um tanque. Você entra para ajudar?",
+      "resposta": "Não",
+      "conta": "acione o resgate; quem entra sem preparo vira a segunda vítima",
+      "narracao": "Sua vez: um colega desmaiou dentro de um tanque. Você entra para ajudar? {pensa}[[pausa:3]] {resp}Não. Acione a emergência e o resgate preparado. Quem entra sem preparo e sem equipamento vira a segunda vítima."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Sem capacitação, ASO e PET, ninguém entra",
+          "chave": "c1"
+        },
+        {
+          "texto": "Vigia do lado de fora o tempo todo",
+          "chave": "c2"
+        },
+        {
+          "texto": "Emergência: acione o resgate, não entre",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Espaço confinado não perdoa improviso.",
+      "narracao": "Para levar: {c1}sem capacitação, ASO e PET, ninguém entra. {c2}O vigia fica do lado de fora o tempo todo. {c3}E numa emergência, acione o resgate: não entre. {fim}Espaço confinado não perdoa improviso."
+    }
+  ]
+}

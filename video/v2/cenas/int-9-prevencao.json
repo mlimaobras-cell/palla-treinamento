@@ -1,0 +1,119 @@
+{
+  "codigo": "INT-9-prevencao",
+  "titulo": "Prevenção de acidentes e responsabilidades",
+  "capitulo": "Integração institucional · Aula 9",
+  "eyebrow": "Integração · Aula 9",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)",
+    "NR-1 (gerenciamento de riscos)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/arcelormittal.jpg"
+        }
+      ],
+      "narracao": "Prevenir acidentes é responsabilidade de todos. {o}Mas cada um tem o seu papel.",
+      "titulo": "Prevenção de acidentes",
+      "cap": "Integração · Aula 9",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Responsabilidade de todos, papéis diferentes"
+        }
+      ]
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Ordem de prioridade",
+      "narracao": "A prevenção segue uma ordem de prioridade. {e}Primeiro, eliminar o perigo. {c}Depois, reduzir o risco com proteção coletiva: guarda-corpo, linha de vida, isolamento. {a}Em seguida, medidas de organização: procedimentos, análise de risco, permissão de trabalho, sinalização. {i}E o EPI vem como complemento. Ele é a última barreira, não a primeira.",
+      "etapas": [
+        {
+          "m": "e",
+          "titulo": "Eliminar o perigo"
+        },
+        {
+          "m": "c",
+          "titulo": "Proteção coletiva",
+          "texto": "guarda-corpo, linha de vida, isolamento"
+        },
+        {
+          "m": "a",
+          "titulo": "Medidas administrativas",
+          "texto": "procedimentos, APR, PT, sinalização"
+        },
+        {
+          "m": "i",
+          "titulo": "EPI",
+          "texto": "complemento, a última barreira",
+          "cor": "vermelho"
+        }
+      ],
+      "forma": "piramide"
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Cada um com o seu papel",
+      "cards": [
+        {
+          "m": "em",
+          "icone": "building-2",
+          "titulo": "Empresa",
+          "texto": "PGR, proteções, EPI, treinamentos e fiscalização"
+        },
+        {
+          "m": "li",
+          "icone": "hard-hat",
+          "titulo": "Liderança",
+          "texto": "planeja, orienta, libera com segurança e corrige"
+        },
+        {
+          "m": "tr",
+          "icone": "user-check",
+          "titulo": "Você",
+          "texto": "cumpre, usa o EPI e comunica os riscos"
+        },
+        {
+          "m": "eq",
+          "icone": "users",
+          "titulo": "Equipe",
+          "texto": "um cuida do outro"
+        }
+      ],
+      "narracao": "{em}A empresa identifica os perigos e avalia os riscos no PGR, o Programa de Gerenciamento de Riscos; fornece proteções e EPIs, treina e fiscaliza. {li}A liderança planeja com segurança, conduz o DDS, confere as condições antes de liberar e corrige desvios na hora. {tr}Você cumpre os procedimentos, usa o EPI e comunica os riscos. {eq}E a equipe cuida de todos: se um colega estiver em risco, avise."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O EPI é a primeira ou a última barreira de proteção?",
+      "resposta": "A última",
+      "conta": "primeiro eliminar e proteger coletivamente",
+      "narracao": "Sua vez: o EPI é a primeira ou a última barreira de proteção? {pensa}[[pausa:3]] {resp}A última. Primeiro se elimina o perigo e se protege de forma coletiva. O EPI complementa."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Eliminar → coletiva → organização → EPI",
+          "chave": "c1"
+        },
+        {
+          "texto": "Empresa, liderança e você: cada um com o seu papel",
+          "chave": "c2"
+        },
+        {
+          "texto": "Viu um colega em risco? Avise",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Segurança é coletiva.",
+      "narracao": "Para levar: {c1}eliminar, proteger de forma coletiva, organizar, e só então o EPI. {c2}Empresa, liderança e você: cada um com o seu papel. {c3}E viu um colega em risco? Avise. {fim}Segurança é coletiva."
+    }
+  ]
+}

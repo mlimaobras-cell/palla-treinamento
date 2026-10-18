@@ -1,0 +1,130 @@
+{
+  "codigo": "INT-7-celular",
+  "titulo": "Uso de celular no ambiente operacional",
+  "capitulo": "Integração institucional · Aula 7",
+  "eyebrow": "Integração · Aula 7",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/equipamentos.jpg"
+        }
+      ],
+      "narracao": "O celular distrai. {o}E distração na montagem pode custar uma mão, um dedo, ou uma vida.",
+      "titulo": "Celular na obra",
+      "cap": "Integração · Aula 7",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Distração custa caro na montagem"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Celular guardado durante",
+      "cards": [
+        {
+          "m": "i",
+          "icone": "triangle-alert",
+          "titulo": "Içamento",
+          "texto": "e sinalização de cargas",
+          "cor": "vermelho"
+        },
+        {
+          "m": "a",
+          "icone": "construction",
+          "titulo": "Trabalho em altura",
+          "cor": "vermelho"
+        },
+        {
+          "m": "m",
+          "icone": "cog",
+          "titulo": "Operação de máquinas",
+          "cor": "vermelho"
+        },
+        {
+          "m": "s",
+          "icone": "flame",
+          "titulo": "Solda e corte",
+          "cor": "vermelho"
+        },
+        {
+          "m": "c",
+          "icone": "footprints",
+          "titulo": "Circulação",
+          "texto": "em áreas de risco",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Na frente de trabalho, o celular fica guardado. É proibido usar durante {i}içamento e sinalização de cargas, {a}trabalho em altura, {m}operação de máquinas, {s}solda e corte, {c}e circulação em áreas de risco."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Uso permitido",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "coffee",
+          "titulo": "Pausas",
+          "texto": "área de vivência ou ponto seguro"
+        },
+        {
+          "m": "r",
+          "icone": "radio",
+          "titulo": "Operação",
+          "texto": "use o rádio ou o meio definido pela obra"
+        },
+        {
+          "m": "f",
+          "icone": "camera-off",
+          "titulo": "Fotos e vídeos",
+          "texto": "só com autorização da liderança e do cliente"
+        },
+        {
+          "m": "h",
+          "icone": "headphones",
+          "titulo": "Fone de música",
+          "texto": "não é permitido na frente de trabalho",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{p}Se precisar usar, vá para a área de vivência ou um ponto seguro. {r}Para a comunicação da operação, use o rádio. {f}Fotos e vídeos da obra, só com autorização. {h}E fone de ouvido com música não é permitido na frente de trabalho."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Durante um içamento, o sinaleiro pode atender uma ligação rápida?",
+      "resposta": "Não",
+      "conta": "atenção total na carga e no operador",
+      "narracao": "Sua vez: durante um içamento, o sinaleiro pode atender uma ligação rápida? {pensa}[[pausa:3]] {resp}Não. Atenção total na carga e no operador. A ligação espera."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Na frente de trabalho, celular guardado",
+          "chave": "c1"
+        },
+        {
+          "texto": "Uso só em local seguro",
+          "chave": "c2"
+        },
+        {
+          "texto": "Operação: rádio",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Nenhuma mensagem vale um acidente.",
+      "narracao": "Para levar: {c1}na frente de trabalho, o celular fica guardado. {c2}Use só em local seguro. {c3}E para a operação, rádio. {fim}Nenhuma mensagem vale um acidente."
+    }
+  ]
+}

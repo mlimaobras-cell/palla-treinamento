@@ -1,0 +1,141 @@
+{
+  "codigo": "INT-5-lideranca",
+  "titulo": "Comunicação com a liderança",
+  "capitulo": "Integração institucional · Aula 5",
+  "eyebrow": "Integração · Aula 5",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/icamento-ponte.jpg"
+        }
+      ],
+      "narracao": "Na montagem, uma dúvida não esclarecida pode virar um acidente, {o}ou um retrabalho caro.",
+      "titulo": "Comunicação com a liderança",
+      "cap": "Integração · Aula 5",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Dúvida não esclarecida vira acidente ou retrabalho"
+        }
+      ]
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "A quem falar",
+      "narracao": "Pergunte sempre. {e}O canal principal é o seu encarregado. {s}Se ele não estiver, procure o supervisor ou a Segurança do Trabalho. {d}E participe do DDS, o Diálogo Diário de Segurança: é ali que se combina o trabalho do dia e os cuidados de cada tarefa.",
+      "etapas": [
+        {
+          "m": "e",
+          "titulo": "Encarregado",
+          "texto": "canal principal para a tarefa",
+          "icone": "hard-hat"
+        },
+        {
+          "m": "s",
+          "titulo": "Supervisor ou Segurança do Trabalho",
+          "texto": "quando o encarregado não estiver",
+          "icone": "shield-alert"
+        },
+        {
+          "m": "d",
+          "titulo": "DDS",
+          "texto": "combine o trabalho e os cuidados do dia",
+          "icone": "message-circle"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Mudou algo? Pare e comunique",
+      "cards": [
+        {
+          "m": "p1",
+          "icone": "box",
+          "titulo": "Peça diferente",
+          "texto": "do projeto"
+        },
+        {
+          "m": "p2",
+          "icone": "wrench",
+          "titulo": "Equipamento",
+          "texto": "com defeito"
+        },
+        {
+          "m": "p3",
+          "icone": "cloud-lightning",
+          "titulo": "Tempo virando",
+          "texto": "vento, chuva, raio"
+        },
+        {
+          "m": "p4",
+          "icone": "users",
+          "titulo": "Equipe embaixo",
+          "texto": "ou ao lado da frente"
+        }
+      ],
+      "narracao": "Quando algo mudar, pare e comunique antes de continuar. {p1}Uma peça diferente do projeto. {p2}Um equipamento com defeito. {p3}O tempo virando. {p4}Ou outra equipe trabalhando embaixo."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Rádio: mensagem curta",
+      "cards": [
+        {
+          "m": "r1",
+          "icone": "radio",
+          "titulo": "Quem fala",
+          "texto": "identifique-se"
+        },
+        {
+          "m": "r2",
+          "icone": "message-square-warning",
+          "titulo": "O quê",
+          "texto": "mensagem curta e clara"
+        },
+        {
+          "m": "r3",
+          "icone": "circle-check",
+          "titulo": "Confirmação",
+          "texto": "repita o que entendeu",
+          "cor": "verde"
+        }
+      ],
+      "narracao": "No rádio, a mensagem é curta: {r1}quem fala, {r2}o que precisa, {r3}e a confirmação de quem recebeu. E nunca improvise uma mudança no método ou no equipamento sem autorização."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A furação da viga não bate com o pilar. O que fazer?",
+      "resposta": "Parar",
+      "conta": "e chamar o encarregado; nada de forçar ou alargar o furo",
+      "narracao": "Sua vez: ao conferir uma viga, a furação não bate com o pilar. O que você faz? {pensa}[[pausa:3]] {resp}Para e chama o encarregado, que consulta a engenharia. Nada de forçar com marreta ou alargar o furo."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Dúvida: pergunte ao encarregado",
+          "chave": "c1"
+        },
+        {
+          "texto": "Participe do DDS",
+          "chave": "c2"
+        },
+        {
+          "texto": "Mudou algo: pare e comunique",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Improvisar não é uma opção.",
+      "narracao": "Para levar: {c1}na dúvida, pergunte ao encarregado. {c2}Participe do DDS. {c3}E se algo mudar, pare e comunique. {fim}Improvisar não é uma opção."
+    }
+  ]
+}

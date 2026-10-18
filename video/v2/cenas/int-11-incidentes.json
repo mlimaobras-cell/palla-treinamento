@@ -1,0 +1,144 @@
+{
+  "codigo": "INT-11-incidentes",
+  "titulo": "Comunicação de incidentes e quase acidentes",
+  "capitulo": "Integração institucional · Aula 11",
+  "eyebrow": "Integração · Aula 11",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/viaduto.jpg"
+        }
+      ],
+      "narracao": "Um quase acidente é um aviso. {o}O parafuso que caiu e não acertou ninguém mostra que, da próxima vez, pode acertar.",
+      "titulo": "Incidentes e quase acidentes",
+      "cap": "Integração · Aula 11",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Todo quase acidente é um aviso"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O que comunicar",
+      "cards": [
+        {
+          "m": "a",
+          "icone": "siren",
+          "titulo": "Acidente",
+          "texto": "lesão ou dano",
+          "cor": "vermelho"
+        },
+        {
+          "m": "i",
+          "icone": "triangle-alert",
+          "titulo": "Incidente",
+          "texto": "sem lesão, com dano ou potencial"
+        },
+        {
+          "m": "q",
+          "icone": "circle-alert",
+          "titulo": "Quase acidente",
+          "texto": "por pouco não causou lesão ou dano"
+        },
+        {
+          "m": "c",
+          "icone": "eye",
+          "titulo": "Condição insegura",
+          "texto": "algo que pode causar um acidente"
+        }
+      ],
+      "narracao": "Tudo isso deve ser comunicado: {a}o acidente, que causou lesão ou dano. {i}O incidente, sem lesão, mas com dano ou potencial de dano. {q}O quase acidente, que por pouco não causou. {c}E a condição insegura, que pode causar um acidente."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Como agir",
+      "narracao": "Como agir: {s}garanta a segurança e isole a área. {v}Avise imediatamente o encarregado e a Segurança do Trabalho. {vi}Se houver vítima, acione o socorro pelo plano de emergência da obra, e não mova a vítima, a menos que haja um risco maior. {p}Preserve o local, quando possível, e participe da análise.",
+      "etapas": [
+        {
+          "m": "s",
+          "titulo": "Garanta a segurança e isole a área",
+          "icone": "traffic-cone"
+        },
+        {
+          "m": "v",
+          "titulo": "Avise o encarregado e a SST",
+          "icone": "megaphone"
+        },
+        {
+          "m": "vi",
+          "titulo": "Com vítima: plano de emergência",
+          "texto": "não mova a vítima, exceto risco maior",
+          "icone": "siren",
+          "cor": "vermelho"
+        },
+        {
+          "m": "p",
+          "titulo": "Preserve o local e participe da análise",
+          "icone": "clipboard-list"
+        }
+      ]
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {e}durante a montagem de terças, uma porca cai do nível de cima e bate no chão a um metro de um ajudante. A equipe para, isola a área, comunica a Segurança do Trabalho, {r}e a análise leva ao uso de bolsas porta-parafusos. {d}Comunicar não é dedurar. É assim que a gente descobre a causa e evita que aconteça de novo.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "e",
+          "texto": "Porca cai a 1 m de um ajudante"
+        },
+        {
+          "m": "r",
+          "texto": "Análise: bolsa porta-parafusos"
+        },
+        {
+          "m": "d",
+          "texto": "Comunicar não é dedurar"
+        }
+      ]
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Ninguém se feriu. O quase acidente precisa ser comunicado?",
+      "resposta": "Sim",
+      "conta": "na hora, ao encarregado e à SST",
+      "narracao": "Sua vez: ninguém se feriu. O quase acidente precisa ser comunicado? {pensa}[[pausa:3]] {resp}Sim. Na hora, ao encarregado e à Segurança do Trabalho."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Acidente, incidente e quase acidente: comunique",
+          "chave": "c1"
+        },
+        {
+          "texto": "Isole, avise, preserve",
+          "chave": "c2"
+        },
+        {
+          "texto": "Participe da análise",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Comunicar evita o próximo.",
+      "narracao": "Para levar: {c1}acidente, incidente e quase acidente: comunique. {c2}Isole, avise e preserve. {c3}E participe da análise. {fim}Comunicar evita o próximo."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "codigo": "INT-12-disciplina",
+  "titulo": "Procedimentos disciplinares",
+  "capitulo": "Integração institucional · Aula 12",
+  "eyebrow": "Integração · Aula 12",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)",
+    "CLT, art. 158, parágrafo único"
+  ],
+  "pendencias": [
+    "Tabela de condutas e medidas: regulamento interno aprovado pelo RH e pelo jurídico [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/parque-fabril.jpg"
+        }
+      ],
+      "narracao": "As regras da Palla existem para proteger as pessoas. {o}Quando alguém descumpre, a empresa precisa agir.",
+      "titulo": "Procedimentos disciplinares",
+      "cap": "Integração · Aula 12",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Regras existem para proteger"
+        }
+      ]
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Medidas proporcionais à gravidade",
+      "narracao": "As medidas seguem a legislação trabalhista e são proporcionais à gravidade. Podem ir de {o}uma orientação, {a}a uma advertência, {s}uma suspensão, {d}ou, em casos graves previstos em lei, a dispensa. Toda medida é registrada, com direito de manifestação.",
+      "etapas": [
+        {
+          "m": "o",
+          "titulo": "Orientação",
+          "icone": "message-circle"
+        },
+        {
+          "m": "a",
+          "titulo": "Advertência",
+          "icone": "file-warning"
+        },
+        {
+          "m": "s",
+          "titulo": "Suspensão",
+          "icone": "octagon-x"
+        },
+        {
+          "m": "d",
+          "titulo": "Dispensa",
+          "texto": "em casos graves previstos em lei",
+          "icone": "x",
+          "cor": "vermelho"
+        }
+      ]
+    },
+    {
+      "tipo": "colunas",
+      "titulo": "Regra de ouro e direito de recusa",
+      "narracao": "{f1}Descumprir uma regra de ouro de segurança é falta grave, {f2}porque coloca vidas em risco. Por outro lado, {r1}parar uma tarefa por risco grave e iminente {r2}ou comunicar um risco nunca é motivo de punição.",
+      "colunas": [
+        {
+          "titulo": "Falta grave",
+          "icone": "triangle-alert",
+          "cor": "vermelho",
+          "itens": [
+            {
+              "m": "f1",
+              "texto": "Descumprir regra de ouro de segurança"
+            },
+            {
+              "m": "f2",
+              "texto": "Coloca vidas em risco"
+            }
+          ]
+        },
+        {
+          "titulo": "Nunca punido",
+          "icone": "shield-check",
+          "cor": "verde",
+          "itens": [
+            {
+              "m": "r1",
+              "texto": "Parar tarefa por risco grave e iminente"
+            },
+            {
+              "m": "r2",
+              "texto": "Comunicar um risco ou incidente"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Parar uma tarefa por risco grave pode gerar punição?",
+      "resposta": "Não",
+      "conta": "é o direito de recusa",
+      "narracao": "Sua vez: parar uma tarefa por risco grave e iminente pode gerar punição? {pensa}[[pausa:3]] {resp}Não. É o seu direito de recusa."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Medidas proporcionais e registradas",
+          "chave": "c1"
+        },
+        {
+          "texto": "Regra de ouro descumprida é falta grave",
+          "chave": "c2"
+        },
+        {
+          "texto": "Direito de recusa nunca é punido",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Regras protegem pessoas.",
+      "narracao": "Para levar: {c1}as medidas são proporcionais e registradas. {c2}Descumprir regra de ouro é falta grave. {c3}E o direito de recusa nunca é punido. {fim}Regras protegem pessoas."
+    }
+  ]
+}

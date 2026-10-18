@@ -1,0 +1,131 @@
+{
+  "codigo": "INT-13-encerramento",
+  "titulo": "Revisão e próximos passos",
+  "capitulo": "Integração institucional · Aula 13",
+  "eyebrow": "Integração · Aula 13",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "db/conteudo/integracao.ts (Módulo 01 — Integração institucional)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/fabrica-aerea.jpg"
+        }
+      ],
+      "narracao": "Você chegou ao final da integração. {o}Vamos relembrar e ver os próximos passos.",
+      "titulo": "Revisão e próximos passos",
+      "cap": "Integração · Aula 13",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "O que vimos e o que vem agora"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O que você viu",
+      "cards": [
+        {
+          "m": "a",
+          "icone": "building-2",
+          "titulo": "A Palla",
+          "texto": "grupo, missão e valores"
+        },
+        {
+          "m": "b",
+          "icone": "scale",
+          "titulo": "Conduta",
+          "texto": "respeito, direitos e deveres"
+        },
+        {
+          "m": "c",
+          "icone": "construction",
+          "titulo": "Canteiro",
+          "texto": "acesso, circulação e celular"
+        },
+        {
+          "m": "d",
+          "icone": "shield-check",
+          "titulo": "Regras de ouro",
+          "texto": "e direito de recusa"
+        },
+        {
+          "m": "e",
+          "icone": "siren",
+          "titulo": "Incidentes",
+          "texto": "comunicar e analisar"
+        }
+      ],
+      "narracao": "Você conheceu {a}a Palla e os seus valores; {b}o nosso jeito de trabalhar, com respeito, direitos e deveres; {c}as regras do canteiro; {d}as regras de ouro e o direito de recusa; {e}e como comunicar incidentes."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Seus próximos passos",
+      "narracao": "Agora: {p1}faça a avaliação da integração. {p2}Continue a sua trilha: cada função tem cursos obrigatórios. {p3}Alguns têm etapa prática presencial com instrutor. {p4}E envie o ASO e os documentos pedidos pela plataforma.",
+      "etapas": [
+        {
+          "m": "p1",
+          "titulo": "Avaliação da integração",
+          "icone": "clipboard-check"
+        },
+        {
+          "m": "p2",
+          "titulo": "Cursos obrigatórios da sua função",
+          "icone": "graduation-cap"
+        },
+        {
+          "m": "p3",
+          "titulo": "Práticas presenciais agendadas",
+          "icone": "hard-hat"
+        },
+        {
+          "m": "p4",
+          "titulo": "ASO e documentos na plataforma",
+          "icone": "files"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Atenção",
+      "cards": [
+        {
+          "m": "x",
+          "icone": "lock",
+          "titulo": "Integração não libera sozinha",
+          "texto": "o acesso depende de todos os requisitos da função e da aprovação de um responsável",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{x}Atenção: concluir a integração não libera o acesso à obra sozinha. A liberação depende de todos os requisitos da sua função, e da aprovação de um responsável.",
+      "linha": true
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Faça a avaliação",
+          "chave": "c1"
+        },
+        {
+          "texto": "Siga a trilha da sua função",
+          "chave": "c2"
+        },
+        {
+          "texto": "Acompanhe seus documentos na plataforma",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Bem-vindo à Palla Construções.",
+      "narracao": "Para fechar: {c1}faça a avaliação. {c2}Siga a trilha da sua função. {c3}E acompanhe os seus documentos na plataforma. {fim}Bom trabalho, e seja bem-vindo à Palla Construções."
+    }
+  ]
+}

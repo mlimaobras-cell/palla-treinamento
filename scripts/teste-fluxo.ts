@@ -168,7 +168,7 @@ async function main() {
   await deveFalhar("Pulso de tempo não permite fraude (teto por pulso)", async () => {
     await registrarTempo(colab, integ.id, primeiraAula.id, 99999);
     await concluirAula(colab, integ.id, primeiraAula.id);
-  }, "Faltam");
+  }, primeiraAula.videoUrl ? "Assista ao vídeo" : "Faltam");
   await assistirTudo(colab, integ.id);
   for (let i = 1; i <= 3; i++) {
     const r = await responder(colab, integ.id, false);

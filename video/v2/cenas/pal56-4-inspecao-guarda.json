@@ -1,0 +1,130 @@
+{
+  "codigo": "PAL56-4-inspecao-guarda",
+  "titulo": "Inspeção, guarda e manutenção das ferramentas",
+  "capitulo": "Utilização segura de ferramentas · Aula 4",
+  "eyebrow": "PAL-56 · Ferramentas",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Capacitação interna Palla Construções (db/catalogo.ts, PAL-56)",
+    "Complementa NR-12"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "clipboard-check",
+      "objetivo": "Inspecionar, guardar e encaminhar para manutenção as ferramentas da função.",
+      "narracao": "Aula quatro: inspeção, guarda e manutenção das ferramentas."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Inspeção antes do uso",
+      "cards": [
+        {
+          "m": "c",
+          "icone": "zap",
+          "titulo": "Cabo e plugue",
+          "texto": "sem emenda, sem fio exposto"
+        },
+        {
+          "m": "p",
+          "icone": "shield",
+          "titulo": "Proteções e empunhaduras",
+          "texto": "no lugar"
+        },
+        {
+          "m": "g",
+          "icone": "hand",
+          "titulo": "Gatilho",
+          "texto": "liga e desliga normalmente"
+        },
+        {
+          "m": "a",
+          "icone": "disc",
+          "titulo": "Acessórios",
+          "texto": "disco, broca, soquete em bom estado"
+        }
+      ],
+      "narracao": "Antes de usar: {c}cabo e plugue sem emenda e sem fio exposto. {p}Proteções e empunhaduras no lugar. {g}Gatilho que liga e desliga normalmente. {a}E acessórios, como disco, broca e soquete, em bom estado."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Defeito encontrado",
+      "narracao": "Encontrou um defeito: {s}separe a ferramenta e identifique com etiqueta de não usar. {c}Comunique o encarregado. {m}E a manutenção é feita por quem é autorizado: nada de conserto improvisado com fita.",
+      "etapas": [
+        {
+          "m": "s",
+          "titulo": "Separe e identifique",
+          "texto": "etiqueta: não usar",
+          "icone": "tag",
+          "cor": "vermelho"
+        },
+        {
+          "m": "c",
+          "titulo": "Comunique o encarregado",
+          "icone": "megaphone"
+        },
+        {
+          "m": "m",
+          "titulo": "Manutenção por quem é autorizado",
+          "texto": "nada de conserto improvisado",
+          "icone": "wrench"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Guarda",
+      "cards": [
+        {
+          "m": "l",
+          "icone": "box",
+          "titulo": "Local seco e organizado"
+        },
+        {
+          "m": "d",
+          "icone": "disc",
+          "titulo": "Discos protegidos",
+          "texto": "de umidade e impacto"
+        },
+        {
+          "m": "t",
+          "icone": "lock",
+          "titulo": "Controle de entrega",
+          "texto": "conforme a obra"
+        }
+      ],
+      "narracao": "A guarda: {l}em local seco e organizado. {d}Discos protegidos de umidade e impacto. {t}E controle de entrega e devolução, conforme a obra.",
+      "linha": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O cabo da esmerilhadeira está com fio exposto. Passa uma fita e usa?",
+      "resposta": "Não",
+      "conta": "separe, identifique e comunique",
+      "narracao": "Sua vez: o cabo da esmerilhadeira está com fio exposto. Passa uma fita e usa? {pensa}[[pausa:3]] {resp}Não. Separe, identifique e comunique."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Inspecione antes de cada uso",
+          "chave": "c1"
+        },
+        {
+          "texto": "Defeito: separe, etiquete e comunique",
+          "chave": "c2"
+        },
+        {
+          "texto": "Guarde seco e organizado",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Ferramenta boa é ferramenta cuidada.",
+      "narracao": "Para levar: {c1}inspecione antes de cada uso. {c2}Defeito: separe, etiquete e comunique. {c3}Guarde seco e organizado. {fim}Ferramenta boa é ferramenta cuidada."
+    }
+  ]
+}

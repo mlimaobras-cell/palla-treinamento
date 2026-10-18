@@ -1,0 +1,160 @@
+{
+  "codigo": "SIN-2-comunicacao",
+  "titulo": "Isolamento e comunicação por sinais e rádio",
+  "capitulo": "Sinaleiro e amarrador de cargas · Aula 5",
+  "eyebrow": "NR-18 · Sinaleiro",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, Anexo I; NR-11 (db/catalogo.ts, NR11-SIN)"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade: conferir no Anexo I da NR-18 vigente [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "radio",
+      "objetivo": "Isolar a área e comunicar com clareza durante todo o içamento.",
+      "narracao": "Aula cinco: o isolamento, e a comunicação por sinais e por rádio."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Antes de içar",
+      "narracao": "Antes de içar: {p}confira o plano: peso, raio e acessórios. {i}Isole a área e o raio de giro. {c}Combine os sinais com o operador e teste o rádio. {t}E faça o içamento de teste: erga um pouco, pare, e confira o equilíbrio e a amarração.",
+      "etapas": [
+        {
+          "m": "p",
+          "titulo": "Confira o plano",
+          "texto": "peso, raio, acessórios",
+          "icone": "clipboard-list"
+        },
+        {
+          "m": "i",
+          "titulo": "Isole a área e o raio de giro",
+          "icone": "traffic-cone"
+        },
+        {
+          "m": "c",
+          "titulo": "Combine os sinais com o operador",
+          "texto": "e teste o rádio",
+          "icone": "radio"
+        },
+        {
+          "m": "t",
+          "titulo": "Içamento de teste",
+          "texto": "erga um pouco e pare: confira equilíbrio e amarração",
+          "icone": "arrow-down-to-line"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Comunicação por rádio",
+      "cards": [
+        {
+          "m": "q",
+          "icone": "user-check",
+          "titulo": "Quem fala",
+          "texto": "identifique-se"
+        },
+        {
+          "m": "a",
+          "icone": "message-circle",
+          "titulo": "A ação",
+          "texto": "curta e clara"
+        },
+        {
+          "m": "c",
+          "icone": "circle-check",
+          "titulo": "Confirmação",
+          "texto": "o operador repete"
+        },
+        {
+          "m": "s",
+          "icone": "octagon-x",
+          "titulo": "Silêncio no rádio?",
+          "texto": "o operador para",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Por rádio: {q}quem fala se identifica. {a}A ação é curta e clara. {c}O operador confirma, repetindo. {s}E combine: se o rádio ficar mudo, o operador para."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Sinais",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "list-checks",
+          "titulo": "Padronizados",
+          "texto": "conforme o padrão adotado pela obra"
+        },
+        {
+          "m": "v",
+          "icone": "eye",
+          "titulo": "Visíveis",
+          "texto": "braços claros, sem duplo sentido"
+        },
+        {
+          "m": "e",
+          "icone": "octagon-x",
+          "titulo": "Parada de emergência",
+          "texto": "qualquer pessoa pode dar",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Os sinais manuais: {p}seguem o padrão adotado pela obra, treinado na prática. {v}São feitos de forma visível, sem duplo sentido. {e}E a parada de emergência pode ser dada por qualquer pessoa."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/icamento-ponte.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}durante o giro, a carga passa para trás de uma torre, e o operador perde de vista o sinaleiro. {c2}Antes de seguir, a comunicação passa para o rádio, ou para um sinaleiro auxiliar combinado no plano, com a troca anunciada.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Carga some atrás da estrutura"
+        },
+        {
+          "m": "c2",
+          "texto": "Passa para o rádio ou um segundo sinaleiro combinado"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O rádio ficou mudo durante o movimento. O que o operador faz?",
+      "resposta": "Para",
+      "conta": "e só retoma com contato confirmado",
+      "narracao": "Sua vez: o rádio ficou mudo durante o movimento. O que o operador faz? {pensa}[[pausa:3]] {resp}Para, e só retoma com o contato confirmado."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Plano, isolamento, sinais e teste",
+          "chave": "c1"
+        },
+        {
+          "texto": "Rádio: quem, ação, confirmação",
+          "chave": "c2"
+        },
+        {
+          "texto": "Perdeu contato: para",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Comunicação clara, carga segura.",
+      "narracao": "Para levar: {c1}plano, isolamento, sinais combinados e içamento de teste. {c2}No rádio: quem fala, a ação e a confirmação. {c3}Perdeu o contato: para. {fim}Comunicação clara, carga segura."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial com prática no equipamento. Não habilita sozinho."
+}

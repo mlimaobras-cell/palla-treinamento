@@ -1,0 +1,196 @@
+{
+  "codigo": "NR18-4-escadas-andaimes",
+  "titulo": "Escadas, andaimes, plataformas e queda de materiais",
+  "capitulo": "NR-18 · Básico em segurança na construção · Aula 4",
+  "eyebrow": "NR-18 · Básico",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, item 18.14 e Anexo I (conteúdo do treinamento básico)",
+    "db/catalogo.ts (NR18-BAS)",
+    "NR-35"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade do básico: conferir no Anexo I da NR-18 vigente (Portaria MTE nº 836/2026) [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "layers",
+      "objetivo": "Usar escadas, andaimes e plataformas com segurança e evitar a queda de materiais.",
+      "narracao": "Aula quatro: escadas, andaimes, plataformas de trabalho, e queda de materiais. E, quando houver, escavações."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Escadas de mão",
+      "cards": [
+        {
+          "m": "i",
+          "icone": "clipboard-check",
+          "titulo": "Inspecione",
+          "texto": "degraus, montantes, sapatas"
+        },
+        {
+          "m": "a",
+          "icone": "anchor",
+          "titulo": "Apoio firme",
+          "texto": "base nivelada, topo amarrado"
+        },
+        {
+          "m": "p",
+          "icone": "hand",
+          "titulo": "Três pontos de apoio",
+          "texto": "subir de frente, mãos livres"
+        },
+        {
+          "m": "t",
+          "icone": "ban",
+          "titulo": "Escada não é plataforma",
+          "texto": "trabalho prolongado: plataforma",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Escada de mão: {i}inspecione antes: degraus, montantes e sapatas. {a}Apoio firme, base nivelada, e topo amarrado ou travado. {p}Suba de frente, mantendo três pontos de apoio, com as mãos livres; ferramenta vai na bolsa. {t}E escada é para acesso: trabalho prolongado se faz em plataforma ou andaime."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Andaimes e plataformas",
+      "cards": [
+        {
+          "m": "m",
+          "icone": "user-check",
+          "titulo": "Montado por equipe capacitada",
+          "texto": "conforme projeto e fabricante"
+        },
+        {
+          "m": "l",
+          "icone": "file-check",
+          "titulo": "Liberado para uso",
+          "texto": "inspeção registrada"
+        },
+        {
+          "m": "g",
+          "icone": "fence",
+          "titulo": "Guarda-corpo e rodapé",
+          "texto": "piso completo e travado"
+        },
+        {
+          "m": "n",
+          "icone": "ban",
+          "titulo": "Nunca alterar",
+          "texto": "nem retirar peças ou travas",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Andaimes e plataformas: {m}montados por equipe capacitada, conforme o projeto e o manual do fabricante. {l}Só usados depois de liberados, com inspeção registrada. {g}Com guarda-corpo, rodapé e piso completo e travado. {n}E nunca altere, nem retire peças ou travas por conta própria."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Queda de materiais",
+      "cards": [
+        {
+          "m": "b",
+          "icone": "package",
+          "titulo": "Bolsa fechada",
+          "texto": "parafusos e porcas"
+        },
+        {
+          "m": "f",
+          "icone": "wrench",
+          "titulo": "Ferramenta amarrada",
+          "texto": "em altura"
+        },
+        {
+          "m": "r",
+          "icone": "fence",
+          "titulo": "Rodapé e tela",
+          "texto": "nas bordas"
+        },
+        {
+          "m": "i",
+          "icone": "traffic-cone",
+          "titulo": "Isolamento abaixo",
+          "texto": "enquanto houver trabalho acima"
+        },
+        {
+          "m": "l",
+          "icone": "ban",
+          "titulo": "Nada arremessado",
+          "texto": "de um nível a outro",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Queda de materiais: {b}parafusos e porcas em bolsa fechada. {f}Ferramentas amarradas em altura. {r}Rodapé e tela nas bordas. {i}Área isolada abaixo, enquanto houver trabalho acima. {l}E nada é arremessado de um nível a outro."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Escavações, quando houver",
+      "cards": [
+        {
+          "m": "e",
+          "icone": "shield-alert",
+          "titulo": "Escoramento ou talude",
+          "texto": "conforme projeto"
+        },
+        {
+          "m": "b",
+          "icone": "fence",
+          "titulo": "Borda protegida",
+          "texto": "material afastado da beira"
+        }
+      ],
+      "narracao": "Quando houver escavação, como em bases e blocos: {e}ela tem escoramento ou talude, conforme o projeto. {b}A borda é protegida, e o material escavado fica afastado da beira. Ninguém entra numa vala sem liberação.",
+      "linha": true
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}uma chave de boca escorrega da plataforma a seis metros e cai no piso. {c2}Como a área abaixo estava isolada, ninguém foi atingido. A equipe comunica o quase acidente, e passa a amarrar as ferramentas.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Chave caiu da plataforma"
+        },
+        {
+          "m": "c2",
+          "texto": "Área abaixo isolada: ninguém atingido"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Escada de mão serve para trabalho prolongado em altura?",
+      "resposta": "Não",
+      "conta": "use plataforma ou andaime liberado",
+      "narracao": "Sua vez: a escada de mão serve para trabalho prolongado em altura? {pensa}[[pausa:3]] {resp}Não. Escada é acesso. Para trabalhar, use plataforma ou andaime liberado."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Escada: inspeção, apoio e três pontos",
+          "chave": "c1"
+        },
+        {
+          "texto": "Andaime só liberado e completo",
+          "chave": "c2"
+        },
+        {
+          "texto": "Bolsa, ferramenta amarrada e isolamento abaixo",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "O que sobe tem que ficar preso.",
+      "narracao": "Para levar: {c1}escada com inspeção, apoio firme e três pontos de contato. {c2}Andaime só liberado e completo. {c3}Bolsa fechada, ferramenta amarrada e isolamento abaixo. {fim}O que sobe tem que ficar preso."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial. A carga horária do NR-18 básico é cumprida na turma presencial com instrutor."
+}

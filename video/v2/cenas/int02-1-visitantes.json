@@ -1,0 +1,146 @@
+{
+  "codigo": "INT02-1-visitantes",
+  "titulo": "Orientação de segurança para visitantes",
+  "capitulo": "Orientação para visitantes e acesso eventual · Aula 1",
+  "eyebrow": "INT-02 · Visitantes",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Capacitação interna Palla Construções (db/catalogo.ts, INT-02)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/fabrica-aerea.jpg"
+        }
+      ],
+      "narracao": "Bem-vindo à obra da Palla Construções. {o}Antes de entrar no canteiro, alguns minutos de orientação para a sua segurança.",
+      "titulo": "Orientação para visitantes",
+      "cap": "INT-02",
+      "itens": [
+        {
+          "m": "o",
+          "texto": "Antes de entrar no canteiro"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Os riscos do canteiro de montagem",
+      "cards": [
+        {
+          "m": "s",
+          "icone": "triangle-alert",
+          "titulo": "Cargas suspensas",
+          "texto": "peças içadas por guindaste",
+          "cor": "vermelho"
+        },
+        {
+          "m": "q",
+          "icone": "arrow-down-to-line",
+          "titulo": "Queda de materiais",
+          "texto": "de níveis acima"
+        },
+        {
+          "m": "m",
+          "icone": "truck",
+          "titulo": "Máquinas em movimento",
+          "texto": "caminhões, guindastes, plataformas"
+        },
+        {
+          "m": "f",
+          "icone": "flame",
+          "titulo": "Solda e corte",
+          "texto": "fagulhas e radiação"
+        }
+      ],
+      "narracao": "Na montagem, os principais riscos são: {s}cargas suspensas, peças içadas por guindaste. {q}Queda de materiais de níveis acima. {m}Máquinas em movimento: caminhões, guindastes e plataformas. {f}E solda e corte, com fagulhas e radiação."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Para entrar",
+      "cards": [
+        {
+          "m": "e",
+          "icone": "hard-hat",
+          "titulo": "EPIs obrigatórios",
+          "texto": "capacete, óculos, calçado fechado e o que a obra exigir"
+        },
+        {
+          "m": "a",
+          "icone": "users",
+          "titulo": "Sempre acompanhado",
+          "texto": "por alguém da Palla"
+        },
+        {
+          "m": "r",
+          "icone": "footprints",
+          "titulo": "Só pelas rotas",
+          "texto": "nunca em área isolada",
+          "cor": "vermelho"
+        },
+        {
+          "m": "c",
+          "icone": "camera-off",
+          "titulo": "Fotos só com autorização"
+        }
+      ],
+      "narracao": "Para entrar: {e}use os EPIs obrigatórios: capacete, óculos, calçado fechado, e o que a obra exigir. {a}Esteja sempre acompanhado por alguém da Palla. {r}Circule só pelas rotas, e nunca entre em área isolada. {c}Fotos, só com autorização."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Em emergência",
+      "narracao": "Em uma emergência: {a}siga o seu acompanhante. {r}Saia pela rota de fuga, sem correr. {p}E vá para o ponto de encontro, para a contagem.",
+      "etapas": [
+        {
+          "m": "a",
+          "titulo": "Siga o seu acompanhante",
+          "icone": "users"
+        },
+        {
+          "m": "r",
+          "titulo": "Rota de fuga",
+          "texto": "sem correr",
+          "icone": "door-open"
+        },
+        {
+          "m": "p",
+          "titulo": "Ponto de encontro",
+          "texto": "aguarde a contagem",
+          "icone": "map-pin"
+        }
+      ]
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Pode passar por baixo de uma peça sendo içada?",
+      "resposta": "Nunca",
+      "conta": "contorne pela rota",
+      "narracao": "Sua vez: pode passar por baixo de uma peça sendo içada? {pensa}[[pausa:3]] {resp}Nunca. Contorne pela rota."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "EPIs obrigatórios",
+          "chave": "c1"
+        },
+        {
+          "texto": "Sempre acompanhado, só pelas rotas",
+          "chave": "c2"
+        },
+        {
+          "texto": "Nunca sob carga suspensa",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Boa visita, com segurança.",
+      "narracao": "Para levar: {c1}EPIs obrigatórios. {c2}Sempre acompanhado, e só pelas rotas. {c3}Nunca sob carga suspensa. {fim}Boa visita, com segurança."
+    }
+  ]
+}

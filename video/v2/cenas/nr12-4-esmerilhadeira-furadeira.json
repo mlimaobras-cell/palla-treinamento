@@ -1,0 +1,162 @@
+{
+  "codigo": "NR12-4-esmerilhadeira-furadeira",
+  "titulo": "Esmerilhadeira e furadeira",
+  "capitulo": "NR-12 · Segurança em máquinas e equipamentos · Aula 4",
+  "eyebrow": "NR-12 · Máquinas",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-12, item 12.16 e Anexo II",
+    "db/catalogo.ts (NR12-MAQ)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "disc",
+      "objetivo": "Usar esmerilhadeira e furadeira com segurança na montagem.",
+      "narracao": "Aula quatro: as duas ferramentas mais usadas na montagem, a esmerilhadeira e a furadeira."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Esmerilhadeira: antes de ligar",
+      "narracao": "Esmerilhadeira, antes de ligar: {r}a rotação máxima do disco tem que ser igual ou maior que a da máquina; confira no disco e na placa. {t}Disco certo para a tarefa: disco de corte só corta; disco de desbaste só desbasta. {i}Disco sem trinca, e dentro da validade. {c}E coifa e empunhadura lateral no lugar.",
+      "etapas": [
+        {
+          "m": "r",
+          "titulo": "Rotação do disco ≥ rotação da máquina",
+          "texto": "veja no disco e na placa",
+          "icone": "gauge"
+        },
+        {
+          "m": "t",
+          "titulo": "Disco certo para a tarefa",
+          "texto": "corte é corte; desbaste é desbaste",
+          "icone": "disc"
+        },
+        {
+          "m": "i",
+          "titulo": "Disco sem trinca e dentro da validade",
+          "icone": "eye"
+        },
+        {
+          "m": "c",
+          "titulo": "Coifa e empunhadura lateral no lugar",
+          "icone": "shield"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Esmerilhadeira: durante o uso",
+      "cards": [
+        {
+          "m": "d",
+          "icone": "hand",
+          "titulo": "Duas mãos",
+          "texto": "posição firme"
+        },
+        {
+          "m": "l",
+          "icone": "users",
+          "titulo": "Ninguém na linha das fagulhas",
+          "cor": "vermelho"
+        },
+        {
+          "m": "p",
+          "icone": "timer",
+          "titulo": "Espere o disco parar",
+          "texto": "antes de apoiar"
+        },
+        {
+          "m": "e",
+          "icone": "glasses",
+          "titulo": "Óculos e protetor facial",
+          "texto": "luvas e protetor auditivo"
+        }
+      ],
+      "narracao": "Durante o uso: {d}duas mãos e posição firme. {l}Ninguém na linha das fagulhas. {p}Espere o disco parar antes de apoiar a ferramenta. {e}E EPI: óculos com protetor facial, luvas e protetor auditivo."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Furadeira",
+      "cards": [
+        {
+          "m": "f",
+          "icone": "anchor",
+          "titulo": "Peça presa",
+          "texto": "nunca segurada na mão"
+        },
+        {
+          "m": "m",
+          "icone": "link",
+          "titulo": "Base magnética",
+          "texto": "superfície limpa e cinta de segurança quando exigida"
+        },
+        {
+          "m": "b",
+          "icone": "rotate-ccw",
+          "titulo": "Broca travou?",
+          "texto": "solte o gatilho"
+        },
+        {
+          "m": "c",
+          "icone": "hand",
+          "titulo": "Cavaco",
+          "texto": "remova com gancho ou pincel, nunca com a mão"
+        }
+      ],
+      "narracao": "Furadeira: {f}a peça fica presa, nunca segurada na mão. {m}Na furadeira de base magnética, superfície limpa e plana, e a cinta ou corrente de segurança quando o fabricante exigir, principalmente em altura ou na vertical. {b}Se a broca travar, solte o gatilho. {c}E o cavaco se remove com gancho ou pincel, nunca com a mão."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/equipamentos.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}para não trocar o disco, o montador usa o disco de corte de lado, para desbastar uma solda. O disco fino não aguenta esforço lateral e estoura. {c2}Disco de corte só corta. Para desbaste, troque pelo disco de desbaste.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Disco de corte usado para desbaste"
+        },
+        {
+          "m": "c2",
+          "texto": "O disco estoura: use o disco certo"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Posso usar o disco de corte para desbastar uma solda?",
+      "resposta": "Não",
+      "conta": "o disco fino estoura no esforço lateral",
+      "narracao": "Sua vez: posso usar o disco de corte para desbastar uma solda? {pensa}[[pausa:3]] {resp}Não. O disco fino estoura com o esforço lateral. Troque pelo disco de desbaste."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Rotação do disco ≥ da máquina",
+          "chave": "c1"
+        },
+        {
+          "texto": "Disco certo, coifa e duas mãos",
+          "chave": "c2"
+        },
+        {
+          "texto": "Furadeira: peça presa, base fixa",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Cada disco tem a sua função.",
+      "narracao": "Para levar: {c1}rotação do disco igual ou maior que a da máquina. {c2}Disco certo, coifa e duas mãos. {c3}Na furadeira, peça presa e base fixa. {fim}Cada disco tem a sua função."
+    }
+  ],
+  "nota": "Curso semipresencial: a etapa prática supervisionada na máquina é obrigatória (NR-12, Anexo II) e registrada pelo instrutor."
+}

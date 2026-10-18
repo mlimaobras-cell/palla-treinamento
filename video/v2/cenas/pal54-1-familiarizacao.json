@@ -1,0 +1,127 @@
+{
+  "codigo": "PAL54-1-familiarizacao",
+  "titulo": "Familiarização com o modelo de guindaste compacto",
+  "capitulo": "Guindastes compactos — familiarização por modelo · Aula 1",
+  "eyebrow": "PAL-54 · Guindaste por modelo",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Capacitação interna Palla Construções (db/catalogo.ts, PAL-54)",
+    "Plano logístico Super JK (guindastes aranha 3.0, SPD 360CDH e 8.0)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "construction",
+      "objetivo": "Saber como é feita a familiarização com o modelo de guindaste compacto da obra.",
+      "narracao": "Familiarização com o modelo de guindaste compacto da obra. Ela complementa a capacitação de operador de equipamento de guindar; não a substitui."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg"
+        }
+      ],
+      "narracao": "Numa mesma obra podem trabalhar {m}modelos diferentes de guindaste aranha, {t}cada um com a sua tabela de carga, configurações de patola, e dispositivos.",
+      "titulo": "Modelos diferentes",
+      "itens": [
+        {
+          "m": "m",
+          "texto": "Vários modelos na mesma obra"
+        },
+        {
+          "m": "t",
+          "texto": "Cada um com tabela e configurações próprias"
+        }
+      ]
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "A familiarização",
+      "narracao": "A familiarização cobre: {m}o manual e a tabela de carga do modelo, com raio, lança e configuração de patolas. {e}A estabilização daquele modelo. {d}Os dispositivos e indicadores, como o limitador e o controle remoto. {i}A inspeção diária do modelo. {a}E a operação supervisionada, com avaliação registrada.",
+      "etapas": [
+        {
+          "m": "m",
+          "titulo": "Manual e tabela de carga do modelo",
+          "texto": "raio, lança, configuração de patolas",
+          "icone": "book-open"
+        },
+        {
+          "m": "e",
+          "titulo": "Estabilização do modelo",
+          "texto": "patolas, sapatas, nivelamento",
+          "icone": "anchor"
+        },
+        {
+          "m": "d",
+          "titulo": "Dispositivos e indicadores",
+          "texto": "limitador, alarmes, controle remoto",
+          "icone": "gauge"
+        },
+        {
+          "m": "i",
+          "titulo": "Inspeção diária do modelo",
+          "icone": "clipboard-check"
+        },
+        {
+          "m": "a",
+          "titulo": "Operação supervisionada e avaliação",
+          "texto": "registrada",
+          "icone": "badge-check",
+          "cor": "verde"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Registro",
+      "cards": [
+        {
+          "m": "r",
+          "icone": "file-check",
+          "titulo": "Modelo, série, data, instrutor",
+          "texto": "e resultado"
+        },
+        {
+          "m": "t",
+          "icone": "list-checks",
+          "titulo": "Tabela de um modelo não vale para outro",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "{r}O registro traz o modelo, o número de série, a data, o instrutor e o resultado. {t}E lembre: a tabela de um modelo não vale para outro.",
+      "linha": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Posso usar a tabela de carga do modelo 3.0 no modelo 8.0?",
+      "resposta": "Não",
+      "conta": "cada modelo, a sua tabela",
+      "narracao": "Sua vez: posso usar a tabela de carga de um modelo em outro? {pensa}[[pausa:3]] {resp}Não. Cada modelo tem a sua tabela."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Manual e tabela do modelo",
+          "chave": "c1"
+        },
+        {
+          "texto": "Estabilização e dispositivos do modelo",
+          "chave": "c2"
+        },
+        {
+          "texto": "Avaliação registrada por modelo",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Cada modelo, uma familiarização.",
+      "narracao": "Para levar: {c1}manual e tabela do modelo. {c2}Estabilização e dispositivos daquele modelo. {c3}Avaliação registrada por modelo. {fim}Cada modelo, uma familiarização."
+    }
+  ],
+  "nota": "Familiarização por modelo: complementa a capacitação NR-18 do operador e não a substitui."
+}

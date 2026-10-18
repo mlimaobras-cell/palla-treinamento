@@ -1,0 +1,174 @@
+{
+  "codigo": "NR06-1-conceito-ca",
+  "titulo": "O que é EPI, Certificado de Aprovação e responsabilidades",
+  "capitulo": "NR-6 · Equipamentos de Proteção Individual · Aula 1",
+  "eyebrow": "NR-6 · EPI",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-6, itens 6.5.1 b, 6.7.1 e 6.7.2 (Portaria MTE nº 57/2025)",
+    "db/catalogo.ts (NR06-EPI)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "hard-hat",
+      "objetivo": "Entender o que é EPI, o Certificado de Aprovação e o papel de cada um.",
+      "narracao": "NR seis: equipamentos de proteção individual. Aula um: o que é EPI, o Certificado de Aprovação, e as responsabilidades."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O que é EPI",
+      "cards": [
+        {
+          "m": "d",
+          "icone": "user-check",
+          "titulo": "Uso individual",
+          "texto": "protege quem usa"
+        },
+        {
+          "m": "r",
+          "icone": "shield-check",
+          "titulo": "Contra riscos",
+          "texto": "que ameaçam a segurança e a saúde"
+        },
+        {
+          "m": "u",
+          "icone": "layers",
+          "titulo": "Complementa",
+          "texto": "não substitui a proteção coletiva"
+        }
+      ],
+      "narracao": "EPI é todo dispositivo ou produto {d}de uso individual, {r}destinado a proteger contra riscos que ameaçam a segurança e a saúde no trabalho. {u}Ele complementa a proteção coletiva e a organização do trabalho; não as substitui."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Certificado de Aprovação",
+      "cards": [
+        {
+          "m": "c",
+          "icone": "badge-check",
+          "titulo": "CA",
+          "texto": "número gravado no EPI"
+        },
+        {
+          "m": "v",
+          "icone": "calendar",
+          "titulo": "Válido",
+          "texto": "consulta pública do Ministério do Trabalho"
+        },
+        {
+          "m": "s",
+          "icone": "ban",
+          "titulo": "Sem CA, não é EPI",
+          "texto": "não pode ser fornecido",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Todo EPI só pode ser comercializado e usado com o {c}Certificado de Aprovação, o CA, emitido pelo Ministério do Trabalho. O número vem gravado no equipamento. {v}A validade do CA pode ser consultada. {s}Equipamento sem CA válido não é EPI, e não pode ser fornecido."
+    },
+    {
+      "tipo": "colunas",
+      "titulo": "Quem faz o quê",
+      "narracao": "A empresa {e1}fornece o EPI adequado ao risco, gratuitamente e em perfeito estado. {e2}Orienta e treina sobre o uso, a guarda e a conservação. {e3}Exige o uso, e substitui quando danificado ou extraviado. {e4}E registra a entrega, em ficha ou sistema. Você {t1}usa o EPI só para a finalidade a que se destina, {t2}é responsável pela guarda e conservação, {t3}comunica qualquer dano, perda ou alteração que o torne impróprio, {t4}e cumpre as orientações sobre o uso.",
+      "colunas": [
+        {
+          "titulo": "Empresa",
+          "icone": "building-2",
+          "cor": "azul",
+          "itens": [
+            {
+              "m": "e1",
+              "texto": "Fornece o EPI adequado, gratuito e em bom estado"
+            },
+            {
+              "m": "e2",
+              "texto": "Orienta e treina sobre uso, guarda e conservação"
+            },
+            {
+              "m": "e3",
+              "texto": "Exige o uso e substitui quando danificado"
+            },
+            {
+              "m": "e4",
+              "texto": "Registra a entrega"
+            }
+          ]
+        },
+        {
+          "titulo": "Você",
+          "icone": "user-check",
+          "cor": "verde",
+          "itens": [
+            {
+              "m": "t1",
+              "texto": "Usa só para a finalidade"
+            },
+            {
+              "m": "t2",
+              "texto": "Guarda e conserva"
+            },
+            {
+              "m": "t3",
+              "texto": "Comunica dano ou perda"
+            },
+            {
+              "m": "t4",
+              "texto": "Cumpre as orientações"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/parque-fabril.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}um montador perde a luva e compra uma parecida na loja da esquina, sem CA. {c2}Ela não é EPI. O certo é comunicar a perda e receber uma nova, com CA, registrada na ficha.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Luva comprada na loja da esquina"
+        },
+        {
+          "m": "c2",
+          "texto": "Sem CA: troque pelo EPI fornecido"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Quem paga pelo EPI do trabalhador?",
+      "resposta": "A empresa",
+      "conta": "fornecimento gratuito, adequado e em bom estado",
+      "narracao": "Sua vez: quem paga pelo EPI? {pensa}[[pausa:3]] {resp}A empresa. O fornecimento é gratuito, adequado ao risco e em perfeito estado."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "EPI tem CA válido",
+          "chave": "c1"
+        },
+        {
+          "texto": "Empresa fornece, treina e substitui",
+          "chave": "c2"
+        },
+        {
+          "texto": "Você usa, conserva e comunica",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "EPI certo, em bom estado, usado do jeito certo.",
+      "narracao": "Para levar: {c1}EPI tem CA válido. {c2}A empresa fornece, treina e substitui. {c3}Você usa, conserva e comunica. {fim}EPI certo, em bom estado, usado do jeito certo."
+    }
+  ]
+}

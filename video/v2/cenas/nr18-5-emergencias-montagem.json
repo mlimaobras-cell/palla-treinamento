@@ -1,0 +1,149 @@
+{
+  "codigo": "NR18-5-emergencias-montagem",
+  "titulo": "Emergências e riscos da montagem metálica",
+  "capitulo": "NR-18 · Básico em segurança na construção · Aula 5",
+  "eyebrow": "NR-18 · Básico",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, item 18.14 e Anexo I (conteúdo do treinamento básico)",
+    "db/catalogo.ts (NR18-BAS)"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade do básico: conferir no Anexo I da NR-18 vigente (Portaria MTE nº 836/2026) [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "siren",
+      "objetivo": "Saber agir numa emergência e reconhecer os riscos próprios da montagem metálica.",
+      "narracao": "Aula cinco: emergências, e os riscos próprios da montagem de estruturas metálicas."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Numa emergência",
+      "narracao": "Numa emergência: {p}pare e avalie: não vire a segunda vítima. {a}Acione o socorro, conforme o plano de emergência da obra. {i}Isole o local. {s}Ajude só no que você foi treinado, e não mova a vítima, a menos que haja um risco maior. {e}Se for preciso abandonar, siga a rota de fuga até o ponto de encontro.",
+      "etapas": [
+        {
+          "m": "p",
+          "titulo": "Pare e avalie",
+          "texto": "não vire a segunda vítima",
+          "icone": "hand",
+          "cor": "vermelho"
+        },
+        {
+          "m": "a",
+          "titulo": "Acione o socorro",
+          "texto": "plano de emergência da obra",
+          "icone": "phone"
+        },
+        {
+          "m": "i",
+          "titulo": "Isole o local",
+          "icone": "traffic-cone"
+        },
+        {
+          "m": "s",
+          "titulo": "Ajude só no que foi treinado",
+          "texto": "não mova a vítima, exceto risco maior",
+          "icone": "hand-helping"
+        },
+        {
+          "m": "e",
+          "titulo": "Abandono: rota de fuga",
+          "texto": "ponto de encontro",
+          "icone": "door-open"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Riscos da montagem metálica",
+      "cards": [
+        {
+          "m": "e",
+          "icone": "hand",
+          "titulo": "Esmagamento",
+          "texto": "mão entre peças em movimento",
+          "cor": "vermelho"
+        },
+        {
+          "m": "i",
+          "icone": "triangle-alert",
+          "titulo": "Instabilidade",
+          "texto": "estrutura incompleta pode tombar",
+          "cor": "vermelho"
+        },
+        {
+          "m": "a",
+          "icone": "construction",
+          "titulo": "Altura",
+          "texto": "quase tudo acima de 2 m"
+        },
+        {
+          "m": "s",
+          "icone": "triangle-alert",
+          "titulo": "Carga suspensa",
+          "texto": "peças longas giram"
+        },
+        {
+          "m": "so",
+          "icone": "flame",
+          "titulo": "Solda e corte",
+          "texto": "fagulha, radiação, fumos"
+        }
+      ],
+      "narracao": "A montagem metálica tem riscos próprios: {e}esmagamento, com a mão entre peças em movimento. {i}Instabilidade: estrutura incompleta pode tombar com o vento. {a}Altura: quase tudo acontece acima de dois metros. {s}Carga suspensa: peças longas giram e balançam. {so}E solda e corte: fagulha, radiação e fumos. Cada um tem o seu treinamento na trilha da Palla."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/arcelormittal.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}no fim da tarde, o vento aumenta com uma fila de pilares recém-montados, ainda sem contraventamento. {c2}O encarregado para a montagem, confere o estaiamento, e só retoma no dia seguinte.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Vento forte com pilares sem contraventamento"
+        },
+        {
+          "m": "c2",
+          "texto": "Montagem parada e estaiamento conferido"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Um colega caiu e está inconsciente. Qual o primeiro passo?",
+      "resposta": "Avaliar",
+      "conta": "o local e acionar o socorro pelo plano da obra",
+      "narracao": "Sua vez: um colega caiu e está inconsciente. Qual o primeiro passo? {pensa}[[pausa:3]] {resp}Parar, avaliar se o local é seguro, e acionar o socorro pelo plano de emergência da obra."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Emergência: avalie, acione, isole",
+          "chave": "c1"
+        },
+        {
+          "texto": "Conheça a rota de fuga e o ponto de encontro",
+          "chave": "c2"
+        },
+        {
+          "texto": "Montagem: esmagamento, instabilidade, altura",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Saber agir salva vidas.",
+      "narracao": "Para levar: {c1}numa emergência, avalie, acione e isole. {c2}Conheça a rota de fuga e o ponto de encontro da sua obra. {c3}E na montagem, atenção a esmagamento, instabilidade e altura. {fim}Saber agir salva vidas."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial. A carga horária do NR-18 básico é cumprida na turma presencial com instrutor."
+}

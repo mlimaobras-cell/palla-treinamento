@@ -1,0 +1,154 @@
+{
+  "codigo": "PEMT-3-condicoes",
+  "titulo": "Terreno, rede elétrica, vento e carga",
+  "capitulo": "Operador de plataforma elevatória (PEMT) · Aula 3",
+  "eyebrow": "NR-18 · PEMT",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, Anexo I (db/catalogo.ts, NR18-PEMT)",
+    "Conteúdo conforme norma técnica nacional vigente e manual do fabricante"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade: conferir no Anexo I da NR-18 vigente [VALIDAR].",
+    "Limites de vento, inclinação e carga: manual e placa do modelo."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "wind",
+      "objetivo": "Avaliar o local antes de elevar: terreno, rede elétrica, vento e carga.",
+      "narracao": "Aula três: as condições do local. Terreno, rede elétrica, vento e carga."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Antes de elevar",
+      "cards": [
+        {
+          "m": "t",
+          "icone": "layers",
+          "titulo": "Terreno firme e nivelado",
+          "texto": "inclinação dentro do limite do fabricante"
+        },
+        {
+          "m": "b",
+          "icone": "triangle-alert",
+          "titulo": "Buracos, valas e bordas",
+          "texto": "afaste-se",
+          "cor": "vermelho"
+        },
+        {
+          "m": "r",
+          "icone": "zap",
+          "titulo": "Rede elétrica",
+          "texto": "distância definida na análise de risco",
+          "cor": "vermelho"
+        },
+        {
+          "m": "v",
+          "icone": "wind",
+          "titulo": "Vento",
+          "texto": "acima do limite do fabricante: não eleve"
+        },
+        {
+          "m": "c",
+          "icone": "package",
+          "titulo": "Carga máxima",
+          "texto": "pessoas + materiais, pela placa"
+        }
+      ],
+      "narracao": "Antes de elevar: {t}terreno firme e nivelado, com inclinação dentro do limite do fabricante. {b}Afaste-se de buracos, valas e bordas de laje. {r}Rede elétrica: mantenha a distância definida na análise de risco. {v}Vento acima do limite do fabricante: não eleve. {c}E a carga máxima, pessoas mais materiais, é a da placa."
+    },
+    {
+      "tipo": "colunas",
+      "titulo": "A cesta não é",
+      "narracao": "A cesta não é guindaste: {n1}não pendure carga nela. {n2}Não é escada: não suba no guarda-corpo. {n3}E não é ponte: não saia da cesta em altura, salvo procedimento específico aprovado. A cesta é {s1}um local de trabalho com guarda-corpo, {s2}com os materiais dentro dela e dentro do limite.",
+      "colunas": [
+        {
+          "titulo": "Não é",
+          "icone": "ban",
+          "cor": "vermelho",
+          "itens": [
+            {
+              "m": "n1",
+              "texto": "Guindaste: não pendure carga"
+            },
+            {
+              "m": "n2",
+              "texto": "Escada: não suba no guarda-corpo"
+            },
+            {
+              "m": "n3",
+              "texto": "Ponte: não saia da cesta em altura"
+            }
+          ]
+        },
+        {
+          "titulo": "É",
+          "icone": "circle-check",
+          "cor": "verde",
+          "itens": [
+            {
+              "m": "s1",
+              "texto": "Local de trabalho com guarda-corpo"
+            },
+            {
+              "m": "s2",
+              "texto": "Materiais dentro da cesta, dentro do limite"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}para levar um perfil até a cobertura, a equipe amarra a peça pendurada do lado de fora da cesta. Isso muda o equilíbrio e a carga. {c2}O material é movimentado com equipamento de guindar; a cesta leva só o que cabe dentro dela.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Perfil amarrado pendurado na cesta"
+        },
+        {
+          "m": "c2",
+          "texto": "Movimentar o material com o equipamento de guindar"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Pode pendurar uma peça do lado de fora da cesta?",
+      "resposta": "Não",
+      "conta": "a cesta não é guindaste",
+      "narracao": "Sua vez: pode pendurar uma peça do lado de fora da cesta? {pensa}[[pausa:3]] {resp}Não. A cesta não é guindaste."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Terreno firme, longe de bordas",
+          "chave": "c1"
+        },
+        {
+          "texto": "Rede elétrica e vento: limites",
+          "chave": "c2"
+        },
+        {
+          "texto": "Carga da placa; nada pendurado",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Avalie o chão antes de olhar para cima.",
+      "narracao": "Para levar: {c1}terreno firme, longe de bordas. {c2}Rede elétrica e vento dentro dos limites. {c3}Carga da placa, e nada pendurado. {fim}Avalie o chão antes de olhar para cima."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial com prática no equipamento. Não habilita sozinho."
+}

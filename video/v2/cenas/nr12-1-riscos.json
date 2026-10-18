@@ -1,0 +1,154 @@
+{
+  "codigo": "NR12-1-riscos",
+  "titulo": "Riscos mecânicos, elétricos e outros riscos",
+  "capitulo": "NR-12 · Segurança em máquinas e equipamentos · Aula 1",
+  "eyebrow": "NR-12 · Máquinas",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-12, item 12.16 e Anexo II",
+    "db/catalogo.ts (NR12-MAQ)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "cog",
+      "objetivo": "Reconhecer os riscos das máquinas e ferramentas usadas na montagem.",
+      "narracao": "NR doze: segurança em máquinas e equipamentos. Aula um: os riscos."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Riscos mecânicos",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "rotate-ccw",
+          "titulo": "Partes que giram",
+          "texto": "disco, broca, eixo: enroscam roupa e luva",
+          "cor": "vermelho"
+        },
+        {
+          "m": "c",
+          "icone": "scissors",
+          "titulo": "Corte",
+          "texto": "disco, serra, chapa"
+        },
+        {
+          "m": "pr",
+          "icone": "hand",
+          "titulo": "Prensamento",
+          "texto": "entre partes móveis"
+        },
+        {
+          "m": "pj",
+          "icone": "sparkles",
+          "titulo": "Projeção",
+          "texto": "fagulhas, fragmentos de disco"
+        }
+      ],
+      "narracao": "Os riscos mecânicos: {p}partes que giram, como disco, broca e eixo, que enroscam roupa, luva e cabelo. {c}Corte, por disco, serra e chapa. {pr}Prensamento, entre partes móveis. {pj}E projeção de fagulhas e de fragmentos, se um disco quebrar."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Outros riscos",
+      "cards": [
+        {
+          "m": "e",
+          "icone": "zap",
+          "titulo": "Choque elétrico",
+          "texto": "cabo danificado, ligação improvisada"
+        },
+        {
+          "m": "r",
+          "icone": "ear",
+          "titulo": "Ruído e vibração"
+        },
+        {
+          "m": "f",
+          "icone": "flame",
+          "titulo": "Incêndio",
+          "texto": "fagulha perto de inflamável"
+        },
+        {
+          "m": "t",
+          "icone": "thermometer",
+          "titulo": "Superfícies quentes",
+          "texto": "peça recém-cortada ou soldada"
+        }
+      ],
+      "narracao": "E outros riscos: {e}choque elétrico, por cabo danificado ou ligação improvisada. {r}Ruído e vibração. {f}Incêndio, por fagulha perto de inflamável. {t}E queimadura, em peça recém-cortada ou soldada."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Zona de perigo",
+      "cards": [
+        {
+          "m": "z",
+          "icone": "triangle-alert",
+          "titulo": "Zona de perigo",
+          "texto": "onde a máquina pode atingir alguém",
+          "cor": "vermelho"
+        },
+        {
+          "m": "p",
+          "icone": "shield",
+          "titulo": "Proteções e dispositivos",
+          "texto": "existem para mantê-lo fora dela"
+        }
+      ],
+      "narracao": "{z}Toda máquina tem uma zona de perigo: o espaço onde ela pode atingir alguém. {p}As proteções e os dispositivos de segurança existem para manter você fora dela.",
+      "linha": true
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/parque-fabril.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}um montador usa a furadeira de base magnética com a manga da blusa solta. A broca enrosca o tecido e puxa o braço. {c2}Perto de partes que giram: roupa justa, sem adornos, cabelo preso.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Manga larga perto da furadeira"
+        },
+        {
+          "m": "c2",
+          "texto": "Roupa justa e sem adornos perto de partes que giram"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O que pode enroscar numa broca girando?",
+      "resposta": "Roupa e luva",
+      "conta": "manga solta, adornos, cabelo",
+      "narracao": "Sua vez: o que pode enroscar numa broca girando? {pensa}[[pausa:3]] {resp}Roupa solta, luva, adornos e cabelo."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Conheça a zona de perigo",
+          "chave": "c1"
+        },
+        {
+          "texto": "Roupa justa perto de partes que giram",
+          "chave": "c2"
+        },
+        {
+          "texto": "Cabo danificado: não use",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "A máquina não sabe que você está ali.",
+      "narracao": "Para levar: {c1}conheça a zona de perigo da máquina. {c2}Roupa justa perto de partes que giram. {c3}Cabo danificado: não use. {fim}A máquina não sabe que você está ali."
+    }
+  ],
+  "nota": "Curso semipresencial: a etapa prática supervisionada na máquina é obrigatória (NR-12, Anexo II) e registrada pelo instrutor."
+}

@@ -1,0 +1,154 @@
+{
+  "codigo": "NR12-5-corte-solda",
+  "titulo": "Equipamentos de corte e máquinas de solda",
+  "capitulo": "NR-12 · Segurança em máquinas e equipamentos · Aula 5",
+  "eyebrow": "NR-12 · Máquinas",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-12, item 12.16 e Anexo II",
+    "db/catalogo.ts (NR12-MAQ)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "flame",
+      "objetivo": "Usar equipamentos de corte e máquinas de solda com segurança e conhecer a etapa prática.",
+      "narracao": "Aula cinco: equipamentos de corte e máquinas de solda. E como funciona a etapa prática deste curso."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Máquina de solda",
+      "cards": [
+        {
+          "m": "c",
+          "icone": "zap",
+          "titulo": "Cabos íntegros",
+          "texto": "sem emenda exposta"
+        },
+        {
+          "m": "t",
+          "icone": "link",
+          "titulo": "Cabo de retorno (terra) perto da junta",
+          "texto": "bem preso na peça"
+        },
+        {
+          "m": "d",
+          "icone": "power",
+          "titulo": "Desligue para ajustes",
+          "texto": "e ao terminar"
+        },
+        {
+          "m": "u",
+          "icone": "droplets",
+          "titulo": "Local seco",
+          "texto": "nada de solda com roupa ou luva molhada",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Máquina de solda: {c}cabos íntegros, sem emenda exposta. {t}O cabo de retorno, o terra, preso perto da junta, firme na peça. {d}Desligue para fazer ajustes, e ao terminar. {u}E local seco: nada de soldar com roupa ou luva molhada."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Corte",
+      "cards": [
+        {
+          "m": "o",
+          "icone": "flame",
+          "titulo": "Oxicorte",
+          "texto": "cilindros presos, válvula contra retrocesso de chama"
+        },
+        {
+          "m": "p",
+          "icone": "zap",
+          "titulo": "Plasma",
+          "texto": "cabos e tocha íntegros"
+        },
+        {
+          "m": "a",
+          "icone": "fire-extinguisher",
+          "titulo": "Área preparada",
+          "texto": "inflamáveis afastados, extintor perto"
+        }
+      ],
+      "narracao": "Corte: {o}no oxicorte, cilindros presos em pé, e dispositivo contra retrocesso de chama. {p}No plasma, cabos e tocha íntegros. {a}E sempre área preparada: inflamáveis afastados, e extintor por perto. O curso de soldagem e corte da Palla aprofunda esses cuidados."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Etapa prática",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "hard-hat",
+          "titulo": "Na máquina, com o instrutor",
+          "texto": "supervisionada"
+        },
+        {
+          "m": "r",
+          "icone": "clipboard-check",
+          "titulo": "Registrada",
+          "texto": "o curso só conclui depois dela"
+        },
+        {
+          "m": "m",
+          "icone": "refresh-cw",
+          "titulo": "Mudou máquina ou método?",
+          "texto": "nova capacitação"
+        }
+      ],
+      "narracao": "A etapa prática: {p}é feita na máquina, supervisionada pelo instrutor. {r}Ela é registrada, e o curso só conclui depois dela. {m}E sempre que mudar a máquina, o método ou o processo, a capacitação é refeita.",
+      "linha": true
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/parque-fabril.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}o soldador prende o cabo terra num pilar distante, e a corrente passa por ligações e pela estrutura. Isso aquece e danifica peças. {c2}O cabo de retorno vai perto da junta, preso firme na própria peça.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Cabo terra preso longe, na estrutura"
+        },
+        {
+          "m": "c2",
+          "texto": "Prenda perto da junta, na própria peça"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Onde prender o cabo de retorno da máquina de solda?",
+      "resposta": "Perto da junta",
+      "conta": "firme, na própria peça",
+      "narracao": "Sua vez: onde prender o cabo de retorno da máquina de solda? {pensa}[[pausa:3]] {resp}Perto da junta, firme na própria peça."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Cabos íntegros, terra perto da junta",
+          "chave": "c1"
+        },
+        {
+          "texto": "Corte com área preparada e extintor",
+          "chave": "c2"
+        },
+        {
+          "texto": "Prática na máquina conclui o curso",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Equipamento conferido, trabalho seguro.",
+      "narracao": "Para levar: {c1}cabos íntegros, e terra perto da junta. {c2}Corte com área preparada e extintor. {c3}E a prática na máquina conclui o curso. {fim}Equipamento conferido, trabalho seguro."
+    }
+  ],
+  "nota": "Curso semipresencial: a etapa prática supervisionada na máquina é obrigatória (NR-12, Anexo II) e registrada pelo instrutor."
+}

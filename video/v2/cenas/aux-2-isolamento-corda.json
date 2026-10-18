@@ -1,0 +1,149 @@
+{
+  "codigo": "AUX-2-isolamento-corda",
+  "titulo": "Isolamento, posicionamento e corda-guia",
+  "capitulo": "Movimentação de cargas para auxiliares · Aula 2",
+  "eyebrow": "NR-11 · Auxiliares",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Critério interno Palla; complementa NR-11 e NR-18 (db/catalogo.ts, NR11-AUX)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "traffic-cone",
+      "objetivo": "Isolar a área, se posicionar com segurança e guiar a peça com corda.",
+      "narracao": "Aula dois: isolamento da área, posicionamento seguro e uso da corda-guia."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Isolamento",
+      "cards": [
+        {
+          "m": "a",
+          "icone": "traffic-cone",
+          "titulo": "Área de içamento",
+          "texto": "e raio de giro do equipamento"
+        },
+        {
+          "m": "f",
+          "icone": "fence",
+          "titulo": "Fita, cone e placa",
+          "texto": "visíveis de todos os lados"
+        },
+        {
+          "m": "r",
+          "icone": "user-check",
+          "titulo": "Um responsável",
+          "texto": "mantém a área livre"
+        }
+      ],
+      "narracao": "Antes do içamento: {a}isole a área de içamento e o raio de giro do equipamento. {f}Com fita, cones e placa, visíveis de todos os lados. {r}E um responsável mantém a área livre. Se alguém entrar, avise o sinaleiro: o içamento para."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Seu posicionamento",
+      "cards": [
+        {
+          "m": "v",
+          "icone": "eye",
+          "titulo": "Visível para o sinaleiro"
+        },
+        {
+          "m": "s",
+          "icone": "door-open",
+          "titulo": "Rota de saída livre",
+          "texto": "nunca entre a carga e um obstáculo"
+        },
+        {
+          "m": "m",
+          "icone": "hand",
+          "titulo": "Mãos fora da linha de fechamento",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Seu posicionamento: {v}fique sempre visível para o sinaleiro. {s}Com uma rota de saída livre: nunca entre a carga e um obstáculo, como um pilar ou uma pilha. {m}E mãos fora da linha de fechamento, entre a peça e a estrutura."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Corda-guia",
+      "narracao": "A corda-guia: {p}é presa na peça antes de içar. {c}Tem comprimento suficiente para você ficar fora da projeção da carga. {g}Ela só guia; não segura o peso. {e}E nunca é enrolada na mão ou no corpo: se a peça puxar, solte.",
+      "etapas": [
+        {
+          "m": "p",
+          "titulo": "Presa na peça antes de içar",
+          "icone": "link"
+        },
+        {
+          "m": "c",
+          "titulo": "Comprimento suficiente",
+          "texto": "você fica fora da projeção da carga",
+          "icone": "move-horizontal"
+        },
+        {
+          "m": "g",
+          "titulo": "Só guia, não segura o peso",
+          "icone": "hand"
+        },
+        {
+          "m": "e",
+          "titulo": "Nunca enrolada na mão",
+          "texto": "se puxar, solte",
+          "icone": "ban",
+          "cor": "vermelho"
+        }
+      ]
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}para ter mais firmeza, um ajudante enrola a corda-guia no pulso. Uma rajada gira a peça e ele é puxado. {c2}A corda se segura com a mão aberta, e se a peça puxar, você solta.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Corda enrolada no pulso"
+        },
+        {
+          "m": "c2",
+          "texto": "Segurar com a mão aberta e soltar se puxar"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A peça girou e está puxando a corda-guia. O que fazer?",
+      "resposta": "Soltar",
+      "conta": "e avisar o sinaleiro",
+      "narracao": "Sua vez: a peça girou e está puxando a corda-guia. O que fazer? {pensa}[[pausa:3]] {resp}Soltar a corda, sair da área, e avisar o sinaleiro."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Isole área e raio de giro",
+          "chave": "c1"
+        },
+        {
+          "texto": "Fique visível e com saída livre",
+          "chave": "c2"
+        },
+        {
+          "texto": "Corda-guia: só guia, nunca enrolada",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Distância é a sua proteção.",
+      "narracao": "Para levar: {c1}isole a área e o raio de giro. {c2}Fique visível e com saída livre. {c3}Corda-guia só guia, e nunca enrolada. {fim}Distância é a sua proteção."
+    }
+  ],
+  "nota": "Este curso não habilita sinaleiro, amarrador nem operador."
+}

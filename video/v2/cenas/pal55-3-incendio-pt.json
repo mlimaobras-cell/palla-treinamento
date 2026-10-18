@@ -1,0 +1,126 @@
+{
+  "codigo": "PAL55-3-incendio-pt",
+  "titulo": "Incêndio e permissão de trabalho a quente",
+  "capitulo": "Segurança em atividades de soldagem e corte · Aula 3",
+  "eyebrow": "PAL-55 · Solda e corte",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Capacitação interna Palla Construções (db/catalogo.ts, PAL-55)",
+    "Complementa NR-12, NR-18 e NR-6",
+    "NR-23"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "flame",
+      "objetivo": "Evitar incêndio na solda e no corte e saber quando há permissão de trabalho a quente.",
+      "narracao": "Aula três: incêndio, e a permissão de trabalho a quente."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Preparar a área",
+      "narracao": "Antes de soldar ou cortar: {i}afaste os inflamáveis, ou cubra com manta resistente ao fogo. {f}Veja onde as fagulhas vão cair, inclusive no andar de baixo. {e}Deixe o extintor ao alcance. {pt}E quando a obra ou o contratante exigirem, emita a permissão de trabalho a quente antes de começar.",
+      "etapas": [
+        {
+          "m": "i",
+          "titulo": "Afaste os inflamáveis",
+          "texto": "ou cubra com manta resistente ao fogo",
+          "icone": "flame"
+        },
+        {
+          "m": "f",
+          "titulo": "Veja onde caem as fagulhas",
+          "texto": "inclusive no andar de baixo",
+          "icone": "arrow-down-to-line"
+        },
+        {
+          "m": "e",
+          "titulo": "Extintor ao alcance",
+          "icone": "fire-extinguisher"
+        },
+        {
+          "m": "pt",
+          "titulo": "Permissão de trabalho a quente",
+          "texto": "quando exigida pela obra ou contratante",
+          "icone": "file-check"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Durante e depois",
+      "cards": [
+        {
+          "m": "v",
+          "icone": "eye",
+          "titulo": "Vigia de fogo",
+          "texto": "quando previsto na PT"
+        },
+        {
+          "m": "d",
+          "icone": "clock",
+          "titulo": "Inspeção depois",
+          "texto": "fagulha pode virar fogo minutos depois"
+        },
+        {
+          "m": "e",
+          "icone": "bell-ring",
+          "titulo": "Princípio de incêndio",
+          "texto": "alarme; extintor só se for seguro"
+        }
+      ],
+      "narracao": "Durante e depois: {v}quando a PT prever, um vigia de fogo acompanha. {d}Ao terminar, inspecione a área: uma fagulha pode virar fogo minutos depois. {e}E se houver princípio de incêndio, dê o alarme; use o extintor só se for seguro."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/main-plaza.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}num shopping em operação, a equipe vai cortar uma peça acima de um forro com isolamento. {c2}A permissão de trabalho a quente exige manta sob o corte, vigia de fogo, extintor, e inspeção da área depois de terminar.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Corte sobre forro com isolamento"
+        },
+        {
+          "m": "c2",
+          "texto": "Manta, vigia e inspeção depois"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Terminou o corte. Pode ir embora na hora?",
+      "resposta": "Não",
+      "conta": "inspecione a área depois",
+      "narracao": "Sua vez: terminou o corte. Pode ir embora na hora? {pensa}[[pausa:3]] {resp}Não. Inspecione a área, porque a fagulha pode virar fogo depois."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Inflamáveis afastados ou cobertos",
+          "chave": "c1"
+        },
+        {
+          "texto": "Extintor perto; PT quando exigida",
+          "chave": "c2"
+        },
+        {
+          "texto": "Inspeção depois de terminar",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Fagulha é pequena; o incêndio, não.",
+      "narracao": "Para levar: {c1}inflamáveis afastados ou cobertos. {c2}Extintor perto, e PT quando exigida. {c3}Inspeção depois de terminar. {fim}Fagulha é pequena; o incêndio, não."
+    }
+  ]
+}

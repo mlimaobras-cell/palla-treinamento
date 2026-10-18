@@ -1,0 +1,142 @@
+{
+  "codigo": "NR06-5-cinturao-pratica",
+  "titulo": "Cinturão de segurança e etapa prática",
+  "capitulo": "NR-6 · Equipamentos de Proteção Individual · Aula 5",
+  "eyebrow": "NR-6 · EPI",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-6, itens 6.5.1 b, 6.7.1 e 6.7.2 (Portaria MTE nº 57/2025)",
+    "db/catalogo.ts (NR06-EPI)",
+    "NR-35 (sistema de proteção contra quedas)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "construction",
+      "objetivo": "Inspecionar e vestir o cinturão tipo paraquedista e saber como é a etapa prática.",
+      "narracao": "Aula cinco: o cinturão de segurança tipo paraquedista, e a etapa prática deste curso."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Inspeção do cinturão",
+      "narracao": "Antes de cada uso, inspecione: {f}as fitas, sem corte, queimadura ou desfiamento. {c}As costuras, inteiras. {v}As fivelas e argolas, sem trinca nem deformação. {e}A etiqueta legível, com o CA. {q}E equipamento que segurou uma queda sai de uso.",
+      "etapas": [
+        {
+          "m": "f",
+          "titulo": "Fitas",
+          "texto": "sem corte, queimadura ou desfiamento",
+          "icone": "eye"
+        },
+        {
+          "m": "c",
+          "titulo": "Costuras",
+          "texto": "inteiras",
+          "icone": "check"
+        },
+        {
+          "m": "v",
+          "titulo": "Fivelas e argolas",
+          "texto": "sem trinca nem deformação",
+          "icone": "link"
+        },
+        {
+          "m": "e",
+          "titulo": "Etiqueta legível",
+          "texto": "CA e identificação",
+          "icone": "tag"
+        },
+        {
+          "m": "q",
+          "titulo": "Segurou uma queda?",
+          "texto": "sai de uso",
+          "icone": "octagon-x",
+          "cor": "vermelho"
+        }
+      ]
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Vestir e ajustar",
+      "narracao": "Para vestir: {p}pegue o cinturão pela argola das costas e desembarace as fitas. {v}Vista como um colete. {a}Ajuste as pernas e o peito, firme, de modo que caiba a mão espalmada entre a fita e o corpo. {d}A argola dorsal fica entre as escápulas.",
+      "etapas": [
+        {
+          "m": "p",
+          "titulo": "Pegue pela argola das costas",
+          "icone": "hand"
+        },
+        {
+          "m": "v",
+          "titulo": "Vista como um colete",
+          "icone": "shirt"
+        },
+        {
+          "m": "a",
+          "titulo": "Ajuste pernas e peito",
+          "texto": "firme, cabe a mão espalmada",
+          "icone": "user-check"
+        },
+        {
+          "m": "d",
+          "titulo": "Argola dorsal entre as escápulas",
+          "icone": "circle-check",
+          "cor": "verde"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Etapa prática",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "hard-hat",
+          "titulo": "Com o instrutor",
+          "texto": "ajuste e inspeção dos EPIs da sua função"
+        },
+        {
+          "m": "r",
+          "icone": "clipboard-check",
+          "titulo": "Registrada na plataforma",
+          "texto": "o curso só conclui depois dela"
+        },
+        {
+          "m": "n",
+          "icone": "info",
+          "titulo": "Altura é outro curso",
+          "texto": "uso do cinturão em altura: NR-35"
+        }
+      ],
+      "narracao": "Este curso tem uma etapa prática: {p}com o instrutor, você faz o ajuste e a inspeção dos EPIs da sua função. {r}Ela é registrada na plataforma, e o curso só é concluído depois dela. {n}E atenção: usar o cinturão em altura exige o treinamento de NR trinta e cinco."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O cinturão segurou uma queda e parece inteiro. Pode voltar ao uso?",
+      "resposta": "Não",
+      "conta": "equipamento que reteve queda sai de uso",
+      "narracao": "Sua vez: o cinturão segurou uma queda e parece inteiro. Pode voltar ao uso? {pensa}[[pausa:3]] {resp}Não. Equipamento que reteve uma queda sai de uso."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Inspecione fitas, costuras, fivelas e etiqueta",
+          "chave": "c1"
+        },
+        {
+          "texto": "Ajuste firme: cabe a mão espalmada",
+          "chave": "c2"
+        },
+        {
+          "texto": "Prática com o instrutor conclui o curso",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Cinturão bem ajustado salva; frouxo machuca.",
+      "narracao": "Para levar: {c1}inspecione fitas, costuras, fivelas e etiqueta. {c2}Ajuste firme, cabendo a mão espalmada. {c3}E a prática com o instrutor conclui o curso. {fim}Cinturão bem ajustado salva; frouxo machuca."
+    }
+  ]
+}

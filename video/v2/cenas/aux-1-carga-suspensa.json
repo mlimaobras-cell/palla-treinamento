@@ -1,0 +1,128 @@
+{
+  "codigo": "AUX-1-carga-suspensa",
+  "titulo": "Os riscos da carga suspensa",
+  "capitulo": "Movimentação de cargas para auxiliares · Aula 1",
+  "eyebrow": "NR-11 · Auxiliares",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Critério interno Palla; complementa NR-11 e NR-18 (db/catalogo.ts, NR11-AUX)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "triangle-alert",
+      "objetivo": "Entender por que a carga suspensa é um dos maiores riscos da montagem.",
+      "narracao": "Movimentação de cargas para auxiliares. Aula um: os riscos da carga suspensa. Este curso não habilita sinaleiro, amarrador nem operador."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O que pode dar errado",
+      "cards": [
+        {
+          "m": "q",
+          "icone": "arrow-down-to-line",
+          "titulo": "Queda da carga",
+          "texto": "acessório rompe ou solta",
+          "cor": "vermelho"
+        },
+        {
+          "m": "g",
+          "icone": "refresh-cw",
+          "titulo": "Giro e balanço",
+          "texto": "peça longa bate em quem está perto"
+        },
+        {
+          "m": "t",
+          "icone": "construction",
+          "titulo": "Tombamento do equipamento",
+          "texto": "base ou carga acima da tabela",
+          "cor": "vermelho"
+        },
+        {
+          "m": "e",
+          "icone": "hand",
+          "titulo": "Esmagamento",
+          "texto": "entre a carga e a estrutura"
+        }
+      ],
+      "narracao": "Na movimentação, o que pode dar errado: {q}a carga cair, porque um acessório rompeu ou soltou. {g}A peça longa girar ou balançar, e bater em quem está perto. {t}O equipamento tombar, por base mal preparada ou carga acima da tabela. {e}E o esmagamento entre a carga e a estrutura."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "A regra que não muda",
+      "cards": [
+        {
+          "m": "n",
+          "icone": "ban",
+          "titulo": "Ninguém sob a carga",
+          "texto": "nem de passagem",
+          "cor": "vermelho"
+        },
+        {
+          "m": "r",
+          "icone": "move-horizontal",
+          "titulo": "Fora do raio de giro"
+        },
+        {
+          "m": "c",
+          "icone": "eye",
+          "titulo": "Olho na carga",
+          "texto": "o tempo todo"
+        }
+      ],
+      "narracao": "Por isso, a regra não muda: {n}ninguém fica sob a carga, nem de passagem. {r}Quem não está na tarefa fica fora do raio de giro do equipamento. {c}E quem está na tarefa mantém o olho na carga o tempo todo."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/icamento-ponte.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}a viga está suspensa a três metros, e um ajudante passa por baixo para pegar a corda-guia do outro lado. {c2}O certo é esperar a peça baixar e ficar apoiada, ou contornar por fora da área isolada.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Ajudante passa sob a viga para pegar a corda"
+        },
+        {
+          "m": "c2",
+          "texto": "Esperar a peça baixar ou contornar"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A carga está parada no ar há minutos. Posso passar por baixo?",
+      "resposta": "Não",
+      "conta": "carga suspensa nunca é apoio seguro",
+      "narracao": "Sua vez: a carga está parada no ar há minutos. Posso passar por baixo? {pensa}[[pausa:3]] {resp}Não. Carga suspensa nunca é segura."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Ninguém sob a carga",
+          "chave": "c1"
+        },
+        {
+          "texto": "Fora do raio de giro",
+          "chave": "c2"
+        },
+        {
+          "texto": "Olho na carga",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Carga suspensa não avisa antes de cair.",
+      "narracao": "Para levar: {c1}ninguém sob a carga. {c2}Fora do raio de giro. {c3}Olho na carga. {fim}Carga suspensa não avisa antes de cair."
+    }
+  ],
+  "nota": "Este curso não habilita sinaleiro, amarrador nem operador."
+}

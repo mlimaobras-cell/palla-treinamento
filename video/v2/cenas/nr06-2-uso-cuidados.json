@@ -1,0 +1,135 @@
+{
+  "codigo": "NR06-2-uso-cuidados",
+  "titulo": "Seleção, inspeção, ajuste, conservação e limitações",
+  "capitulo": "NR-6 · Equipamentos de Proteção Individual · Aula 2",
+  "eyebrow": "NR-6 · EPI",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-6, itens 6.5.1 b, 6.7.1 e 6.7.2 (Portaria MTE nº 57/2025)",
+    "db/catalogo.ts (NR06-EPI)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "clipboard-check",
+      "objetivo": "Selecionar, inspecionar, ajustar, conservar e saber os limites de cada EPI.",
+      "narracao": "Aula dois: como selecionar, inspecionar, ajustar e conservar o EPI, e quais são os seus limites."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "O ciclo do EPI",
+      "narracao": "O EPI tem um ciclo. {s}Seleção: definida pelo risco da tarefa, pela Segurança do Trabalho. {i}Inspeção antes de cada uso: rachaduras, cortes, costuras e validade. {a}Ajuste no tamanho certo, sem folga. {c}Conservação: limpo, seco e guardado longe do sol e de produtos químicos. {t}E troca quando estiver danificado, vencido, ou depois de sofrer um impacto.",
+      "etapas": [
+        {
+          "m": "s",
+          "titulo": "Seleção",
+          "texto": "pelo risco da tarefa, definido pela SST",
+          "icone": "target"
+        },
+        {
+          "m": "i",
+          "titulo": "Inspeção antes do uso",
+          "texto": "rachadura, corte, costura, validade",
+          "icone": "eye"
+        },
+        {
+          "m": "a",
+          "titulo": "Ajuste",
+          "texto": "no tamanho certo, sem folga",
+          "icone": "user-check"
+        },
+        {
+          "m": "c",
+          "titulo": "Conservação",
+          "texto": "limpo, seco, guardado",
+          "icone": "box"
+        },
+        {
+          "m": "t",
+          "titulo": "Troca",
+          "texto": "danificado, vencido ou após impacto",
+          "icone": "refresh-cw",
+          "cor": "vermelho"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Limitações",
+      "cards": [
+        {
+          "m": "l1",
+          "icone": "triangle-alert",
+          "titulo": "Protege contra um risco",
+          "texto": "não contra todos"
+        },
+        {
+          "m": "l2",
+          "icone": "ban",
+          "titulo": "Adaptado não protege",
+          "texto": "furos, cortes, peças trocadas",
+          "cor": "vermelho"
+        },
+        {
+          "m": "l3",
+          "icone": "user-x",
+          "titulo": "Mal ajustado não protege",
+          "texto": "folga, tamanho errado",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Todo EPI tem limitações. {l1}Ele protege contra um risco específico, não contra todos: luva de vaqueta não protege contra produto químico. {l2}EPI adaptado não protege: furos, cortes ou peças trocadas anulam o CA. {l3}E EPI mal ajustado também não protege."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/equipamentos.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}uma peça bate no capacete de um ajudante. Ele está bem, e o capacete parece inteiro, com uma pequena rachadura. {c2}Capacete que sofreu impacto é trocado: a proteção pode estar comprometida mesmo sem dano visível.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Capacete com rachadura depois de batida"
+        },
+        {
+          "m": "c2",
+          "texto": "Trocar, mesmo parecendo inteiro"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Capacete que sofreu impacto forte pode continuar em uso?",
+      "resposta": "Não",
+      "conta": "troque, mesmo sem dano aparente",
+      "narracao": "Sua vez: o capacete que sofreu um impacto forte pode continuar em uso? {pensa}[[pausa:3]] {resp}Não. Troque, mesmo sem dano aparente."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Inspecione antes de cada uso",
+          "chave": "c1"
+        },
+        {
+          "texto": "Ajuste no tamanho certo",
+          "chave": "c2"
+        },
+        {
+          "texto": "Danificado ou após impacto: troque",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "EPI adaptado não é EPI.",
+      "narracao": "Para levar: {c1}inspecione antes de cada uso. {c2}Ajuste no tamanho certo. {c3}Danificado, vencido ou depois de um impacto: troque. {fim}EPI adaptado não é EPI."
+    }
+  ]
+}

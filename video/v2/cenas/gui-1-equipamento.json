@@ -1,0 +1,140 @@
+{
+  "codigo": "GUI-1-equipamento",
+  "titulo": "O equipamento e os seus riscos",
+  "capitulo": "Operador de equipamento de guindar · Aula 1",
+  "eyebrow": "NR-18 · Guindaste",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, Anexo I; NR-12, Anexo II (db/catalogo.ts, NR18-GUI)",
+    "Plano logístico e de montagem — Obra Super JK (guindastes aranha sobre laje)"
+  ],
+  "pendencias": [
+    "Carga horária, proporção prática e periodicidade: conferir na NR-18 vigente [VALIDAR].",
+    "Capacidades e limites: sempre do manual e da tabela do modelo."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "construction",
+      "objetivo": "Conhecer o guindaste compacto, os seus componentes e os riscos da operação.",
+      "narracao": "Operador de equipamento de guindar. Aula um: o equipamento, e os seus riscos. A capacitação é específica para cada modelo."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg",
+          "legenda": "Guindastes compactos e plataformas"
+        }
+      ],
+      "narracao": "Na montagem, os guindastes compactos, como os guindastes aranha, trabalham {l}em espaço reduzido e até sobre lajes, {p}com patolas que distribuem a carga. {m}Cada modelo tem o seu manual e a sua tabela de carga.",
+      "titulo": "Guindaste compacto",
+      "itens": [
+        {
+          "m": "l",
+          "texto": "Espaço reduzido, até sobre laje"
+        },
+        {
+          "m": "p",
+          "texto": "Patolas distribuem a carga"
+        },
+        {
+          "m": "m",
+          "texto": "Cada modelo, o seu manual e tabela"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Componentes",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "anchor",
+          "titulo": "Patolas e sapatas",
+          "texto": "estabilizam o equipamento"
+        },
+        {
+          "m": "l",
+          "icone": "move-horizontal",
+          "titulo": "Lança",
+          "texto": "telescópica, com ângulo e comprimento"
+        },
+        {
+          "m": "g",
+          "icone": "link",
+          "titulo": "Cabo, moitão e gancho",
+          "texto": "com trava de segurança"
+        },
+        {
+          "m": "d",
+          "icone": "gauge",
+          "titulo": "Dispositivos de segurança",
+          "texto": "limitador de carga e indicadores do modelo"
+        }
+      ],
+      "narracao": "Os componentes principais: {p}patolas e sapatas, que estabilizam o equipamento. {l}A lança, com o seu ângulo e comprimento. {g}O cabo, o moitão e o gancho, com trava de segurança. {d}E os dispositivos de segurança do modelo, como o limitador de carga e os indicadores. Eles nunca são desativados."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Riscos da operação",
+      "cards": [
+        {
+          "m": "t",
+          "icone": "construction",
+          "titulo": "Tombamento",
+          "texto": "base, patolamento, raio",
+          "cor": "vermelho"
+        },
+        {
+          "m": "q",
+          "icone": "arrow-down-to-line",
+          "titulo": "Queda da carga",
+          "cor": "vermelho"
+        },
+        {
+          "m": "c",
+          "icone": "zap",
+          "titulo": "Rede elétrica"
+        },
+        {
+          "m": "a",
+          "icone": "users",
+          "titulo": "Atropelamento e prensamento",
+          "texto": "no deslocamento e no giro"
+        }
+      ],
+      "narracao": "Os riscos: {t}tombamento, por base, patolamento ou raio errados. {q}Queda da carga. {c}Contato com a rede elétrica. {a}E atropelamento e prensamento, no deslocamento e no giro."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O limitador de carga atrapalha a operação. Pode desativar?",
+      "resposta": "Nunca",
+      "conta": "dispositivo de segurança não se desativa",
+      "narracao": "Sua vez: o limitador de carga está atrapalhando a operação. Pode desativar? {pensa}[[pausa:3]] {resp}Nunca. Dispositivo de segurança não se desativa."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Capacitação é por modelo",
+          "chave": "c1"
+        },
+        {
+          "texto": "Dispositivos de segurança sempre ativos",
+          "chave": "c2"
+        },
+        {
+          "texto": "Tombamento é o maior risco",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Conheça a sua máquina antes de confiar nela.",
+      "narracao": "Para levar: {c1}a capacitação é por modelo. {c2}Os dispositivos de segurança ficam sempre ativos. {c3}E o tombamento é o maior risco. {fim}Conheça a sua máquina antes de confiar nela."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial com prática no equipamento. Não habilita sozinho."
+}

@@ -1,0 +1,146 @@
+{
+  "codigo": "AUX-3-sinais-parada",
+  "titulo": "Sinais, rádio e parada de emergência",
+  "capitulo": "Movimentação de cargas para auxiliares · Aula 3",
+  "eyebrow": "NR-11 · Auxiliares",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Critério interno Palla; complementa NR-11 e NR-18 (db/catalogo.ts, NR11-AUX)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "radio",
+      "objetivo": "Entender como a operação se comunica e quando qualquer um pode parar o içamento.",
+      "narracao": "Aula três: os sinais, o rádio, e a parada de emergência."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Quem comanda",
+      "cards": [
+        {
+          "m": "s",
+          "icone": "user-check",
+          "titulo": "Um sinaleiro designado",
+          "texto": "identificado, por içamento"
+        },
+        {
+          "m": "o",
+          "icone": "hard-hat",
+          "titulo": "O operador obedece a ele"
+        },
+        {
+          "m": "a",
+          "icone": "users",
+          "titulo": "Você não sinaliza",
+          "texto": "a não ser a parada",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Quem comanda o içamento: {s}um único sinaleiro designado, identificado. {o}O operador obedece a ele. {a}E você, auxiliar, não dá sinais ao operador, com uma exceção: a parada de emergência."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Sinais e rádio",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "list-checks",
+          "titulo": "Sinais padronizados",
+          "texto": "combinados antes, conhecidos por todos"
+        },
+        {
+          "m": "r",
+          "icone": "radio",
+          "titulo": "Rádio",
+          "texto": "quem fala, a ação, a confirmação"
+        },
+        {
+          "m": "d",
+          "icone": "circle-help",
+          "titulo": "Dúvida?",
+          "texto": "pare e pergunte"
+        }
+      ],
+      "narracao": "{p}Os sinais são padronizados e combinados antes do içamento, para que todos entendam. {r}No rádio: quem fala, a ação, e a confirmação de quem recebeu. {d}Ficou em dúvida sobre um sinal? Pare e pergunte."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Parada de emergência",
+      "cards": [
+        {
+          "m": "q",
+          "icone": "octagon-x",
+          "titulo": "Qualquer pessoa pode dar",
+          "texto": "ao ver um risco",
+          "cor": "vermelho"
+        },
+        {
+          "m": "e",
+          "icone": "users",
+          "titulo": "Alguém na área, peça presa, vento",
+          "texto": "motivos para parar"
+        },
+        {
+          "m": "r",
+          "icone": "message-circle",
+          "titulo": "Retomar só com o sinaleiro",
+          "texto": "depois de resolver"
+        }
+      ],
+      "narracao": "{q}A parada de emergência pode ser dada por qualquer pessoa que veja um risco. {e}Alguém entrou na área, a peça enganchou, o vento aumentou: são motivos para parar. {r}E a operação só é retomada pelo sinaleiro, depois de resolvido o problema."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/icamento-ponte.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}durante o içamento de uma treliça, um eletricista de outra empresa entra na área isolada para buscar material. {c2}O ajudante dá o sinal de parada. O içamento só é retomado depois que ele sai, e o isolamento é reforçado.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Eletricista entra na área isolada"
+        },
+        {
+          "m": "c2",
+          "texto": "Ajudante dá a parada; içamento só volta depois"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Quem pode dar o sinal de parada de emergência?",
+      "resposta": "Qualquer pessoa",
+      "conta": "que veja o risco",
+      "narracao": "Sua vez: quem pode dar o sinal de parada de emergência? {pensa}[[pausa:3]] {resp}Qualquer pessoa que veja o risco."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Um sinaleiro comanda",
+          "chave": "c1"
+        },
+        {
+          "texto": "Sinais combinados; dúvida, pare",
+          "chave": "c2"
+        },
+        {
+          "texto": "Parada: qualquer um pode dar",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Na dúvida, pare.",
+      "narracao": "Para levar: {c1}um único sinaleiro comanda. {c2}Sinais combinados antes; na dúvida, pare. {c3}E a parada de emergência, qualquer um pode dar. {fim}Na dúvida, pare."
+    }
+  ],
+  "nota": "Este curso não habilita sinaleiro, amarrador nem operador."
+}

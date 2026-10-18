@@ -1,0 +1,164 @@
+{
+  "codigo": "NR18-3-maquinas-materiais",
+  "titulo": "Máquinas, equipamentos e movimentação de materiais",
+  "capitulo": "NR-18 · Básico em segurança na construção · Aula 3",
+  "eyebrow": "NR-18 · Básico",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, item 18.14 e Anexo I (conteúdo do treinamento básico)",
+    "db/catalogo.ts (NR18-BAS)",
+    "NR-11",
+    "NR-12"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade do básico: conferir no Anexo I da NR-18 vigente (Portaria MTE nº 836/2026) [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "cog",
+      "objetivo": "Trabalhar com segurança perto de máquinas e na movimentação de materiais.",
+      "narracao": "Aula três: máquinas, equipamentos e movimentação de materiais. É onde a obra mais se mexe, e onde mais se machuca."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Máquinas e equipamentos",
+      "cards": [
+        {
+          "m": "a",
+          "icone": "user-check",
+          "titulo": "Só opera quem é autorizado",
+          "texto": "capacitado no equipamento"
+        },
+        {
+          "m": "p",
+          "icone": "shield",
+          "titulo": "Proteções no lugar",
+          "texto": "nunca operar sem elas"
+        },
+        {
+          "m": "i",
+          "icone": "clipboard-check",
+          "titulo": "Inspeção antes do uso",
+          "texto": "defeito: não use, comunique"
+        },
+        {
+          "m": "e",
+          "icone": "zap",
+          "titulo": "Elétrica",
+          "texto": "cabos sem emenda exposta, ligação em quadro"
+        }
+      ],
+      "narracao": "Máquinas e equipamentos: {a}só opera quem é capacitado e autorizado naquele equipamento. {p}As proteções ficam no lugar; nunca opere sem elas. {i}Inspecione antes de usar; se tiver defeito, não use, e comunique. {e}E na parte elétrica: cabos sem emenda exposta, e ligação só em quadro ou tomada adequados, nunca direto na fiação."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Movimentação mecânica",
+      "cards": [
+        {
+          "m": "o",
+          "icone": "user-check",
+          "titulo": "Operador habilitado",
+          "texto": "e sinaleiro designado"
+        },
+        {
+          "m": "pl",
+          "icone": "clipboard-list",
+          "titulo": "Içamento planejado",
+          "texto": "plano e tabela de carga"
+        },
+        {
+          "m": "is",
+          "icone": "traffic-cone",
+          "titulo": "Área isolada",
+          "texto": "ninguém sob a carga",
+          "cor": "vermelho"
+        },
+        {
+          "m": "ac",
+          "icone": "link",
+          "titulo": "Acessórios inspecionados",
+          "texto": "cintas, cabos, manilhas"
+        }
+      ],
+      "narracao": "Na movimentação com guindaste, munck ou talha: {o}operador habilitado, e um sinaleiro designado. {pl}Içamento planejado, com plano e tabela de carga. {is}Área isolada: ninguém sob a carga. {ac}E acessórios inspecionados: cintas, cabos e manilhas."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Movimentação manual",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "package",
+          "titulo": "Avalie o peso",
+          "texto": "pesado: ajuda ou equipamento"
+        },
+        {
+          "m": "c",
+          "icone": "arrow-down-to-line",
+          "titulo": "Joelhos dobrados",
+          "texto": "costas retas, carga perto do corpo"
+        },
+        {
+          "m": "v",
+          "icone": "eye",
+          "titulo": "Caminho livre",
+          "texto": "veja antes de carregar"
+        }
+      ],
+      "narracao": "Na movimentação manual: {p}avalie o peso; se for pesado, peça ajuda ou use equipamento. {c}Levante com os joelhos dobrados, costas retas e a carga perto do corpo. {v}E olhe o caminho antes de carregar: obstáculos, buracos e degraus.",
+      "linha": true
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/transporte.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}na descarga de uma carreta, um colega se aproxima para soltar a amarração enquanto o munck já posiciona a próxima peça. {c2}O certo é isolar a área da descarga, e só se aproximar com o equipamento parado e a peça apoiada.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Descarga sem isolamento"
+        },
+        {
+          "m": "c2",
+          "texto": "Isolar e afastar antes de soltar a amarração"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O equipamento apresentou defeito no início do turno. O que fazer?",
+      "resposta": "Não usar",
+      "conta": "e comunicar o encarregado",
+      "narracao": "Sua vez: a ferramenta ou o equipamento apresentou defeito no início do turno. O que fazer? {pensa}[[pausa:3]] {resp}Não usar, separar, e comunicar o encarregado."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Só opera quem é autorizado",
+          "chave": "c1"
+        },
+        {
+          "texto": "Ninguém sob carga suspensa",
+          "chave": "c2"
+        },
+        {
+          "texto": "Pesado: ajuda ou equipamento",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Máquina parada com defeito é máquina segura.",
+      "narracao": "Para levar: {c1}só opera quem é autorizado. {c2}Ninguém sob carga suspensa. {c3}Peso demais: ajuda ou equipamento. {fim}Máquina com defeito fica parada."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial. A carga horária do NR-18 básico é cumprida na turma presencial com instrutor."
+}

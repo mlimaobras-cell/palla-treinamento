@@ -1,0 +1,122 @@
+{
+  "codigo": "PEMT-2-inspecao",
+  "titulo": "Inspeção diária e dispositivos de segurança",
+  "capitulo": "Operador de plataforma elevatória (PEMT) · Aula 2",
+  "eyebrow": "NR-18 · PEMT",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, Anexo I (db/catalogo.ts, NR18-PEMT)",
+    "Conteúdo conforme norma técnica nacional vigente e manual do fabricante"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade: conferir no Anexo I da NR-18 vigente [VALIDAR].",
+    "Limites de vento, inclinação e carga: manual e placa do modelo."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "clipboard-check",
+      "objetivo": "Fazer a inspeção antes do uso e testar os dispositivos de segurança.",
+      "narracao": "Aula dois: a inspeção diária, e os dispositivos de segurança da plataforma."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Inspeção antes do uso",
+      "cards": [
+        {
+          "m": "g",
+          "icone": "fence",
+          "titulo": "Guarda-corpo e portão",
+          "texto": "fechamento automático"
+        },
+        {
+          "m": "p",
+          "icone": "droplets",
+          "titulo": "Hidráulico",
+          "texto": "sem vazamento"
+        },
+        {
+          "m": "n",
+          "icone": "circle-check",
+          "titulo": "Pneus e rodas"
+        },
+        {
+          "m": "c",
+          "icone": "hand",
+          "titulo": "Comandos",
+          "texto": "da cesta e do solo"
+        },
+        {
+          "m": "e",
+          "icone": "octagon-x",
+          "titulo": "Parada de emergência",
+          "texto": "testada",
+          "cor": "vermelho"
+        },
+        {
+          "m": "d",
+          "icone": "arrow-down-to-line",
+          "titulo": "Descida de emergência",
+          "texto": "testada"
+        }
+      ],
+      "narracao": "Antes do uso, pelo checklist do fabricante: {g}guarda-corpo e portão, com fechamento. {p}Sistema hidráulico, sem vazamento. {n}Pneus e rodas. {c}Comandos da cesta e do solo funcionando. {e}A parada de emergência testada. {d}E a descida de emergência testada."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Dispositivos de segurança",
+      "cards": [
+        {
+          "m": "i",
+          "icone": "gauge",
+          "titulo": "Alarme de inclinação",
+          "texto": "a máquina avisa e bloqueia"
+        },
+        {
+          "m": "s",
+          "icone": "list-checks",
+          "titulo": "Limite de carga",
+          "texto": "placa do modelo"
+        },
+        {
+          "m": "r",
+          "icone": "ban",
+          "titulo": "Nunca desativar",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Os dispositivos de segurança: {i}o alarme de inclinação, que avisa e bloqueia. {s}O limite de carga, indicado na placa do modelo. {r}E eles nunca são desativados. Defeito encontrado? A plataforma não opera, e o checklist registra.",
+      "linha": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O alarme de inclinação está apitando. Pode silenciar e seguir?",
+      "resposta": "Não",
+      "conta": "desça, reposicione e corrija",
+      "narracao": "Sua vez: o alarme de inclinação está apitando. Pode silenciar e seguir? {pensa}[[pausa:3]] {resp}Não. Desça, reposicione e corrija a causa."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Checklist do fabricante antes do uso",
+          "chave": "c1"
+        },
+        {
+          "texto": "Teste parada e descida de emergência",
+          "chave": "c2"
+        },
+        {
+          "texto": "Dispositivo nunca desativado",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Plataforma com defeito fica no chão.",
+      "narracao": "Para levar: {c1}checklist do fabricante antes do uso. {c2}Teste a parada e a descida de emergência. {c3}Dispositivo de segurança nunca desativado. {fim}Plataforma com defeito fica no chão."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial com prática no equipamento. Não habilita sozinho."
+}

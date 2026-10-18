@@ -1,0 +1,145 @@
+{
+  "codigo": "NR06-3-cabeca-olhos-ouvidos",
+  "titulo": "Capacete, óculos, protetor facial e protetor auditivo",
+  "capitulo": "NR-6 · Equipamentos de Proteção Individual · Aula 3",
+  "eyebrow": "NR-6 · EPI",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-6, itens 6.5.1 b, 6.7.1 e 6.7.2 (Portaria MTE nº 57/2025)",
+    "db/catalogo.ts (NR06-EPI)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "glasses",
+      "objetivo": "Usar corretamente a proteção da cabeça, dos olhos, do rosto e da audição.",
+      "narracao": "Aula três: proteção da cabeça, dos olhos, do rosto e da audição."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Capacete",
+      "cards": [
+        {
+          "m": "u",
+          "icone": "hard-hat",
+          "titulo": "Sempre na área operacional"
+        },
+        {
+          "m": "j",
+          "icone": "link",
+          "titulo": "Jugular",
+          "texto": "em altura e com vento"
+        },
+        {
+          "m": "n",
+          "icone": "ban",
+          "titulo": "Não furar nem pintar",
+          "texto": "nem usar boné por baixo",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Capacete: {u}sempre na área operacional. {j}Com a jugular afivelada em trabalho em altura e com vento, para não cair. {n}Não fure, não pinte com solvente e não use boné por baixo: isso compromete a proteção."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Olhos e rosto",
+      "cards": [
+        {
+          "m": "o",
+          "icone": "glasses",
+          "titulo": "Óculos de segurança",
+          "texto": "partículas, poeira"
+        },
+        {
+          "m": "f",
+          "icone": "shield",
+          "titulo": "Protetor facial",
+          "texto": "esmerilhadeira e corte"
+        },
+        {
+          "m": "m",
+          "icone": "eye-off",
+          "titulo": "Máscara de solda",
+          "texto": "radiação do arco, com o filtro adequado"
+        }
+      ],
+      "narracao": "Olhos e rosto: {o}óculos de segurança contra partículas e poeira. {f}No esmerilhamento e no corte, protetor facial por cima dos óculos. {m}E na solda, máscara com o filtro adequado ao processo, contra a radiação do arco. Quem está perto da solda também precisa de proteção."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Audição",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "ear",
+          "titulo": "Plug ou concha",
+          "texto": "conforme a área e a tarefa"
+        },
+        {
+          "m": "c",
+          "icone": "hand",
+          "titulo": "Colocação correta",
+          "texto": "mãos limpas, plug bem inserido"
+        },
+        {
+          "m": "t",
+          "icone": "clock",
+          "titulo": "Todo o tempo de exposição",
+          "texto": "tirar alguns minutos já reduz a proteção"
+        }
+      ],
+      "narracao": "Audição: {p}o protetor pode ser de inserção, o plug, ou tipo concha, conforme a área e a tarefa. {c}O plug é colocado com as mãos limpas e bem inserido. {t}E deve ser usado todo o tempo de exposição ao ruído: tirar por alguns minutos já reduz muito a proteção."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/parque-fabril.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}um ajudante segura a peça enquanto o montador usa a esmerilhadeira. Só o montador está de protetor facial. {c2}Quem está perto do esmerilhamento também está exposto: óculos e protetor facial para os dois.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Ajudante segura a peça para o esmerilhamento"
+        },
+        {
+          "m": "c2",
+          "texto": "Óculos e protetor facial também para ele"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "No esmerilhamento, só os óculos bastam?",
+      "resposta": "Não",
+      "conta": "óculos + protetor facial",
+      "narracao": "Sua vez: no esmerilhamento, só os óculos bastam? {pensa}[[pausa:3]] {resp}Não. Óculos e protetor facial por cima."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Capacete com jugular em altura",
+          "chave": "c1"
+        },
+        {
+          "texto": "Esmeril: óculos e protetor facial",
+          "chave": "c2"
+        },
+        {
+          "texto": "Protetor auditivo todo o tempo no ruído",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Olhos e ouvidos não têm peça de reposição.",
+      "narracao": "Para levar: {c1}capacete com jugular em altura. {c2}No esmeril, óculos e protetor facial. {c3}Protetor auditivo todo o tempo no ruído. {fim}Olhos e ouvidos não têm peça de reposição."
+    }
+  ]
+}

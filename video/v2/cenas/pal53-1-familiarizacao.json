@@ -1,0 +1,126 @@
+{
+  "codigo": "PAL53-1-familiarizacao",
+  "titulo": "Familiarização com o modelo de PEMT da obra",
+  "capitulo": "Plataformas elevatórias — familiarização por modelo · Aula 1",
+  "eyebrow": "PAL-53 · PEMT por modelo",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Capacitação interna Palla Construções (db/catalogo.ts, PAL-53)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "clipboard-check",
+      "objetivo": "Saber como é feita a familiarização com o modelo de plataforma usado na obra.",
+      "narracao": "Familiarização com o modelo de plataforma elevatória da obra. Ela complementa a capacitação de operador; não a substitui."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Por que familiarizar",
+      "cards": [
+        {
+          "m": "d",
+          "icone": "layers",
+          "titulo": "Cada modelo é diferente",
+          "texto": "comandos, limites, dispositivos"
+        },
+        {
+          "m": "m",
+          "icone": "book-open",
+          "titulo": "O manual manda",
+          "texto": "não a experiência com outro modelo"
+        }
+      ],
+      "narracao": "{d}Cada modelo de plataforma tem comandos, limites e dispositivos diferentes. {m}O que vale é o manual daquele modelo, não a experiência com outro.",
+      "linha": true
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "A familiarização",
+      "narracao": "A familiarização cobre: {m}o manual e a placa do modelo, com carga, vento, inclinação e alcance. {c}Os comandos da cesta e do solo. {d}Os dispositivos de segurança: parada, descida de emergência e alarmes. {i}A inspeção diária pelo checklist do fabricante. {a}E termina com a avaliação operacional com o instrutor, registrada na plataforma.",
+      "etapas": [
+        {
+          "m": "m",
+          "titulo": "Manual e placa do modelo",
+          "texto": "carga, vento, inclinação, alcance",
+          "icone": "book-open"
+        },
+        {
+          "m": "c",
+          "titulo": "Comandos da cesta e do solo",
+          "icone": "hand"
+        },
+        {
+          "m": "d",
+          "titulo": "Dispositivos de segurança",
+          "texto": "parada, descida de emergência, alarmes",
+          "icone": "octagon-x"
+        },
+        {
+          "m": "i",
+          "titulo": "Inspeção diária do modelo",
+          "texto": "checklist do fabricante",
+          "icone": "clipboard-check"
+        },
+        {
+          "m": "a",
+          "titulo": "Avaliação operacional",
+          "texto": "com o instrutor, registrada",
+          "icone": "badge-check",
+          "cor": "verde"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Registro",
+      "cards": [
+        {
+          "m": "r",
+          "icone": "file-check",
+          "titulo": "Modelo e número de série",
+          "texto": "data, instrutor e resultado"
+        },
+        {
+          "m": "n",
+          "icone": "refresh-cw",
+          "titulo": "Modelo novo na obra?",
+          "texto": "nova familiarização"
+        }
+      ],
+      "narracao": "{r}O registro traz o modelo, o número de série, a data, o instrutor e o resultado. {n}Chegou um modelo diferente na obra? Nova familiarização antes de operar.",
+      "linha": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Chegou outro modelo de plataforma na obra. Posso operar direto?",
+      "resposta": "Não",
+      "conta": "familiarização no novo modelo antes",
+      "narracao": "Sua vez: chegou outro modelo de plataforma na obra. Posso operar direto? {pensa}[[pausa:3]] {resp}Não. Primeiro, a familiarização no novo modelo."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Manual e placa do modelo",
+          "chave": "c1"
+        },
+        {
+          "texto": "Comandos, dispositivos e inspeção",
+          "chave": "c2"
+        },
+        {
+          "texto": "Avaliação registrada por modelo",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Cada modelo, uma familiarização.",
+      "narracao": "Para levar: {c1}manual e placa do modelo. {c2}Comandos, dispositivos e inspeção. {c3}Avaliação registrada por modelo. {fim}Cada modelo, uma familiarização."
+    }
+  ],
+  "nota": "Familiarização por modelo: complementa a capacitação NR-18 do operador e não a substitui."
+}

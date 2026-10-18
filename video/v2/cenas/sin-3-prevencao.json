@@ -1,0 +1,142 @@
+{
+  "codigo": "SIN-3-prevencao",
+  "titulo": "Acidentes típicos e prevenção",
+  "capitulo": "Sinaleiro e amarrador de cargas · Aula 6",
+  "eyebrow": "NR-18 · Sinaleiro",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, Anexo I; NR-11 (db/catalogo.ts, NR11-SIN)"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade: conferir no Anexo I da NR-18 vigente [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "siren",
+      "objetivo": "Conhecer os acidentes típicos de içamento e como evitá-los.",
+      "narracao": "Aula seis: os acidentes típicos de içamento, e como evitá-los."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Acidentes típicos",
+      "cards": [
+        {
+          "m": "a",
+          "icone": "link",
+          "titulo": "Acessório rompido",
+          "texto": "acima da capacidade ou danificado",
+          "cor": "vermelho"
+        },
+        {
+          "m": "c",
+          "icone": "triangle-alert",
+          "titulo": "Carga desequilibrada",
+          "texto": "gancho fora do centro de gravidade"
+        },
+        {
+          "m": "t",
+          "icone": "construction",
+          "titulo": "Tombamento",
+          "texto": "raio maior que o planejado, base cedeu",
+          "cor": "vermelho"
+        },
+        {
+          "m": "p",
+          "icone": "users",
+          "titulo": "Pessoa sob a carga",
+          "cor": "vermelho"
+        },
+        {
+          "m": "e",
+          "icone": "zap",
+          "titulo": "Contato com rede elétrica",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Os acidentes típicos: {a}acessório rompido, por estar acima da capacidade ou danificado. {c}Carga desequilibrada, com o gancho fora do centro de gravidade. {t}Tombamento do equipamento, por raio maior que o planejado ou base que cedeu. {p}Pessoa sob a carga. {e}E contato com a rede elétrica."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Prevenção",
+      "cards": [
+        {
+          "m": "pl",
+          "icone": "clipboard-list",
+          "titulo": "Seguir o plano",
+          "texto": "mudou algo? replanejar"
+        },
+        {
+          "m": "i",
+          "icone": "eye",
+          "titulo": "Inspecionar acessórios",
+          "texto": "antes de cada uso"
+        },
+        {
+          "m": "v",
+          "icone": "wind",
+          "titulo": "Respeitar vento e clima",
+          "texto": "limites do plano e do fabricante"
+        },
+        {
+          "m": "r",
+          "icone": "zap",
+          "titulo": "Distância da rede elétrica",
+          "texto": "definida no plano"
+        }
+      ],
+      "narracao": "A prevenção: {pl}seguir o plano; se algo mudar, como o peso, o raio ou a posição do equipamento, o içamento é replanejado. {i}Inspecionar os acessórios antes de cada uso. {v}Respeitar os limites de vento e clima do plano e do fabricante. {r}E manter a distância da rede elétrica definida no plano."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/transporte.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}no içamento de teste, o equipamento indica peso maior do que o romaneio. {c2}O sinaleiro para, e a engenharia confere o peso e o plano antes de continuar.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Peça mais pesada que o romaneio"
+        },
+        {
+          "m": "c2",
+          "texto": "Parar e consultar a engenharia"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O peso real ficou maior que o do plano. O que fazer?",
+      "resposta": "Parar",
+      "conta": "e replanejar com a engenharia",
+      "narracao": "Sua vez: o peso real ficou maior que o do plano. O que fazer? {pensa}[[pausa:3]] {resp}Parar, e replanejar com a engenharia."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Mudou peso, raio ou posição: replaneje",
+          "chave": "c1"
+        },
+        {
+          "texto": "Acessórios inspecionados",
+          "chave": "c2"
+        },
+        {
+          "texto": "Vento, clima e rede elétrica: limites do plano",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Içamento seguro é içamento planejado.",
+      "narracao": "Para levar: {c1}mudou peso, raio ou posição: replaneje. {c2}Acessórios sempre inspecionados. {c3}Vento, clima e rede elétrica dentro dos limites do plano. {fim}Içamento seguro é içamento planejado."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial com prática no equipamento. Não habilita sozinho."
+}

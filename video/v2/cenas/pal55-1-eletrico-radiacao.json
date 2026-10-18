@@ -1,0 +1,151 @@
+{
+  "codigo": "PAL55-1-eletrico-radiacao",
+  "titulo": "Riscos elétricos, térmicos e radiação",
+  "capitulo": "Segurança em atividades de soldagem e corte · Aula 1",
+  "eyebrow": "PAL-55 · Solda e corte",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Capacitação interna Palla Construções (db/catalogo.ts, PAL-55)",
+    "Complementa NR-12, NR-18 e NR-6"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "zap",
+      "objetivo": "Proteger-se dos riscos elétricos, térmicos e da radiação da solda.",
+      "narracao": "Segurança em soldagem e corte. Aula um: riscos elétricos, térmicos e a radiação do arco."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Risco elétrico",
+      "cards": [
+        {
+          "m": "c",
+          "icone": "zap",
+          "titulo": "Cabos e porta-eletrodo",
+          "texto": "íntegros e isolados"
+        },
+        {
+          "m": "u",
+          "icone": "droplets",
+          "titulo": "Umidade",
+          "texto": "luva e roupa secas, piso seco",
+          "cor": "vermelho"
+        },
+        {
+          "m": "t",
+          "icone": "hand",
+          "titulo": "Troca de eletrodo",
+          "texto": "com luva seca; nunca encoste no corpo"
+        },
+        {
+          "m": "d",
+          "icone": "power",
+          "titulo": "Desligue ao parar"
+        }
+      ],
+      "narracao": "Risco elétrico: {c}cabos e porta-eletrodo íntegros e isolados. {u}Umidade aumenta o risco: luva, roupa e piso secos. {t}Troque o eletrodo com luva seca, e nunca encoste o porta-eletrodo no corpo. {d}E desligue a máquina ao parar."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Risco térmico",
+      "cards": [
+        {
+          "m": "r",
+          "icone": "sparkles",
+          "titulo": "Respingos",
+          "texto": "roupa de algodão ou couro, sem bolso aberto"
+        },
+        {
+          "m": "q",
+          "icone": "thermometer",
+          "titulo": "Peça quente",
+          "texto": "sinalize e não deixe ao alcance"
+        },
+        {
+          "m": "p",
+          "icone": "shirt",
+          "titulo": "Perneira, avental, mangote",
+          "texto": "conforme a posição"
+        }
+      ],
+      "narracao": "Risco térmico: {r}respingos: roupa adequada, sem bolsos abertos. {q}Peça recém-soldada é quente: sinalize, e não deixe ao alcance de outros. {p}E perneira, avental e mangote, conforme a posição de soldagem."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Radiação do arco",
+      "cards": [
+        {
+          "m": "o",
+          "icone": "eye-off",
+          "titulo": "Olhos",
+          "texto": "máscara com o filtro adequado"
+        },
+        {
+          "m": "p",
+          "icone": "sun",
+          "titulo": "Pele",
+          "texto": "a radiação queima como sol forte"
+        },
+        {
+          "m": "b",
+          "icone": "fence",
+          "titulo": "Biombo ou cortina",
+          "texto": "protege quem está perto"
+        }
+      ],
+      "narracao": "A radiação do arco: {o}queima os olhos: máscara com o filtro adequado ao processo e à corrente. {p}Queima a pele exposta, como sol forte. {b}E atinge quem está perto: use biombo ou cortina para proteger os colegas."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/parque-fabril.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}um ajudante acompanha a solda de perto, sem proteção, só por alguns minutos. À noite, os olhos ardem e lacrimejam. {c2}Biombo, distância, e proteção adequada para quem auxilia.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Ajudante olha o arco sem proteção"
+        },
+        {
+          "m": "c2",
+          "texto": "Olhos irritados à noite: biombo e óculos adequados"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Quem está perto da solda também precisa de proteção?",
+      "resposta": "Sim",
+      "conta": "biombo e proteção dos olhos",
+      "narracao": "Sua vez: quem está perto da solda também precisa de proteção? {pensa}[[pausa:3]] {resp}Sim. Biombo, distância e proteção dos olhos."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Tudo seco e isolado",
+          "chave": "c1"
+        },
+        {
+          "texto": "Peça quente sinalizada",
+          "chave": "c2"
+        },
+        {
+          "texto": "Máscara adequada e biombo",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "O arco não escolhe quem queima.",
+      "narracao": "Para levar: {c1}tudo seco e isolado. {c2}Peça quente sinalizada. {c3}Máscara adequada, e biombo para os colegas. {fim}O arco não escolhe quem queima."
+    }
+  ]
+}

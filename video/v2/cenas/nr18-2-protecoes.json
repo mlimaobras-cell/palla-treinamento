@@ -1,0 +1,192 @@
+{
+  "codigo": "NR18-2-protecoes",
+  "titulo": "Proteções coletivas e EPI",
+  "capitulo": "NR-18 · Básico em segurança na construção · Aula 2",
+  "eyebrow": "NR-18 · Básico",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, item 18.14 e Anexo I (conteúdo do treinamento básico)",
+    "db/catalogo.ts (NR18-BAS)",
+    "NR-6 (EPI)"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade do básico: conferir no Anexo I da NR-18 vigente (Portaria MTE nº 836/2026) [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "shield-check",
+      "objetivo": "Saber quais proteções coletivas existem no canteiro e quando o EPI entra.",
+      "narracao": "Aula dois: proteções coletivas e equipamentos de proteção individual. Primeiro protege o grupo; depois, o indivíduo."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "A ordem da proteção",
+      "narracao": "A proteção segue uma ordem. {e}Primeiro, eliminar ou evitar o risco: por exemplo, pré-montar no chão em vez de montar em altura. {c}Depois, a proteção coletiva, que protege todos sem depender de cada um. {a}Em seguida, organização e procedimento: isolamento, sinalização e permissão de trabalho. {i}E por último o EPI, a última barreira.",
+      "etapas": [
+        {
+          "m": "e",
+          "titulo": "Eliminar ou evitar o risco",
+          "texto": "ex.: pré-montar no chão",
+          "icone": "circle-check"
+        },
+        {
+          "m": "c",
+          "titulo": "Proteção coletiva",
+          "texto": "protege todos, sem depender de cada um",
+          "icone": "users"
+        },
+        {
+          "m": "a",
+          "titulo": "Organização e procedimento",
+          "texto": "isolamento, sinalização, PT",
+          "icone": "clipboard-list"
+        },
+        {
+          "m": "i",
+          "titulo": "EPI",
+          "texto": "a última barreira",
+          "icone": "hard-hat",
+          "cor": "vermelho"
+        }
+      ],
+      "forma": "piramide"
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Proteções coletivas do canteiro",
+      "cards": [
+        {
+          "m": "g",
+          "icone": "fence",
+          "titulo": "Guarda-corpo e rodapé",
+          "texto": "bordas, aberturas e plataformas"
+        },
+        {
+          "m": "l",
+          "icone": "link",
+          "titulo": "Linha de vida e ancoragem",
+          "texto": "projetadas por profissional habilitado"
+        },
+        {
+          "m": "t",
+          "icone": "layers",
+          "titulo": "Tampa de abertura",
+          "texto": "fixa e resistente"
+        },
+        {
+          "m": "r",
+          "icone": "network",
+          "titulo": "Rede de proteção",
+          "texto": "quando prevista"
+        },
+        {
+          "m": "i",
+          "icone": "traffic-cone",
+          "titulo": "Isolamento",
+          "texto": "fita, cone e placa"
+        },
+        {
+          "m": "s",
+          "icone": "shield",
+          "titulo": "Proteção de máquina",
+          "texto": "nunca retirada"
+        }
+      ],
+      "narracao": "No canteiro, você vai encontrar: {g}guarda-corpo com rodapé nas bordas, aberturas e plataformas. {l}Linha de vida e pontos de ancoragem, projetados por profissional legalmente habilitado. {t}Tampas de abertura no piso, fixas e resistentes. {r}Redes de proteção, quando previstas. {i}Isolamento com fita, cone e placa. {s}E as proteções das máquinas, que nunca são retiradas. Viu uma proteção coletiva retirada ou danificada? Não use o local, e comunique."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O EPI na obra",
+      "cards": [
+        {
+          "m": "c",
+          "icone": "hard-hat",
+          "titulo": "Capacete",
+          "texto": "com jugular em altura"
+        },
+        {
+          "m": "o",
+          "icone": "glasses",
+          "titulo": "Óculos",
+          "texto": "e protetor facial no esmeril"
+        },
+        {
+          "m": "a",
+          "icone": "ear",
+          "titulo": "Protetor auditivo",
+          "texto": "em área ruidosa"
+        },
+        {
+          "m": "l",
+          "icone": "hand",
+          "titulo": "Luvas",
+          "texto": "adequadas à tarefa"
+        },
+        {
+          "m": "b",
+          "icone": "footprints",
+          "titulo": "Calçado de segurança"
+        },
+        {
+          "m": "ci",
+          "icone": "construction",
+          "titulo": "Cinturão paraquedista",
+          "texto": "acima de 2 m com risco de queda"
+        }
+      ],
+      "narracao": "O EPI completa a proteção: {c}capacete, com jugular em trabalho em altura. {o}Óculos, e protetor facial no esmerilhamento. {a}Protetor auditivo nas áreas ruidosas. {l}Luvas adequadas à tarefa. {b}Calçado de segurança. {ci}E cinturão tipo paraquedista, acima de dois metros com risco de queda. Cada EPI tem o seu treinamento, no curso de NR seis."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/icamento-ponte.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}para passar uma viga, a equipe retira um trecho de guarda-corpo da laje. A peça passa, todos vão para o almoço, e a borda fica aberta. {c2}A proteção removida para uma tarefa é recolocada antes de liberar a área, e enquanto estiver aberta, a borda fica isolada e com alguém responsável.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Guarda-corpo retirado para passar uma peça"
+        },
+        {
+          "m": "c2",
+          "texto": "Recolocar antes de liberar a área"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O EPI é a primeira ou a última barreira?",
+      "resposta": "A última",
+      "conta": "antes vêm eliminar, coletiva e organização",
+      "narracao": "Sua vez: o EPI é a primeira ou a última barreira? {pensa}[[pausa:3]] {resp}A última. Antes vêm eliminar o risco, a proteção coletiva e a organização."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Coletiva protege todos: não retire",
+          "chave": "c1"
+        },
+        {
+          "texto": "EPI completo e em bom estado",
+          "chave": "c2"
+        },
+        {
+          "texto": "Proteção danificada: não use e comunique",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Proteção removida é risco para todos.",
+      "narracao": "Para levar: {c1}a proteção coletiva protege todos; não retire. {c2}EPI completo e em bom estado. {c3}Proteção danificada: não use o local, e comunique. {fim}Proteção removida é risco para todos."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial. A carga horária do NR-18 básico é cumprida na turma presencial com instrutor."
+}

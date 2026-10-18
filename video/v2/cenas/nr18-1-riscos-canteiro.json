@@ -1,0 +1,194 @@
+{
+  "codigo": "NR18-1-riscos-canteiro",
+  "titulo": "Riscos da construção e organização do canteiro",
+  "capitulo": "NR-18 · Básico em segurança na construção · Aula 1",
+  "eyebrow": "NR-18 · Básico",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, item 18.14 e Anexo I (conteúdo do treinamento básico)",
+    "db/catalogo.ts (NR18-BAS)"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade do básico: conferir no Anexo I da NR-18 vigente (Portaria MTE nº 836/2026) [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "construction",
+      "objetivo": "Reconhecer os principais riscos da obra e como o canteiro se organiza para controlá-los.",
+      "narracao": "NR dezoito, treinamento básico. Aula um: os riscos da construção, e como o canteiro se organiza para controlá-los."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Os riscos da obra",
+      "cards": [
+        {
+          "m": "q",
+          "icone": "construction",
+          "titulo": "Queda de pessoas",
+          "texto": "de altura e no mesmo nível",
+          "cor": "vermelho"
+        },
+        {
+          "m": "m",
+          "icone": "package",
+          "titulo": "Queda de materiais",
+          "texto": "peças, ferramentas, parafusos",
+          "cor": "vermelho"
+        },
+        {
+          "m": "s",
+          "icone": "triangle-alert",
+          "titulo": "Carga suspensa",
+          "texto": "içamento e movimentação"
+        },
+        {
+          "m": "e",
+          "icone": "zap",
+          "titulo": "Eletricidade",
+          "texto": "cabos, extensões, quadros"
+        },
+        {
+          "m": "ma",
+          "icone": "cog",
+          "titulo": "Máquinas e ferramentas",
+          "texto": "partes móveis, corte, projeção"
+        },
+        {
+          "m": "f",
+          "icone": "flame",
+          "titulo": "Incêndio",
+          "texto": "solda, corte e inflamáveis"
+        }
+      ],
+      "narracao": "Na construção, os acidentes mais graves vêm de poucas fontes. {q}Queda de pessoas, de altura ou no mesmo nível. {m}Queda de materiais: peças, ferramentas e parafusos. {s}Carga suspensa, no içamento e na movimentação. {e}Eletricidade, em cabos, extensões e quadros. {ma}Máquinas e ferramentas, com partes móveis, corte e projeção de partículas. {f}E incêndio, principalmente com solda, corte e produtos inflamáveis."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "O canteiro organizado",
+      "cards": [
+        {
+          "m": "a",
+          "icone": "door-open",
+          "titulo": "Acesso controlado",
+          "texto": "portaria, crachá, liberação"
+        },
+        {
+          "m": "v",
+          "icone": "coffee",
+          "titulo": "Área de vivência",
+          "texto": "refeitório, sanitários, vestiário"
+        },
+        {
+          "m": "d",
+          "icone": "boxes",
+          "titulo": "Depósito e armazenagem",
+          "texto": "peças apoiadas e calçadas"
+        },
+        {
+          "m": "r",
+          "icone": "footprints",
+          "titulo": "Rotas de pedestres",
+          "texto": "separadas da circulação de máquinas"
+        }
+      ],
+      "narracao": "O canteiro organizado é a primeira proteção. {a}Acesso controlado, com portaria, crachá e liberação. {v}Área de vivência separada da frente de trabalho: refeitório, sanitários e vestiário. {d}Depósito e área de armazenagem, com as peças apoiadas e calçadas. {r}E rotas de pedestres sinalizadas, separadas da circulação de caminhões, guindastes e plataformas."
+    },
+    {
+      "tipo": "colunas",
+      "titulo": "Circulação de pessoas",
+      "narracao": "Na circulação: {f1}use as rotas sinalizadas, {f2}olhe para os dois lados ao cruzar uma via de máquinas, {f3}e mantenha as passagens livres. E nunca: {n1}atravesse uma área isolada, {n2}passe sob carga suspensa, {n3}ou ande de costas perto de uma máquina em movimento.",
+      "colunas": [
+        {
+          "titulo": "Faça",
+          "icone": "circle-check",
+          "cor": "verde",
+          "itens": [
+            {
+              "m": "f1",
+              "texto": "Use as rotas sinalizadas"
+            },
+            {
+              "m": "f2",
+              "texto": "Olhe para os dois lados nas vias de máquinas"
+            },
+            {
+              "m": "f3",
+              "texto": "Mantenha passagens livres"
+            }
+          ]
+        },
+        {
+          "titulo": "Nunca",
+          "icone": "octagon-x",
+          "cor": "vermelho",
+          "itens": [
+            {
+              "m": "n1",
+              "texto": "Atravessar área isolada"
+            },
+            {
+              "m": "n2",
+              "texto": "Passar sob carga suspensa"
+            },
+            {
+              "m": "n3",
+              "texto": "Andar de costas perto de máquina em movimento"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/cargolift.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}para ganhar tempo, um ajudante corta caminho pela área de trabalho do guindaste, entre as patolas. Se a carga girar, ele está no raio. {c2}O certo é a rota de pedestres, mesmo que seja mais longa.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Atalho pela área do guindaste"
+        },
+        {
+          "m": "c2",
+          "texto": "Rota de pedestres, mesmo mais longa"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Qual é a primeira proteção do canteiro?",
+      "resposta": "Organização",
+      "conta": "acesso, vivência, armazenagem e rotas",
+      "narracao": "Sua vez: qual é a primeira proteção do canteiro? {pensa}[[pausa:3]] {resp}A organização: acesso controlado, área de vivência, armazenagem e rotas de pedestres."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Conheça os riscos da sua frente",
+          "chave": "c1"
+        },
+        {
+          "texto": "Use as rotas e respeite os isolamentos",
+          "chave": "c2"
+        },
+        {
+          "texto": "Canteiro organizado é canteiro seguro",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Organização é a primeira proteção.",
+      "narracao": "Para levar: {c1}conheça os riscos da sua frente de trabalho. {c2}Use as rotas e respeite os isolamentos. {c3}Canteiro organizado é canteiro seguro. {fim}Organização é a primeira proteção."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial. A carga horária do NR-18 básico é cumprida na turma presencial com instrutor."
+}

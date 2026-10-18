@@ -1,0 +1,132 @@
+{
+  "codigo": "PAL55-4-cilindros-oxicorte",
+  "titulo": "Cilindros de gases e oxicorte",
+  "capitulo": "Segurança em atividades de soldagem e corte · Aula 4",
+  "eyebrow": "PAL-55 · Solda e corte",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Capacitação interna Palla Construções (db/catalogo.ts, PAL-55)",
+    "Complementa NR-12, NR-18 e NR-6"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "flame",
+      "objetivo": "Manusear cilindros e o conjunto de oxicorte com segurança.",
+      "narracao": "Aula quatro: cilindros de gases e o conjunto de oxicorte."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Cilindros",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "anchor",
+          "titulo": "Em pé e presos",
+          "texto": "corrente ou suporte"
+        },
+        {
+          "m": "c",
+          "icone": "hard-hat",
+          "titulo": "Capacete de proteção da válvula",
+          "texto": "no transporte"
+        },
+        {
+          "m": "s",
+          "icone": "move-horizontal",
+          "titulo": "Oxigênio separado do combustível",
+          "texto": "conforme a norma e o procedimento"
+        },
+        {
+          "m": "l",
+          "icone": "thermometer",
+          "titulo": "Longe de calor e fagulha"
+        }
+      ],
+      "narracao": "Cilindros: {p}sempre em pé e presos, com corrente ou suporte. {c}Com o capacete de proteção da válvula no transporte. {s}Oxigênio armazenado separado do gás combustível, conforme a norma e o procedimento. {l}E longe de calor e de fagulhas."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Conjunto de oxicorte",
+      "cards": [
+        {
+          "m": "v",
+          "icone": "shield-check",
+          "titulo": "Válvula contra retrocesso de chama",
+          "texto": "no conjunto, conforme o procedimento"
+        },
+        {
+          "m": "m",
+          "icone": "link",
+          "titulo": "Mangueiras íntegras",
+          "texto": "sem emenda improvisada"
+        },
+        {
+          "m": "t",
+          "icone": "droplets",
+          "titulo": "Teste de vazamento",
+          "texto": "água e sabão, nunca chama"
+        },
+        {
+          "m": "o",
+          "icone": "ban",
+          "titulo": "Óleo e graxa",
+          "texto": "nunca em contato com oxigênio",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "O conjunto de oxicorte: {v}com dispositivo contra retrocesso de chama, conforme o procedimento. {m}Mangueiras íntegras, sem emenda improvisada. {t}Teste de vazamento com água e sabão, nunca com chama. {o}E nunca deixe óleo ou graxa em contato com oxigênio: pode inflamar."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/transporte.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}para mudar de frente, a equipe deixa o cilindro de oxigênio solto, encostado num pilar. Ele tomba e a válvula bate no piso. {c2}Cilindro fica sempre preso, mesmo por pouco tempo.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Cilindro solto tomba"
+        },
+        {
+          "m": "c2",
+          "texto": "Sempre preso, mesmo por pouco tempo"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Como testar vazamento no conjunto de oxicorte?",
+      "resposta": "Água e sabão",
+      "conta": "nunca com chama",
+      "narracao": "Sua vez: como testar vazamento no conjunto de oxicorte? {pensa}[[pausa:3]] {resp}Com água e sabão. Nunca com chama."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Cilindro em pé e preso",
+          "chave": "c1"
+        },
+        {
+          "texto": "Antirretrocesso e mangueiras íntegras",
+          "chave": "c2"
+        },
+        {
+          "texto": "Óleo e graxa longe do oxigênio",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Cilindro solto é projétil.",
+      "narracao": "Para levar: {c1}cilindro em pé e preso. {c2}Dispositivo contra retrocesso e mangueiras íntegras. {c3}Óleo e graxa longe do oxigênio. {fim}Cilindro solto é projétil."
+    }
+  ]
+}

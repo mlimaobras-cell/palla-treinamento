@@ -1,0 +1,176 @@
+{
+  "codigo": "NR12-2-protecoes",
+  "titulo": "Proteções e dispositivos de segurança",
+  "capitulo": "NR-12 · Segurança em máquinas e equipamentos · Aula 2",
+  "eyebrow": "NR-12 · Máquinas",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-12, item 12.16 e Anexo II",
+    "db/catalogo.ts (NR12-MAQ)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "shield",
+      "objetivo": "Saber como funcionam as proteções, quem pode removê-las e o que fazer se estiverem danificadas.",
+      "narracao": "Aula dois: as proteções e os dispositivos de segurança. Para que servem, quem pode remover, e o que fazer quando estão danificados."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Tipos de proteção",
+      "cards": [
+        {
+          "m": "f",
+          "icone": "shield",
+          "titulo": "Fixa",
+          "texto": "só sai com ferramenta"
+        },
+        {
+          "m": "m",
+          "icone": "door-closed",
+          "titulo": "Móvel com intertravamento",
+          "texto": "abriu, a máquina para"
+        },
+        {
+          "m": "e",
+          "icone": "octagon-x",
+          "titulo": "Parada de emergência",
+          "texto": "botão vermelho, ao alcance",
+          "cor": "vermelho"
+        },
+        {
+          "m": "c",
+          "icone": "hand",
+          "titulo": "Comando de ação continuada",
+          "texto": "soltou, parou"
+        }
+      ],
+      "narracao": "As proteções: {f}a fixa, que só sai com ferramenta. {m}A móvel com intertravamento: abriu, a máquina para. {e}O botão de parada de emergência, vermelho, sempre ao alcance. {c}E o comando de ação continuada, como o gatilho da esmerilhadeira: soltou, parou."
+    },
+    {
+      "tipo": "colunas",
+      "titulo": "Remoção e dano",
+      "narracao": "{r1}A proteção só é removida por pessoa autorizada, para manutenção, {r2}com a máquina parada e bloqueada, {r3}e recolocada antes de voltar a operar. Se a proteção estiver danificada, ou faltando: {d1}não opere, {d2}sinalize a máquina, {d3}e comunique a liderança.",
+      "colunas": [
+        {
+          "titulo": "Quem pode remover",
+          "icone": "user-check",
+          "cor": "azul",
+          "itens": [
+            {
+              "m": "r1",
+              "texto": "Só pessoa autorizada, para manutenção"
+            },
+            {
+              "m": "r2",
+              "texto": "Com a máquina parada e bloqueada"
+            },
+            {
+              "m": "r3",
+              "texto": "Recolocada antes de voltar a operar"
+            }
+          ]
+        },
+        {
+          "titulo": "Proteção danificada",
+          "icone": "octagon-x",
+          "cor": "vermelho",
+          "itens": [
+            {
+              "m": "d1",
+              "texto": "Não opere"
+            },
+            {
+              "m": "d2",
+              "texto": "Sinalize a máquina"
+            },
+            {
+              "m": "d3",
+              "texto": "Comunique a liderança"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Nunca",
+      "cards": [
+        {
+          "m": "b",
+          "icone": "ban",
+          "titulo": "Burlar intertravamento",
+          "texto": "fita, arame, calço",
+          "cor": "vermelho"
+        },
+        {
+          "m": "g",
+          "icone": "ban",
+          "titulo": "Travar o gatilho",
+          "texto": "ação continuada existe por um motivo",
+          "cor": "vermelho"
+        },
+        {
+          "m": "t",
+          "icone": "ban",
+          "titulo": "Tirar a coifa do disco",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "E nunca: {b}burle um intertravamento com fita, arame ou calço. {g}Nunca trave o gatilho da ferramenta. {t}E nunca tire a coifa de proteção do disco.",
+      "linha": true
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/equipamentos.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}para alcançar um canto da ligação, o montador retira a coifa da esmerilhadeira. Se o disco quebrar, os pedaços vão direto para ele. {c2}O certo é usar outra ferramenta ou outro método, definidos com o encarregado.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Coifa retirada para caber no canto"
+        },
+        {
+          "m": "c2",
+          "texto": "Use outra ferramenta ou outro método"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A proteção da máquina está quebrada. Você pode operar com cuidado?",
+      "resposta": "Não",
+      "conta": "não opere, sinalize e comunique",
+      "narracao": "Sua vez: a proteção da máquina está quebrada. Você pode operar com cuidado? {pensa}[[pausa:3]] {resp}Não. Não opere, sinalize e comunique."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Proteção só sai com máquina bloqueada",
+          "chave": "c1"
+        },
+        {
+          "texto": "Danificada: não opere e comunique",
+          "chave": "c2"
+        },
+        {
+          "texto": "Nunca burle, nunca trave gatilho",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Proteção burlada é acidente marcado.",
+      "narracao": "Para levar: {c1}proteção só sai com a máquina bloqueada, por quem é autorizado. {c2}Danificada: não opere, e comunique. {c3}Nunca burle, nunca trave o gatilho. {fim}Proteção burlada é acidente marcado."
+    }
+  ],
+  "nota": "Curso semipresencial: a etapa prática supervisionada na máquina é obrigatória (NR-12, Anexo II) e registrada pelo instrutor."
+}

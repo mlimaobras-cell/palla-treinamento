@@ -1,0 +1,128 @@
+{
+  "codigo": "PAL55-2-fumos",
+  "titulo": "Fumos metálicos e ventilação",
+  "capitulo": "Segurança em atividades de soldagem e corte · Aula 2",
+  "eyebrow": "PAL-55 · Solda e corte",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Capacitação interna Palla Construções (db/catalogo.ts, PAL-55)",
+    "Complementa NR-12, NR-18 e NR-6"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "wind",
+      "objetivo": "Reduzir a exposição aos fumos de solda e corte.",
+      "narracao": "Aula dois: fumos metálicos e ventilação."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "De onde vêm os fumos",
+      "cards": [
+        {
+          "m": "m",
+          "icone": "flame",
+          "titulo": "Metal fundido",
+          "texto": "solda e corte"
+        },
+        {
+          "m": "g",
+          "icone": "layers",
+          "titulo": "Galvanizado",
+          "texto": "fumos de zinco",
+          "cor": "vermelho"
+        },
+        {
+          "m": "t",
+          "icone": "paint-bucket",
+          "titulo": "Tinta queimando",
+          "texto": "na região da junta"
+        }
+      ],
+      "narracao": "Os fumos vêm {m}do metal fundido, na solda e no corte. {g}No aço galvanizado, os fumos de zinco podem causar febre e mal-estar. {t}E da tinta queimando na região da junta: por isso a pintura é removida antes, conforme o procedimento."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Como se proteger",
+      "cards": [
+        {
+          "m": "v",
+          "icone": "wind",
+          "titulo": "Ventilação ou exaustão",
+          "texto": "leva o fumo para longe"
+        },
+        {
+          "m": "p",
+          "icone": "move-horizontal",
+          "titulo": "Fora da pluma",
+          "texto": "não fique com o rosto sobre o fumo"
+        },
+        {
+          "m": "r",
+          "icone": "shield-check",
+          "titulo": "Respirador",
+          "texto": "o definido pela SST"
+        },
+        {
+          "m": "f",
+          "icone": "door-open",
+          "titulo": "Local fechado",
+          "texto": "avaliação antes; pode ser espaço confinado",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Para se proteger: {v}ventilação ou exaustão, que leva o fumo para longe. {p}Fique fora da pluma: não ponha o rosto sobre o fumo. {r}Use o respirador definido pela Segurança do Trabalho. {f}E em local fechado, avaliação antes de começar: pode até ser espaço confinado."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/equipamentos.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}um soldador faz várias juntas em peças galvanizadas, sem exaustão, e no fim do dia sente febre e mal-estar. {c2}Em galvanizado, exaustão, posição fora da pluma e respirador, antes de começar.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Solda em peça galvanizada sem exaustão"
+        },
+        {
+          "m": "c2",
+          "texto": "Exaustão, posição e respirador antes de começar"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Onde posicionar o rosto em relação ao fumo da solda?",
+      "resposta": "Fora da pluma",
+      "conta": "de lado, com ventilação",
+      "narracao": "Sua vez: onde posicionar o rosto em relação ao fumo da solda? {pensa}[[pausa:3]] {resp}Fora da pluma, de lado, com ventilação."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Ventilação ou exaustão sempre",
+          "chave": "c1"
+        },
+        {
+          "texto": "Fora da pluma",
+          "chave": "c2"
+        },
+        {
+          "texto": "Galvanizado e tinta: cuidado redobrado",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "O fumo que você não vê também faz mal.",
+      "narracao": "Para levar: {c1}ventilação ou exaustão sempre. {c2}Rosto fora da pluma. {c3}Galvanizado e tinta: cuidado redobrado. {fim}O fumo que você não vê também faz mal."
+    }
+  ]
+}

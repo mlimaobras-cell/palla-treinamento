@@ -1,0 +1,129 @@
+{
+  "codigo": "GUI-3-inspecao-limites",
+  "titulo": "Inspeção diária e limitações",
+  "capitulo": "Operador de equipamento de guindar · Aula 4",
+  "eyebrow": "NR-18 · Guindaste",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, Anexo I; NR-12, Anexo II (db/catalogo.ts, NR18-GUI)",
+    "Plano logístico e de montagem — Obra Super JK (guindastes aranha sobre laje)"
+  ],
+  "pendencias": [
+    "Carga horária, proporção prática e periodicidade: conferir na NR-18 vigente [VALIDAR].",
+    "Capacidades e limites: sempre do manual e da tabela do modelo."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "clipboard-check",
+      "objetivo": "Fazer a inspeção diária e respeitar as limitações do equipamento.",
+      "narracao": "Aula quatro: a inspeção diária, e as limitações do equipamento."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Inspeção diária (checklist do fabricante)",
+      "cards": [
+        {
+          "m": "c",
+          "icone": "link",
+          "titulo": "Cabo de aço",
+          "texto": "sem fios rompidos, amassamento ou corrosão"
+        },
+        {
+          "m": "g",
+          "icone": "anchor",
+          "titulo": "Gancho e trava",
+          "texto": "sem trinca ou abertura"
+        },
+        {
+          "m": "h",
+          "icone": "droplets",
+          "titulo": "Hidráulico",
+          "texto": "sem vazamento"
+        },
+        {
+          "m": "d",
+          "icone": "gauge",
+          "titulo": "Dispositivos de segurança",
+          "texto": "testados"
+        },
+        {
+          "m": "p",
+          "icone": "layers",
+          "titulo": "Patolas e sapatas",
+          "texto": "íntegras"
+        },
+        {
+          "m": "r",
+          "icone": "file-check",
+          "titulo": "Registro",
+          "texto": "checklist assinado"
+        }
+      ],
+      "narracao": "Antes de operar, a inspeção diária, pelo checklist do fabricante: {c}cabo de aço, sem fios rompidos, amassamento ou corrosão. {g}Gancho e trava, sem trinca nem abertura. {h}Sistema hidráulico, sem vazamento. {d}Dispositivos de segurança testados. {p}Patolas e sapatas íntegras. {r}E o checklist registrado. Defeito? O equipamento não opera."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Limitações",
+      "cards": [
+        {
+          "m": "t",
+          "icone": "list-checks",
+          "titulo": "Tabela de carga",
+          "texto": "raio, lança e configuração"
+        },
+        {
+          "m": "v",
+          "icone": "wind",
+          "titulo": "Vento",
+          "texto": "limite do fabricante"
+        },
+        {
+          "m": "a",
+          "icone": "ban",
+          "titulo": "Não arrastar carga",
+          "texto": "nem puxar de lado",
+          "cor": "vermelho"
+        },
+        {
+          "m": "e",
+          "icone": "ban",
+          "titulo": "Não içar pessoas",
+          "texto": "salvo equipamento e procedimento próprios",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "As limitações: {t}a tabela de carga, que depende do raio, do comprimento da lança e da configuração. {v}O vento, no limite do fabricante. {a}Nunca arraste a carga nem puxe de lado. {e}E nunca ice pessoas, salvo com equipamento e procedimento próprios para isso."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O cabo de aço tem fios rompidos. Opera hoje e troca amanhã?",
+      "resposta": "Não",
+      "conta": "defeito: o equipamento não opera",
+      "narracao": "Sua vez: o cabo de aço tem fios rompidos. Opera hoje e troca amanhã? {pensa}[[pausa:3]] {resp}Não. Com defeito, o equipamento não opera."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Checklist diário do fabricante",
+          "chave": "c1"
+        },
+        {
+          "texto": "Tabela, vento e configuração",
+          "chave": "c2"
+        },
+        {
+          "texto": "Nunca arrastar nem puxar de lado",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "A inspeção de hoje evita o acidente de hoje.",
+      "narracao": "Para levar: {c1}checklist diário do fabricante. {c2}Respeite a tabela, o vento e a configuração. {c3}Nunca arraste nem puxe de lado. {fim}A inspeção de hoje evita o acidente de hoje."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial com prática no equipamento. Não habilita sozinho."
+}

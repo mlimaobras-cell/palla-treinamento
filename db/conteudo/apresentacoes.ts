@@ -7,9 +7,9 @@ import { join } from "node:path";
 import type { AulaSeed, CapituloSeed, QuestaoSeed } from "./integracao";
 
 type Item = { m?: string; titulo?: string; texto?: string };
-type Cena = { tipo: string; titulo?: string; narracao: string; objetivo?: string; cards?: Item[]; etapas?: Item[]; itens?: Item[]; colunas?: { titulo: string; itens: Item[] }[];
+type Cena = { tipo: string; titulo?: string; narracao: string; objetivo?: string; caso?: boolean; cards?: Item[]; etapas?: Item[]; itens?: Item[]; colunas?: { titulo: string; itens: Item[] }[];
   pergunta?: string; rodape?: string; aviso?: string };
-type Roteiro = { codigo: string; titulo: string; fontes?: string[]; cenas: Cena[] };
+export type Roteiro = { codigo: string; titulo: string; fontes?: string[]; nota?: string; cenas: Cena[] };
 
 const semMarcas = (s?: string) => (s ?? "").replace(/\{[^}]+\}/g, "").replace(/\[\[pausa:\d+\]\]/g, "").replace(/\s+/g, " ").trim();
 const ler = (arq: string, raiz: string): Roteiro => JSON.parse(readFileSync(join(raiz, "video", "v2", "cenas", arq), "utf8"));
@@ -33,13 +33,15 @@ export function comVideos(capitulos: CapituloSeed[], codigos: string[], raiz = p
   }) }));
 }
 
-/** Aula a partir de um roteiro v2 com cenas genéricas (cartões, etapas, colunas). */
-function aulaDaApresentacao(r: Roteiro, raiz: string): AulaSeed {
+/** Aula a partir de um roteiro v2 com cenas genéricas (foto, cartões, etapas, colunas, situação real, pergunta, resumo). */
+export function aulaDoRoteiroGenerico(r: Roteiro, raiz = process.cwd(), apresentacao = false): AulaSeed {
   const v = videoV2(r.codigo, raiz);
   const lin = (i: Item) => `• ${[i.titulo, i.texto].filter(Boolean).join(": ")}`;
-  const blocos = r.cenas.filter((c) => ["cartoes", "etapas", "colunas"].includes(c.tipo)).map((c) => [
-    `■ ${c.titulo}`,
+  const casoCena = r.cenas.find((c) => c.caso);
+  const blocos = r.cenas.filter((c) => (["cartoes", "etapas", "colunas"].includes(c.tipo) || (c.tipo === "foto" && c.itens?.length && c !== r.cenas[0])) && !c.caso).map((c) => [
+    `■ ${c.titulo ?? ""}`,
     ...(c.cards ?? c.etapas ?? []).map(lin),
+    ...(c.tipo === "foto" ? (c.itens ?? []).map(lin) : []),
     ...(c.colunas ?? []).flatMap((col) => [`${col.titulo}:`, ...col.itens.map(lin)]),
     c.aviso ? `Obs.: ${c.aviso}` : "",
   ].filter(Boolean).join("\n"));
@@ -49,12 +51,17 @@ function aulaDaApresentacao(r: Roteiro, raiz: string): AulaSeed {
     roteiro: r.cenas.map((c, n) => `CENA ${n + 1} — ${c.tipo}${c.titulo ? ` — ${c.titulo}` : ""}`).join("\n"),
     narracao: r.cenas.map((c) => semMarcas(c.narracao)).join("\n\n"),
     textoApoio: [ab?.objetivo ? `Objetivo: ${ab.objetivo}` : "", ...blocos,
-      "Esta aula é uma apresentação: mostra o que é a norma, para quem é e como é o treinamento. Ela não substitui a capacitação prevista para a sua função.",
+      apresentacao ? "Esta aula é uma apresentação: mostra o que é a norma, para quem é e como é o treinamento. Ela não substitui a capacitação prevista para a sua função." : "",
+      r.nota ?? "",
       r.fontes?.length ? `Fontes: ${r.fontes.join("; ")}.` : ""].filter(Boolean).join("\n\n"),
+    exemplo: casoCena ? semMarcas(casoCena.narracao) : undefined,
     perguntaFixacao: pg?.pergunta,
     resumo: [...(ck?.itens ?? []).map((i) => `• ${i.texto}`), ck?.rodape ?? ""].filter(Boolean).join("\n"),
   };
 }
+
+/** Lê o roteiro v2 pelo código (arquivo video/v2/cenas/<codigo em minúsculas>.json). */
+export const roteiroPorCodigo = (codigo: string, raiz = process.cwd()) => ler(`${codigo.toLowerCase()}.json`, raiz);
 
 export const VIDEOS_INT = ["INT-1-quem-somos", "INT-2-missao", "INT-3-conduta", "INT-4-direitos", "INT-5-lideranca", "INT-6-canteiro", "INT-7-celular",
   "INT-8-regras-ouro", "INT-9-prevencao", "INT-10-alcool", "INT-11-incidentes", "INT-12-disciplina", "INT-13-encerramento"];
@@ -65,7 +72,7 @@ export type CursoApresentacao = keyof typeof ARQ;
 export const CURSOS_APRESENTACAO = Object.keys(ARQ) as CursoApresentacao[];
 
 export function capitulosApresentacao(curso: CursoApresentacao, raiz = process.cwd()): CapituloSeed[] {
-  return [{ titulo: "Apresentação", aulas: [aulaDaApresentacao(ler(ARQ[curso], raiz), raiz)] }];
+  return [{ titulo: "Apresentação", aulas: [aulaDoRoteiroGenerico(ler(ARQ[curso], raiz), raiz, true)] }];
 }
 
 const q = (enunciado: string, alts: string[], correta: string, comentario: string, tipo: QuestaoSeed["tipo"] = "MULTIPLA_ESCOLHA"): QuestaoSeed =>

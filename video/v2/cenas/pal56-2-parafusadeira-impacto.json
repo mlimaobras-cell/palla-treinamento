@@ -1,0 +1,133 @@
+{
+  "codigo": "PAL56-2-parafusadeira-impacto",
+  "titulo": "Parafusadeira, chave de impacto e ferramentas manuais",
+  "capitulo": "Utilização segura de ferramentas · Aula 2",
+  "eyebrow": "PAL-56 · Ferramentas",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "Capacitação interna Palla Construções (db/catalogo.ts, PAL-56)",
+    "Complementa NR-12"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "wrench",
+      "objetivo": "Usar parafusadeira, chave de impacto e ferramentas manuais com segurança.",
+      "narracao": "Utilização segura de ferramentas. Aula dois: parafusadeira, chave de impacto e ferramentas manuais."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Chave de impacto e parafusadeira",
+      "cards": [
+        {
+          "m": "s",
+          "icone": "link",
+          "titulo": "Soquete certo e travado",
+          "texto": "pino e anel no lugar"
+        },
+        {
+          "m": "r",
+          "icone": "rotate-ccw",
+          "titulo": "Reação da ferramenta",
+          "texto": "segure firme, posição estável"
+        },
+        {
+          "m": "a",
+          "icone": "construction",
+          "titulo": "Em altura",
+          "texto": "ferramenta amarrada"
+        },
+        {
+          "m": "p",
+          "icone": "info",
+          "titulo": "Não é ferramenta de torque final",
+          "texto": "aperto final pelo método da ligação"
+        }
+      ],
+      "narracao": "Chave de impacto e parafusadeira: {s}soquete certo para a porca, travado com pino e anel. {r}A ferramenta reage: segure firme e em posição estável. {a}Em altura, ferramenta amarrada. {p}E atenção: a chave de impacto não define o aperto final. O aperto final segue o método da ligação, visto no módulo de parafusos."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Ferramentas manuais",
+      "cards": [
+        {
+          "m": "c",
+          "icone": "wrench",
+          "titulo": "Chave do tamanho certo",
+          "texto": "nada de calço ou cano de extensão",
+          "cor": "vermelho"
+        },
+        {
+          "m": "m",
+          "icone": "hammer",
+          "titulo": "Marreta e martelo",
+          "texto": "cabo firme, cabeça sem rebarba"
+        },
+        {
+          "m": "p",
+          "icone": "pin",
+          "titulo": "Pino de alinhar",
+          "texto": "nunca o dedo"
+        },
+        {
+          "m": "b",
+          "icone": "package",
+          "titulo": "Bolsa de ferramentas",
+          "texto": "no cinto, em altura"
+        }
+      ],
+      "narracao": "Ferramentas manuais: {c}chave do tamanho certo: nada de calço ou cano de extensão. {m}Marreta e martelo com cabo firme e cabeça sem rebarba. {p}Para alinhar furos, o pino, nunca o dedo. {b}E em altura, as ferramentas ficam na bolsa ou amarradas."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}para soltar uma porca presa, o montador coloca um cano de extensão na chave. A chave escapa, e ele perde o equilíbrio na plataforma. {c2}Use a ferramenta adequada, e peça ajuda quando a porca não solta.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Cano de extensão na chave"
+        },
+        {
+          "m": "c2",
+          "texto": "A chave escapa e o montador perde o equilíbrio"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A chave de impacto dá o aperto final da ligação?",
+      "resposta": "Não",
+      "conta": "o aperto final segue o método da ligação",
+      "narracao": "Sua vez: a chave de impacto dá o aperto final da ligação? {pensa}[[pausa:3]] {resp}Não. O aperto final segue o método definido para a ligação."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Soquete certo e travado",
+          "chave": "c1"
+        },
+        {
+          "texto": "Nada de calço ou cano de extensão",
+          "chave": "c2"
+        },
+        {
+          "texto": "Em altura: ferramenta amarrada",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Ferramenta certa, do jeito certo.",
+      "narracao": "Para levar: {c1}soquete certo e travado. {c2}Nada de calço ou cano de extensão. {c3}Em altura, ferramenta amarrada. {fim}Ferramenta certa, do jeito certo."
+    }
+  ]
+}

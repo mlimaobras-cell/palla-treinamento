@@ -1,0 +1,134 @@
+{
+  "codigo": "NR12-3-bloqueio",
+  "titulo": "Bloqueio de energias perigosas e método de trabalho seguro",
+  "capitulo": "NR-12 · Segurança em máquinas e equipamentos · Aula 3",
+  "eyebrow": "NR-12 · Máquinas",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-12, item 12.16 e Anexo II",
+    "db/catalogo.ts (NR12-MAQ)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "lock",
+      "objetivo": "Bloquear as energias antes de qualquer intervenção e trabalhar pelo método seguro.",
+      "narracao": "Aula três: bloqueio de energias perigosas, e o método de trabalho seguro."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Bloqueio antes de intervir",
+      "narracao": "Antes de qualquer intervenção, como limpeza, ajuste ou troca de peça: {i}identifique as energias: elétrica, pneumática, hidráulica, molas e gravidade. {d}Desligue. {b}Bloqueie com o seu cadeado e a sua etiqueta. {r}Libere a energia que sobrou: pressão, mola, peça suspensa. {t}E teste: tente ligar; a máquina não pode partir. Só quem colocou o cadeado tira o cadeado.",
+      "etapas": [
+        {
+          "m": "i",
+          "titulo": "Identifique as energias",
+          "texto": "elétrica, pneumática, hidráulica, mola, gravidade",
+          "icone": "zap"
+        },
+        {
+          "m": "d",
+          "titulo": "Desligue",
+          "icone": "circle-stop"
+        },
+        {
+          "m": "b",
+          "titulo": "Bloqueie e etiquete",
+          "texto": "cadeado e etiqueta pessoal",
+          "icone": "lock"
+        },
+        {
+          "m": "r",
+          "titulo": "Libere a energia residual",
+          "texto": "pressão, mola, peça suspensa",
+          "icone": "wind"
+        },
+        {
+          "m": "t",
+          "titulo": "Teste: tente ligar",
+          "texto": "não pode partir",
+          "icone": "circle-check",
+          "cor": "verde"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Método de trabalho seguro",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "clipboard-list",
+          "titulo": "Procedimento da tarefa",
+          "texto": "conhecido antes de começar"
+        },
+        {
+          "m": "pt",
+          "icone": "file-check",
+          "titulo": "Permissão de trabalho",
+          "texto": "quando exigida"
+        },
+        {
+          "m": "a",
+          "icone": "user-check",
+          "titulo": "Só o que você foi capacitado",
+          "texto": "e autorizado a fazer"
+        }
+      ],
+      "narracao": "{p}Cada tarefa tem o seu procedimento, conhecido antes de começar. {pt}Quando exigida, há permissão de trabalho. {a}E você faz só aquilo para o que foi capacitado e autorizado.",
+      "linha": true
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/parque-fabril.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}para trocar o disco, um ajudante segura a esmerilhadeira ainda ligada na tomada. O gatilho é pressionado sem querer. {c2}Na ferramenta portátil, o bloqueio é simples: tire da tomada, ou a bateria, antes de trocar o acessório.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Troca de disco com a máquina na tomada"
+        },
+        {
+          "m": "c2",
+          "texto": "Tire da tomada antes de trocar"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Quem pode retirar o seu cadeado de bloqueio?",
+      "resposta": "Só você",
+      "conta": "quem colocou, retira",
+      "narracao": "Sua vez: quem pode retirar o seu cadeado de bloqueio? {pensa}[[pausa:3]] {resp}Só você. Quem colocou o cadeado é quem retira."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Desligue, bloqueie, libere e teste",
+          "chave": "c1"
+        },
+        {
+          "texto": "Ferramenta portátil: tomada ou bateria fora",
+          "chave": "c2"
+        },
+        {
+          "texto": "Só faça o que foi autorizado",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Energia bloqueada, mão segura.",
+      "narracao": "Para levar: {c1}desligue, bloqueie, libere a energia residual e teste. {c2}Na ferramenta portátil, tomada ou bateria fora. {c3}E só faça o que foi autorizado. {fim}Energia bloqueada, mão segura."
+    }
+  ],
+  "nota": "Curso semipresencial: a etapa prática supervisionada na máquina é obrigatória (NR-12, Anexo II) e registrada pelo instrutor."
+}

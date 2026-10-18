@@ -1,0 +1,126 @@
+{
+  "codigo": "PEMT-1-tipos-riscos",
+  "titulo": "Tipos de PEMT e riscos",
+  "capitulo": "Operador de plataforma elevatória (PEMT) · Aula 1",
+  "eyebrow": "NR-18 · PEMT",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, Anexo I (db/catalogo.ts, NR18-PEMT)",
+    "Conteúdo conforme norma técnica nacional vigente e manual do fabricante"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade: conferir no Anexo I da NR-18 vigente [VALIDAR].",
+    "Limites de vento, inclinação e carga: manual e placa do modelo."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "construction",
+      "objetivo": "Conhecer os tipos de plataforma elevatória e os seus riscos.",
+      "narracao": "Operador de plataforma elevatória móvel de trabalho, a PEMT. Aula um: os tipos, e os riscos."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Tipos de PEMT",
+      "cards": [
+        {
+          "m": "t",
+          "icone": "arrow-down-to-line",
+          "titulo": "Tesoura",
+          "texto": "sobe na vertical"
+        },
+        {
+          "m": "a",
+          "icone": "move-horizontal",
+          "titulo": "Articulada ou telescópica",
+          "texto": "lança: alcança por cima e para o lado"
+        }
+      ],
+      "narracao": "Os tipos mais comuns: {t}a tesoura, que sobe na vertical. {a}E a articulada ou telescópica, com lança, que alcança por cima de obstáculos e para o lado. Cada modelo tem comandos, limites e manual próprios.",
+      "linha": true
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Riscos",
+      "cards": [
+        {
+          "m": "t",
+          "icone": "construction",
+          "titulo": "Tombamento",
+          "texto": "terreno, inclinação, vento, carga",
+          "cor": "vermelho"
+        },
+        {
+          "m": "e",
+          "icone": "hand",
+          "titulo": "Esmagamento",
+          "texto": "contra a estrutura acima da cesta",
+          "cor": "vermelho"
+        },
+        {
+          "m": "q",
+          "icone": "arrow-down-to-line",
+          "titulo": "Queda",
+          "texto": "do operador ou de material"
+        },
+        {
+          "m": "r",
+          "icone": "zap",
+          "titulo": "Rede elétrica"
+        }
+      ],
+      "narracao": "Os riscos: {t}tombamento, por terreno, inclinação, vento ou excesso de carga. {e}Esmagamento do operador contra a estrutura acima da cesta, como uma viga. {q}Queda do operador ou de material. {r}E contato com a rede elétrica."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}subindo sob uma viga, o operador olha para os comandos e não para cima, e fica prensado entre o guarda-corpo e a viga. {c2}Perto da estrutura, os movimentos são lentos, olhando na direção do movimento.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Operador prensado entre a cesta e a viga"
+        },
+        {
+          "m": "c2",
+          "texto": "Movimentos lentos perto da estrutura, olhando para cima"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Qual o risco ao subir a cesta sob uma viga?",
+      "resposta": "Esmagamento",
+      "conta": "olhe para cima e mova devagar",
+      "narracao": "Sua vez: qual o risco ao subir a cesta sob uma viga? {pensa}[[pausa:3]] {resp}Esmagamento contra a viga. Olhe para cima, e mova devagar."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Conheça o tipo e o manual do modelo",
+          "chave": "c1"
+        },
+        {
+          "texto": "Tombamento: terreno, vento e carga",
+          "chave": "c2"
+        },
+        {
+          "texto": "Perto da estrutura: devagar e olhando",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "A cesta é o seu local de trabalho: respeite os limites.",
+      "narracao": "Para levar: {c1}conheça o tipo e o manual do modelo. {c2}Tombamento depende de terreno, vento e carga. {c3}Perto da estrutura, devagar e olhando. {fim}A cesta é o seu local de trabalho: respeite os limites."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial com prática no equipamento. Não habilita sozinho."
+}

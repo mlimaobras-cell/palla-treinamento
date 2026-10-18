@@ -9,6 +9,7 @@ import { capitulosIntegracao, questoesIntegracao, type CapituloSeed, type Questa
 import { capitulosMontagemSegura, questoesMontagemSegura } from "./conteudo/montagem-segura";
 import { capitulosNr35, questoesNr35 } from "./conteudo/nr35";
 import { capitulosDoModulo, modulosMiniCurso, questoesDoModulo } from "./conteudo/minicurso";
+import { capitulosTreinamento, CURSOS_TREINAMENTO, questoesTreinamento } from "./conteudo/treinamentos";
 import { capitulosApresentacao, comVideos, CURSOS_APRESENTACAO, questoesApresentacao, VIDEOS_INT, VIDEOS_PAL52 } from "./conteudo/apresentacoes";
 
 const SENHA_TESTE = "Palla@2026";
@@ -142,12 +143,23 @@ async function main() {
   await carregarConteudo(ids.get("PAL-52")!, comVideos(capitulosMontagemSegura, VIDEOS_PAL52), questoesMontagemSegura, true);
   // Apresentações curtas (NR-17, NR-23, NR-26, NR-33): mostram a norma e o treinamento; não substituem a capacitação.
   for (const cod of CURSOS_APRESENTACAO) await carregarConteudo(ids.get(cod)!, capitulosApresentacao(cod), questoesApresentacao(cod), true);
+  // Treinamentos completos (roteiros v2). Só entra o curso cujos vídeos já foram publicados (public/videos/v2/duracoes.json).
+  const treinamentosCarregados: string[] = [];
+  for (const cod of CURSOS_TREINAMENTO) {
+    let caps;
+    try { caps = capitulosTreinamento(cod); } catch (e) {
+      if (/Duração não encontrada/.test((e as Error).message)) { console.warn(`${cod}: vídeos ainda não publicados; curso não carregado.`); continue; }
+      throw e;
+    }
+    await carregarConteudo(ids.get(cod)!, caps, questoesTreinamento(cod), true);
+    treinamentosCarregados.push(cod);
+  }
   // NR-35 é presencial (35.4.5): as aulas abaixo são só material de apoio e o banco é da prova escrita presencial.
   await carregarConteudo(ids.get("NR35-ALT")!, capitulosNr35, questoesNr35, true);
   // Mini curso M1–M8: videoaula + banco de questões dos cadernos do instrutor (diagnóstica marcada por questão).
   for (const mod of modulosMiniCurso) await carregarConteudo(ids.get(mod.codigo)!, capitulosDoModulo(mod), questoesDoModulo(mod), true);
   // Conteúdos desenvolvidos ficam EM REVISÃO até aprovação do responsável técnico.
-  for (const cod of ["INT-01", "PAL-52", "NR35-ALT", ...CURSOS_APRESENTACAO, ...modulosMiniCurso.map((m) => m.codigo)]) {
+  for (const cod of ["INT-01", "PAL-52", "NR35-ALT", ...CURSOS_APRESENTACAO, ...treinamentosCarregados, ...modulosMiniCurso.map((m) => m.codigo)]) {
     const c = await db.query.cursos.findFirst({ where: eq(schema.cursos.codigo, cod) });
     if (c?.statusConteudo === "RASCUNHO") await db.update(schema.cursos).set({ statusConteudo: "EM_REVISAO" }).where(eq(schema.cursos.id, c.id));
   }

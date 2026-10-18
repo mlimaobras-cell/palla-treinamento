@@ -1,0 +1,132 @@
+{
+  "codigo": "GUI-2-estabilizacao",
+  "titulo": "Base, patolamento e nivelamento",
+  "capitulo": "Operador de equipamento de guindar · Aula 2",
+  "eyebrow": "NR-18 · Guindaste",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, Anexo I; NR-12, Anexo II (db/catalogo.ts, NR18-GUI)",
+    "Plano logístico e de montagem — Obra Super JK (guindastes aranha sobre laje)"
+  ],
+  "pendencias": [
+    "Carga horária, proporção prática e periodicidade: conferir na NR-18 vigente [VALIDAR].",
+    "Capacidades e limites: sempre do manual e da tabela do modelo."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "anchor",
+      "objetivo": "Preparar a base e estabilizar o equipamento antes de qualquer içamento.",
+      "narracao": "Aula dois: a base, o patolamento e o nivelamento. É aqui que se evita o tombamento."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Estabilizar",
+      "narracao": "Para estabilizar: {b}a base é verificada; sobre laje, a capacidade é conferida e liberada pela engenharia. {s}As sapatas ficam sobre apoio adequado, como pranchões ou chapas, conforme o plano. {p}O patolamento segue o fabricante, na configuração da tabela que vai ser usada. {n}E o equipamento fica nivelado, dentro do limite do fabricante.",
+      "etapas": [
+        {
+          "m": "b",
+          "titulo": "Base verificada",
+          "texto": "solo ou laje liberados pela engenharia",
+          "icone": "layers"
+        },
+        {
+          "m": "s",
+          "titulo": "Sapatas sobre apoio adequado",
+          "texto": "pranchões ou chapas, conforme o plano",
+          "icone": "box"
+        },
+        {
+          "m": "p",
+          "titulo": "Patolamento conforme o fabricante",
+          "texto": "configuração da tabela usada",
+          "icone": "anchor"
+        },
+        {
+          "m": "n",
+          "titulo": "Nivelado",
+          "texto": "dentro do limite do fabricante",
+          "icone": "ruler"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Atenção à base",
+      "cards": [
+        {
+          "m": "v",
+          "icone": "triangle-alert",
+          "titulo": "Valas, tampas e bordas",
+          "texto": "nunca sob a sapata",
+          "cor": "vermelho"
+        },
+        {
+          "m": "c",
+          "icone": "cloud-rain",
+          "titulo": "Chuva",
+          "texto": "solo amolece: reavalie"
+        },
+        {
+          "m": "m",
+          "icone": "eye",
+          "titulo": "Acompanhe durante o içamento",
+          "texto": "afundou? pare"
+        }
+      ],
+      "narracao": "Atenção à base: {v}valas, tampas e bordas de laje nunca ficam sob a sapata. {c}Depois de chuva, o solo amolece: reavalie. {m}E acompanhe durante o içamento: se a sapata afundar, pare.",
+      "linha": true
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}para ganhar alcance, o operador apoia uma sapata sobre a tampa de uma caixa de passagem. A tampa não é feita para essa carga. {c2}O equipamento é reposicionado, com todas as sapatas em base liberada.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Sapata sobre tampa de caixa de passagem"
+        },
+        {
+          "m": "c2",
+          "texto": "Reposicionar fora de tampas e valas"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Pode apoiar a sapata sobre uma tampa de caixa no piso?",
+      "resposta": "Não",
+      "conta": "só em base verificada e liberada",
+      "narracao": "Sua vez: pode apoiar a sapata sobre uma tampa de caixa no piso? {pensa}[[pausa:3]] {resp}Não. Só em base verificada e liberada."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Base liberada, sobre laje com engenharia",
+          "chave": "c1"
+        },
+        {
+          "texto": "Patolamento do fabricante e nivelamento",
+          "chave": "c2"
+        },
+        {
+          "texto": "Sapata afundou: pare",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Sem base, não há tabela que valha.",
+      "narracao": "Para levar: {c1}base liberada; sobre laje, com a engenharia. {c2}Patolamento do fabricante e nivelamento. {c3}Sapata afundou: pare. {fim}Sem base, não há tabela que valha."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial com prática no equipamento. Não habilita sozinho."
+}

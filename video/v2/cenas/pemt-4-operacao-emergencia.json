@@ -1,0 +1,129 @@
+{
+  "codigo": "PEMT-4-operacao-emergencia",
+  "titulo": "Operação, cinto na cesta e emergência",
+  "capitulo": "Operador de plataforma elevatória (PEMT) · Aula 4",
+  "eyebrow": "NR-18 · PEMT",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, Anexo I (db/catalogo.ts, NR18-PEMT)",
+    "Conteúdo conforme norma técnica nacional vigente e manual do fabricante",
+    "NR-35"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade: conferir no Anexo I da NR-18 vigente [VALIDAR].",
+    "Limites de vento, inclinação e carga: manual e placa do modelo."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "hand",
+      "objetivo": "Operar a plataforma, usar o cinto ancorado e agir numa emergência.",
+      "narracao": "Aula quatro: a operação, o cinto na cesta, e a emergência."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Na operação",
+      "cards": [
+        {
+          "m": "p",
+          "icone": "eye",
+          "titulo": "Olhe na direção do movimento"
+        },
+        {
+          "m": "d",
+          "icone": "move-horizontal",
+          "titulo": "Deslocar com a cesta baixa",
+          "texto": "conforme o fabricante"
+        },
+        {
+          "m": "i",
+          "icone": "traffic-cone",
+          "titulo": "Área abaixo isolada"
+        },
+        {
+          "m": "c",
+          "icone": "construction",
+          "titulo": "Cinto ancorado",
+          "texto": "no ponto indicado da cesta"
+        }
+      ],
+      "narracao": "Na operação: {p}olhe sempre na direção do movimento. {d}Desloque a máquina com a cesta baixa, conforme o fabricante. {i}Isole a área abaixo. {c}E use o cinto paraquedista com talabarte ancorado no ponto indicado pelo fabricante da cesta. Na plataforma tipo tesoura, siga o fabricante e a análise de risco."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Emergência",
+      "narracao": "Na emergência: {p}parada de emergência, na cesta ou no solo. {s}Sempre tenha alguém no solo que conheça os comandos e a descida de emergência. {d}A descida segue o manual do modelo. {r}E o plano de resgate é feito antes de começar.",
+      "etapas": [
+        {
+          "m": "p",
+          "titulo": "Parada de emergência",
+          "texto": "na cesta ou no solo",
+          "icone": "octagon-x",
+          "cor": "vermelho"
+        },
+        {
+          "m": "s",
+          "titulo": "Alguém no solo que conhece os comandos",
+          "texto": "sempre que houver gente na cesta",
+          "icone": "user-check"
+        },
+        {
+          "m": "d",
+          "titulo": "Descida de emergência",
+          "texto": "conforme o manual",
+          "icone": "arrow-down-to-line"
+        },
+        {
+          "m": "r",
+          "titulo": "Plano de resgate",
+          "texto": "antes de começar",
+          "icone": "clipboard-list"
+        }
+      ]
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Autorização",
+      "cards": [
+        {
+          "m": "a",
+          "icone": "file-check",
+          "titulo": "Avaliação no modelo da obra",
+          "texto": "e autorização formal"
+        }
+      ],
+      "narracao": "{a}A avaliação operacional é feita no modelo da obra, e só com a autorização formal da empresa você opera.",
+      "linha": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Quem deve saber baixar a plataforma em emergência?",
+      "resposta": "Alguém no solo",
+      "conta": "treinado nos comandos do modelo",
+      "narracao": "Sua vez: quem deve saber baixar a plataforma numa emergência? {pensa}[[pausa:3]] {resp}Alguém no solo, treinado nos comandos daquele modelo."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Olhe na direção do movimento",
+          "chave": "c1"
+        },
+        {
+          "texto": "Cinto ancorado no ponto da cesta",
+          "chave": "c2"
+        },
+        {
+          "texto": "Alguém no solo para a descida de emergência",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Nunca suba sem um plano para descer.",
+      "narracao": "Para levar: {c1}olhe na direção do movimento. {c2}Cinto ancorado no ponto da cesta. {c3}E alguém no solo para a descida de emergência. {fim}Nunca suba sem um plano para descer."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial com prática no equipamento. Não habilita sozinho."
+}

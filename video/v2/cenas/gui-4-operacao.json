@@ -1,0 +1,130 @@
+{
+  "codigo": "GUI-4-operacao",
+  "titulo": "Operação segura e comunicação",
+  "capitulo": "Operador de equipamento de guindar · Aula 5",
+  "eyebrow": "NR-18 · Guindaste",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, Anexo I; NR-12, Anexo II (db/catalogo.ts, NR18-GUI)",
+    "Plano logístico e de montagem — Obra Super JK (guindastes aranha sobre laje)"
+  ],
+  "pendencias": [
+    "Carga horária, proporção prática e periodicidade: conferir na NR-18 vigente [VALIDAR].",
+    "Capacidades e limites: sempre do manual e da tabela do modelo."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "hand",
+      "objetivo": "Operar com movimentos seguros, em comunicação com o sinaleiro, e conhecer a avaliação prática.",
+      "narracao": "Aula cinco: a operação segura, a comunicação com o sinaleiro, e a avaliação prática."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Na operação",
+      "cards": [
+        {
+          "m": "s",
+          "icone": "move-horizontal",
+          "titulo": "Movimentos suaves",
+          "texto": "sem trancos"
+        },
+        {
+          "m": "p",
+          "icone": "users",
+          "titulo": "Nunca sobre pessoas",
+          "cor": "vermelho"
+        },
+        {
+          "m": "a",
+          "icone": "eye",
+          "titulo": "Atenção ao raio",
+          "texto": "o raio aumenta ao baixar a lança"
+        },
+        {
+          "m": "d",
+          "icone": "door-closed",
+          "titulo": "Nunca abandone com carga suspensa",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Na operação: {s}movimentos suaves, sem trancos. {p}A carga nunca passa sobre pessoas. {a}Atenção ao raio: baixar a lança aumenta o raio, e reduz a capacidade. {d}E nunca abandone o equipamento com a carga suspensa."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Comunicação",
+      "cards": [
+        {
+          "m": "u",
+          "icone": "hand",
+          "titulo": "Um sinaleiro",
+          "texto": "só ele orienta"
+        },
+        {
+          "m": "d",
+          "icone": "circle-help",
+          "titulo": "Sinal duvidoso",
+          "texto": "não execute"
+        },
+        {
+          "m": "p",
+          "icone": "octagon-x",
+          "titulo": "Parada",
+          "texto": "obedeça a qualquer pessoa",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Na comunicação: {u}só o sinaleiro orienta. {d}Sinal duvidoso não se executa. {p}E a parada de emergência se obedece, venha de quem vier."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Avaliação prática",
+      "cards": [
+        {
+          "m": "m",
+          "icone": "construction",
+          "titulo": "No modelo da obra",
+          "texto": "com o instrutor"
+        },
+        {
+          "m": "a",
+          "icone": "file-check",
+          "titulo": "Autorização formal",
+          "texto": "depois de aprovado"
+        }
+      ],
+      "narracao": "{m}A avaliação prática é feita no modelo usado na obra, com o instrutor. {a}Depois de aprovado, a empresa emite a autorização formal. Sem ela, você não opera.",
+      "linha": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Baixar a lança aumenta ou diminui a capacidade?",
+      "resposta": "Diminui",
+      "conta": "o raio aumenta",
+      "narracao": "Sua vez: baixar a lança aumenta ou diminui a capacidade? {pensa}[[pausa:3]] {resp}Diminui, porque o raio aumenta."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Movimento suave, nunca sobre pessoas",
+          "chave": "c1"
+        },
+        {
+          "texto": "Só o sinaleiro orienta; parada vale de todos",
+          "chave": "c2"
+        },
+        {
+          "texto": "Opera só com autorização",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Quem opera, responde pela carga.",
+      "narracao": "Para levar: {c1}movimento suave, e nunca sobre pessoas. {c2}Só o sinaleiro orienta, mas a parada vale de todos. {c3}E opera só com autorização. {fim}Quem opera, responde pela carga."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial com prática no equipamento. Não habilita sozinho."
+}

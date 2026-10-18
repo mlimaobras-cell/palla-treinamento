@@ -1,0 +1,153 @@
+{
+  "codigo": "SIN-1-papeis",
+  "titulo": "Papéis e responsabilidades na movimentação",
+  "capitulo": "Sinaleiro e amarrador de cargas · Aula 1",
+  "eyebrow": "NR-18 · Sinaleiro",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-18, Anexo I; NR-11 (db/catalogo.ts, NR11-SIN)"
+  ],
+  "pendencias": [
+    "Carga horária e periodicidade: conferir no Anexo I da NR-18 vigente [VALIDAR]."
+  ],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "users",
+      "objetivo": "Entender o papel do sinaleiro, do amarrador, do operador e do responsável pelo içamento.",
+      "narracao": "Sinaleiro e amarrador de cargas. Aula um: os papéis de cada um na movimentação."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "A equipe do içamento",
+      "cards": [
+        {
+          "m": "r",
+          "icone": "clipboard-check",
+          "titulo": "Responsável pelo plano",
+          "texto": "engenharia: plano de içamento"
+        },
+        {
+          "m": "o",
+          "icone": "hard-hat",
+          "titulo": "Operador",
+          "texto": "capacitado e autorizado no equipamento"
+        },
+        {
+          "m": "a",
+          "icone": "link",
+          "titulo": "Amarrador",
+          "texto": "escolhe e inspeciona acessórios, amarra conforme o plano"
+        },
+        {
+          "m": "s",
+          "icone": "hand",
+          "titulo": "Sinaleiro",
+          "texto": "único que orienta o operador"
+        }
+      ],
+      "narracao": "O içamento é trabalho de equipe. {r}O responsável pelo plano, da engenharia, define o equipamento, os acessórios e a configuração. {o}O operador, capacitado e autorizado naquele equipamento. {a}O amarrador escolhe e inspeciona os acessórios, e amarra a carga conforme o plano. {s}E o sinaleiro é o único que orienta o operador durante o movimento."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Deveres do sinaleiro",
+      "cards": [
+        {
+          "m": "v",
+          "icone": "eye",
+          "titulo": "Ver a carga e ser visto",
+          "texto": "pelo operador"
+        },
+        {
+          "m": "i",
+          "icone": "traffic-cone",
+          "titulo": "Garantir o isolamento"
+        },
+        {
+          "m": "c",
+          "icone": "radio",
+          "titulo": "Comunicação clara",
+          "texto": "sinais padronizados ou rádio"
+        },
+        {
+          "m": "p",
+          "icone": "octagon-x",
+          "titulo": "Parar diante do risco",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "O sinaleiro: {v}fica onde vê a carga e é visto pelo operador; se não houver visão, usa o rádio. {i}Garante que a área está isolada. {c}Usa sinais padronizados, combinados antes, ou o rádio, com confirmação. {p}E para a operação diante de qualquer risco."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Identificação e autorização",
+      "cards": [
+        {
+          "m": "c",
+          "icone": "id-card",
+          "titulo": "Identificado",
+          "texto": "colete ou braçadeira, conforme a obra"
+        },
+        {
+          "m": "a",
+          "icone": "file-check",
+          "titulo": "Autorizado pela empresa",
+          "texto": "depois da capacitação e da prática"
+        }
+      ],
+      "narracao": "{c}O sinaleiro é identificado, com colete ou braçadeira, conforme a obra. {a}E só atua depois de capacitado, avaliado na prática, e autorizado formalmente pela empresa. Certificado não é autorização.",
+      "linha": true
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/aranhas.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}no içamento de uma escada metálica, dois montadores fazem sinais ao mesmo tempo, e o operador recebe ordens diferentes. {c2}Só um sinaleiro orienta o operador. Os outros só podem dar a parada de emergência.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Dois colegas fazendo sinais ao operador"
+        },
+        {
+          "m": "c2",
+          "texto": "Um único sinaleiro; o resto só dá a parada"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Quantas pessoas orientam o operador durante o içamento?",
+      "resposta": "Uma",
+      "conta": "o sinaleiro designado",
+      "narracao": "Sua vez: quantas pessoas orientam o operador durante o içamento? {pensa}[[pausa:3]] {resp}Uma: o sinaleiro designado."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Plano define equipamento e acessórios",
+          "chave": "c1"
+        },
+        {
+          "texto": "Amarrador inspeciona e amarra conforme o plano",
+          "chave": "c2"
+        },
+        {
+          "texto": "Um único sinaleiro, identificado e autorizado",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "Cada um no seu papel.",
+      "narracao": "Para levar: {c1}o plano define equipamento e acessórios. {c2}O amarrador inspeciona e amarra conforme o plano. {c3}Um único sinaleiro, identificado e autorizado. {fim}Cada um no seu papel."
+    }
+  ],
+  "nota": "Material de apoio do treinamento presencial com prática no equipamento. Não habilita sozinho."
+}

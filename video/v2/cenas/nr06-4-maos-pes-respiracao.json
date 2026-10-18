@@ -1,0 +1,157 @@
+{
+  "codigo": "NR06-4-maos-pes-respiracao",
+  "titulo": "Luvas, calçados e proteção respiratória",
+  "capitulo": "NR-6 · Equipamentos de Proteção Individual · Aula 4",
+  "eyebrow": "NR-6 · EPI",
+  "scripts": [
+    "ilustracoes/icones.js"
+  ],
+  "fontes": [
+    "NR-6, itens 6.5.1 b, 6.7.1 e 6.7.2 (Portaria MTE nº 57/2025)",
+    "db/catalogo.ts (NR06-EPI)"
+  ],
+  "pendencias": [],
+  "cenas": [
+    {
+      "tipo": "abertura",
+      "icone": "hand",
+      "objetivo": "Escolher e usar luvas, calçados e proteção respiratória.",
+      "narracao": "Aula quatro: luvas, calçados e proteção respiratória."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Luvas: uma para cada risco",
+      "cards": [
+        {
+          "m": "v",
+          "icone": "hand",
+          "titulo": "Vaqueta ou raspa",
+          "texto": "manuseio de peças, abrasão"
+        },
+        {
+          "m": "s",
+          "icone": "flame",
+          "titulo": "Luva de soldador",
+          "texto": "calor e respingo"
+        },
+        {
+          "m": "q",
+          "icone": "flask-conical",
+          "titulo": "Luva química",
+          "texto": "solventes e tintas"
+        },
+        {
+          "m": "r",
+          "icone": "ban",
+          "titulo": "Perto de partes que giram",
+          "texto": "atenção: luva pode ser puxada",
+          "cor": "vermelho"
+        }
+      ],
+      "narracao": "Luva certa para cada risco: {v}vaqueta ou raspa para manuseio de peças e abrasão. {s}Luva de soldador para calor e respingos. {q}Luva química, conforme a ficha do produto, para solventes e tintas. {r}E atenção: perto de partes que giram, como a broca da furadeira de bancada, a luva pode ser puxada. Siga a orientação da Segurança do Trabalho para cada máquina."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Calçado de segurança",
+      "cards": [
+        {
+          "m": "b",
+          "icone": "footprints",
+          "titulo": "Biqueira",
+          "texto": "contra impacto e prensagem"
+        },
+        {
+          "m": "s",
+          "icone": "layers",
+          "titulo": "Solado",
+          "texto": "antiderrapante, conforme o risco"
+        },
+        {
+          "m": "c",
+          "icone": "clipboard-check",
+          "titulo": "Conservado",
+          "texto": "sem solado descolado"
+        }
+      ],
+      "narracao": "Calçado de segurança: {b}com biqueira contra impacto e prensagem dos dedos, {s}solado adequado ao risco, {c}e conservado, sem solado descolado ou rasgos."
+    },
+    {
+      "tipo": "cartoes",
+      "titulo": "Proteção respiratória",
+      "cards": [
+        {
+          "m": "f",
+          "icone": "wind",
+          "titulo": "Fumos e poeiras",
+          "texto": "solda, esmerilhamento, pintura"
+        },
+        {
+          "m": "p",
+          "icone": "clipboard-list",
+          "titulo": "Programa de proteção respiratória",
+          "texto": "seleção e vedação definidas pela SST"
+        },
+        {
+          "m": "b",
+          "icone": "user-x",
+          "titulo": "Barba atrapalha a vedação",
+          "cor": "vermelho"
+        },
+        {
+          "m": "t",
+          "icone": "refresh-cw",
+          "titulo": "Filtro saturado: troque"
+        }
+      ],
+      "narracao": "Proteção respiratória: {f}contra fumos de solda, poeiras de esmerilhamento e vapores de tinta. {p}O tipo de respirador e o filtro são definidos pela Segurança do Trabalho, no programa de proteção respiratória, com teste de vedação quando exigido. {b}Barba na área de vedação atrapalha a proteção. {t}E filtro saturado, ou respirador danificado, se troca."
+    },
+    {
+      "tipo": "foto",
+      "fotos": [
+        {
+          "src": "fotos/institucional/equipamentos.jpg"
+        }
+      ],
+      "narracao": "Exemplo: {c1}um montador vai retocar a pintura com tinta e solvente, de luva de vaqueta e sem respirador. {c2}A ficha do produto indica luva química e respirador com filtro para vapores. O certo é pedir o EPI indicado antes de começar.",
+      "titulo": "Na prática",
+      "itens": [
+        {
+          "m": "c1",
+          "texto": "Pintura de retoque com solvente"
+        },
+        {
+          "m": "c2",
+          "texto": "Luva química e respirador conforme a FDS"
+        }
+      ],
+      "caso": true
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Luva de vaqueta protege contra solvente?",
+      "resposta": "Não",
+      "conta": "use a luva química indicada na FDS",
+      "narracao": "Sua vez: a luva de vaqueta protege contra solvente? {pensa}[[pausa:3]] {resp}Não. Use a luva química indicada na ficha do produto."
+    },
+    {
+      "tipo": "checklist",
+      "titulo": "Leve para a obra",
+      "itens": [
+        {
+          "texto": "Uma luva para cada risco",
+          "chave": "c1"
+        },
+        {
+          "texto": "Calçado com biqueira e conservado",
+          "chave": "c2"
+        },
+        {
+          "texto": "Respirador: o definido pela SST, bem vedado",
+          "chave": "c3"
+        }
+      ],
+      "rodape": "EPI certo para o risco certo.",
+      "narracao": "Para levar: {c1}uma luva para cada risco. {c2}Calçado com biqueira e conservado. {c3}Respirador definido pela Segurança do Trabalho, bem vedado. {fim}EPI certo para o risco certo."
+    }
+  ]
+}

@@ -81,5 +81,14 @@
   "PEMT-4-operacao-emergencia": 80.6,
   "SIN-1-papeis": 109.8,
   "SIN-2-comunicacao": 99.2,
-  "SIN-3-prevencao": 90.7
+  "SIN-3-prevencao": 90.7,
+  "INT02-1-visitantes": 81.6,
+  "PAL53-1-familiarizacao": 86.8,
+  "PAL54-1-familiarizacao": 83.2,
+  "PAL55-1-eletrico-radiacao": 100.4,
+  "PAL55-2-fumos": 84.7,
+  "PAL55-3-incendio-pt": 89.2,
+  "PAL55-4-cilindros-oxicorte": 85.0,
+  "PAL56-2-parafusadeira-impacto": 94.6,
+  "PAL56-4-inspecao-guarda": 78.4
 }

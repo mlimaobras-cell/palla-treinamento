@@ -99,12 +99,28 @@
 | 23/11–29/11 | Testes do fluxo completo com dados fictícios; e-mail dos alertas (se o provedor for definido) |
 | 30/11–10/12 | Validação pelo profissional habilitado e pelo médico; carga das obras e da equipe reais; treinamento do RH e da SST; ajustes |
 
-## 4. Situação
+## 4. Situação em 25/10/2026
+
+**Semana 1 a 3 do cronograma adiantadas: código pronto e testado (commit ef013aa na `main`).**
 
 | Item | Situação |
 |---|---|
-| Integração narrada | Já existe na plataforma (INT-01, 13 aulas com vídeo). O artifact separado era só para revisão de conteúdo |
-| Módulo Saúde e Segurança | Em desenvolvimento, iniciado em 25/10 |
+| PGR: GHE, biblioteca (13 ambientes, ~55 perigos), inventário, critério 5×5, plano de ação, revisão/versões, documento para assinatura, inventário para a contratante | Implementado · biblioteca e critério **em revisão técnica** |
+| PCMSO: registro do PDF do médico, matriz de exames por GHE/função, próximo periódico calculado na conferência do ASO | Implementado |
+| ASO com tipo de exame e conclusão; inapto = vermelho | Implementado |
+| Dossiê admissional (13 itens-base, configurável, itens sensíveis só RH) | Implementado · lista **a validar pelo RH** |
+| Termos assinados pelo colaborador (OS de riscos com dados do PGR, EPI, regulamento, álcool e drogas, imagem) | Implementado · modelos **em revisão** (só aparecem depois de aprovados pela SST) · assinatura eletrônica, **não ICP-Brasil** |
+| Prazos e alertas no painel | Implementado · **e-mail pendente** (definir provedor) |
+| Testes | `npm run test:sst` 42/42 · `npm run test:fluxo` 69/69 |
+| Banco de produção (Supabase, schema `treinamento`) | Migração 0008 **aplicada** em 25/10 |
+| Publicação no Netlify | **Pendente**: o site no ar está no commit f751db0 (18/10). Deste ambiente não há acesso ao Netlify; ligar o repositório ao site no Netlify (deploy automático a cada envio à `main`) ou publicar de uma sessão com acesso |
+| Integração narrada | Já existe na plataforma (INT-01, 13 aulas com vídeo) |
+
+### Próximas entregas
+- E-mail diário de alertas (quando o provedor for definido).
+- Relatório do PCMSO com indicadores da plataforma (sem dados clínicos).
+- Ficha de entrega de EPI por item com CA (registro eletrônico).
+- Carga real: profissional do PGR, médico/clínica, obras, PGR da empresa e da primeira obra.
 
 ## Fontes
 - [NR-01 atualizada (gov.br)](https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/normas-regulamentadora/normas-regulamentadoras-vigentes/nr-01-atualizada-2025-i-1.pdf)

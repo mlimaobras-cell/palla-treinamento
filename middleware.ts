@@ -15,4 +15,4 @@ export async function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-export const config = { matcher: ["/admin/:path*", "/colaborador/:path*", "/api/certificados/:path*", "/api/documentos/:path*"] };
+export const config = { matcher: ["/admin/:path*", "/colaborador/:path*", "/api/certificados/:path*", "/api/documentos/:path*", "/api/sst/:path*", "/imprimir/:path*"] };

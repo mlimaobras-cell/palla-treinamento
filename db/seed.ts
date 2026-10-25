@@ -10,6 +10,8 @@ import { capitulosMontagemSegura, questoesMontagemSegura } from "./conteudo/mont
 import { capitulosNr35, questoesNr35 } from "./conteudo/nr35";
 import { capitulosDoModulo, modulosMiniCurso, questoesDoModulo } from "./conteudo/minicurso";
 import { capitulosTreinamento, CURSOS_TREINAMENTO, questoesTreinamento } from "./conteudo/treinamentos";
+import { itensAdmissionaisSeed, modelosTermoSeed } from "./conteudo/sst-admissao";
+import { bibliotecaSeed } from "./conteudo/sst-biblioteca";
 import { capitulosApresentacao, comVideos, CURSOS_APRESENTACAO, questoesApresentacao, VIDEOS_INT, VIDEOS_PAL52 } from "./conteudo/apresentacoes";
 
 const SENHA_TESTE = "Palla@2026";
@@ -174,8 +176,35 @@ async function main() {
     }
   }
 
+  await carregarSst();
+
   console.log(PRODUCAO ? `Carga de produção concluída. ${adminEmail}` : `Carga concluída. Usuários de teste com senha ${SENHA_TESTE} (admin: ${adminEmail}).`);
   await encerrarDb();
+}
+
+/** Saúde e Segurança: só inclui o que não existe (a equipe ajusta pela tela e nada é sobrescrito). */
+async function carregarSst() {
+  let n = 0;
+  for (const [i, it] of itensAdmissionaisSeed.entries()) {
+    if (await db.query.itensAdmissionais.findFirst({ where: eq(schema.itensAdmissionais.codigo, it.codigo) })) continue;
+    await db.insert(schema.itensAdmissionais).values({ ...it, funcoesCodigos: it.funcoesCodigos ?? null, ordem: i + 1 });
+    n++;
+  }
+  for (const [i, m] of modelosTermoSeed.entries()) {
+    if (await db.query.modelosTermo.findFirst({ where: eq(schema.modelosTermo.codigo, m.codigo) })) continue;
+    await db.insert(schema.modelosTermo).values({ ...m, funcoesCodigos: m.funcoesCodigos ?? null, versao: 1, status: "EM_REVISAO", ordem: i + 1 });
+    n++;
+  }
+  for (const [i, a] of bibliotecaSeed.entries()) {
+    if (await db.query.ambientesBiblioteca.findFirst({ where: eq(schema.ambientesBiblioteca.codigo, a.codigo) })) continue;
+    const [amb] = await db.insert(schema.ambientesBiblioteca).values({ codigo: a.codigo, nome: a.nome, descricao: a.descricao, atividades: a.atividades, ordem: i + 1 }).returning();
+    await db.insert(schema.perigosBiblioteca).values(a.perigos.map((p, j) => ({
+      ambienteId: amb.id, categoria: p.categoria, perigo: p.perigo, fonte: p.fonte, lesoes: p.lesoes, medidas: p.medidas,
+      severidade: p.s, probabilidade: p.p, examesSugeridos: p.exames ?? null, cursosRelacionados: p.cursos ?? null, referencia: p.ref ?? null, ordem: j + 1,
+    })));
+    n++;
+  }
+  if (n) console.log(`Saúde e Segurança: ${n} item(ns) novo(s) na lista de admissão, termos e biblioteca.`);
 }
 
 main().catch(async (e) => {

@@ -25,25 +25,32 @@ export type Permissao =
   | "documento.conferir"
   | "autorizacao.conceder"
   | "liberacao.aprovar"
-  | "auditoria.ver";
+  | "auditoria.ver"
+  | "sst.ver"          // ver PGR, PCMSO, prazos e dossiê
+  | "sst.editar"       // montar PGR, registrar PCMSO, aprovar modelos de termo
+  | "admissao.gerir"   // dossiê admissional e documentos pessoais sensíveis
+  | "prazo.ver";
 
 const MAPA: Record<Perfil, Permissao[]> = {
   ADMIN: [
     "painel.ver", "colaborador.ver", "colaborador.cadastrar", "obra.gerir", "convite.criar",
     "matriz.editar", "curso.ver", "curso.editar", "certificado.cancelar", "documento.ver",
     "documento.conferir", "autorizacao.conceder", "liberacao.aprovar", "auditoria.ver",
+    "sst.ver", "sst.editar", "admissao.gerir", "prazo.ver",
   ],
-  RH: ["painel.ver", "colaborador.ver", "colaborador.cadastrar", "obra.gerir", "convite.criar", "curso.ver", "documento.ver"],
+  RH: ["painel.ver", "colaborador.ver", "colaborador.cadastrar", "obra.gerir", "convite.criar", "curso.ver", "documento.ver",
+    "sst.ver", "admissao.gerir", "prazo.ver"],
   SST: [
     "painel.ver", "colaborador.ver", "convite.criar", "matriz.editar", "curso.ver", "curso.editar",
     "documento.ver", "documento.conferir", "autorizacao.conceder", "liberacao.aprovar", "auditoria.ver",
+    "sst.ver", "sst.editar", "prazo.ver",
   ],
   INSTRUTOR: ["painel.ver", "colaborador.ver", "curso.ver", "pratica.registrar"],
   RESPONSAVEL_TECNICO: [
     "painel.ver", "colaborador.ver", "curso.ver", "curso.editar", "capacitacao.aprovar",
-    "certificado.cancelar", "documento.ver", "auditoria.ver",
+    "certificado.cancelar", "documento.ver", "auditoria.ver", "sst.ver", "prazo.ver",
   ],
-  GESTOR_OBRA: ["painel.ver", "colaborador.ver", "curso.ver", "liberacao.aprovar"],
+  GESTOR_OBRA: ["painel.ver", "colaborador.ver", "curso.ver", "liberacao.aprovar", "sst.ver", "prazo.ver"],
   COLABORADOR: [],
 };
 

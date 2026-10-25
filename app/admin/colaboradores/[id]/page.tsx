@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { desc, eq } from "drizzle-orm";
+import { and, desc, eq, ne } from "drizzle-orm";
 import { db, schema } from "@/db";
 import { Formulario } from "@/components/formulario";
 import { Aviso, Campo, Cartao, Entrada, LinkBotao, Selecao, Selo, Semaforo, Tabela, TituloPagina, Vazio } from "@/components/ui";
@@ -9,6 +9,8 @@ import { CLASSIFICACAO, fmtData, fmtDataHora, STATUS_MATRICULA, TIPO_DOC } from 
 import { pode } from "@/lib/permissoes";
 import { exigirEquipe } from "@/lib/sessao";
 import { avaliarColaborador, SEMAFORO_TEXTO } from "@/lib/servicos/conformidade";
+import { TIPO_EXAME } from "@/lib/servicos/pcmso";
+import { CartaoAdmissao } from "./admissao";
 import { matrizEfetiva } from "@/lib/servicos/cadastro";
 import {
   alterarFuncaoObraAcao, aprovarLiberacaoAcao, concederAutorizacaoAcao, conferirDocumentoAcao, enviarDocumentoEquipeAcao,
@@ -27,7 +29,7 @@ export default async function Colaborador({ params }: { params: Promise<{ id: st
     db.query.funcoes.findFirst({ where: eq(schema.funcoes.id, c.funcaoId) }),
     db.query.funcoes.findMany({ orderBy: (f, { asc }) => asc(f.ordem) }),
     db.query.obras.findMany(),
-    db.query.documentos.findMany({ where: eq(schema.documentos.colaboradorId, id), orderBy: desc(schema.documentos.enviadoEm), with: { conferidoPor: true } }),
+    db.query.documentos.findMany({ where: and(eq(schema.documentos.colaboradorId, id), ne(schema.documentos.tipo, "ADMISSIONAL")), orderBy: desc(schema.documentos.enviadoEm), with: { conferidoPor: true } }),
     db.query.autorizacoes.findMany({ where: eq(schema.autorizacoes.colaboradorId, id), with: { concedidaPor: true } }),
     matrizEfetiva(c.funcaoId, c.obraId),
     db.query.cursos.findMany({ where: eq(schema.cursos.ativo, true), orderBy: (k, { asc }) => asc(k.ordem) }),
@@ -139,7 +141,7 @@ export default async function Colaborador({ params }: { params: Promise<{ id: st
                   <li key={d.id} className="rounded-lg border border-linha p-3 text-sm">
                     <div className="flex items-start justify-between gap-2">
                       <span><span className="font-medium">{TIPO_DOC[d.tipo]}</span> · {d.descricao}
-                        <span className="block text-xs text-tinta-suave">Enviado {fmtData(d.enviadoEm)}{d.validoAte && ` · válido até ${fmtData(d.validoAte)}`}{d.aptidoes && ` · aptidões: ${d.aptidoes.replaceAll(";", ", ")}`}{d.conferidoPor && ` · conferido por ${d.conferidoPor.nome}`}</span>
+                        <span className="block text-xs text-tinta-suave">{d.tipo === "ASO" && d.asoTipoExame && `${TIPO_EXAME[d.asoTipoExame]} · ${d.asoResultado === "INAPTO" ? "INAPTO" : d.asoResultado === "APTO" ? "apto" : ""} · `}Enviado {fmtData(d.enviadoEm)}{d.validoAte && ` · válido até ${fmtData(d.validoAte)}`}{d.aptidoes && ` · aptidões: ${d.aptidoes.replaceAll(";", ", ")}`}{d.conferidoPor && ` · conferido por ${d.conferidoPor.nome}`}</span>
                       </span>
                       <Selo cor={d.status === "CONFERIDO" ? "verde" : d.status === "REJEITADO" ? "vermelho" : "amarelo"}>{d.status === "CONFERIDO" ? "Conferido" : d.status === "REJEITADO" ? "Rejeitado" : "A conferir"}</Selo>
                     </div>
@@ -148,8 +150,15 @@ export default async function Colaborador({ params }: { params: Promise<{ id: st
                       <Formulario acao={conferirDocumentoAcao.bind(null, d.id, id)} rotulo="Registrar conferência" className="mt-3 space-y-2 border-t border-linha pt-3">
                         <div className="grid gap-2 sm:grid-cols-2">
                           <Campo rotulo="Decisão"><Selecao name="decisao"><option value="aprovar">Conferido</option><option value="rejeitar">Rejeitar</option></Selecao></Campo>
-                          <Campo rotulo="Válido até"><Entrada type="date" name="validoAte" /></Campo>
+                          <Campo rotulo={d.tipo === "ASO" ? "Próximo exame periódico" : "Válido até"} ajuda={d.tipo === "ASO" ? "Em branco: calculado pela periodicidade do PCMSO cadastrado." : undefined}><Entrada type="date" name="validoAte" /></Campo>
                         </div>
+                        {d.tipo === "ASO" && (
+                          <div className="grid gap-2 sm:grid-cols-3">
+                            <Campo rotulo="Tipo de exame"><Selecao name="asoTipoExame" defaultValue={d.asoTipoExame ?? "ADMISSIONAL"}>{Object.entries(TIPO_EXAME).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</Selecao></Campo>
+                            <Campo rotulo="Conclusão do médico"><Selecao name="asoResultado" defaultValue={d.asoResultado ?? ""}><option value="" disabled>Escolha</option><option value="APTO">Apto</option><option value="INAPTO">Inapto</option></Selecao></Campo>
+                            <Campo rotulo="Data do ASO"><Entrada type="date" name="emitidoEm" defaultValue={d.emitidoEm?.toISOString().slice(0, 10)} /></Campo>
+                          </div>
+                        )}
                         {d.tipo === "ASO" && aptidoes.length > 0 && (
                           <fieldset className="text-sm"><legend className="mb-1 font-medium">Aptidões registradas no ASO</legend>
                             {aptidoes.map((ap) => <label key={ap} className="mr-4 inline-flex items-center gap-2"><input type="checkbox" name="aptidao" value={ap} /> {ap}</label>)}
@@ -166,7 +175,7 @@ export default async function Colaborador({ params }: { params: Promise<{ id: st
               <details className="mt-4 text-sm">
                 <summary className="cursor-pointer font-semibold text-palla-azul">Registrar documento</summary>
                 <Formulario acao={enviarDocumentoEquipeAcao.bind(null, id)} rotulo="Registrar" className="mt-3 space-y-3" limparAoConcluir>
-                  <Campo rotulo="Tipo"><Selecao name="tipo">{Object.entries(TIPO_DOC).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</Selecao></Campo>
+                  <Campo rotulo="Tipo"><Selecao name="tipo">{Object.entries(TIPO_DOC).filter(([k]) => k !== "ADMISSIONAL").map(([k, v]) => <option key={k} value={k}>{v}</option>)}</Selecao></Campo>
                   <Campo rotulo="Descrição"><Entrada name="descricao" /></Campo>
                   <div className="grid gap-2 sm:grid-cols-2">
                     <Campo rotulo="Emitido em"><Entrada type="date" name="emitidoEm" /></Campo>
@@ -178,6 +187,8 @@ export default async function Colaborador({ params }: { params: Promise<{ id: st
               </details>
             )}
           </Cartao>
+
+          <CartaoAdmissao colaboradorId={id} />
 
           <Cartao titulo="Autorizações formais">
             {autorizacoes.length === 0 ? <p className="text-sm text-tinta-suave">Nenhuma autorização.</p> : (

@@ -168,7 +168,7 @@ async function main() {
   await deveFalhar("Pulso de tempo não permite fraude (teto por pulso)", async () => {
     await registrarTempo(colab, integ.id, primeiraAula.id, 99999);
     await concluirAula(colab, integ.id, primeiraAula.id);
-  }, primeiraAula.videoUrl ? "Assista ao vídeo" : "Faltam");
+  }, primeiraAula.videoUrl ? "Assista" : "Faltam");
   await assistirTudo(colab, integ.id);
   for (let i = 1; i <= 3; i++) {
     const r = await responder(colab, integ.id, false);
@@ -271,8 +271,9 @@ async function main() {
   const epi = await enviarDocumento(rh, { colaboradorId: c.id, tipo: "FICHA_EPI", descricao: "Ficha de entrega de EPI (fictícia)", emitidoEm: new Date() });
   av = await avaliarColaborador(c.id);
   checar("Documentos enviados e não conferidos → AMARELO", av.semaforo === "AMARELO");
-  await deveFalhar("ASO não é conferido sem validade", () => conferirDocumento(sst, aso.id, { aprovado: true }), "validade");
-  await conferirDocumento(sst, aso.id, { aprovado: true, validoAte: new Date(Date.now() + 365 * 86400_000), aptidoes: "altura" });
+  await deveFalhar("ASO não é conferido sem a conclusão do médico", () => conferirDocumento(sst, aso.id, { aprovado: true }), "conclusão");
+  await deveFalhar("ASO não é conferido sem a data do próximo exame (sem PCMSO cadastrado)", () => conferirDocumento(sst, aso.id, { aprovado: true, asoResultado: "APTO", asoTipoExame: "ADMISSIONAL" }), "próximo exame");
+  await conferirDocumento(sst, aso.id, { aprovado: true, asoResultado: "APTO", asoTipoExame: "ADMISSIONAL", validoAte: new Date(Date.now() + 365 * 86400_000), aptidoes: "altura" });
   await conferirDocumento(sst, epi.id, { aprovado: true });
   av = await avaliarColaborador(c.id);
   checar("Falta autorização formal NR-35 → AMARELO", av.semaforo === "AMARELO" && av.itens.some((i) => i.grupo === "Autorizações" && i.situacao === "PENDENTE"));

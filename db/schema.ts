@@ -29,11 +29,19 @@ export const abrangenciaEnum = pgEnum("abrangencia_pratica", ["PRATICA", "TEORIA
 export const tipoCertificadoEnum = pgEnum("tipo_certificado", ["INTEGRAL", "COMPROVANTE_ETAPA"]);
 export const statusCertificadoEnum = pgEnum("status_certificado", ["VALIDO", "CANCELADO", "SUBSTITUIDO"]);
 export const tipoDocumentoEnum = pgEnum("tipo_documento", [
-  "ASO", "FICHA_EPI", "DOCUMENTO_CONTRATANTE", "CERTIFICADO_EXTERNO", "OUTRO",
+  "ASO", "FICHA_EPI", "DOCUMENTO_CONTRATANTE", "CERTIFICADO_EXTERNO", "OUTRO", "ADMISSIONAL",
 ]);
 export const statusDocumentoEnum = pgEnum("status_documento", ["PENDENTE_CONFERENCIA", "CONFERIDO", "REJEITADO"]);
 export const tipoTentativaEnum = pgEnum("tipo_tentativa", ["DIAGNOSTICA", "FINAL"]);
 export const semaforoEnum = pgEnum("semaforo", ["VERDE", "AMARELO", "VERMELHO"]);
+// Saúde e Segurança (PGR, PCMSO, dossiê admissional, termos)
+export const tipoExameEnum = pgEnum("tipo_exame", ["ADMISSIONAL", "PERIODICO", "RETORNO_TRABALHO", "MUDANCA_RISCO", "DEMISSIONAL"]);
+export const resultadoAsoEnum = pgEnum("resultado_aso", ["APTO", "INAPTO"]);
+export const quemEnviaEnum = pgEnum("quem_envia", ["COLABORADOR", "EQUIPE"]);
+export const statusProgramaEnum = pgEnum("status_programa", ["RASCUNHO", "EM_REVISAO", "APROVADO", "SUBSTITUIDO"]);
+export const categoriaRiscoEnum = pgEnum("categoria_risco", ["FISICO", "QUIMICO", "BIOLOGICO", "ERGONOMICO", "PSICOSSOCIAL", "ACIDENTE"]);
+export const tipoMedidaEnum = pgEnum("tipo_medida", ["ELIMINACAO", "SUBSTITUICAO", "ENGENHARIA", "ADMINISTRATIVA", "EPI"]);
+export const statusAcaoEnum = pgEnum("status_acao", ["PLANEJADA", "EM_ANDAMENTO", "CONCLUIDA", "CANCELADA"]);
 
 const bytea = customType<{ data: Buffer; driverData: Buffer }>({ dataType: () => "bytea" });
 
@@ -101,6 +109,10 @@ export const colaboradores = pgTable("colaboradores", {
   consentimentoLgpdEm: data("consentimento_lgpd_em"),
   versaoAvisoPrivacidade: text("versao_aviso_privacidade"),
   afastadoDesde: data("afastado_desde"),
+  dataAdmissao: data("data_admissao"),
+  // contrato de experiência: dias do 1º período e da prorrogação (CLT art. 445, parágrafo único: total até 90 dias; art. 451: uma prorrogação)
+  experienciaDias: integer("experiencia_dias"),
+  experienciaProrrogacaoDias: integer("experiencia_prorrogacao_dias"),
   criadoEm: agora("criado_em"),
   dadoFicticio: boolean("dado_ficticio").default(false).notNull(),
 });
@@ -369,6 +381,12 @@ export const documentos = pgTable("documentos", {
   conferidoEm: data("conferido_em"),
   observacao: text("observacao"),
   enviadoEm: agora("enviado_em"),
+  // dossiê admissional: qual item da lista este arquivo atende
+  itemAdmissionalId: text("item_admissional_id"),
+  // ASO: tipo de exame, conclusão e PCMSO de referência (dados digitados a partir do ASO emitido pelo médico)
+  asoTipoExame: tipoExameEnum("aso_tipo_exame"),
+  asoResultado: resultadoAsoEnum("aso_resultado"),
+  pcmsoId: text("pcmso_id"),
 });
 
 export const autorizacoes = pgTable("autorizacoes", {
@@ -392,6 +410,224 @@ export const liberacoes = pgTable("liberacoes", {
   observacao: text("observacao"),
   revogadaEm: data("revogada_em"),
   motivoRevogacao: text("motivo_revogacao"),
+});
+
+
+// ---------------------------------------------------------------- Saúde e Segurança: dossiê admissional e termos
+
+/** Lista configurável de documentos de admissão (o que o RH pede). `base` informa se é exigência legal ou critério interno. */
+export const itensAdmissionais = pgTable("itens_admissionais", {
+  id: id(),
+  codigo: text("codigo").notNull().unique(),
+  nome: text("nome").notNull(),
+  orientacao: text("orientacao"),
+  base: text("base").notNull(),
+  origem: origemEnum("origem").notNull(),
+  obrigatorio: boolean("obrigatorio").default(true).notNull(),
+  quemEnvia: quemEnviaEnum("quem_envia").default("COLABORADOR").notNull(),
+  exigeValidade: boolean("exige_validade").default(false).notNull(),
+  // dado pessoal sensível (LGPD art. 5º, II): só RH/ADMIN abre o arquivo
+  sensivel: boolean("sensivel").default(false).notNull(),
+  funcoesCodigos: jsonb("funcoes_codigos").$type<string[] | null>(),
+  ordem: integer("ordem").default(0).notNull(),
+  ativo: boolean("ativo").default(true).notNull(),
+});
+
+/** Modelos de termo que o colaborador assina na plataforma (ciência de riscos, recebimento de EPI, regulamento, LGPD…). */
+export const modelosTermo = pgTable("modelos_termo", {
+  id: id(),
+  codigo: text("codigo").notNull(),
+  versao: integer("versao").default(1).notNull(),
+  titulo: text("titulo").notNull(),
+  // texto com marcadores: {{nome}}, {{cpf}}, {{funcao}}, {{obra}}, {{empresa}}, {{data}}, {{riscos}}, {{epis}}
+  texto: text("texto").notNull(),
+  base: text("base").notNull(),
+  origem: origemEnum("origem").notNull(),
+  naAdmissao: boolean("na_admissao").default(true).notNull(),
+  funcoesCodigos: jsonb("funcoes_codigos").$type<string[] | null>(),
+  status: statusConteudoEnum("status").default("EM_REVISAO").notNull(),
+  aprovadoPorId: text("aprovado_por_id").references(() => usuarios.id),
+  aprovadoEm: data("aprovado_em"),
+  ativo: boolean("ativo").default(true).notNull(),
+  ordem: integer("ordem").default(0).notNull(),
+  criadoEm: agora("criado_em"),
+}, (t) => [unique("modelo_termo_versao").on(t.codigo, t.versao)]);
+
+/** Assinatura eletrônica do colaborador: texto congelado, hash, data/hora, IP e aparelho. Não é assinatura ICP-Brasil. */
+export const assinaturasTermo = pgTable("assinaturas_termo", {
+  id: id(),
+  modeloId: text("modelo_id").notNull().references(() => modelosTermo.id),
+  colaboradorId: text("colaborador_id").notNull().references(() => colaboradores.id, { onDelete: "cascade" }),
+  titulo: text("titulo").notNull(),
+  textoFinal: text("texto_final").notNull(),
+  hashSha256: text("hash_sha256").notNull(),
+  codigo: text("codigo").notNull().unique(),
+  metodo: text("metodo").notNull(), // SENHA_PLATAFORMA | PRESENCIAL_EQUIPE
+  nomeDigitado: text("nome_digitado").notNull(),
+  ip: text("ip"),
+  userAgent: text("user_agent"),
+  assinadoEm: agora("assinado_em"),
+  testemunhaId: text("testemunha_id").references(() => usuarios.id),
+  invalidadoEm: data("invalidado_em"),
+  motivoInvalidacao: text("motivo_invalidacao"),
+}, (t) => [index("assinatura_colab").on(t.colaboradorId)]);
+
+/** Prazos avulsos (além dos calculados: ASO, certificados, PGR, PCMSO, experiência). */
+export const prazos = pgTable("prazos", {
+  id: id(),
+  titulo: text("titulo").notNull(),
+  venceEm: data("vence_em").notNull(),
+  colaboradorId: text("colaborador_id").references(() => colaboradores.id, { onDelete: "cascade" }),
+  obraId: text("obra_id").references(() => obras.id, { onDelete: "cascade" }),
+  avisarDiasAntes: integer("avisar_dias_antes").default(30).notNull(),
+  observacao: text("observacao"),
+  concluidoEm: data("concluido_em"),
+  criadoPorId: text("criado_por_id").references(() => usuarios.id),
+  criadoEm: agora("criado_em"),
+});
+
+// ---------------------------------------------------------------- Saúde e Segurança: PGR
+
+/** Critério de risco documentado pela organização (NR-1, 1.5.4.4.2). Guardado em JSON, com versão. */
+export type CriterioRisco = {
+  severidade: { valor: number; rotulo: string; descricao: string }[];
+  probabilidade: { valor: number; rotulo: string; descricao: string }[];
+  niveis: { ate: number; nivel: string; cor: string; decisao: string }[]; // nível pelo produto S×P
+};
+
+/** Biblioteca Palla de ambientes/atividades com perigos típicos. Ponto de partida, sempre revisado pelo profissional habilitado. */
+export const ambientesBiblioteca = pgTable("ambientes_biblioteca", {
+  id: id(),
+  codigo: text("codigo").notNull().unique(),
+  nome: text("nome").notNull(),
+  descricao: text("descricao").notNull(),
+  atividades: text("atividades").notNull(),
+  ordem: integer("ordem").default(0).notNull(),
+  statusRevisao: statusConteudoEnum("status_revisao").default("EM_REVISAO").notNull(),
+});
+
+export const perigosBiblioteca = pgTable("perigos_biblioteca", {
+  id: id(),
+  ambienteId: text("ambiente_id").notNull().references(() => ambientesBiblioteca.id, { onDelete: "cascade" }),
+  categoria: categoriaRiscoEnum("categoria").notNull(),
+  perigo: text("perigo").notNull(),
+  fonte: text("fonte").notNull(),
+  lesoes: text("lesoes").notNull(),
+  medidas: text("medidas").notNull(),
+  severidade: integer("severidade").notNull(),
+  probabilidade: integer("probabilidade").notNull(),
+  // sugestões para o médico do PCMSO avaliar — nunca exigência automática
+  examesSugeridos: text("exames_sugeridos"),
+  cursosRelacionados: text("cursos_relacionados"),
+  referencia: text("referencia"),
+  ordem: integer("ordem").default(0).notNull(),
+});
+
+/** Documento-base do PGR. obraId nulo = PGR da empresa (sede/fábrica). Cada revisão é uma nova versão; nada é apagado (NR-1, 1.5.7.3.3.1: 20 anos). */
+export const pgrs = pgTable("pgrs", {
+  id: id(),
+  obraId: text("obra_id").references(() => obras.id),
+  titulo: text("titulo").notNull(),
+  estabelecimento: text("estabelecimento").notNull(),
+  versao: integer("versao").default(1).notNull(),
+  anteriorId: text("anterior_id"),
+  status: statusProgramaEnum("status").default("RASCUNHO").notNull(),
+  motivoRevisao: text("motivo_revisao"),
+  descricaoProcessos: text("descricao_processos"),
+  criterio: jsonb("criterio").$type<CriterioRisco>().notNull(),
+  elaboradorNome: text("elaborador_nome"),
+  elaboradorQualificacao: text("elaborador_qualificacao"),
+  elaboradorRegistro: text("elaborador_registro"),
+  responsavelOrganizacao: text("responsavel_organizacao"),
+  vigenciaInicio: data("vigencia_inicio"),
+  proximaRevisao: data("proxima_revisao"),
+  arquivoAssinadoPath: text("arquivo_assinado_path"),
+  arquivoAssinadoHash: text("arquivo_assinado_hash"),
+  aprovadoPorId: text("aprovado_por_id").references(() => usuarios.id),
+  aprovadoEm: data("aprovado_em"),
+  criadoPorId: text("criado_por_id").references(() => usuarios.id),
+  criadoEm: agora("criado_em"),
+});
+
+/** Grupo homogêneo de exposição (GHE): reúne funções expostas aos mesmos riscos. */
+export const ghes = pgTable("ghes", {
+  id: id(),
+  pgrId: text("pgr_id").notNull().references(() => pgrs.id, { onDelete: "cascade" }),
+  codigo: text("codigo").notNull(),
+  nome: text("nome").notNull(),
+  descricaoAtividades: text("descricao_atividades").notNull(),
+  ambientes: text("ambientes"),
+  funcoesIds: jsonb("funcoes_ids").$type<string[]>().default([]).notNull(),
+  // relação de EPIs do GHE (NR-18, 18.4.3, e) — usada na ordem de serviço
+  epis: text("epis"),
+  trabalhadores: integer("trabalhadores"),
+  ordem: integer("ordem").default(0).notNull(),
+});
+
+export const riscosInventario = pgTable("riscos_inventario", {
+  id: id(),
+  pgrId: text("pgr_id").notNull().references(() => pgrs.id, { onDelete: "cascade" }),
+  gheId: text("ghe_id").notNull().references(() => ghes.id, { onDelete: "cascade" }),
+  categoria: categoriaRiscoEnum("categoria").notNull(),
+  perigo: text("perigo").notNull(),
+  fonte: text("fonte").notNull(),
+  lesoes: text("lesoes").notNull(),
+  medidasExistentes: text("medidas_existentes").notNull(),
+  exposicao: text("exposicao"),
+  monitoramento: text("monitoramento"),
+  severidade: integer("severidade").notNull(),
+  probabilidade: integer("probabilidade").notNull(),
+  examesSugeridos: text("exames_sugeridos"),
+  origemPerigoId: text("origem_perigo_id"),
+  ordem: integer("ordem").default(0).notNull(),
+});
+
+export const acoesPlano = pgTable("acoes_plano", {
+  id: id(),
+  pgrId: text("pgr_id").notNull().references(() => pgrs.id, { onDelete: "cascade" }),
+  riscoId: text("risco_id").references(() => riscosInventario.id, { onDelete: "set null" }),
+  medida: text("medida").notNull(),
+  tipo: tipoMedidaEnum("tipo").notNull(),
+  responsavel: text("responsavel").notNull(),
+  prazo: data("prazo"),
+  acompanhamento: text("acompanhamento"),
+  status: statusAcaoEnum("status").default("PLANEJADA").notNull(),
+  concluidaEm: data("concluida_em"),
+  evidencia: text("evidencia"),
+});
+
+// ---------------------------------------------------------------- Saúde e Segurança: PCMSO
+
+/** PCMSO elaborado pelo médico do trabalho (NR-7). A plataforma registra o documento recebido e os exames que ele define; não elabora o programa. */
+export const pcmsos = pgTable("pcmsos", {
+  id: id(),
+  pgrId: text("pgr_id").references(() => pgrs.id),
+  obraId: text("obra_id").references(() => obras.id),
+  titulo: text("titulo").notNull(),
+  versao: integer("versao").default(1).notNull(),
+  status: statusProgramaEnum("status").default("RASCUNHO").notNull(),
+  medicoNome: text("medico_nome").notNull(),
+  medicoCrm: text("medico_crm").notNull(),
+  clinica: text("clinica"),
+  vigenciaInicio: data("vigencia_inicio"),
+  proximoRelatorioAnual: data("proximo_relatorio_anual"),
+  arquivoPath: text("arquivo_path"),
+  arquivoHash: text("arquivo_hash"),
+  observacao: text("observacao"),
+  criadoPorId: text("criado_por_id").references(() => usuarios.id),
+  criadoEm: agora("criado_em"),
+});
+
+/** Exames por GHE conforme o PCMSO (transcritos do documento assinado pelo médico). */
+export const examesPcmso = pgTable("exames_pcmso", {
+  id: id(),
+  pcmsoId: text("pcmso_id").notNull().references(() => pcmsos.id, { onDelete: "cascade" }),
+  gheId: text("ghe_id").references(() => ghes.id, { onDelete: "set null" }),
+  funcaoId: text("funcao_id").references(() => funcoes.id),
+  exame: text("exame").notNull(),
+  momentos: jsonb("momentos").$type<string[]>().notNull(), // valores de tipo_exame
+  periodicidadeMeses: integer("periodicidade_meses"),
+  observacao: text("observacao"),
 });
 
 // ---------------------------------------------------------------- Auditoria
@@ -428,6 +664,7 @@ export const colaboradoresRel = relations(colaboradores, ({ one, many }) => ({
   documentos: many(documentos),
   autorizacoes: many(autorizacoes),
   liberacoes: many(liberacoes),
+  assinaturas: many(assinaturasTermo),
 }));
 export const convitesRel = relations(convites, ({ one }) => ({
   obra: one(obras, { fields: [convites.obraId], references: [obras.id] }),
@@ -480,6 +717,8 @@ export const certificadosRel = relations(certificados, ({ one }) => ({
 }));
 export const documentosRel = relations(documentos, ({ one }) => ({
   colaborador: one(colaboradores, { fields: [documentos.colaboradorId], references: [colaboradores.id] }),
+  itemAdmissional: one(itensAdmissionais, { fields: [documentos.itemAdmissionalId], references: [itensAdmissionais.id] }),
+  pcmso: one(pcmsos, { fields: [documentos.pcmsoId], references: [pcmsos.id] }),
   conferidoPor: one(usuarios, { fields: [documentos.conferidoPorId], references: [usuarios.id] }),
 }));
 export const autorizacoesRel = relations(autorizacoes, ({ one }) => ({
@@ -490,4 +729,49 @@ export const liberacoesRel = relations(liberacoes, ({ one }) => ({
   colaborador: one(colaboradores, { fields: [liberacoes.colaboradorId], references: [colaboradores.id] }),
   obra: one(obras, { fields: [liberacoes.obraId], references: [obras.id] }),
   aprovadaPor: one(usuarios, { fields: [liberacoes.aprovadaPorId], references: [usuarios.id] }),
+}));
+
+export const itensAdmissionaisRel = relations(itensAdmissionais, ({ many }) => ({ documentos: many(documentos) }));
+export const modelosTermoRel = relations(modelosTermo, ({ many }) => ({ assinaturas: many(assinaturasTermo) }));
+export const assinaturasTermoRel = relations(assinaturasTermo, ({ one }) => ({
+  modelo: one(modelosTermo, { fields: [assinaturasTermo.modeloId], references: [modelosTermo.id] }),
+  colaborador: one(colaboradores, { fields: [assinaturasTermo.colaboradorId], references: [colaboradores.id] }),
+}));
+export const prazosRel = relations(prazos, ({ one }) => ({
+  colaborador: one(colaboradores, { fields: [prazos.colaboradorId], references: [colaboradores.id] }),
+  obra: one(obras, { fields: [prazos.obraId], references: [obras.id] }),
+}));
+export const ambientesRel = relations(ambientesBiblioteca, ({ many }) => ({ perigos: many(perigosBiblioteca) }));
+export const perigosRel = relations(perigosBiblioteca, ({ one }) => ({
+  ambiente: one(ambientesBiblioteca, { fields: [perigosBiblioteca.ambienteId], references: [ambientesBiblioteca.id] }),
+}));
+export const pgrsRel = relations(pgrs, ({ one, many }) => ({
+  obra: one(obras, { fields: [pgrs.obraId], references: [obras.id] }),
+  ghes: many(ghes),
+  riscos: many(riscosInventario),
+  acoes: many(acoesPlano),
+  aprovadoPor: one(usuarios, { fields: [pgrs.aprovadoPorId], references: [usuarios.id] }),
+}));
+export const ghesRel = relations(ghes, ({ one, many }) => ({
+  pgr: one(pgrs, { fields: [ghes.pgrId], references: [pgrs.id] }),
+  riscos: many(riscosInventario),
+}));
+export const riscosRel = relations(riscosInventario, ({ one, many }) => ({
+  pgr: one(pgrs, { fields: [riscosInventario.pgrId], references: [pgrs.id] }),
+  ghe: one(ghes, { fields: [riscosInventario.gheId], references: [ghes.id] }),
+  acoes: many(acoesPlano),
+}));
+export const acoesPlanoRel = relations(acoesPlano, ({ one }) => ({
+  pgr: one(pgrs, { fields: [acoesPlano.pgrId], references: [pgrs.id] }),
+  risco: one(riscosInventario, { fields: [acoesPlano.riscoId], references: [riscosInventario.id] }),
+}));
+export const pcmsosRel = relations(pcmsos, ({ one, many }) => ({
+  pgr: one(pgrs, { fields: [pcmsos.pgrId], references: [pgrs.id] }),
+  obra: one(obras, { fields: [pcmsos.obraId], references: [obras.id] }),
+  exames: many(examesPcmso),
+}));
+export const examesPcmsoRel = relations(examesPcmso, ({ one }) => ({
+  pcmso: one(pcmsos, { fields: [examesPcmso.pcmsoId], references: [pcmsos.id] }),
+  ghe: one(ghes, { fields: [examesPcmso.gheId], references: [ghes.id] }),
+  funcao: one(funcoes, { fields: [examesPcmso.funcaoId], references: [funcoes.id] }),
 }));

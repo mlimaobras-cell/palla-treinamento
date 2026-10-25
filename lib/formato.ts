@@ -56,6 +56,7 @@ export const TIPO_DOC: Record<string, string> = {
   DOCUMENTO_CONTRATANTE: "Documento da contratante",
   CERTIFICADO_EXTERNO: "Certificado externo",
   OUTRO: "Outro",
+  ADMISSIONAL: "Documento de admissão",
 };
 
 /** Nome abreviado para a página pública: "João da Silva Pereira" → "João S. P." */

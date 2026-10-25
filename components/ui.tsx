@@ -18,6 +18,7 @@ export function Cartao({ children, className = "", titulo, acao }: { children: R
 const CORES: Record<string, string> = {
   verde: "bg-emerald-50 text-emerald-800 ring-emerald-200",
   amarelo: "bg-amber-50 text-amber-800 ring-amber-200",
+  laranja: "bg-orange-100 text-orange-900 ring-orange-300",
   vermelho: "bg-red-50 text-red-800 ring-red-200",
   azul: "bg-palla-azul-claro text-palla-azul ring-indigo-200",
   cinza: "bg-slate-100 text-slate-700 ring-slate-200",

@@ -74,24 +74,43 @@ export async function enviarDocumento(
 
 export async function conferirDocumento(
   ator: Ator, documentoId: string,
-  decisao: { aprovado: boolean; validoAte?: Date | null; aptidoes?: string | null; observacao?: string | null },
+  decisao: {
+    aprovado: boolean; validoAte?: Date | null; aptidoes?: string | null; observacao?: string | null;
+    asoTipoExame?: typeof schema.tipoExameEnum.enumValues[number] | null; asoResultado?: "APTO" | "INAPTO" | null; emitidoEm?: Date | null;
+  },
 ) {
   exigir(ator, "documento.conferir");
   const doc = await db.query.documentos.findFirst({ where: eq(schema.documentos.id, documentoId) });
   if (!doc) throw new Error("Documento não encontrado.");
-  if (doc.tipo === "ASO" && decisao.aprovado && !(decisao.validoAte ?? doc.validoAte)) {
-    throw new Error("Informe a validade do ASO conforme o PCMSO.");
+  let pcmsoId: string | null = doc.pcmsoId;
+  if (doc.tipo === "ASO" && decisao.aprovado) {
+    if (!decisao.asoResultado && !doc.asoResultado) throw new Error("Informe a conclusão do ASO (apto ou inapto), como escrita pelo médico.");
+    if (!decisao.asoTipoExame && !doc.asoTipoExame) throw new Error("Informe o tipo de exame do ASO.");
+    const emitido = decisao.emitidoEm ?? doc.emitidoEm;
+    let validoAte = decisao.validoAte ?? doc.validoAte;
+    if (!validoAte) {
+      // sugestão: data de emissão + menor periodicidade dos exames periódicos do PCMSO para a função
+      const { sugerirProximoExame } = await import("./pcmso");
+      const s = await sugerirProximoExame(doc.colaboradorId, emitido);
+      if (s) { validoAte = s.data; pcmsoId = s.pcmsoId; }
+    }
+    if (!validoAte) throw new Error("Informe a data do próximo exame periódico conforme o PCMSO (ou cadastre o PCMSO com a periodicidade).");
+    decisao.validoAte = validoAte;
   }
   await db.update(schema.documentos).set({
     status: decisao.aprovado ? "CONFERIDO" : "REJEITADO",
     validoAte: decisao.validoAte ?? doc.validoAte,
     aptidoes: decisao.aptidoes ?? doc.aptidoes,
     observacao: decisao.observacao ?? null,
+    ...(doc.tipo === "ASO" ? {
+      asoTipoExame: decisao.asoTipoExame ?? doc.asoTipoExame, asoResultado: decisao.asoResultado ?? doc.asoResultado,
+      emitidoEm: decisao.emitidoEm ?? doc.emitidoEm, pcmsoId,
+    } : {}),
     conferidoPorId: ator.id,
     conferidoEm: new Date(),
   }).where(eq(schema.documentos.id, documentoId));
   await auditar(ator, decisao.aprovado ? "documento.conferido" : "documento.rejeitado", "documento", documentoId, {
-    tipo: doc.tipo, aptidoes: decisao.aptidoes ?? null,
+    tipo: doc.tipo, aptidoes: decisao.aptidoes ?? null, asoResultado: decisao.asoResultado ?? null, asoTipoExame: decisao.asoTipoExame ?? null,
   });
 }
 

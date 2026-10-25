@@ -53,6 +53,7 @@ export async function avaliarColaborador(colaboradorId: string, hoje = new Date(
   const aso = asos[0];
   if (!aso) itens.push({ grupo: "Documentos", descricao: "ASO", situacao: "IMPEDITIVO", detalhe: "Não enviado" });
   else if (aso.validoAte && aso.validoAte < hoje) itens.push({ grupo: "Documentos", descricao: "ASO", situacao: "IMPEDITIVO", detalhe: "Vencido" });
+  else if (aso.asoResultado === "INAPTO") itens.push({ grupo: "Documentos", descricao: "ASO", situacao: "IMPEDITIVO", detalhe: "ASO com conclusão INAPTO para a função" })
   else if (aso.status === "PENDENTE_CONFERENCIA") itens.push({ grupo: "Documentos", descricao: "ASO", situacao: "PENDENTE", detalhe: "Aguardando conferência" });
   else itens.push({ grupo: "Documentos", descricao: "ASO", situacao: "OK", detalhe: aso.validoAte ? `válido até ${aso.validoAte.toLocaleDateString("pt-BR")}` : undefined });
 
@@ -90,6 +91,16 @@ export async function avaliarColaborador(colaboradorId: string, hoje = new Date(
   for (const at of atividades) {
     const a = c.autorizacoes.find((x) => x.atividade === at && !x.revogadaEm && (!x.validoAte || x.validoAte >= hoje));
     itens.push({ grupo: "Autorizações", descricao: `Autorização: ${at}`, situacao: a ? "OK" : "PENDENTE", detalhe: a ? undefined : "Aguardando autorização formal da SST" });
+  }
+
+  // 5b. Termos da admissão aprovados pela SST (ex.: ordem de serviço com os riscos — NR-1, 1.4.1 c e 1.4.4)
+  const { termosDoColaborador } = await import("./admissao");
+  for (const t of (await termosDoColaborador(c.id)).filter((t) => t.modelo.naAdmissao)) {
+    itens.push({
+      grupo: "Termos", descricao: t.modelo.titulo,
+      situacao: t.situacao === "ASSINADO" ? "OK" : "PENDENTE",
+      detalhe: t.situacao === "ASSINADO" ? `assinado em ${t.assinatura!.assinadoEm.toLocaleDateString("pt-BR")}` : t.situacao === "NOVA_VERSAO" ? "Nova versão do termo para assinar" : "Aguardando assinatura do colaborador",
+    });
   }
 
   // 6. Afastamento > 180 dias exige treinamento eventual (NR-1, 1.7.1.2.3 c)

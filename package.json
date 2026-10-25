@@ -11,6 +11,7 @@
     "test:fluxo": "tsx scripts/teste-fluxo.ts",
     "db:gerar": "drizzle-kit generate",
     "test:telas": "tsx scripts/teste-telas.ts",
+    "test:sst": "tsx scripts/teste-sst.ts",
     "usuario:criar": "tsx scripts/criar-usuario.ts"
   },
   "dependencies": {

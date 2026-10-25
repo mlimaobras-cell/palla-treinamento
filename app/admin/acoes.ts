@@ -151,6 +151,8 @@ export async function conferirDocumentoAcao(documentoId: string, colaboradorId: 
     const aptidoes = f.getAll("aptidao").map(String).join(";") || null;
     await conferirDocumento(a, documentoId, {
       aprovado: txt(f, "decisao") === "aprovar", validoAte: dataOuNull(f, "validoAte"), aptidoes, observacao: txt(f, "observacao") || null,
+      asoTipoExame: (txt(f, "asoTipoExame") || null) as never, asoResultado: (txt(f, "asoResultado") || null) as "APTO" | "INAPTO" | null,
+      emitidoEm: dataOuNull(f, "emitidoEm"),
     });
     return "Conferência registrada.";
   }, [`/admin/colaboradores/${colaboradorId}`]);

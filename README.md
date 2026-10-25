@@ -30,6 +30,10 @@ Plataforma web da **Palla Construções** para integração, capacitação, aval
 | 7 perfis de acesso e registro de auditoria | Implementado |
 | Conteúdo completo da Integração (13 aulas, 12 questões) e do curso 5.2 Segurança na montagem (3 aulas, 10 questões) | Implementado, **em revisão técnica** |
 | Demais cursos do catálogo | Cadastrados com plano de ensino; **conteúdo pendente** |
+| **Saúde e Segurança:** PGR (GHE, inventário de riscos com biblioteca de 13 ambientes, critério S×P, plano de ação, versões e histórico, documento para assinatura, inventário para a contratante) | Implementado — PGR só é aprovado com PDF assinado pelo profissional habilitado (NR-18, 18.4.2) |
+| **PCMSO:** registro do programa assinado pelo médico, matriz de exames por GHE/função, próximo periódico sugerido na conferência do ASO, ASO com tipo de exame e conclusão (inapto = vermelho) | Implementado — a plataforma não elabora o PCMSO nem guarda prontuário |
+| **Dossiê admissional** configurável (13 itens-base, sensíveis só para RH) e **termos assinados** pelo colaborador (ordem de serviço com os riscos do PGR, EPI, regulamento, álcool e drogas, imagem) | Implementado — assinatura eletrônica com senha, hash e IP; **não é ICP-Brasil**; modelos em revisão |
+| **Prazos e alertas** (exames, reciclagens, documentos, experiência, revisão do PGR, relatório do PCMSO, plano de ação, prazos avulsos) | Implementado no painel; aviso por e-mail **pendente** |
 | Assinatura eletrônica qualificada (ICP-Brasil), envio de e-mail/SMS, upload em nuvem (S3), troca de senha e 2FA | **Pendente** |
 
 ## Requisitos
@@ -76,6 +80,7 @@ npm run usuario:criar -- "Nome Completo" email@palla.ind.br RESPONSAVEL_TECNICO 
 
 ```bash
 npm run test:fluxo   # 47 verificações das regras: cadastro → certificação → liberação, reprovação, pendência prática, vencimento, documento irregular
+npm run test:sst     # 42 verificações do módulo Saúde e Segurança (PGR, termos, dossiê, PCMSO, ASO, prazos)
 npm run test:telas   # navegador real (Playwright) com o servidor rodando; gera capturas em saida-testes/telas
 ```
 

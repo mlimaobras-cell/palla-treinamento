@@ -8,6 +8,7 @@ import { exigirColaborador } from "@/lib/sessao";
 import { concluirAula, enviarAvaliacao, iniciarAvaliacao, iniciarDiagnostica, registrarTempo } from "@/lib/servicos/aprendizagem";
 import { emitirComprovanteEtapa, registrarCiencia } from "@/lib/servicos/certificacao";
 import { enviarDocumento } from "@/lib/servicos/documentos";
+import { assinarTermo, enviarItemAdmissional } from "@/lib/servicos/admissao";
 
 export async function pulsoAula(matriculaId: string, aulaId: string, segundos: number, posicao?: number) {
   const a = await exigirColaborador();
@@ -84,4 +85,27 @@ export async function enviarDocumentoAcao(_: Estado, f: FormData): Promise<Estad
     });
     return "Documento enviado. A Segurança do Trabalho vai conferir.";
   }, ["/colaborador"]);
+}
+
+export async function enviarItemAdmissionalAcao(itemId: string, _: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirColaborador();
+  return executar(async () => {
+    const arq = f.get("arquivo");
+    if (!(arq instanceof File) || arq.size === 0) throw new Error("Selecione o arquivo.");
+    await enviarItemAdmissional(a, a.colaboradorId!, itemId, { nome: arq.name, tipo: arq.type, bytes: Buffer.from(await arq.arrayBuffer()) }, dataOuNull(f, "validoAte"));
+    return "Enviado. O RH vai conferir.";
+  }, ["/colaborador/documentos"]);
+}
+
+export async function assinarTermoAcao(modeloId: string, _: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirColaborador();
+  const h = await headers();
+  const r = await executar(async () => {
+    await assinarTermo(a, modeloId, {
+      senha: String(f.get("senha") ?? ""), nomeDigitado: txt(f, "nome"), aceite: f.get("aceite") === "1",
+      ip: (h.get("x-forwarded-for") ?? "").split(",")[0].trim() || h.get("x-real-ip"), userAgent: h.get("user-agent"),
+    });
+  }, ["/colaborador/documentos", "/colaborador"]);
+  if (r?.erro) return r;
+  redirect(`/colaborador/termos/${modeloId}?assinado=1`);
 }

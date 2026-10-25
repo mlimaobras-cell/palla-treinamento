@@ -9,6 +9,7 @@ import { concluirAula, enviarAvaliacao, iniciarAvaliacao, iniciarDiagnostica, re
 import { emitirComprovanteEtapa, registrarCiencia } from "@/lib/servicos/certificacao";
 import { enviarDocumento } from "@/lib/servicos/documentos";
 import { assinarTermo, enviarItemAdmissional } from "@/lib/servicos/admissao";
+import { confirmarPresenca, enviarRelato } from "@/lib/servicos/psicossocial";
 
 export async function pulsoAula(matriculaId: string, aulaId: string, segundos: number, posicao?: number) {
   const a = await exigirColaborador();
@@ -108,4 +109,19 @@ export async function assinarTermoAcao(modeloId: string, _: Estado, f: FormData)
   }, ["/colaborador/documentos", "/colaborador"]);
   if (r?.erro) return r;
   redirect(`/colaborador/termos/${modeloId}?assinado=1`);
+}
+
+export async function enviarRelatoAcao(_: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirColaborador();
+  let protocolo = "";
+  const r = await executar(async () => {
+    protocolo = await enviarRelato(a, { categoria: txt(f, "categoria"), descricao: String(f.get("descricao") ?? ""), identificar: f.get("identificar") === "1" });
+  });
+  if (r?.erro) return r;
+  redirect(`/colaborador/relato?protocolo=${protocolo}&novo=1`);
+}
+
+export async function confirmarPresencaAcao(ddsId: string, _: Estado): Promise<Estado> {
+  const a = await exigirColaborador();
+  return executar(async () => { await confirmarPresenca(a, ddsId); return "Presença confirmada."; }, ["/colaborador", "/colaborador/documentos"]);
 }

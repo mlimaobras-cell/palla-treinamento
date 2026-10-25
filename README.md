@@ -34,6 +34,8 @@ Plataforma web da **Palla Construções** para integração, capacitação, aval
 | **PCMSO:** registro do programa assinado pelo médico, matriz de exames por GHE/função, próximo periódico sugerido na conferência do ASO, ASO com tipo de exame e conclusão (inapto = vermelho) | Implementado — a plataforma não elabora o PCMSO nem guarda prontuário |
 | **Dossiê admissional** configurável (13 itens-base, sensíveis só para RH) e **termos assinados** pelo colaborador (ordem de serviço com os riscos do PGR, EPI, regulamento, álcool e drogas, imagem) | Implementado — assinatura eletrônica com senha, hash e IP; **não é ICP-Brasil**; modelos em revisão |
 | **Quem assina e empresas parceiras:** cadastro do profissional do PGR (CREA/MTE), do médico do PCMSO (CRM) e do responsável pela empresa; logotipo da consultoria ou da clínica nos documentos, ao lado do da Palla; matriz de exames do PCMSO para a clínica | Implementado — dados copiados para o documento na aprovação |
+| **Riscos psicossociais:** canal de relato confidencial (anônimo ou identificado, protocolo, prazo de apuração, só RH lê), escutas por equipe e pesquisas agregadas, DDS com presença confirmada no celular, indicadores mensais por obra | Implementado — fluxo do canal a validar com o jurídico |
+| **Equipe:** administrador cadastra os usuários da equipe pela tela | Implementado |
 | **Prazos e alertas** (exames, reciclagens, documentos, experiência, revisão do PGR, relatório do PCMSO, plano de ação, prazos avulsos) | Implementado no painel; aviso por e-mail **pendente** |
 | Assinatura eletrônica qualificada (ICP-Brasil), envio de e-mail/SMS, upload em nuvem (S3), troca de senha e 2FA | **Pendente** |
 
@@ -81,7 +83,7 @@ npm run usuario:criar -- "Nome Completo" email@palla.ind.br RESPONSAVEL_TECNICO 
 
 ```bash
 npm run test:fluxo   # 47 verificações das regras: cadastro → certificação → liberação, reprovação, pendência prática, vencimento, documento irregular
-npm run test:sst     # 48 verificações do módulo Saúde e Segurança (PGR, termos, dossiê, PCMSO, ASO, prazos)
+npm run test:sst     # 59 verificações do módulo Saúde e Segurança (PGR, termos, dossiê, PCMSO, ASO, prazos)
 npm run test:telas   # navegador real (Playwright) com o servidor rodando; gera capturas em saida-testes/telas
 ```
 

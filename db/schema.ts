@@ -669,6 +669,80 @@ export const examesPcmso = pgTable("exames_pcmso", {
   observacao: text("observacao"),
 });
 
+
+// ---------------------------------------------------------------- Saúde e Segurança: fatores psicossociais (NR-1, 1.5.3.1.4)
+
+/** Canal de relato confidencial. Relato anônimo não guarda quem enviou (nem IP); o acompanhamento é pelo protocolo. Só RH/ADMIN leem. */
+export const relatos = pgTable("relatos", {
+  id: id(),
+  protocolo: text("protocolo").notNull().unique(),
+  obraId: text("obra_id").references(() => obras.id),
+  categoria: text("categoria").notNull(),
+  descricao: text("descricao").notNull(),
+  anonimo: boolean("anonimo").default(true).notNull(),
+  colaboradorId: text("colaborador_id").references(() => colaboradores.id, { onDelete: "set null" }),
+  status: text("status").default("RECEBIDO").notNull(), // RECEBIDO | EM_APURACAO | CONCLUIDO | ARQUIVADO
+  prazoApuracao: data("prazo_apuracao").notNull(),
+  resposta: text("resposta"), // devolutiva visível a quem tem o protocolo
+  medidas: text("medidas"),   // registro interno das medidas (não aparece para o relator)
+  tratadoPorId: text("tratado_por_id").references(() => usuarios.id),
+  concluidoEm: data("concluido_em"),
+  criadoEm: agora("criado_em"),
+});
+
+/** Escuta por equipe (roda de conversa) ou pesquisa anônima: só resultados agregados, sem nomes. */
+export const escutas = pgTable("escutas", {
+  id: id(),
+  obraId: text("obra_id").references(() => obras.id),
+  gheId: text("ghe_id"),
+  tipo: text("tipo").notNull(), // RODA | PESQUISA
+  data: data("data").notNull(),
+  participantes: integer("participantes").notNull(),
+  conduzidoPor: text("conduzido_por").notNull(),
+  temas: text("temas").notNull(),
+  encaminhamentos: text("encaminhamentos"),
+  criadoPorId: text("criado_por_id").references(() => usuarios.id),
+  criadoEm: agora("criado_em"),
+});
+
+/** DDS (diálogo diário de segurança) com confirmação de presença pelo colaborador no celular. */
+export const dds = pgTable("dds", {
+  id: id(),
+  obraId: text("obra_id").notNull().references(() => obras.id),
+  data: data("data").notNull(),
+  tema: text("tema").notNull(),
+  psicossocial: boolean("psicossocial").default(false).notNull(),
+  conteudo: text("conteudo"),
+  conduzidoPor: text("conduzido_por").notNull(),
+  criadoPorId: text("criado_por_id").references(() => usuarios.id),
+  criadoEm: agora("criado_em"),
+});
+
+export const presencasDds = pgTable("presencas_dds", {
+  id: id(),
+  ddsId: text("dds_id").notNull().references(() => dds.id, { onDelete: "cascade" }),
+  colaboradorId: text("colaborador_id").notNull().references(() => colaboradores.id, { onDelete: "cascade" }),
+  confirmadoEm: agora("confirmado_em"),
+  metodo: text("metodo").notNull(), // CELULAR | EQUIPE
+  registradoPorId: text("registrado_por_id").references(() => usuarios.id),
+}, (t) => [uniqueIndex("presenca_unica").on(t.ddsId, t.colaboradorId)]);
+
+/** Indicadores mensais agregados por obra, informados pelo RH/SST (sem dados individuais). */
+export const indicadoresMensais = pgTable("indicadores_mensais", {
+  id: id(),
+  obraId: text("obra_id").notNull().references(() => obras.id),
+  mes: text("mes").notNull(), // AAAA-MM
+  efetivo: integer("efetivo"),
+  horasExtrasMedia: real("horas_extras_media"),
+  faltas: integer("faltas"),
+  afastamentos: integer("afastamentos"),
+  desligamentos: integer("desligamentos"),
+  quaseAcidentes: integer("quase_acidentes"),
+  observacao: text("observacao"),
+  registradoPorId: text("registrado_por_id").references(() => usuarios.id),
+  atualizadoEm: agora("atualizado_em"),
+}, (t) => [uniqueIndex("indicador_obra_mes").on(t.obraId, t.mes)]);
+
 // ---------------------------------------------------------------- Auditoria
 
 export const auditoria = pgTable("auditoria", {
@@ -820,3 +894,11 @@ export const parceirosRel = relations(parceiros, ({ many }) => ({ signatarios: m
 export const signatariosRel = relations(signatarios, ({ one }) => ({
   parceiro: one(parceiros, { fields: [signatarios.parceiroId], references: [parceiros.id] }),
 }));
+export const relatosRel = relations(relatos, ({ one }) => ({ obra: one(obras, { fields: [relatos.obraId], references: [obras.id] }) }));
+export const escutasRel = relations(escutas, ({ one }) => ({ obra: one(obras, { fields: [escutas.obraId], references: [obras.id] }) }));
+export const ddsRel = relations(dds, ({ one, many }) => ({ obra: one(obras, { fields: [dds.obraId], references: [obras.id] }), presencas: many(presencasDds) }));
+export const presencasDdsRel = relations(presencasDds, ({ one }) => ({
+  dds: one(dds, { fields: [presencasDds.ddsId], references: [dds.id] }),
+  colaborador: one(colaboradores, { fields: [presencasDds.colaboradorId], references: [colaboradores.id] }),
+}));
+export const indicadoresMensaisRel = relations(indicadoresMensais, ({ one }) => ({ obra: one(obras, { fields: [indicadoresMensais.obraId], references: [obras.id] }) }));

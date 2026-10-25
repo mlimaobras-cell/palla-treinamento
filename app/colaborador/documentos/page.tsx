@@ -4,9 +4,10 @@ import { db, schema } from "@/db";
 import { Formulario } from "@/components/formulario";
 import { Campo, Cartao, Entrada, LinkBotao, Selecao, Selo, Vazio } from "@/components/ui";
 import { dossieAdmissional, termosDoColaborador } from "@/lib/servicos/admissao";
+import { ddsParaConfirmar } from "@/lib/servicos/psicossocial";
 import { fmtData, TIPO_DOC } from "@/lib/formato";
 import { exigirColaborador } from "@/lib/sessao";
-import { enviarDocumentoAcao, enviarItemAdmissionalAcao } from "../acoes";
+import { confirmarPresencaAcao, enviarDocumentoAcao, enviarItemAdmissionalAcao } from "../acoes";
 
 const SIT: Record<string, { rotulo: string; cor: string }> = {
   ENTREGUE: { rotulo: "Conferido", cor: "verde" }, EM_CONFERENCIA: { rotulo: "Em conferência", cor: "amarelo" },
@@ -23,9 +24,23 @@ export default async function Documentos() {
   });
   const [dossie, termos] = await Promise.all([dossieAdmissional(a.colaboradorId!), termosDoColaborador(a.colaboradorId!)]);
   const termosPend = termos.filter((t) => t.situacao !== "ASSINADO");
+  const ddsPend = await ddsParaConfirmar(a.colaboradorId!);
   return (
     <div className="space-y-5">
       <h1 className="text-2xl font-semibold text-palla-azul-escuro">Meus documentos</h1>
+
+      {ddsPend.length > 0 && (
+        <Cartao titulo="DDS para confirmar presença">
+          <ul className="divide-y divide-linha text-sm">
+            {ddsPend.map((d) => (
+              <li key={d.id} className="flex items-center justify-between gap-3 py-3">
+                <span><span className="font-medium">{d.tema}</span><span className="block text-xs text-tinta-suave">{fmtData(d.data)} · {d.conduzidoPor}</span></span>
+                <Formulario acao={confirmarPresencaAcao.bind(null, d.id)} rotulo="Participei" className=""><span /></Formulario>
+              </li>
+            ))}
+          </ul>
+        </Cartao>
+      )}
 
       {termos.length > 0 && (
         <Cartao titulo="Termos para assinar" acao={<Selo cor={termosPend.length ? "amarelo" : "verde"}>{termosPend.length ? `${termosPend.length} pendente(s)` : "Tudo assinado"}</Selo>}>

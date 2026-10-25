@@ -14,6 +14,7 @@ import {
 import { excluirExame, registrarPcmso, salvarExame } from "@/lib/servicos/pcmso";
 import { concluirPrazo, criarPrazo } from "@/lib/servicos/prazos";
 import { salvarParceiro, salvarSignatario } from "@/lib/servicos/parceiros";
+import { registrarDds, registrarEscuta, salvarIndicador, tratarRelato } from "@/lib/servicos/psicossocial";
 import { alterarUsuarioEquipe, criarUsuarioEquipe } from "@/lib/servicos/equipe";
 import { gerarLinkNovaSenha } from "@/lib/servicos/senha";
 import type { Perfil } from "@/lib/permissoes";
@@ -303,4 +304,38 @@ export async function alterarUsuarioAcao(id: string, _: Estado, f: FormData): Pr
 export async function linkSenhaEquipeAcao(id: string, _: Estado): Promise<Estado> {
   const a = await exigirEquipe("painel.ver");
   return executar(async () => { const r = await gerarLinkNovaSenha(a, id); return `Link de nova senha para ${r.nome} (48 h, uma vez): ${r.url}`; }, ["/admin/equipe"]);
+}
+
+// ------------------------------------------------ fatores psicossociais
+export async function tratarRelatoAcao(id: string, _: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirEquipe("relato.tratar");
+  return executar(async () => { await tratarRelato(a, id, { status: txt(f, "status"), resposta: txt(f, "resposta") || null, medidas: txt(f, "medidas") || null }); return "Relato atualizado."; }, ["/admin/psicossocial"]);
+}
+
+export async function registrarEscutaAcao(_: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirEquipe("sst.ver");
+  return executar(async () => {
+    const data = dataOuNull(f, "data");
+    if (!data) throw new Error("Informe a data.");
+    await registrarEscuta(a, { obraId: txt(f, "obraId") || null, tipo: (txt(f, "tipo") || "RODA") as "RODA", data, participantes: Number(txt(f, "participantes")), conduzidoPor: txt(f, "conduzidoPor"), temas: txt(f, "temas"), encaminhamentos: txt(f, "encaminhamentos") || null });
+    return "Escuta registrada. Leve os temas para o inventário e o plano de ação do PGR da obra.";
+  }, ["/admin/psicossocial"]);
+}
+
+export async function registrarDdsAcao(_: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirEquipe("colaborador.ver");
+  return executar(async () => {
+    const data = dataOuNull(f, "data");
+    if (!data) throw new Error("Informe a data.");
+    await registrarDds(a, { obraId: txt(f, "obraId"), data, tema: txt(f, "tema"), psicossocial: txt(f, "psicossocial") === "1", conteudo: txt(f, "conteudo") || null, conduzidoPor: txt(f, "conduzidoPor"), presentesIds: f.getAll("presente").map(String) });
+    return "DDS registrado. Os colaboradores da obra podem confirmar a presença pelo celular por 3 dias.";
+  }, ["/admin/psicossocial"]);
+}
+
+export async function salvarIndicadorAcao(_: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirEquipe("sst.ver");
+  return executar(async () => {
+    await salvarIndicador(a, { obraId: txt(f, "obraId"), mes: txt(f, "mes"), efetivo: num(f, "efetivo"), horasExtrasMedia: num(f, "horasExtrasMedia"), faltas: num(f, "faltas"), afastamentos: num(f, "afastamentos"), desligamentos: num(f, "desligamentos"), quaseAcidentes: num(f, "quaseAcidentes"), observacao: txt(f, "observacao") || null });
+    return "Indicadores do mês salvos.";
+  }, ["/admin/psicossocial"]);
 }

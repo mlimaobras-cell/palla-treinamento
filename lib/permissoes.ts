@@ -29,17 +29,18 @@ export type Permissao =
   | "sst.ver"          // ver PGR, PCMSO, prazos e dossiê
   | "sst.editar"       // montar PGR, registrar PCMSO, aprovar modelos de termo
   | "admissao.gerir"   // dossiê admissional e documentos pessoais sensíveis
-  | "prazo.ver";
+  | "prazo.ver"
+  | "relato.tratar"; // canal de relato confidencial (assédio, conflitos, sobrecarga)
 
 const MAPA: Record<Perfil, Permissao[]> = {
   ADMIN: [
     "painel.ver", "colaborador.ver", "colaborador.cadastrar", "obra.gerir", "convite.criar",
     "matriz.editar", "curso.ver", "curso.editar", "certificado.cancelar", "documento.ver",
     "documento.conferir", "autorizacao.conceder", "liberacao.aprovar", "auditoria.ver",
-    "sst.ver", "sst.editar", "admissao.gerir", "prazo.ver",
+    "sst.ver", "sst.editar", "admissao.gerir", "prazo.ver", "relato.tratar",
   ],
   RH: ["painel.ver", "colaborador.ver", "colaborador.cadastrar", "obra.gerir", "convite.criar", "curso.ver", "documento.ver",
-    "sst.ver", "admissao.gerir", "prazo.ver"],
+    "sst.ver", "admissao.gerir", "prazo.ver", "relato.tratar"],
   SST: [
     "painel.ver", "colaborador.ver", "convite.criar", "matriz.editar", "curso.ver", "curso.editar",
     "documento.ver", "documento.conferir", "autorizacao.conceder", "liberacao.aprovar", "auditoria.ver",

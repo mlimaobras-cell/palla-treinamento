@@ -19,6 +19,7 @@ const MENU: { href: string; rotulo: string; p: Permissao }[] = [
   { href: "/admin/certificados", rotulo: "Certificados", p: "colaborador.ver" },
   { href: "/admin/sst", rotulo: "Saúde e Segurança", p: "sst.ver" },
   { href: "/admin/prazos", rotulo: "Prazos e alertas", p: "prazo.ver" },
+  { href: "/admin/psicossocial", rotulo: "Riscos psicossociais", p: "sst.ver" },
   { href: "/admin/acessos", rotulo: "Acessos e avisos", p: "colaborador.ver" },
   { href: "/admin/equipe", rotulo: "Equipe", p: "auditoria.ver" },
   { href: "/admin/auditoria", rotulo: "Auditoria", p: "auditoria.ver" },

@@ -14,6 +14,7 @@ export default async function LayoutColaborador({ children }: { children: React.
           <div className="flex items-center gap-3 text-sm">
             <span className="hidden max-w-40 truncate text-tinta-suave sm:inline">{a.nome}</span>
             <Link href="/colaborador/documentos" className="font-medium text-palla-azul">Documentos</Link>
+            <Link href="/colaborador/relato" className="font-medium text-palla-azul">Relato</Link>
             <Link href="/conta/senha" className="font-medium text-tinta-suave hover:text-palla-azul">Senha</Link>
             <form action={sair}><button className="font-medium text-tinta-suave hover:text-palla-vermelho">Sair</button></form>
           </div>

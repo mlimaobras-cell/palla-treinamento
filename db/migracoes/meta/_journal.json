@@ -71,6 +71,13 @@
       "when": 1792935773379,
       "tag": "0009_parceiros",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1792943110244,
+      "tag": "0010_psicossocial",
+      "breakpoints": true
     }
   ]
 }

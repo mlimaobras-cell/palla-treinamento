@@ -14,6 +14,7 @@ import { aprovarPgr, atualizarPgr, criarPgr, enviarParaRevisao, importarDaBiblio
 import { examesDaFuncao, registrarPcmso, salvarExame } from "../lib/servicos/pcmso";
 import { listarPrazos } from "../lib/servicos/prazos";
 import { salvarParceiro, salvarSignatario } from "../lib/servicos/parceiros";
+import { confirmarPresenca, consultarRelato, ddsParaConfirmar, enviarRelato, painelMensal, registrarDds, registrarEscuta, salvarIndicador, tratarRelato } from "../lib/servicos/psicossocial";
 
 const res: boolean[] = [];
 const checar = (nome: string, ok: boolean, det = "") => { res.push(ok); console.log(`${ok ? "✔" : "✘"} ${nome}${det ? ` — ${det}` : ""}`); };
@@ -47,6 +48,7 @@ async function limpar() {
       await db.delete(schema.colaboradores).where(inArray(schema.colaboradores.id, ids));
     }
     await db.delete(schema.pcmsos).where(eq(schema.pcmsos.obraId, obra.id));
+    for (const t of [schema.relatos, schema.escutas, schema.dds, schema.indicadoresMensais]) await db.delete(t).where(eq(t.obraId, obra.id));
     await db.delete(schema.pgrs).where(eq(schema.pgrs.obraId, obra.id));
     await db.delete(schema.convites).where(eq(schema.convites.obraId, obra.id));
     await db.delete(schema.obras).where(eq(schema.obras.id, obra.id));
@@ -197,6 +199,30 @@ async function main() {
   checar("Exige duas autorizações separadas (guindaste e munck)", ["Autorização: Operação de equipamento de guindar", "Autorização: Operação de caminhão guindauto (munck)"].every((d) => avOp.itens.some((i) => i.descricao === d)));
   const dOp = await dossieAdmissional(op.id);
   checar("Dossiê do operador pede CNH com validade e certificados anteriores", dOp.linhas.some((l) => l.item.codigo === "CNH-OPERADOR" && l.item.exigeValidade) && dOp.linhas.some((l) => l.item.codigo === "CERT-OPERADOR"));
+
+  // ------------------------------------------------ fatores psicossociais
+  const proto = await enviarRelato(colab, { categoria: "ASSEDIO_MORAL", descricao: "Encarregado grita e humilha a equipe na frente de todos (teste fictício).", identificar: false });
+  const rel = (await db.query.relatos.findFirst({ where: eq(schema.relatos.protocolo, proto) }))!;
+  const audRel = await db.query.auditoria.findFirst({ where: eq(schema.auditoria.entidadeId, rel.id) });
+  checar("Relato anônimo não guarda quem enviou nem a hora", !rel.colaboradorId && rel.criadoEm.toISOString().endsWith("T12:00:00.000Z") && !audRel?.usuarioId);
+  await deveFalhar("Segurança do Trabalho não lê nem trata relato (só RH/admin)", () => tratarRelato(sst, rel.id, { status: "EM_APURACAO" }), "Sem permissão");
+  await deveFalhar("Concluir exige devolutiva", () => tratarRelato(rh, rel.id, { status: "CONCLUIDO" }), "devolutiva");
+  await tratarRelato(rh, rel.id, { status: "CONCLUIDO", resposta: "Apurado; medidas aplicadas com a liderança.", medidas: "Conversa com o encarregado X (interno)" });
+  const cons = await consultarRelato(proto);
+  checar("Consulta pelo protocolo mostra a devolutiva, não as medidas internas", cons?.resposta === "Apurado; medidas aplicadas com a liderança." && !("medidas" in (cons ?? {})));
+  await deveFalhar("Pesquisa com menos de 5 respostas é recusada", () => registrarEscuta(sst, { obraId: obra.id, tipo: "PESQUISA", data: new Date(), participantes: 3, conduzidoPor: "SST", temas: "x" }), "5 ou mais");
+  await registrarEscuta(sst, { obraId: obra.id, tipo: "RODA", data: new Date(), participantes: 8, conduzidoPor: "Técnica de Segurança (TESTE)", temas: "Pressão para terminar a cobertura; alojamento sem água quente" });
+  const ddsId = await registrarDds(sst, { obraId: obra.id, data: new Date(), tema: "Pressa não entra na obra", psicossocial: true, conduzidoPor: "Encarregado fictício" });
+  checar("DDS aparece para o colaborador da obra confirmar", (await ddsParaConfirmar(c.id)).some((d) => d.id === ddsId));
+  await confirmarPresenca(colab, ddsId);
+  await deveFalhar("Presença não é confirmada duas vezes", () => confirmarPresenca(colab, ddsId), "não está disponível");
+  await salvarIndicador(sst, { obraId: obra.id, mes: new Date().toISOString().slice(0, 7), efetivo: 20, horasExtrasMedia: 12.5, faltas: 3 });
+  const painel = await painelMensal(new Date().toISOString().slice(0, 7), obra.id);
+  checar("Painel do mês consolida relatos, escuta, DDS, presença e indicadores", painel.relatosNoMes === 1 && painel.escutas.length === 1 && painel.ddsPsicossocial === 1 && painel.presencas === 1 && painel.indicadores.length === 1);
+  await db.delete(schema.relatos).where(eq(schema.relatos.id, rel.id));
+  await db.delete(schema.escutas).where(eq(schema.escutas.obraId, obra.id));
+  await db.delete(schema.dds).where(eq(schema.dds.obraId, obra.id));
+  await db.delete(schema.indicadoresMensais).where(eq(schema.indicadoresMensais.obraId, obra.id));
 
   // restaura os modelos de termo (o teste não deve deixar modelos aprovados no banco de desenvolvimento)
   await db.delete(schema.assinaturasTermo).where(eq(schema.assinaturasTermo.colaboradorId, c.id));

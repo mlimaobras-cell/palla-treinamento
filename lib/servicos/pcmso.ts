@@ -13,9 +13,20 @@ export const TIPO_EXAME: Record<string, string> = {
 
 export async function registrarPcmso(
   ator: Ator,
-  dados: { titulo: string; obraId?: string | null; pgrId?: string | null; medicoNome: string; medicoCrm: string; clinica?: string | null; vigenciaInicio: Date; observacao?: string | null; arquivo: { nome: string; tipo: string; bytes: Buffer } },
+  dados: { titulo: string; obraId?: string | null; pgrId?: string | null; medicoNome: string; medicoCrm: string; clinica?: string | null; medicoId?: string | null; parceiroId?: string | null; vigenciaInicio: Date; observacao?: string | null; arquivo: { nome: string; tipo: string; bytes: Buffer } },
 ) {
   exigir(ator, "sst.editar");
+  if (dados.medicoId) {
+    const { signatario, registroCompleto } = await import("./parceiros");
+    const m = await signatario(dados.medicoId);
+    if (!m || m.tipo !== "MEDICO_TRABALHO") throw new Error("Escolha um médico do trabalho cadastrado.");
+    dados.medicoNome = m.nome; dados.medicoCrm = registroCompleto(m);
+    if (!dados.parceiroId && m.parceiroId) dados.parceiroId = m.parceiroId;
+  }
+  if (dados.parceiroId && !dados.clinica) {
+    const c = await db.query.parceiros.findFirst({ where: eq(schema.parceiros.id, dados.parceiroId) });
+    dados.clinica = c?.nome ?? null;
+  }
   if (!dados.medicoNome.trim() || !dados.medicoCrm.trim()) throw new Error("Informe o médico do trabalho responsável e o CRM (NR-7).");
   if (dados.arquivo.tipo !== "application/pdf") throw new Error("Anexe o PDF do PCMSO assinado pelo médico.");
   const { salvarArquivo } = await import("./documentos");
@@ -29,6 +40,7 @@ export async function registrarPcmso(
     const [p] = await tx.insert(schema.pcmsos).values({
       titulo: dados.titulo.trim() || "PCMSO", obraId: dados.obraId || null, pgrId: dados.pgrId || null, versao: (anterior?.versao ?? 0) + 1,
       status: "APROVADO", medicoNome: dados.medicoNome.trim(), medicoCrm: dados.medicoCrm.trim(), clinica: dados.clinica ?? null,
+      medicoId: dados.medicoId || null, parceiroId: dados.parceiroId || null,
       vigenciaInicio: dados.vigenciaInicio, proximoRelatorioAnual: somarMeses(dados.vigenciaInicio, 12),
       arquivoPath: caminho, arquivoHash: sha256(dados.arquivo.bytes), observacao: dados.observacao ?? null, criadoPorId: ator.id,
     }).returning();

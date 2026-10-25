@@ -27,7 +27,7 @@ export default async function Sst() {
   return (
     <>
       <TituloPagina titulo="Saúde e Segurança" subtitulo="PGR, PCMSO, termos assinados e documentos de admissão — tudo ligado à matriz de treinamentos e ao acesso às obras."
-        acao={<div className="flex flex-wrap gap-2"><LinkBotao href="/admin/sst/pgr" variante="secundario">PGR</LinkBotao><LinkBotao href="/admin/sst/pcmso" variante="secundario">PCMSO</LinkBotao><LinkBotao href="/admin/sst/termos" variante="secundario">Termos e admissão</LinkBotao><LinkBotao href="/admin/sst/biblioteca" variante="secundario">Biblioteca de riscos</LinkBotao></div>} />
+        acao={<div className="flex flex-wrap gap-2"><LinkBotao href="/admin/sst/pgr" variante="secundario">PGR</LinkBotao><LinkBotao href="/admin/sst/pcmso" variante="secundario">PCMSO</LinkBotao><LinkBotao href="/admin/sst/termos" variante="secundario">Termos e admissão</LinkBotao><LinkBotao href="/admin/sst/biblioteca" variante="secundario">Biblioteca de riscos</LinkBotao><LinkBotao href="/admin/sst/responsaveis" variante="secundario">Quem assina e parceiros</LinkBotao></div>} />
       <div className="mb-5"><Aviso tom="info">
         <strong>Responsabilidades:</strong> o PGR da obra é elaborado e assinado por profissional legalmente habilitado em segurança do trabalho (NR-18, 18.4.2) e o PCMSO pelo médico do trabalho (NR-7).
         A plataforma organiza o inventário de riscos, o plano de ação, a matriz de exames, os prazos e o histórico — não substitui essas assinaturas.

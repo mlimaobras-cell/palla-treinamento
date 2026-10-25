@@ -25,6 +25,20 @@ export { nivelDoRisco };
 /** Revisão a cada 2 anos (NR-1, 1.5.4.4.6); prazo menor pode ser definido. */
 export const MESES_REVISAO_PGR = 24;
 
+/** Copia os dados do cadastro de quem assina para o PGR (retrato do momento; o cadastro pode mudar depois). */
+async function retratoSignatarios(elaboradorId?: string | null, responsavelOrgId?: string | null) {
+  const { signatario, registroCompleto } = await import("./parceiros");
+  const out: Record<string, unknown> = {};
+  const el = await signatario(elaboradorId);
+  if (el) {
+    if (el.tipo !== "PROFISSIONAL_SST") throw new Error("O PGR é assinado por profissional de segurança do trabalho cadastrado como tal.");
+    Object.assign(out, { elaboradorNome: el.nome, elaboradorQualificacao: el.qualificacao, elaboradorRegistro: registroCompleto(el) });
+  }
+  const ro = await signatario(responsavelOrgId);
+  if (ro) out.responsavelOrganizacao = `${ro.nome}${ro.cargo ? ` — ${ro.cargo}` : ""}`;
+  return out;
+}
+
 async function editavel(pgrId: string) {
   const p = await db.query.pgrs.findFirst({ where: eq(schema.pgrs.id, pgrId) });
   if (!p) throw new Error("PGR não encontrado.");
@@ -46,9 +60,10 @@ export async function criarPgr(ator: Ator, dados: { obraId?: string | null; titu
 export async function atualizarPgr(ator: Ator, pgrId: string, dados: Partial<typeof schema.pgrs.$inferInsert>) {
   exigir(ator, "sst.editar");
   await editavel(pgrId);
-  const permitidos = ["titulo", "estabelecimento", "descricaoProcessos", "elaboradorNome", "elaboradorQualificacao", "elaboradorRegistro", "responsavelOrganizacao", "motivoRevisao", "criterio"] as const;
+  const permitidos = ["titulo", "estabelecimento", "descricaoProcessos", "elaboradorNome", "elaboradorQualificacao", "elaboradorRegistro", "responsavelOrganizacao", "motivoRevisao", "criterio", "elaboradorId", "responsavelOrgId", "parceiroId"] as const;
   const set: Record<string, unknown> = {};
   for (const k of permitidos) if (k in dados) set[k] = dados[k];
+  Object.assign(set, await retratoSignatarios(dados.elaboradorId, dados.responsavelOrgId));
   await db.update(schema.pgrs).set(set).where(eq(schema.pgrs.id, pgrId));
   await auditar(ator, "pgr.atualizado", "pgr", pgrId, { campos: Object.keys(set) });
 }
@@ -171,6 +186,8 @@ export async function aprovarPgr(
   const p = await db.query.pgrs.findFirst({ where: eq(schema.pgrs.id, pgrId) });
   if (!p) throw new Error("PGR não encontrado.");
   if (p.status !== "EM_REVISAO") throw new Error("Envie para revisão antes de aprovar.");
+  const retrato = await retratoSignatarios(p.elaboradorId, p.responsavelOrgId);
+  Object.assign(p, retrato);
   if (!p.elaboradorNome || !p.elaboradorRegistro || !p.elaboradorQualificacao) throw new Error("Informe nome, qualificação e registro do profissional que elaborou e assinou o PGR (NR-18, 18.4.2).");
   if (!p.responsavelOrganizacao) throw new Error("Informe o responsável pela organização.");
   if (dados.arquivo.tipo !== "application/pdf") throw new Error("Anexe o PDF do PGR assinado.");
@@ -180,6 +197,7 @@ export async function aprovarPgr(
   await db.transaction(async (tx) => {
     if (p.anteriorId) await tx.update(schema.pgrs).set({ status: "SUBSTITUIDO" }).where(eq(schema.pgrs.id, p.anteriorId));
     await tx.update(schema.pgrs).set({
+      ...retrato,
       status: "APROVADO", vigenciaInicio: dados.vigenciaInicio, proximaRevisao: somarMeses(dados.vigenciaInicio, meses),
       arquivoAssinadoPath: caminho, arquivoAssinadoHash: sha256(dados.arquivo.bytes), aprovadoPorId: ator.id, aprovadoEm: new Date(),
     }).where(eq(schema.pgrs.id, pgrId));
@@ -201,6 +219,7 @@ export async function revisarPgr(ator: Ator, pgrId: string, motivo: string) {
       obraId: p.obraId, titulo: p.titulo, estabelecimento: p.estabelecimento, versao: p.versao + 1, anteriorId: p.id, motivoRevisao: motivo,
       descricaoProcessos: p.descricaoProcessos, criterio: p.criterio, elaboradorNome: p.elaboradorNome, elaboradorQualificacao: p.elaboradorQualificacao,
       elaboradorRegistro: p.elaboradorRegistro, responsavelOrganizacao: p.responsavelOrganizacao, criadoPorId: ator.id,
+      elaboradorId: p.elaboradorId, responsavelOrgId: p.responsavelOrgId, parceiroId: p.parceiroId,
     }).returning();
     const mapaGhe = new Map<string, string>(), mapaRisco = new Map<string, string>();
     for (const g of p.ghes) {
@@ -236,7 +255,7 @@ export async function carregarPgr(pgrId: string) {
   const p = await db.query.pgrs.findFirst({
     where: eq(schema.pgrs.id, pgrId),
     with: {
-      obra: true, aprovadoPor: true,
+      obra: true, aprovadoPor: true, parceiro: true,
       ghes: { orderBy: (g, { asc }) => asc(g.ordem) },
       riscos: { orderBy: (r, { asc }) => asc(r.ordem) },
       acoes: true,

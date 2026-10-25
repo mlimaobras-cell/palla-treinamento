@@ -486,6 +486,39 @@ export const prazos = pgTable("prazos", {
   criadoEm: agora("criado_em"),
 });
 
+
+// ---------------------------------------------------------------- Saúde e Segurança: parceiros e signatários
+
+/** Empresas parceiras (consultoria de segurança, clínica de medicina do trabalho…) com logotipo para os documentos. */
+export const parceiros = pgTable("parceiros", {
+  id: id(),
+  nome: text("nome").notNull(),
+  cnpj: text("cnpj"),
+  tipo: text("tipo").notNull(), // SEGURANCA | CLINICA | OUTRA
+  logoPath: text("logo_path"),
+  logoTipo: text("logo_tipo"),
+  contato: text("contato"),
+  ativo: boolean("ativo").default(true).notNull(),
+  criadoEm: agora("criado_em"),
+});
+
+/** Quem assina os documentos (profissional habilitado do PGR, médico do PCMSO, responsável pela organização). Dados preenchidos pela equipe. */
+export const signatarios = pgTable("signatarios", {
+  id: id(),
+  nome: text("nome").notNull(),
+  tipo: text("tipo").notNull(), // PROFISSIONAL_SST | MEDICO_TRABALHO | RESPONSAVEL_ORGANIZACAO
+  qualificacao: text("qualificacao").notNull(),
+  conselho: text("conselho"), // CREA, CRM, registro MTE…
+  registro: text("registro").notNull(),
+  uf: text("uf"),
+  cargo: text("cargo"),
+  parceiroId: text("parceiro_id").references(() => parceiros.id),
+  email: text("email"),
+  telefone: text("telefone"),
+  ativo: boolean("ativo").default(true).notNull(),
+  criadoEm: agora("criado_em"),
+});
+
 // ---------------------------------------------------------------- Saúde e Segurança: PGR
 
 /** Critério de risco documentado pela organização (NR-1, 1.5.4.4.2). Guardado em JSON, com versão. */
@@ -539,6 +572,10 @@ export const pgrs = pgTable("pgrs", {
   elaboradorQualificacao: text("elaborador_qualificacao"),
   elaboradorRegistro: text("elaborador_registro"),
   responsavelOrganizacao: text("responsavel_organizacao"),
+  // cadastro de quem assina e do parceiro (logo); os campos de texto acima guardam o retrato do momento da assinatura
+  elaboradorId: text("elaborador_id"),
+  responsavelOrgId: text("responsavel_org_id"),
+  parceiroId: text("parceiro_id"),
   vigenciaInicio: data("vigencia_inicio"),
   proximaRevisao: data("proxima_revisao"),
   arquivoAssinadoPath: text("arquivo_assinado_path"),
@@ -609,6 +646,8 @@ export const pcmsos = pgTable("pcmsos", {
   medicoNome: text("medico_nome").notNull(),
   medicoCrm: text("medico_crm").notNull(),
   clinica: text("clinica"),
+  medicoId: text("medico_id"),
+  parceiroId: text("parceiro_id"),
   vigenciaInicio: data("vigencia_inicio"),
   proximoRelatorioAnual: data("proximo_relatorio_anual"),
   arquivoPath: text("arquivo_path"),
@@ -751,6 +790,7 @@ export const pgrsRel = relations(pgrs, ({ one, many }) => ({
   riscos: many(riscosInventario),
   acoes: many(acoesPlano),
   aprovadoPor: one(usuarios, { fields: [pgrs.aprovadoPorId], references: [usuarios.id] }),
+  parceiro: one(parceiros, { fields: [pgrs.parceiroId], references: [parceiros.id] }),
 }));
 export const ghesRel = relations(ghes, ({ one, many }) => ({
   pgr: one(pgrs, { fields: [ghes.pgrId], references: [pgrs.id] }),
@@ -768,10 +808,15 @@ export const acoesPlanoRel = relations(acoesPlano, ({ one }) => ({
 export const pcmsosRel = relations(pcmsos, ({ one, many }) => ({
   pgr: one(pgrs, { fields: [pcmsos.pgrId], references: [pgrs.id] }),
   obra: one(obras, { fields: [pcmsos.obraId], references: [obras.id] }),
+  parceiro: one(parceiros, { fields: [pcmsos.parceiroId], references: [parceiros.id] }),
   exames: many(examesPcmso),
 }));
 export const examesPcmsoRel = relations(examesPcmso, ({ one }) => ({
   pcmso: one(pcmsos, { fields: [examesPcmso.pcmsoId], references: [pcmsos.id] }),
   ghe: one(ghes, { fields: [examesPcmso.gheId], references: [ghes.id] }),
   funcao: one(funcoes, { fields: [examesPcmso.funcaoId], references: [funcoes.id] }),
+}));
+export const parceirosRel = relations(parceiros, ({ many }) => ({ signatarios: many(signatarios) }));
+export const signatariosRel = relations(signatarios, ({ one }) => ({
+  parceiro: one(parceiros, { fields: [signatarios.parceiroId], references: [parceiros.id] }),
 }));

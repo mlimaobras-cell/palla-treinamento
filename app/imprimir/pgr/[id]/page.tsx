@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/db";
-import { Marca } from "@/components/marca";
+import { CabecalhoDocumento } from "@/components/cabecalho-documento";
 import { BotaoImprimir } from "@/components/botao-imprimir";
 import { fmtData, fmtDataHora } from "@/lib/formato";
 import { exigirEquipe } from "@/lib/sessao";
@@ -35,14 +35,7 @@ export default async function DocumentoPgr({ params, searchParams }: { params: P
 
       {rascunho && <p className="mb-3 rounded border border-amber-300 bg-amber-50 p-2 text-center text-xs font-semibold text-amber-900">VERSÃO PARA REVISÃO E ASSINATURA — {STATUS_PROGRAMA[p.status].rotulo.toUpperCase()}. Só vale depois de assinada pelo profissional responsável.</p>}
 
-      <header className="flex items-start justify-between border-b-2 border-palla-azul pb-3">
-        <Marca className="h-10" />
-        <div className="text-right text-xs text-tinta-suave">
-          <p className="font-semibold text-palla-azul">{process.env.EMPRESA_NOME ?? "Palla Construções"}</p>
-          {process.env.EMPRESA_CNPJ && <p>CNPJ {process.env.EMPRESA_CNPJ}</p>}
-          <p>Gerado em {fmtDataHora(new Date())} por {a.nome}</p>
-        </div>
-      </header>
+      <CabecalhoDocumento parceiro={p.parceiro} papel="Elaboração técnica" extra={<p>Gerado em {fmtDataHora(new Date())} por {a.nome}</p>} />
       <h1 className="mt-4 text-center text-lg font-bold uppercase tracking-wide text-palla-azul">{soInventario ? "Inventário de riscos e plano de ação — serviço contratado" : "Programa de Gerenciamento de Riscos — PGR"}</h1>
       <p className="text-center text-xs text-tinta-suave">{p.titulo} · versão {p.versao}{p.vigenciaInicio && ` · vigência a partir de ${fmtData(p.vigenciaInicio)}`}{p.proximaRevisao && ` · revisão até ${fmtData(p.proximaRevisao)}`}</p>
       {soInventario && <p className="mt-1 text-center text-xs">Informações fornecidas à contratante conforme NR-1, 1.5.8.1.1 e NR-18, 18.4.4, para inclusão no PGR do canteiro.</p>}

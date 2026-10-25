@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { desc } from "drizzle-orm";
 import { db, schema } from "@/db";
 import { Formulario } from "@/components/formulario";
@@ -6,6 +7,7 @@ import { fmtData } from "@/lib/formato";
 import { pode } from "@/lib/permissoes";
 import { exigirEquipe } from "@/lib/sessao";
 import { TIPO_EXAME } from "@/lib/servicos/pcmso";
+import { registroCompleto } from "@/lib/servicos/parceiros";
 import { STATUS_PROGRAMA } from "@/lib/servicos/pgr";
 import { excluirExameAcao, registrarPcmsoAcao, salvarExameAcao } from "../acoes";
 
@@ -14,12 +16,16 @@ export const metadata = { title: "PCMSO" };
 export default async function Pcmso() {
   const a = await exigirEquipe("sst.ver");
   const editar = pode(a, "sst.editar");
-  const [pcmsos, obras, pgrs, funcoes] = await Promise.all([
+  const [pcmsos, obras, pgrs, funcoes, signatarios, parceiros] = await Promise.all([
     db.query.pcmsos.findMany({ with: { obra: true, pgr: true, exames: { with: { ghe: true, funcao: true } } }, orderBy: desc(schema.pcmsos.criadoEm) }),
     db.query.obras.findMany({ orderBy: (o, { asc }) => asc(o.codigo) }),
     db.query.pgrs.findMany({ where: (p, { inArray }) => inArray(p.status, ["APROVADO", "EM_REVISAO"]), with: { ghes: true } }),
     db.query.funcoes.findMany({ orderBy: (f, { asc }) => asc(f.ordem) }),
+    db.query.signatarios.findMany({ where: (x, { and, eq }) => and(eq(x.ativo, true), eq(x.tipo, "MEDICO_TRABALHO")), orderBy: (x, { asc }) => asc(x.nome) }),
+    db.query.parceiros.findMany({ where: (x, { eq }) => eq(x.ativo, true), orderBy: (x, { asc }) => asc(x.nome) }),
   ]);
+  const medicos = signatarios;
+  const clinicas = parceiros;
   return (
     <>
       <TituloPagina titulo="PCMSO — Programa de Controle Médico de Saúde Ocupacional" subtitulo="Registro do programa elaborado pelo médico do trabalho e da matriz de exames por GHE ou função." />
@@ -37,7 +43,10 @@ export default async function Pcmso() {
               <Cartao key={p.id} titulo={<>{p.titulo} <span className="text-xs font-normal text-tinta-suave">v{p.versao} · {p.obra ? `Obra ${p.obra.codigo}` : "Empresa"}</span></>} acao={<Selo cor={STATUS_PROGRAMA[p.status].cor}>{p.status === "APROVADO" ? "Vigente" : STATUS_PROGRAMA[p.status].rotulo}</Selo>}>
                 <p className="text-sm">Médico responsável: {p.medicoNome} · CRM {p.medicoCrm}{p.clinica && ` · ${p.clinica}`}</p>
                 <p className="text-xs text-tinta-suave">Vigência desde {fmtData(p.vigenciaInicio)} · relatório analítico anual até {fmtData(p.proximoRelatorioAnual)}{p.pgr && ` · base: ${p.pgr.titulo} v${p.pgr.versao}`}</p>
-                {p.arquivoPath && <a href={`/api/sst/arquivo/pcmso/${p.id}`} target="_blank" className="mt-1 inline-block text-xs font-semibold text-palla-azul">PDF assinado</a>}
+                <div className="mt-1 flex gap-4 text-xs font-semibold">
+                  {p.arquivoPath && <a href={`/api/sst/arquivo/pcmso/${p.id}`} target="_blank" className="text-palla-azul">PDF assinado</a>}
+                  <Link href={`/imprimir/pcmso/${p.id}`} className="text-palla-azul">Matriz de exames para a clínica</Link>
+                </div>
                 <div className="mt-3">
                   {p.exames.length === 0 ? <p className="text-sm text-tinta-suave">Nenhum exame transcrito.</p> : (
                     <Tabela cabecalho={["GHE / função", "Exame", "Quando", "Periodicidade", ""]}>
@@ -79,11 +88,12 @@ export default async function Pcmso() {
               <Campo rotulo="Título"><Entrada name="titulo" placeholder="PCMSO 2026–2027" required /></Campo>
               <Campo rotulo="Local"><Selecao name="obraId"><option value="">Empresa (todas as obras sem PCMSO próprio)</option>{obras.map((o) => <option key={o.id} value={o.id}>Obra {o.codigo}</option>)}</Selecao></Campo>
               <Campo rotulo="PGR de base"><Selecao name="pgrId"><option value="">—</option>{pgrs.map((g) => <option key={g.id} value={g.id}>{g.titulo} v{g.versao}</option>)}</Selecao></Campo>
-              <Campo rotulo="Médico do trabalho responsável"><Entrada name="medicoNome" required /></Campo>
-              <div className="grid gap-2 sm:grid-cols-2">
-                <Campo rotulo="CRM"><Entrada name="medicoCrm" placeholder="CRM-UF 00000" required /></Campo>
-                <Campo rotulo="Clínica"><Entrada name="clinica" /></Campo>
-              </div>
+              <Campo rotulo="Médico do trabalho responsável" ajuda="Nome e CRM vêm do cadastro.">
+                <Selecao name="medicoId" required defaultValue=""><option value="" disabled>Escolha…</option>{medicos.map((m) => <option key={m.id} value={m.id}>{m.nome} · {registroCompleto(m)}</option>)}</Selecao>
+              </Campo>
+              <Campo rotulo="Clínica (logotipo no documento)"><Selecao name="parceiroId" defaultValue=""><option value="">A do cadastro do médico</option>{clinicas.map((c) => <option key={c.id} value={c.id}>{c.nome}{c.logoPath ? "" : " (sem logotipo)"}</option>)}</Selecao></Campo>
+              <p className="text-xs text-tinta-suave">Médico ou clínica fora da lista? <Link href="/admin/sst/responsaveis" className="font-semibold text-palla-azul">Cadastre aqui</Link>.</p>
+              <input type="hidden" name="medicoNome" value="—" /><input type="hidden" name="medicoCrm" value="—" />
               <Campo rotulo="Início da vigência"><Entrada type="date" name="vigenciaInicio" required /></Campo>
               <Campo rotulo="PDF assinado pelo médico"><Entrada type="file" name="arquivo" accept="application/pdf" required /></Campo>
               <p className="text-xs text-tinta-suave">A versão anterior do mesmo local passa a histórico e sua matriz de exames é copiada para conferência.</p>

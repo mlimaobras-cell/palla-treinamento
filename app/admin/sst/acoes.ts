@@ -13,6 +13,7 @@ import {
 } from "@/lib/servicos/pgr";
 import { excluirExame, registrarPcmso, salvarExame } from "@/lib/servicos/pcmso";
 import { concluirPrazo, criarPrazo } from "@/lib/servicos/prazos";
+import { salvarParceiro, salvarSignatario } from "@/lib/servicos/parceiros";
 
 async function arquivoDe(f: FormData, campo = "arquivo", obrigatorio = true) {
   const arq = f.get(campo);
@@ -134,6 +135,7 @@ export async function atualizarPgrAcao(pgrId: string, _: Estado, f: FormData): P
       titulo: txt(f, "titulo"), estabelecimento: txt(f, "estabelecimento"), descricaoProcessos: txt(f, "descricaoProcessos") || null,
       elaboradorNome: txt(f, "elaboradorNome") || null, elaboradorQualificacao: txt(f, "elaboradorQualificacao") || null,
       elaboradorRegistro: txt(f, "elaboradorRegistro") || null, responsavelOrganizacao: txt(f, "responsavelOrganizacao") || null,
+      elaboradorId: txt(f, "elaboradorId") || null, responsavelOrgId: txt(f, "responsavelOrgId") || null, parceiroId: txt(f, "parceiroId") || null,
     });
     return "Dados do PGR salvos.";
   }, [`/admin/sst/pgr/${pgrId}`]);
@@ -227,8 +229,10 @@ export async function registrarPcmsoAcao(_: Estado, f: FormData): Promise<Estado
   return executar(async () => {
     const vig = dataOuNull(f, "vigenciaInicio");
     if (!vig) throw new Error("Informe o início da vigência.");
+    if (!txt(f, "medicoId")) throw new Error("Escolha o médico do trabalho responsável (cadastre em Quem assina e parceiros).");
     await registrarPcmso(a, {
       titulo: txt(f, "titulo"), obraId: txt(f, "obraId") || null, pgrId: txt(f, "pgrId") || null, medicoNome: txt(f, "medicoNome"), medicoCrm: txt(f, "medicoCrm"),
+      medicoId: txt(f, "medicoId") || null, parceiroId: txt(f, "parceiroId") || null,
       clinica: txt(f, "clinica") || null, vigenciaInicio: vig, observacao: txt(f, "observacao") || null, arquivo: (await arquivoDe(f))!,
     });
     return "PCMSO registrado. Agora transcreva os exames por GHE ou função.";
@@ -250,4 +254,28 @@ export async function salvarExameAcao(pcmsoId: string, _: Estado, f: FormData): 
 export async function excluirExameAcao(pcmsoId: string, exameId: string, _: Estado): Promise<Estado> {
   const a = await exigirEquipe("sst.editar");
   return executar(async () => { await excluirExame(a, pcmsoId, exameId); return "Exame excluído."; }, ["/admin/sst/pcmso"]);
+}
+
+// ------------------------------------------------ parceiros e signatários
+export async function salvarParceiroAcao(parceiroId: string | null, _: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirEquipe("sst.editar");
+  return executar(async () => {
+    await salvarParceiro(a, {
+      id: parceiroId ?? undefined, nome: txt(f, "nome"), cnpj: txt(f, "cnpj") || null, tipo: txt(f, "tipo"), contato: txt(f, "contato") || null,
+      ativo: parceiroId ? txt(f, "ativo") === "1" : true, logo: await arquivoDe(f, "logo", false), removerLogo: txt(f, "removerLogo") === "1",
+    });
+    return "Empresa salva.";
+  }, ["/admin/sst/responsaveis"]);
+}
+
+export async function salvarSignatarioAcao(signatarioId: string | null, _: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirEquipe("sst.editar");
+  return executar(async () => {
+    await salvarSignatario(a, {
+      id: signatarioId ?? undefined, nome: txt(f, "nome"), tipo: txt(f, "tipo"), qualificacao: txt(f, "qualificacao"), conselho: txt(f, "conselho") || null,
+      registro: txt(f, "registro"), uf: txt(f, "uf") || null, cargo: txt(f, "cargo") || null, parceiroId: txt(f, "parceiroId") || null,
+      email: txt(f, "email") || null, telefone: txt(f, "telefone") || null, ativo: signatarioId ? txt(f, "ativo") === "1" : true,
+    });
+    return "Dados de quem assina salvos.";
+  }, ["/admin/sst/responsaveis"]);
 }

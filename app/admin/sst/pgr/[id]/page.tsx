@@ -6,6 +6,7 @@ import { Formulario } from "@/components/formulario";
 import { AreaTexto, Aviso, Campo, Cartao, Entrada, LinkBotao, Selecao, Selo, TituloPagina, Vazio } from "@/components/ui";
 import { fmtData, fmtDataHora } from "@/lib/formato";
 import { pode } from "@/lib/permissoes";
+import { registroCompleto } from "@/lib/servicos/parceiros";
 import { exigirEquipe } from "@/lib/sessao";
 import { CATEGORIA_RISCO, carregarPgr, nivelDoRisco, resumoNiveis, STATUS_PROGRAMA, TIPO_MEDIDA } from "@/lib/servicos/pgr";
 import {
@@ -24,11 +25,15 @@ export default async function Pgr({ params }: { params: Promise<{ id: string }> 
   const a = await exigirEquipe("sst.ver");
   const p = await carregarPgr(id);
   if (!p) notFound();
-  const [funcoes, ambientes, historico] = await Promise.all([
+  const [funcoes, ambientes, historico, signatarios, parceiros] = await Promise.all([
     db.query.funcoes.findMany({ orderBy: (f, { asc }) => asc(f.ordem) }),
     db.query.ambientesBiblioteca.findMany({ orderBy: (x, { asc }) => asc(x.ordem), with: { perigos: { columns: { id: true } } } }),
     db.query.pgrs.findMany({ where: p.obraId ? eq(schema.pgrs.obraId, p.obraId) : isNull(schema.pgrs.obraId), orderBy: (x, { desc }) => desc(x.criadoEm) }),
+    db.query.signatarios.findMany({ where: eq(schema.signatarios.ativo, true), orderBy: (x, { asc }) => asc(x.nome) }),
+    db.query.parceiros.findMany({ where: eq(schema.parceiros.ativo, true), orderBy: (x, { asc }) => asc(x.nome) }),
   ]);
+  const profissionais = signatarios.filter((x) => x.tipo === "PROFISSIONAL_SST");
+  const responsaveisOrg = signatarios.filter((x) => x.tipo === "RESPONSAVEL_ORGANIZACAO");
   const editar = pode(a, "sst.editar") && (p.status === "RASCUNHO" || p.status === "EM_REVISAO");
   const acompanhar = pode(a, "sst.editar") && p.status === "APROVADO";
   const nomeFuncao = (fid: string) => funcoes.find((f) => f.id === fid)?.nome ?? "?";
@@ -169,17 +174,22 @@ export default async function Pgr({ params }: { params: Promise<{ id: string }> 
                 <Campo rotulo="Título"><Entrada name="titulo" defaultValue={p.titulo} /></Campo>
                 <Campo rotulo="Estabelecimento"><Entrada name="estabelecimento" defaultValue={p.estabelecimento} /></Campo>
                 <Campo rotulo="Processos e ambientes"><AreaTexto name="descricaoProcessos" rows={4} defaultValue={p.descricaoProcessos ?? ""} /></Campo>
-                <Campo rotulo="Profissional que elabora e assina" ajuda="Legalmente habilitado em segurança do trabalho (NR-18, 18.4.2)."><Entrada name="elaboradorNome" defaultValue={p.elaboradorNome ?? ""} /></Campo>
-                <div className="grid gap-2 sm:grid-cols-2">
-                  <Campo rotulo="Qualificação"><Entrada name="elaboradorQualificacao" defaultValue={p.elaboradorQualificacao ?? ""} placeholder="Eng. de Segurança do Trabalho" /></Campo>
-                  <Campo rotulo="Registro"><Entrada name="elaboradorRegistro" defaultValue={p.elaboradorRegistro ?? ""} placeholder="CREA…" /></Campo>
-                </div>
-                <Campo rotulo="Responsável pela organização"><Entrada name="responsavelOrganizacao" defaultValue={p.responsavelOrganizacao ?? ""} /></Campo>
+                <Campo rotulo="Profissional que elabora e assina" ajuda="Legalmente habilitado em segurança do trabalho (NR-18, 18.4.2).">
+                  <Selecao name="elaboradorId" defaultValue={p.elaboradorId ?? ""}><option value="">Escolha…</option>{profissionais.map((x) => <option key={x.id} value={x.id}>{x.nome} — {x.qualificacao} · {registroCompleto(x)}</option>)}</Selecao>
+                </Campo>
+                <Campo rotulo="Responsável pela organização">
+                  <Selecao name="responsavelOrgId" defaultValue={p.responsavelOrgId ?? ""}><option value="">Escolha…</option>{responsaveisOrg.map((x) => <option key={x.id} value={x.id}>{x.nome}{x.cargo ? ` — ${x.cargo}` : ""}</option>)}</Selecao>
+                </Campo>
+                <Campo rotulo="Logotipo da empresa parceira no documento (opcional)">
+                  <Selecao name="parceiroId" defaultValue={p.parceiroId ?? ""}><option value="">Só o logotipo da Palla</option>{parceiros.map((x) => <option key={x.id} value={x.id}>{x.nome}{x.logoPath ? "" : " (sem logotipo)"}</option>)}</Selecao>
+                </Campo>
+                <p className="text-xs text-tinta-suave">Não está na lista? <Link href="/admin/sst/responsaveis" className="font-semibold text-palla-azul">Cadastre quem assina e a empresa parceira</Link>.</p>
               </Formulario>
             ) : (
               <dl className="space-y-2 text-sm">
                 <div><dt className="text-xs text-tinta-suave">Elaborado por</dt><dd>{p.elaboradorNome ?? "—"} · {p.elaboradorQualificacao} · {p.elaboradorRegistro}</dd></div>
                 <div><dt className="text-xs text-tinta-suave">Responsável pela organização</dt><dd>{p.responsavelOrganizacao ?? "—"}</dd></div>
+                {p.parceiro && <div><dt className="text-xs text-tinta-suave">Empresa parceira no documento</dt><dd>{p.parceiro.nome}</dd></div>}
                 <div><dt className="text-xs text-tinta-suave">Processos</dt><dd className="whitespace-pre-line">{p.descricaoProcessos ?? "—"}</dd></div>
               </dl>
             )}

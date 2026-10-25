@@ -13,6 +13,7 @@ import { aprovarModelo, assinarTermo, conferirItemAdmissional, dossieAdmissional
 import { aprovarPgr, atualizarPgr, criarPgr, enviarParaRevisao, importarDaBiblioteca, revisarPgr, riscosDaFuncao, salvarAcao, salvarGhe, salvarRisco } from "../lib/servicos/pgr";
 import { examesDaFuncao, registrarPcmso, salvarExame } from "../lib/servicos/pcmso";
 import { listarPrazos } from "../lib/servicos/prazos";
+import { salvarParceiro, salvarSignatario } from "../lib/servicos/parceiros";
 
 const res: boolean[] = [];
 const checar = (nome: string, ok: boolean, det = "") => { res.push(ok); console.log(`${ok ? "✔" : "✘"} ${nome}${det ? ` — ${det}` : ""}`); };
@@ -32,6 +33,8 @@ function cpfFicticio() {
 const PDF = { nome: "assinado.pdf", tipo: "application/pdf", bytes: Buffer.from("%PDF-1.4\n% documento fictício de teste\n") };
 const IMG = { nome: "foto.jpg", tipo: "image/jpeg", bytes: Buffer.from([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3]) };
 const DIA = 86400_000;
+let medicoTesteId = "";
+const parceirosTeste: string[] = [], signatariosTeste: string[] = [];
 
 async function limpar() {
   const obra = await db.query.obras.findFirst({ where: eq(schema.obras.codigo, "OBR-TESTE-SST") });
@@ -75,7 +78,21 @@ async function main() {
   await enviarParaRevisao(sst, pgr.id);
   await deveFalhar("Aprovar exige profissional habilitado identificado", () => aprovarPgr(sst, pgr.id, { vigenciaInicio: new Date(), arquivo: PDF }), "NR-18");
   checar("Antes da aprovação, a ordem de serviço não tem riscos para a função", (await riscosDaFuncao(montador.id, obra.id)) === null);
-  await atualizarPgr(sst, pgr.id, { elaboradorNome: "Profissional Fictício", elaboradorQualificacao: "Engenheiro de Segurança do Trabalho", elaboradorRegistro: "CREA 0000 (fictício)", responsavelOrganizacao: "Diretor Fictício" });
+  // cadastro de quem assina e da empresa parceira (logotipo)
+  const PNG = { nome: "logo.png", tipo: "image/png", bytes: Buffer.from("89504e470d0a1a0a", "hex") };
+  await deveFalhar("Logotipo em formato não aceito é recusado", () => salvarParceiro(sst, { nome: "Consultoria Fictícia SST", tipo: "SEGURANCA", logo: { ...PNG, tipo: "image/svg+xml" } }), "PNG");
+  const consultoria = await salvarParceiro(sst, { nome: "Consultoria Fictícia SST", tipo: "SEGURANCA", logo: PNG });
+  const clinica = await salvarParceiro(sst, { nome: "Clínica Fictícia Ocupacional", tipo: "CLINICA", logo: PNG });
+  await deveFalhar("RH não cadastra quem assina", () => salvarSignatario(rh, { nome: "x", tipo: "PROFISSIONAL_SST", qualificacao: "x", registro: "1" }), "Sem permissão");
+  await deveFalhar("Médico sem CRM é recusado", () => salvarSignatario(sst, { nome: "Médico Fictício", tipo: "MEDICO_TRABALHO", qualificacao: "Médico do Trabalho", conselho: "CREA", registro: "1" }), "CRM");
+  const eng = await salvarSignatario(sst, { nome: "Engenheira Fictícia de Segurança", tipo: "PROFISSIONAL_SST", qualificacao: "Engenheira de Segurança do Trabalho", conselho: "CREA", uf: "sp", registro: "0000000 (fictício)", parceiroId: consultoria });
+  const diretor = await salvarSignatario(sst, { nome: "Diretor Fictício", tipo: "RESPONSAVEL_ORGANIZACAO", qualificacao: "Diretor", cargo: "Diretor Executivo", registro: "" });
+  medicoTesteId = await salvarSignatario(sst, { nome: "Médico Fictício do Trabalho", tipo: "MEDICO_TRABALHO", qualificacao: "Médico do Trabalho", conselho: "CRM", uf: "SP", registro: "00000 (fictício)", parceiroId: clinica });
+  await deveFalhar("Médico não pode ser escolhido para assinar o PGR", () => atualizarPgr(sst, pgr.id, { elaboradorId: medicoTesteId }), "profissional de segurança");
+  await atualizarPgr(sst, pgr.id, { elaboradorId: eng, responsavelOrgId: diretor, parceiroId: consultoria });
+  const comSign = (await db.query.pgrs.findFirst({ where: eq(schema.pgrs.id, pgr.id) }))!;
+  checar("Dados de quem assina vêm do cadastro (nome, qualificação, CREA-SP)", comSign.elaboradorNome === "Engenheira Fictícia de Segurança" && comSign.elaboradorRegistro === "CREA-SP 0000000 (fictício)" && comSign.responsavelOrganizacao === "Diretor Fictício — Diretor Executivo");
+  parceirosTeste.push(consultoria, clinica); signatariosTeste.push(eng, diretor, medicoTesteId);
   await deveFalhar("Aprovar exige PDF", () => aprovarPgr(sst, pgr.id, { vigenciaInicio: new Date(), arquivo: IMG }), "PDF");
   await aprovarPgr(sst, pgr.id, { vigenciaInicio: new Date(), arquivo: PDF });
   const aprovado = (await db.query.pgrs.findFirst({ where: eq(schema.pgrs.id, pgr.id) }))!;
@@ -127,7 +144,9 @@ async function main() {
   await deveFalhar("Gestor de obra não confere documento de admissão", () => conferirItemAdmissional(gestor, doc2.id, true), "Sem permissão");
 
   // ------------------------------------------------ PCMSO e ASO
-  const pcmsoId = await registrarPcmso(sst, { titulo: "PCMSO teste", obraId: obra.id, pgrId: pgr.id, medicoNome: "Médico Fictício", medicoCrm: "CRM-SP 00000 (fictício)", vigenciaInicio: new Date(), arquivo: PDF });
+  const pcmsoId = await registrarPcmso(sst, { titulo: "PCMSO teste", obraId: obra.id, pgrId: pgr.id, medicoNome: "", medicoCrm: "", medicoId: medicoTesteId, vigenciaInicio: new Date(), arquivo: PDF });
+  const pc = (await db.query.pcmsos.findFirst({ where: eq(schema.pcmsos.id, pcmsoId) }))!;
+  checar("PCMSO pega médico, CRM e clínica do cadastro", pc.medicoNome === "Médico Fictício do Trabalho" && pc.medicoCrm === "CRM-SP 00000 (fictício)" && pc.clinica === "Clínica Fictícia Ocupacional" && !!pc.parceiroId);
   await deveFalhar("Exame periódico exige periodicidade do PCMSO", () => salvarExame(sst, pcmsoId, { gheId, exame: "Exame clínico", momentos: ["ADMISSIONAL", "PERIODICO"] }), "periodicidade");
   await salvarExame(sst, pcmsoId, { gheId, exame: "Exame clínico", momentos: ["ADMISSIONAL", "PERIODICO", "DEMISSIONAL"], periodicidadeMeses: 12 });
   await salvarExame(sst, pcmsoId, { gheId, exame: "Audiometria (fictício)", momentos: ["ADMISSIONAL", "PERIODICO"], periodicidadeMeses: 6 });
@@ -170,6 +189,9 @@ async function main() {
   await db.delete(schema.modelosTermo).where(eq(schema.modelosTermo.id, v2));
   for (const m of modelosAntes) await db.update(schema.modelosTermo).set({ status: m.status, aprovadoPorId: m.aprovadoPorId, aprovadoEm: m.aprovadoEm }).where(eq(schema.modelosTermo.id, m.id));
 
+  if (!process.env.MANTER_DADOS) await limpar();
+  if (!process.env.MANTER_DADOS && signatariosTeste.length) await db.delete(schema.signatarios).where(inArray(schema.signatarios.id, signatariosTeste));
+  if (!process.env.MANTER_DADOS && parceirosTeste.length) await db.delete(schema.parceiros).where(inArray(schema.parceiros.id, parceirosTeste));
   console.log(`\n${res.filter(Boolean).length}/${res.length} verificações aprovadas.`);
   await encerrarDb();
   if (res.some((x) => !x)) process.exit(1);

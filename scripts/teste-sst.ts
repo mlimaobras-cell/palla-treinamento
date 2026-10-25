@@ -184,6 +184,20 @@ async function main() {
   checar("Aprovar a v2 guarda a v1 como substituída (histórico)", (await db.query.pgrs.findFirst({ where: eq(schema.pgrs.id, pgr.id) }))!.status === "SUBSTITUIDO");
   checar("Auditoria registra a assinatura do termo", !!(await db.query.auditoria.findFirst({ where: eq(schema.auditoria.entidadeId, ass.id) })));
 
+  // ------------------------------------------------ operador de guindaste e munck
+  const opGuindar = (await db.query.funcoes.findFirst({ where: eq(schema.funcoes.codigo, "OP_GUINDAR") }))!;
+  const conv2 = await criarConvite(rh, { obraId: obra.id, funcaoId: opGuindar.id, empresaId: palla.id, nomeSugerido: "Operador Fictício" });
+  const { colab: op } = await cadastrarPorConvite(conv2.token, {
+    nome: "Operador Fictício de Guindar Teste", cpf: cpfFicticio(), telefone: "11999990003", email: `operador.${Date.now()}@ficticio.teste`,
+    senha: "SenhaTeste123", consentimento: true, ficticio: true, dataNascimento: "02/02/1985",
+  });
+  const mOp = await db.query.matriculas.findMany({ where: eq(schema.matriculas.colaboradorId, op.id), with: { curso: true } });
+  checar("Operador de guindar recebe as capacitações de guindaste e de munck", ["NR18-GUI", "NR18-MUNCK", "PAL-54"].every((k) => mOp.some((m) => m.curso.codigo === k)));
+  const avOp = await avaliarColaborador(op.id);
+  checar("Exige duas autorizações separadas (guindaste e munck)", ["Autorização: Operação de equipamento de guindar", "Autorização: Operação de caminhão guindauto (munck)"].every((d) => avOp.itens.some((i) => i.descricao === d)));
+  const dOp = await dossieAdmissional(op.id);
+  checar("Dossiê do operador pede CNH com validade e certificados anteriores", dOp.linhas.some((l) => l.item.codigo === "CNH-OPERADOR" && l.item.exigeValidade) && dOp.linhas.some((l) => l.item.codigo === "CERT-OPERADOR"));
+
   // restaura os modelos de termo (o teste não deve deixar modelos aprovados no banco de desenvolvimento)
   await db.delete(schema.assinaturasTermo).where(eq(schema.assinaturasTermo.colaboradorId, c.id));
   await db.delete(schema.modelosTermo).where(eq(schema.modelosTermo.id, v2));

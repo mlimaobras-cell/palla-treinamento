@@ -53,6 +53,20 @@ export const bibliotecaSeed: AmbienteSeed[] = [
     ],
   },
   {
+    codigo: "MUNCK", nome: "Caminhão guindauto (munck)",
+    descricao: "Içamento de peças com guindaste articulado montado em caminhão, no canteiro e em pátios; inclui o deslocamento do caminhão.",
+    atividades: "Patolamento; içamento e descarga de peças; posicionamento; recolhimento da lança; condução do caminhão",
+    perigos: [
+      { categoria: "ACIDENTE", perigo: "Tombamento do caminhão guindauto", fonte: "Patolas não estendidas, solo sem capacidade, borda de vala ou talude, carga acima da tabela para o raio", lesoes: "Esmagamento, morte", medidas: "Avaliação do solo e calços; patolas totalmente estendidas; caminhão nivelado; tabela de carga por raio; limitador de momento operante; plano de cargas", s: 5, p: 2, cursos: "NR18-MUNCK", ref: "NR-18, 18.10.1.16 a 18.10.1.24" },
+      { categoria: "ACIDENTE", perigo: "Contato da lança com rede elétrica aérea", fonte: "Içamento ou deslocamento com a lança próxima de redes energizadas", lesoes: "Eletrocussão do operador e de quem toca o caminhão, morte", medidas: "Levantamento de interferências; distância de segurança da concessionária ou desligamento; vigia dedicado; ninguém encostado no caminhão durante o içamento", s: 5, p: 2, cursos: "NR18-MUNCK", ref: "NR-10 (zona de risco); NR-18" },
+      { categoria: "ACIDENTE", perigo: "Queda da carga ou de parte dela", fonte: "Amarração inadequada, acessórios danificados, movimento brusco", lesoes: "Esmagamento, morte", medidas: "Sinaleiro/amarrador capacitado; inspeção dos acessórios; isolamento do raio de ação; ninguém sob carga suspensa", s: 5, p: 2, cursos: "NR11-SIN; NR18-MUNCK" },
+      { categoria: "ACIDENTE", perigo: "Queda ao subir ou descer da carroceria e do posto de comando", fonte: "Degraus e plataforma molhados ou sujos; pular da carroceria", lesoes: "Fraturas, torções", medidas: "Três pontos de apoio; degraus e pegas em bom estado; proibição de pular; calçado antiderrapante", s: 3, p: 3 },
+      { categoria: "ACIDENTE", perigo: "Deslocamento com a lança mal recolhida", fonte: "Lança ou patolas não travadas antes de rodar", lesoes: "Colisão com estruturas, redes e viadutos; acidente de trânsito", medidas: "Checklist de recolhimento e travamento antes de sair; altura máxima do conjunto conhecida pelo condutor", s: 5, p: 1, cursos: "NR18-MUNCK" },
+      { categoria: "FISICO", perigo: "Ruído e vibração no posto de comando", fonte: "Motor e bomba hidráulica em funcionamento", lesoes: "Perda auditiva; desconforto", medidas: "Avaliação de ruído; manutenção; protetor auditivo conforme avaliação", s: 2, p: 3, exames: "Audiometria conforme NR-7, Anexo II, se a avaliação indicar exposição" },
+      { categoria: "PSICOSSOCIAL", perigo: "Fadiga por direção somada à jornada de operação", fonte: "Deslocamentos longos antes ou depois do içamento", lesoes: "Sonolência, erro de operação, acidente de trânsito", medidas: "Planejamento de horários e pausas; controle de jornada; revezamento quando possível", s: 4, p: 2 },
+    ],
+  },
+  {
     codigo: "SOLDA", nome: "Soldagem e corte a quente",
     descricao: "Soldagem com eletrodo revestido, MIG/MAG ou arame tubular; oxicorte; goivagem com arco-ar; aquecimento.",
     atividades: "Soldagem de ligações; oxicorte; goivagem; preaquecimento; manuseio de cilindros",

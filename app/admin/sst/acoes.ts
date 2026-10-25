@@ -14,6 +14,9 @@ import {
 import { excluirExame, registrarPcmso, salvarExame } from "@/lib/servicos/pcmso";
 import { concluirPrazo, criarPrazo } from "@/lib/servicos/prazos";
 import { salvarParceiro, salvarSignatario } from "@/lib/servicos/parceiros";
+import { alterarUsuarioEquipe, criarUsuarioEquipe } from "@/lib/servicos/equipe";
+import { gerarLinkNovaSenha } from "@/lib/servicos/senha";
+import type { Perfil } from "@/lib/permissoes";
 
 async function arquivoDe(f: FormData, campo = "arquivo", obrigatorio = true) {
   const arq = f.get(campo);
@@ -278,4 +281,26 @@ export async function salvarSignatarioAcao(signatarioId: string | null, _: Estad
     });
     return "Dados de quem assina salvos.";
   }, ["/admin/sst/responsaveis"]);
+}
+
+// ------------------------------------------------ equipe
+export async function criarUsuarioAcao(_: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirEquipe("painel.ver");
+  return executar(async () => {
+    const r = await criarUsuarioEquipe(a, { nome: txt(f, "nome"), email: txt(f, "email"), perfil: txt(f, "perfil") as Perfil, qualificacao: txt(f, "qualificacao"), registro: txt(f, "registro") });
+    return `Usuário criado. Mande este link para ${r.nome} criar a senha (vale 48 h, uma vez): ${r.url}`;
+  }, ["/admin/equipe"]);
+}
+
+export async function alterarUsuarioAcao(id: string, _: Estado, f: FormData): Promise<Estado> {
+  const a = await exigirEquipe("painel.ver");
+  return executar(async () => {
+    await alterarUsuarioEquipe(a, id, { perfil: txt(f, "perfil") as Perfil, qualificacao: txt(f, "qualificacao"), registro: txt(f, "registro"), ativo: txt(f, "ativo") === "1" });
+    return "Alterado.";
+  }, ["/admin/equipe"]);
+}
+
+export async function linkSenhaEquipeAcao(id: string, _: Estado): Promise<Estado> {
+  const a = await exigirEquipe("painel.ver");
+  return executar(async () => { const r = await gerarLinkNovaSenha(a, id); return `Link de nova senha para ${r.nome} (48 h, uma vez): ${r.url}`; }, ["/admin/equipe"]);
 }

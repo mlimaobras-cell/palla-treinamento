@@ -20,12 +20,13 @@ const MENU: { href: string; rotulo: string; p: Permissao }[] = [
   { href: "/admin/sst", rotulo: "Saúde e Segurança", p: "sst.ver" },
   { href: "/admin/prazos", rotulo: "Prazos e alertas", p: "prazo.ver" },
   { href: "/admin/acessos", rotulo: "Acessos e avisos", p: "colaborador.ver" },
+  { href: "/admin/equipe", rotulo: "Equipe", p: "auditoria.ver" },
   { href: "/admin/auditoria", rotulo: "Auditoria", p: "auditoria.ver" },
 ];
 
 export default async function LayoutAdmin({ children }: { children: React.ReactNode }) {
   const a = await exigirEquipe();
-  const itens = MENU.filter((m) => pode(a, m.p));
+  const itens = MENU.filter((m) => pode(a, m.p) && (m.href !== "/admin/equipe" || a.perfil === "ADMIN"));
   return (
     <div className="min-h-dvh lg:grid lg:grid-cols-[248px_1fr]">
       <aside className="bg-palla-azul-escuro text-white lg:sticky lg:top-0 lg:h-dvh">

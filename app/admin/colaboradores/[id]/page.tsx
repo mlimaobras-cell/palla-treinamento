@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { desc, eq } from "drizzle-orm";
 import { db, schema } from "@/db";
 import { Formulario } from "@/components/formulario";
-import { Aviso, Campo, Cartao, Entrada, Selecao, Selo, Semaforo, Tabela, TituloPagina, Vazio } from "@/components/ui";
+import { Aviso, Campo, Cartao, Entrada, LinkBotao, Selecao, Selo, Semaforo, Tabela, TituloPagina, Vazio } from "@/components/ui";
 import { mascararCpf } from "@/lib/cripto";
 import { CLASSIFICACAO, fmtData, fmtDataHora, STATUS_MATRICULA, TIPO_DOC } from "@/lib/formato";
 import { pode } from "@/lib/permissoes";
@@ -43,6 +43,10 @@ export default async function Colaborador({ params }: { params: Promise<{ id: st
       <Link href="/admin/colaboradores" className="text-sm font-medium text-palla-azul">← Colaboradores</Link>
       <div className="mt-2"><TituloPagina titulo={c.nome} subtitulo={`${funcao?.nome} · ${c.obra ? `${c.obra.codigo} — ${c.obra.nome}` : "sem obra"} · CPF ${mascararCpf(c.cpfFinal)}`} acao={<Semaforo valor={semaforo} grande />} /></div>
       {c.dadoFicticio && <div className="mb-4"><Aviso tom="alerta">Registro de teste com dados fictícios.</Aviso></div>}
+      <div className="mb-5 flex flex-wrap gap-2">
+        <LinkBotao href={`/imprimir/programacao/${id}`} variante="secundario">Programação de treinamento</LinkBotao>
+        <LinkBotao href={`/imprimir/cracha/${id}`} variante="secundario">Crachá com QR</LinkBotao>
+      </div>
       {usuario && ["ADMIN", "RH", "SST"].includes(a.perfil) && (
         <details className="mb-5 rounded-xl border border-linha bg-white px-5 py-3 text-sm">
           <summary className="cursor-pointer font-medium text-palla-azul-escuro">Acesso à plataforma · {usuario.email}<span className="ml-2 text-xs font-normal text-tinta-suave">último acesso: {usuario.ultimoAcessoEm ? fmtDataHora(usuario.ultimoAcessoEm) : "nunca"}</span></summary>

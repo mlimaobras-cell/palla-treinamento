@@ -1,7 +1,7 @@
 import { desc, eq, inArray } from "drizzle-orm";
 import { db, schema } from "@/db";
 import { Formulario } from "@/components/formulario";
-import { AreaTexto, Aviso, Campo, Cartao, Entrada, Selecao, Selo, Tabela, TituloPagina, Vazio } from "@/components/ui";
+import { AreaTexto, Aviso, Campo, Cartao, Entrada, LinkBotao, Selecao, Selo, Tabela, TituloPagina, Vazio } from "@/components/ui";
 import { fmtData, MODALIDADE, STATUS_MATRICULA } from "@/lib/formato";
 import { exigirEquipe } from "@/lib/sessao";
 import { registrarPraticaAcao } from "../acoes";
@@ -24,7 +24,11 @@ export default async function Praticas() {
 
   return (
     <>
-      <TituloPagina titulo="Atividades práticas e turmas presenciais" subtitulo="O curso fica “Pendente de prática” até o registro do instrutor como APTO." />
+      <TituloPagina
+        titulo="Atividades práticas e turmas presenciais"
+        subtitulo="O curso fica “Pendente de prática” até o registro do instrutor como APTO."
+        acao={<LinkBotao href="/imprimir/ficha" variante="secundario">Ficha de evidência para imprimir</LinkBotao>}
+      />
       {!instrutor?.qualificacao && <div className="mb-4"><Aviso tom="erro">Seu cadastro de instrutor está sem qualificação. Peça ao administrador para completá-lo antes de registrar.</Aviso></div>}
       <div className="grid gap-5 xl:grid-cols-[1fr_1.1fr]">
         <Cartao titulo={`Pendentes (${pendentes.length})`}>
